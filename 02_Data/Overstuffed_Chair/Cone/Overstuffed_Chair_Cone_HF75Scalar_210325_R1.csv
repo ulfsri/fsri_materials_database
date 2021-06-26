@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Stack_HF75_1
+OPERATOR,Dow
+MATERIAL,"1"" PUF, 1.75"" PE Batting, PE Fabric"
+ORIENTATION,Horizontal
+HEAT FLUX,35
+SURF AREA,0.009999999776482582
+C FACTOR,0.03860524669289589
+SPEC HOLDER DIFF,-71.8599853515625
+SPECIMEN MASS,15.850000381469727
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,815
+TIME TO IGN,8
+END OF TEST SCAN,335
+END OF TEST TIME,83.75
+TEST STATUS,1
+PRE TEST CMT,without retainer frame or grid
+POST TEST CMT,"Spark igniter brushed against foil when being removed, causing a jump in the mass measurement at the start of test. The foil folded in on itself before end of test. "
