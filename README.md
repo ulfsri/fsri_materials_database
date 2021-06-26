@@ -1,4 +1,4 @@
-#Database of Contemporary Material Properties for Fire Investigation Analysis
+# Database of Contemporary Material Properties for Fire Investigation Analysis
 This project was supported by Award No. 2019-DU-BX-0018, awarded by the National Institute of Justice, Office of Justice Programs, U.S. Department of Justice. 
 
 ***
