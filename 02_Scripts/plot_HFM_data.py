@@ -113,7 +113,7 @@ def format_and_save_plot(xlims, ylims, file_loc):
         y_range_array = np.arange(ylims[0], ylims[1] + 0.05, 0.05)
         ax1.set_ylabel('Thermal Conductivity (W/mK)', fontsize=label_size)        
     else:
-        y_range_array = np.arange(ylims[0], ylims[1] + 50000, 50000)
+        y_range_array = np.arange(ylims[0], ylims[1] + 100, 100)
         ax1.set_ylabel('Specific Heat (J/kgK)', fontsize=label_size)    
 
     yticks_list = list(y_range_array)
@@ -248,6 +248,28 @@ for d in os.scandir(data_dir):
 
 for d in os.scandir(data_dir):
     material = d.path.split('/')[-1]
+   
+    temp_df = pd.DataFrame() 
+    density_df = pd.DataFrame(index = ['mean', 'std'])
+    if d.is_dir():
+        for d_ in os.scandir(d):
+            if d_.is_dir() and 'Density' in d_.path:
+                for f in os.scandir(d_):
+                    temp_density_series = pd.read_csv(f, squeeze = True, index_col = 0)
+                    f_str = f.path.split('.')[-2].split('_')[-3] + '_' + f.path.split('.')[-2].split('_')[-1]
+                    temp_df.at['Density', f_str] = temp_density_series['Density']
+
+    if temp_df.empty:
+        continue
+    else:
+        wet_mean_density = temp_df.filter(regex = 'Wet').mean(axis = 1).at['Density']
+        wet_std_density = temp_df.filter(regex = 'Wet').std(axis = 1).at['Density']
+        dry_mean_density = temp_df.filter(regex = 'Dry').mean(axis = 1).at['Density']
+        dry_std_density = temp_df.filter(regex = 'Dry').std(axis = 1).at['Density']
+
+    data = {'mean': [wet_mean_density, dry_mean_density], 'std': [wet_std_density, dry_std_density]}
+    density_df = pd.DataFrame.from_dict(data, orient='index', columns = ['Wet', 'Dry'])
+
     print(f'{material} Heat Capacity')
     ylims = [0,0]
     xlims = [0,0]
@@ -304,8 +326,8 @@ for d in os.scandir(data_dir):
                 i_mean = data_df.mean()
                 i_std = data_df.std()
                 
-                c_plot_data.at[i,f'{f_str[-4]}_mean'] = i_mean
-                c_plot_data.at[i,f'{f_str[-4]}_std'] = i_std
+                c_plot_data.at[i,f'{f_str[-4]}_mean'] = i_mean / density_df.at['mean', f_str[-4]]
+                c_plot_data.at[i,f'{f_str[-4]}_std'] = i_std / density_df.at['mean', f_str[-4]]
 
         ymin, ymax, xmin, xmax = plot_mean_data(c_plot_data)
 
@@ -314,8 +336,8 @@ for d in os.scandir(data_dir):
         y_max = max(ymax, y_max)
         x_max = max(xmax, x_max)
 
-        ylims[0] = 50000 * (math.floor(y_min/50000)-1)
-        ylims[1] = 50000 * (math.ceil(y_max/50000)+1)
+        ylims[0] = 100 * (math.floor(y_min/100)-1)
+        ylims[1] = 100 * (math.ceil(y_max/100)+1)
         xlims[0] = 5 * (math.floor(x_min/5)-1)
         xlims[1] = 5 * (math.ceil(x_max/5)+1)
 
