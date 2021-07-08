@@ -109,7 +109,7 @@ def format_and_save_plot(xlims, ylims, file_loc):
 
     ax1.set_position([0.15, 0.3, 0.77, 0.65])
 
-    if file_loc.split('.')[0].split('_')[-1] == 'Conductivity':
+    if file_loc.split('.')[-2].split('_')[-1] == 'Conductivity':
         y_range_array = np.arange(ylims[0], ylims[1] + 0.05, 0.05)
         ax1.set_ylabel('Thermal Conductivity (W/mK)', fontsize=label_size)        
     else:
