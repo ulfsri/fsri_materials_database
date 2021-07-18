@@ -141,26 +141,26 @@ for d in os.scandir(data_dir):
         else:
             continue
 
-    data_df.loc[:,'mean'] = data.groupby(by=data.columns, axis=1).mean().loc[:,'signal']
-    data_df.loc[:,'std'] = data.groupby(by=data.columns, axis=1).std().loc[:,'signal']
-    data_df.loc[:,'wavelength'] = data.groupby(by=data.columns, axis=1).mean().loc[:,'wavelength']
+        data_df.loc[:,'mean'] = data.groupby(by=data.columns, axis=1).mean().loc[:,'signal']
+        data_df.loc[:,'std'] = data.groupby(by=data.columns, axis=1).std().loc[:,'signal']
+        data_df.loc[:,'wavelength'] = data.groupby(by=data.columns, axis=1).mean().loc[:,'wavelength']
 
-    data_df.set_index('wavelength', inplace=True)
-    ymin, ymax, xmin, xmax = plot_mean_data(data_df)
+        data_df.set_index('wavelength', inplace=True)
+        ymin, ymax, xmin, xmax = plot_mean_data(data_df)
 
-    y_min = max(ymin, y_min)
-    x_min = max(xmin, x_min)
-    y_max = max(ymax, y_max)
-    x_max = max(xmax, x_max)
+        y_min = max(ymin, y_min)
+        x_min = max(xmin, x_min)
+        y_max = max(ymax, y_max)
+        x_max = max(xmax, x_max)
 
-    ylims[0] = 0.05 * (math.floor(y_min/0.05)-1)
-    ylims[1] = 0.05 * (math.ceil(y_max/0.05)+1)
-    xlims[0] = 1000 * math.floor(x_min/1000)
-    xlims[1] = 1000 * math.ceil(x_max/1000)
+        ylims[0] = 0.05 * (math.floor(y_min/0.05)-1)
+        ylims[1] = 0.05 * (math.ceil(y_max/0.05)+1)
+        xlims[0] = 1000 * math.floor(x_min/1000)
+        xlims[1] = 1000 * math.ceil(x_max/1000)
 
-    plot_dir = f'../03_Charts/{material}/FTIR/ATR/'
+        plot_dir = f'../03_Charts/{material}/FTIR/ATR/'
 
-    if not os.path.exists(plot_dir):
-        os.makedirs(plot_dir)
+        if not os.path.exists(plot_dir):
+            os.makedirs(plot_dir)
 
-    format_and_save_plot(xlims, ylims, f'{plot_dir}{material}_ATR.pdf')
+        format_and_save_plot(xlims, ylims, f'{plot_dir}{material}_ATR.pdf')

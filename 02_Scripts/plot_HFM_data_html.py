@@ -80,9 +80,9 @@ def plot_mean_data(df):
 def format_and_save_plot(file_loc,material):
 
     if file_loc.split('.')[-2].split('_')[-1] == 'Conductivity':
-        fig.update_layout(yaxis_title='Thermal Conductivity (W/mK)', title = material.replace('_',' ') +' Thermal Conductivity')
+        fig.update_layout(yaxis_title='Thermal Conductivity (W/mK)', title ='Thermal Conductivity')
     else:
-        fig.update_layout(yaxis_title='Specific Heat (J/kgK)', title = material.replace('_',' ')+' Specific Heat')
+        fig.update_layout(yaxis_title='Specific Heat (J/kgK)', title ='Specific Heat')
 
     # Save plot to file
     fig.update_layout(xaxis_title='Temperature (&deg;C)', font=dict(size=18))
