@@ -7,10 +7,6 @@
 #       information, raw data, and analyzed data (baseline and          #
 #       mass loss corrected)                                            #
 #                                                                       #
-#                                                                       #
-# TO DO:                                                                #
-# - scan directory so that Excel sheets are not overwritten             #
-#                                                                       #
 # ********************************************************************* #
 
 # --------------- #
@@ -21,8 +17,6 @@ import glob
 import numpy as np
 import pandas as pd
 import math
-from tkinter import Tk
-from tkinter.filedialog import askdirectory
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 

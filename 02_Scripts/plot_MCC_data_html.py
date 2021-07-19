@@ -1,15 +1,11 @@
 # MCC Data Import and Pre-processing
-#   by: Mark McKinnon
+#   by: Mark McKinnon and Craig Weinschenk
 # ***************************** Run Notes ***************************** #
 # - Prompts user for directory with MCC raw data                        #
 #                                                                       #
 # - Imports raw MCC data and creates excel sheets with header           #
 #       information, raw data, and analyzed data (baseline and          #
 #       mass loss corrected)                                            #
-#                                                                       #
-#                                                                       #
-# TO DO:                                                                #
-# - scan directory so that Excel sheets are not overwritten             #
 #                                                                       #
 # ********************************************************************* #
 
@@ -21,8 +17,6 @@ import glob
 import numpy as np
 import pandas as pd
 import math
-from tkinter import Tk
-from tkinter.filedialog import askdirectory
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 
