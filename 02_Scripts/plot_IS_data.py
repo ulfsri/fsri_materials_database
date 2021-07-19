@@ -33,16 +33,6 @@ legend_font = 10
 fig_width = 10
 fig_height = 6
 
-def create_1plot_fig():
-    # Define figure for the plot
-    fig, ax1 = plt.subplots(figsize=(fig_width, fig_height))
-    #plt.subplots_adjust(left=0.08, bottom=0.3, right=0.92, top=0.95)
-
-    # Reset values for x & y limits
-    x_min, x_max, y_min, y_max = 0, 0, 0, 0
-
-    return(fig, ax1, x_min, x_max, y_min, y_max)
-
 def plot_mean_data(df):
     color_dict = {'MEAS':'k', 'REF': 'r','BL': 'b'}
     label_dict = {'MEAS':'Mean Sample Measurement', 'REF': 'Reference Measurement','BL': 'Baseline Measurement'}
@@ -136,7 +126,7 @@ for d in os.scandir(data_dir):
     print(f'{material} IS')
     ylims = [0,0]
     xlims = [0,0]
-    fig, ax1, x_min, x_max, y_min, y_max = create_1plot_fig()
+    fig = go.Figure()
     if d.is_dir():
         if os.path.isdir(f'{d.path}/FTIR'):
             for f in os.scandir(f'{d.path}/FTIR/IS/'):
@@ -151,40 +141,28 @@ for d in os.scandir(data_dir):
         else:
             continue
 
-    reflect_data = data.filter(regex = 'REFLECT')
-    bl_data = reflect_data.filter(regex = '_BL_') 
-    ref_data = reflect_data.filter(regex = '_REF_')
-    meas_data = reflect_data.filter(regex = '_MEAS_')
+        reflect_data = data.filter(regex = 'REFLECT')
+        bl_data = reflect_data.filter(regex = '_BL_') 
+        ref_data = reflect_data.filter(regex = '_REF_')
+        meas_data = reflect_data.filter(regex = '_MEAS_')
 
-    data_df.loc[:,'BL_mean'] = bl_data.mean(axis = 1)
-    data_df.loc[:,'BL_std'] = bl_data.std(axis = 1)
-    data_df.loc[:,'REF_mean'] = ref_data.mean(axis = 1)
-    data_df.loc[:,'REF_std'] = ref_data.std(axis = 1)
-    data_df.loc[:,'MEAS_mean'] = meas_data.mean(axis = 1)
-    data_df.loc[:,'MEAS_std'] = meas_data.std(axis = 1)
+        data_df.loc[:,'BL_mean'] = bl_data.mean(axis = 1)
+        data_df.loc[:,'BL_std'] = bl_data.std(axis = 1)
+        data_df.loc[:,'REF_mean'] = ref_data.mean(axis = 1)
+        data_df.loc[:,'REF_std'] = ref_data.std(axis = 1)
+        data_df.loc[:,'MEAS_mean'] = meas_data.mean(axis = 1)
+        data_df.loc[:,'MEAS_std'] = meas_data.std(axis = 1)
 
-    data.dropna(axis = 0, how = 'any', inplace = True)
+        data.dropna(axis = 0, how = 'any', inplace = True)
 
-    data_df.loc[:,'wavelength'] = data.groupby(by=data.columns, axis=1).mean().loc[:,'wavelength']
-    data_df.set_index('wavelength', inplace=True)
+        data_df.loc[:,'wavelength'] = data.groupby(by=data.columns, axis=1).mean().loc[:,'wavelength']
+        data_df.set_index('wavelength', inplace=True)
 
-    ymin, ymax, xmin, xmax = plot_mean_data(data_df)
+        plot_mean_data(data_df)
 
-    y_min = max(ymin, y_min)
-    x_min = max(xmin, x_min)
-    y_max = max(ymax, y_max)
-    x_max = max(xmax, x_max)
+        plot_dir = f'../03_Charts/{material}/FTIR/IS/'
 
-    # ylims[0] = 0.05 * (math.floor(y_min/0.05)-1)
-    # ylims[1] = 0.05 * (math.ceil(y_max/0.05)+1)
-    ylims[0] = 0
-    ylims[1] = 1.05
-    xlims[0] = 1000 * math.floor(x_min/1000)
-    xlims[1] = 1000 * math.ceil(x_max/1000)
+        if not os.path.exists(plot_dir):
+            os.makedirs(plot_dir)
 
-    plot_dir = f'../03_Charts/{material}/FTIR/IS/'
-
-    if not os.path.exists(plot_dir):
-        os.makedirs(plot_dir)
-
-    format_and_save_plot(xlims, ylims, f'{plot_dir}{material}_IS_Reflection.pdf')
+        format_and_save_plot(f'{plot_dir}{material}_IS_Reflection.html')
