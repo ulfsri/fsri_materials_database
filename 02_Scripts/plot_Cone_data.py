@@ -7,10 +7,6 @@
 #       information, raw data, and analyzed data (baseline and          #
 #       mass loss corrected)                                            #
 #                                                                       #
-#                                                                       #
-# TO DO:                                                                #
-# - scan directory so that Excel sheets are not overwritten             #
-#                                                                       #
 # ********************************************************************* #
 
 # --------------- #
@@ -190,23 +186,25 @@ y_inc_dict = {'HRRPUA':100, 'MLR':0.2, 'SPR':1, 'SEA':200, 'Extinction Coefficie
 for d in os.scandir(data_dir):
     df_dict = {}
     material = d.path.split('/')[-1]
+    if material == '.DS_Store':
+        continue
     plot_data_df = pd.DataFrame()
     print(f'{material} Cone')
     if d.is_dir():
         if os.path.isdir(f'{d.path}/Cone/'):
             data_df = pd.DataFrame()
             reduced_df = pd.DataFrame()
-            for f in os.scandir(f'{d.path}/Cone/'):
-                print(f.path)
-                if 'scalar' in f.path.lower():
+            for f in glob.iglob(f'{d.path}/Cone/*.csv'):
+            # for f in os.scandir(f'{d.path}/Cone/'):
+                print(f)
+                if 'scalar' in f.lower():
                     continue
                 else:
-                    label_list = f.path.split('.csv')[0].split('_')
+                    label_list = f.split('.csv')[0].split('_')
                     label = label_list[-3].split('Scan')[0] + '_' + label_list[-1]
-
                     data_temp_df = pd.read_csv(f, header = 0, skiprows = [1, 2, 3, 4], index_col = 'Names')
 
-                    scalar_data_fid = f.path.replace('Scan','Scalar')
+                    scalar_data_fid = f.replace('Scan','Scalar')
                     scalar_data_series = pd.read_csv(scalar_data_fid, index_col = 0, squeeze='True')
 
                     c_factor = float(scalar_data_series.at['C FACTOR'])
