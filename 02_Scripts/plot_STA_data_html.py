@@ -1,15 +1,11 @@
 # MCC Data Import and Pre-processing
-#   by: Mark McKinnon
+#   by: Mark McKinnon and Craig Weinschenk
 # ***************************** Run Notes ***************************** #
 # - Prompts user for directory with MCC raw data                        #
 #                                                                       #
 # - Imports raw MCC data and creates excel sheets with header           #
 #       information, raw data, and analyzed data (baseline and          #
 #       mass loss corrected)                                            #
-#                                                                       #
-#                                                                       #
-# TO DO:                                                                #
-# - scan directory so that Excel sheets are not overwritten             #
 #                                                                       #
 # ********************************************************************* #
 
@@ -21,10 +17,9 @@ import glob
 import numpy as np
 import pandas as pd
 import math
-from tkinter import Tk
-from tkinter.filedialog import askdirectory
 import matplotlib.pyplot as plt
 from scipy.signal import savgol_filter
+import plotly.graph_objects as go
 
 
 label_size = 20
@@ -71,19 +66,9 @@ def unique(list1):
 
     return unique_list
 
-def create_1plot_fig():
-    # Define figure for the plot
-    fig, ax1 = plt.subplots(figsize=(fig_width, fig_height))
-    #plt.subplots_adjust(left=0.08, bottom=0.3, right=0.92, top=0.95)
-
-    # Reset values for x & y limits
-    x_min, x_max, y_min, y_max = 0, 0, 0, 0
-
-    return(fig, ax1, x_min, x_max, y_min, y_max)
-
 def plot_mean_data(df):
 
-    hr_dict = {'3K_min':'r', '10K_min':'g', '30K_min':'b'}
+    hr_dict = {'3K_min':'red', '10K_min':'green', '30K_min':'blue'}
 
     for i in hr_dict.keys():
         mean_df = df.filter(regex = 'mean')
@@ -93,92 +78,29 @@ def plot_mean_data(df):
         std_hr_df_temp = std_df.filter(regex = i)
         std_hr_df = std_hr_df_temp.dropna(axis = 'index')
 
-        upper_lim = mean_hr_df.iloc[:,0] + 2*std_hr_df.iloc[:,0]
-        lower_lim = mean_hr_df.iloc[:,0] - 2*std_hr_df.iloc[:,0]
+        y_upper = mean_hr_df.iloc[:,0] + 2*std_hr_df.iloc[:,0]
+        y_lower = mean_hr_df.iloc[:,0] - 2*std_hr_df.iloc[:,0]
 
         i_str = i.replace('_','/')
 
-        ax1.plot(mean_hr_df.index, mean_hr_df, color=hr_dict[i], ls='-', marker=None, label = i_str)
-        ax1.fill_between(upper_lim.index, lower_lim, upper_lim, color = hr_dict[i], alpha = 0.2)
+        fig.add_trace(go.Scatter(x=np.concatenate([df.index,df.index[::-1]]),y=pd.concat([y_upper,y_lower[::-1]]),
+            fill='toself',hoveron='points',fillcolor=hr_dict[i],line=dict(color=hr_dict[i]),opacity=0.25,name='2'+ "\u03C3"))
+        fig.add_trace(go.Scatter(x=mean_hr_df.index, y=mean_hr_df.iloc[:,0], marker=dict(color=hr_dict[i], size=8),name=i_str))
 
-    y_max = upper_lim.max()
-    y_min = lower_lim.min()
+    return()
 
-    x_max = max(df.index)
-    x_min = min(df.index)
-    return(y_min, y_max, x_min, x_max)
-
-def format_and_save_plot(xlims, ylims, inc, file_loc):
+def format_and_save_plot(inc, file_loc):
     axis_dict = {'Mass': 'Normalized Mass', 'MLR': 'Normalized MLR (1/s)', 'Flow': 'Heat Flow Rate (W/g)'}
-    keyword = file_loc.split('.pdf')[0].split('_')[-1]
+    keyword = file_loc.split('.html')[0].split('_')[-1]
 
-    # Set tick parameters
-    ax1.tick_params(labelsize=tick_size, length=8, width=0.75, direction = 'inout')
-
-    # Scale axes limits & labels
-    ax1.set_ylim(bottom=ylims[0], top=ylims[1])
-    ax1.set_xlim(left=xlims[0], right=xlims[1])
-    ax1.set_xlabel('Temperature (C)', fontsize=label_size)
-
-    ax1.set_position([0.15, 0.3, 0.77, 0.65])
-
-    y_range_array = np.arange(ylims[0], ylims[1] + inc, inc)
-    ax1.set_ylabel(axis_dict[keyword], fontsize=label_size)    
-
-    yticks_list = list(y_range_array)
-
-    x_range_array = np.arange(xlims[0], xlims[1] + 50, 50)
-    xticks_list = list(x_range_array)
-
-    ax1.set_yticks(yticks_list)
-    ax1.set_xticks(xticks_list)
-
-    ax2 = ax1.secondary_yaxis('right')
-    ax2.tick_params(axis='y', direction='in', length = 4)
-    ax2.set_yticks(yticks_list)
-    empty_labels = ['']*len(yticks_list)
-    ax2.set_yticklabels(empty_labels)
-
-    ax3 = ax1.secondary_xaxis('top')
-    ax3.tick_params(axis='x', direction='in', length = 4)
-    ax3.set_xticks(xticks_list)
-    empty_labels = ['']*len(xticks_list)
-    ax3.set_xticklabels(empty_labels)
-
-    # Add legend
-    handles1, labels1 = ax1.get_legend_handles_labels()
-
-    # print(f'handles1: {handles1}')
-
-    # # order = []
-    # # order.append(labels1.index('Wet Sample Preparation'))
-    # # order.append(labels1.index('Dry Sample Preparation'))
-
-    # handles1 = handles1[i]
-    # labels1 = labels1[i]
-
-    # n_col, leg_list, leg_labels = legend_entries(handles1, labels1)
-
-    #a_list = [a_list[i] for i in order]
-
-    plt.legend(handles1, labels1, loc = 'upper center', bbox_to_anchor = (0.5, -0.23), fontsize=16,
-                handlelength=2, frameon=True, framealpha=1.0, ncol=3)
-
-    # Clean up whitespace padding
-    #fig.tight_layout()
-
-    # Save plot to file
-    plt.savefig(file_loc)
+    fig.update_layout(xaxis_title='Temperature (&deg;C)', font=dict(size=18))
+    fig.update_layout(yaxis_title=axis_dict[keyword], title ='Simultaneous Thermal Analysis')
+    fig.write_html(file_loc,include_plotlyjs="cdn")
     plt.close()
-
     print()
 
 data_dir = '../01_Data/'
 save_dir = '../03_Charts/'
-
-# path = askdirectory(title='Select Folder') # shows dialog box and return the path -> this or a similar method can be used when interacting with database
-# data_dir = path
-# exp_names = []
 
 plot_dict = {'Normalized Mass':'Mass', 'Normalized MLR':'MLR', 'Heat Flow Rate':'Heat_Flow'}
 
@@ -255,27 +177,15 @@ for d in os.scandir(data_dir):
     plot_inc = {'Mass': 0.2, 'MLR': 0.001, 'Heat_Flow': 0.5}
 
     for m in plot_dict.keys():    
-        ylims = [0,0]
-        xlims = [0,0]
-        fig, ax1, x_min, x_max, y_min, y_max = create_1plot_fig()
+        fig = go.Figure()
 
         plot_data = plot_data_df.filter(regex = m)
-        ymin, ymax, xmin, xmax = plot_mean_data(plot_data)
-
-        y_min = max(ymin, y_min)
-        x_min = max(xmin, x_min)
-        y_max = max(ymax, y_max)
-        x_max = max(xmax, x_max)
+        plot_mean_data(plot_data)
 
         inc = plot_inc[plot_dict[m]]
-
-        ylims[0] = inc * (math.floor(y_min/inc))
-        ylims[1] = inc * (math.ceil(y_max/inc))
-        xlims[0] = 50 * (math.floor(x_min/50))
-        xlims[1] = 50 * (math.ceil(x_max/50))
 
         if not os.path.exists(plot_dir):
             os.makedirs(plot_dir)
 
         suffix = plot_dict[m]
-        format_and_save_plot(xlims, ylims, inc, f'{plot_dir}{material}_STA_{suffix}.pdf')
+        format_and_save_plot(inc, f'{plot_dir}{material}_STA_{suffix}.html')

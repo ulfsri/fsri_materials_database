@@ -59,9 +59,6 @@ def unique(list1):
     return unique_list
 
 def plot_mean_data(df):
-    # ax1.plot(df.index, df.loc[:,'HRR_mean'], color='k', ls='-', marker=None, label = 'Mean Data')
-    # ax1.fill_between(df.index, df['HRR_mean'] - 2*df['HRR_std'], df['HRR_mean'] + 2*df['HRR_std'], color = 'k', alpha = 0.2)
-    
     y_upper = df['HRR_mean'] + 2*df['HRR_std']
     y_lower = df['HRR_mean'] - 2*df['HRR_std']
 
@@ -83,10 +80,6 @@ def format_and_save_plot(file_loc):
 
 data_dir = '../01_Data/'
 save_dir = '../03_Charts/'
-
-# path = askdirectory(title='Select Folder') # shows dialog box and return the path -> this or a similar method can be used when interacting with database
-# data_dir = path
-# exp_names = []
 
 for d in os.scandir(data_dir):
     material = d.path.split('/')[-1]
