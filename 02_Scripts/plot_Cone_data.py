@@ -178,10 +178,12 @@ data_dir = '../01_Data/'
 save_dir = '../03_Charts/'
 
 hf_list = ['25', '50', '75']
-quant_list = ['HRRPUA', 'MLR', 'SPR', 'SEA', 'Extinction Coefficient'] #'EHC'
+quant_list = ['HRRPUA', 'MLR', 'SPR', 'SEA', 'Extinction Coefficient', 'EHC']
 
-y_max_dict = {'HRRPUA':500, 'MLR':1, 'SPR':5, 'SEA':1000, 'Extinction Coefficient':2, 'EHC':50000}
-y_inc_dict = {'HRRPUA':100, 'MLR':0.2, 'SPR':1, 'SEA':200, 'Extinction Coefficient':0.5, 'EHC':10000}
+y_max_dict = {'HRRPUA':500, 'MLR':1, 'SPR':5, 'SEA':1000, 'Extinction Coefficient':2, 'EHC':50}
+y_inc_dict = {'HRRPUA':100, 'MLR':0.2, 'SPR':1, 'SEA':200, 'Extinction Coefficient':0.5, 'EHC':10}
+
+output_df = pd.DataFrame()
 
 for d in os.scandir(data_dir):
     df_dict = {}
@@ -196,7 +198,6 @@ for d in os.scandir(data_dir):
             reduced_df = pd.DataFrame()
             for f in glob.iglob(f'{d.path}/Cone/*.csv'):
             # for f in os.scandir(f'{d.path}/Cone/'):
-                print(f)
                 if 'scalar' in f.lower():
                     continue
                 else:
@@ -226,9 +227,9 @@ for d in os.scandir(data_dir):
                     data_temp_df['MLR_grad'] = -np.gradient(data_temp_df['Sample Mass'], 0.25)
                     data_temp_df['MLR'] = apply_savgol_filter(data_temp_df['MLR_grad'])
                     data_temp_df['MLR'][data_temp_df['MLR'] > 5] = 0
-                    # data_temp_df['MLR'] = np.zeros(len(data_temp_df['Sample Mass']))
-
+                    
                     # # MLR Calculation
+                    # data_temp_df['MLR'] = np.zeros(len(data_temp_df['Sample Mass']))
                     # data_temp_df['MLR'].iloc[0] = ( 25*(data_temp_df['Sample Mass'].iloc[0]) - 48*(data_temp_df['Sample Mass'].iloc[1]) + 36*(data_temp_df['Sample Mass'].iloc[2]) - 16*(data_temp_df['Sample Mass'].iloc[3]) + 3*(data_temp_df['Sample Mass'].iloc[4])) / (12*0.25)
                     # data_temp_df['MLR'].iloc[1] = ( 3*(data_temp_df['Sample Mass'].iloc[0]) + 10*(data_temp_df['Sample Mass'].iloc[1]) - 18*(data_temp_df['Sample Mass'].iloc[2]) + 6*(data_temp_df['Sample Mass'].iloc[3]) - (data_temp_df['Sample Mass'].iloc[4])) / (12*0.25)
                     # for i in range(2, len(data_temp_df['Sample Mass'])):
@@ -254,6 +255,36 @@ for d in os.scandir(data_dir):
                     drop_list = list(np.linspace(end_time, max(df_dict[label].index), int(num_intervals+1)))
                     df_dict[label].drop(labels = drop_list, axis = 0, inplace = True)
 
+                    output_df.at['Time to Sustained Ignition (s)', label] = float(scalar_data_series.at['TIME TO IGN'])
+                    output_df.at['Peak HRRPUA (kW/m2)', label] = max(data_temp_df['HRRPUA'])
+                    output_df.at['Time to Peak HRRPUA (s)', label] = data_temp_df.loc[data_temp_df['HRRPUA'].idxmax(), 'Time'] - float(scalar_data_series.at['TIME TO IGN'])
+                    ign_index = data_temp_df.index[data_temp_df['Time'] == float(scalar_data_series.at['TIME TO IGN'])][0]
+                    t60 = str(int(ign_index) + 240)
+                    t180 = str(int(ign_index) + 720)
+                    t300 = str(int(ign_index) + 1200)
+
+                    try: output_df.at['Average HRRPUA over 60 seconds (kW/m2)', label] = np.mean(data_temp_df.loc[ign_index:t60,'HRRPUA'])
+                    except: output_df.at['Average HRRPUA over 60 seconds (kW/m2)', label] = math.nan
+
+                    try: output_df.at['Average HRRPUA over 180 seconds (kW/m2)', label] = np.mean(data_temp_df.loc[ign_index:t180,'HRRPUA'])
+                    except: output_df.at['Average HRRPUA over 180 seconds (kW/m2)', label] = math.nan
+                    
+                    try: output_df.at['Average HRRPUA over 300 seconds (kW/m2)', label] = np.mean(data_temp_df.loc[ign_index:t300,'HRRPUA'])
+                    except: output_df.at['Average HRRPUA over 300 seconds (kW/m2)', label] = math.nan
+
+                    output_df.at['Total Heat Released (MJ/m2)', label] = data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'THR']
+                    total_mass_lost = data_temp_df.at['1','Sample Mass'] - data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'Sample Mass']
+                    holder_mass = data_temp_df.at['1','Sample Mass'] - float(scalar_data_series.at['SPECIMEN MASS'])
+                    output_df.at['Avg. Effective Heat of Combustion (MJ/kg)', label] = (data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'THR'])/(total_mass_lost/1000)
+                    output_df.at['Initial Mass (g)', label] = scalar_data_series.at['SPECIMEN MASS']
+                    output_df.at['Final Mass (g)', label] = data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'Sample Mass'] - holder_mass
+                    output_df.at['Mass at Ignition (g)', label] = data_temp_df.at[ign_index,'Sample Mass'] - holder_mass
+                    
+                    t10 = data_temp_df['Sample Mass'].sub(data_temp_df.at['1','Sample Mass'] - 0.1*total_mass_lost).abs().idxmin()
+                    t90 = data_temp_df['Sample Mass'].sub(data_temp_df.at['1','Sample Mass'] - 0.9*total_mass_lost).abs().idxmin()
+
+                    output_df.at['Avg. Mass Loss Rate [10% to 90%] (g/m2s)', label] = np.mean(data_temp_df.loc[t10:t90,'MLR']/float(scalar_data_series.at['SURF AREA']))                    
+                    
             for n in quant_list:
                 for m in hf_list:
                     ylims = [0,0]
@@ -272,10 +303,6 @@ for d in os.scandir(data_dir):
 
                     inc = y_inc_dict[n]
 
-                    print(n)
-                    print(f'{m} kW/m2')
-                    print(inc)
-
                     ylims[0] = 0
                     ylims[1] = y_max_dict[n]
                     xlims[0] = 0
@@ -292,3 +319,5 @@ for d in os.scandir(data_dir):
             continue
     else:
         continue
+
+    output_df.to_csv(f'{plot_dir}{material}_Cone_Analysis_Data.csv')
