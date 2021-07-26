@@ -25,6 +25,7 @@ from tkinter import Tk
 from tkinter.filedialog import askdirectory
 import matplotlib.pyplot as plt
 from scipy.signal import savgol_filter
+from scipy import integrate
 
 
 label_size = 20
@@ -163,6 +164,7 @@ for d in os.scandir(data_dir):
     fig, ax1, x_min, x_max, y_min, y_max = create_1plot_fig()
     data_df = pd.DataFrame()
     plot_data_df = pd.DataFrame()
+    hoc_df = pd.DataFrame()
     if d.is_dir():
         if os.path.isdir(f'{d.path}/MCC'):
             for f in os.scandir(f'{d.path}/MCC/'):
@@ -181,6 +183,7 @@ for d in os.scandir(data_dir):
                     col_name = f.path.split('.txt')[0].split('_')[-1]
 
                     reduced_df = data_temp_df.loc[:,['Temperature (C)', 'HRR (W/g)']]
+                    reduced_df[f'Time_copy_{col_name}'] = reduced_df.index
 
                     # Correct from initial mass basis to mass lost basis
                     reduced_df['HRR (W/g)'] = reduced_df['HRR (W/g)']*(initial_mass/(initial_mass-final_mass))
@@ -207,6 +210,15 @@ for d in os.scandir(data_dir):
 
                     data_df = pd.concat([data_df, reduced_df], axis = 1)
 
+                    data_array = data_df[col_name].to_numpy()
+                    time_array = data_df[f'Time_copy_{col_name}'].to_numpy()
+                    data_array = data_array[~np.isnan(data_array)]
+                    time_array = time_array[~np.isnan(time_array)]
+
+                    hoc_df.at['Heat of Combustion (MJ/kg)', col_name] = (integrate.trapz(y = data_array, x = time_array))/1000
+                    hoc_df.at['Heat of Combustion (MJ/kg)', 'Mean'] = np.nan
+                    hoc_df.at['Heat of Combustion (MJ/kg)', 'Std. Dev.'] = np.nan
+
             corrected_data = data_df.filter(regex = 'R[0-9]')
             plot_data_df.loc[:,'HRR_mean'] = corrected_data.mean(axis = 1)
             plot_data_df.loc[:,'HRR_std'] = corrected_data.std(axis = 1)
@@ -215,7 +227,14 @@ for d in os.scandir(data_dir):
             continue
     else:
         continue
-    
+
+    mean_hoc = hoc_df.mean(axis = 1)
+    std_hoc = hoc_df.std(axis = 1)
+
+    hoc_df.at['Heat of Combustion (MJ/kg)', 'Mean'] = mean_hoc
+    hoc_df.at['Heat of Combustion (MJ/kg)', 'Std. Dev.'] = std_hoc
+    hoc_df = hoc_df[['R1', 'R2', 'R3', 'Mean', 'Std. Dev.']]
+
     ymin, ymax, xmin, xmax = plot_mean_data(plot_data_df)
 
     y_min = max(ymin, y_min)
@@ -234,3 +253,5 @@ for d in os.scandir(data_dir):
         os.makedirs(plot_dir)
 
     format_and_save_plot(xlims, ylims, f'{plot_dir}{material}_MCC.pdf')
+
+    hoc_df.to_csv(f'{plot_dir}{material}_MCC_Heats_of_Combustion.csv', float_format='%.2f')

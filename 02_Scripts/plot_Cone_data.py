@@ -275,7 +275,7 @@ for d in os.scandir(data_dir):
                     output_df.at['Total Heat Released (MJ/m2)', label] = data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'THR']
                     total_mass_lost = data_temp_df.at['1','Sample Mass'] - data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'Sample Mass']
                     holder_mass = data_temp_df.at['1','Sample Mass'] - float(scalar_data_series.at['SPECIMEN MASS'])
-                    output_df.at['Avg. Effective Heat of Combustion (MJ/kg)', label] = (data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'THR'])/(total_mass_lost/1000)
+                    output_df.at['Avg. Effective Heat of Combustion (MJ/kg)', label] = ((data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'THR'])*float(scalar_data_series.at['SURF AREA']))/(total_mass_lost/1000)
                     output_df.at['Initial Mass (g)', label] = scalar_data_series.at['SPECIMEN MASS']
                     output_df.at['Final Mass (g)', label] = data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'Sample Mass'] - holder_mass
                     output_df.at['Mass at Ignition (g)', label] = data_temp_df.at[ign_index,'Sample Mass'] - holder_mass
@@ -320,4 +320,4 @@ for d in os.scandir(data_dir):
     else:
         continue
 
-    output_df.to_csv(f'{plot_dir}{material}_Cone_Analysis_Data.csv')
+    output_df.to_csv(f'{plot_dir}{material}_Cone_Analysis_Data.csv', float_format='%.2f')
