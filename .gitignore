@@ -1,2 +1,4 @@
 *.DS_Store
 03_Charts/*
+*_Analysis_Data.csv
+*_Heats_of_Combustion.csv
