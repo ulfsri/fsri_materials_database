@@ -158,6 +158,8 @@ save_dir = '../03_Charts/'
 
 for d in os.scandir(data_dir):
     material = d.path.split('/')[-1]
+    if material == '.DS_Store':
+        continue
     print(f'{material} MCC')
     ylims = [0,0]
     xlims = [0,0]
@@ -167,20 +169,18 @@ for d in os.scandir(data_dir):
     hoc_df = pd.DataFrame()
     if d.is_dir():
         if os.path.isdir(f'{d.path}/MCC'):
-            for f in os.scandir(f'{d.path}/MCC/'):
-                label_list = f.path.split('/')[-1].split('.')[0].split('_')
-                if 'MASS' in label_list:
+            for f in glob.iglob(f'{d.path}/MCC/*.txt'):
+                if 'mass' in f.lower():
                     continue
                 else:
-
                     # import data for each test
                     header_df = pd.read_csv(f, header = None, sep = '\t', nrows = 3, index_col = 0, squeeze = True)
                     initial_mass = float(header_df.at['Sample Weight (mg):'])
                     data_temp_df = pd.read_csv(f, sep = '\t', header = 10, index_col = 'Time (s)')
-                    fid = open(f.path.split('.txt')[0] + '_FINAL_MASS.txt', 'r')
+                    fid = open(f.split('.txt')[0] + '_FINAL_MASS.txt', 'r')
                     final_mass = float(fid.readlines()[0].split('/n')[0])
 
-                    col_name = f.path.split('.txt')[0].split('_')[-1]
+                    col_name = f.split('.txt')[0].split('_')[-1]
 
                     reduced_df = data_temp_df.loc[:,['Temperature (C)', 'HRR (W/g)']]
                     reduced_df[f'Time_copy_{col_name}'] = reduced_df.index
