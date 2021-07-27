@@ -87,12 +87,12 @@ def air_density(temperature):
     rho = 1.2883 - 4.327e-3*temperature + 8.78e-6*temperature**2
     return rho
 
-def format_and_save_plot(quantity, file_loc):
+def format_and_save_plot(quantity, file_loc,m):
     
-    label_dict = {'HRRPUA': 'Heat Release Rate (kW/m<sup>2</sup>)', 'MLR': 'Mass Loss Rate (g/s)', 'EHC':'Effective Heat of Combustion (MJ/kg)' , 'SPR': 'Smoke Production Rate (1/s)', 'SEA': 'Specific Extinction Area', 'Extinction Coefficient': 'Extinction Coefficient (1/m)'}
+    label_dict = {'HRRPUA': 'Heat Release Rate per Unit Area (kW/m<sup>2</sup>)', 'MLR': 'Mass Loss Rate (g/s)', 'EHC':'Effective Heat of Combustion (MJ/kg)' , 'SPR': 'Smoke Production Rate (1/s)', 'SEA': 'Specific Extinction Area', 'Extinction Coefficient': 'Extinction Coefficient (1/m)'}
 
     fig.update_layout(xaxis_title='Time (s)', font=dict(size=18))
-    fig.update_layout(yaxis_title=label_dict[quantity], title ='Cone Calorimeter')
+    fig.update_layout(yaxis_title=label_dict[quantity], title ='Cone Calorimeter at ' + m + ' kW/m<sup>2</sup>')
     fig.write_html(file_loc,include_plotlyjs="cdn")
     plt.close()
     print()
@@ -196,7 +196,7 @@ for d in os.scandir(data_dir):
                     if not os.path.exists(plot_dir):
                         os.makedirs(plot_dir)
 
-                    format_and_save_plot(n, f'{plot_dir}{material}_Cone_{n}_{m}.html')       
+                    format_and_save_plot(n, f'{plot_dir}{material}_Cone_{n}_{m}.html',m),
 
         else:
             continue

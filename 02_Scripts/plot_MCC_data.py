@@ -254,4 +254,4 @@ for d in os.scandir(data_dir):
 
     format_and_save_plot(xlims, ylims, f'{plot_dir}{material}_MCC.pdf')
 
-    hoc_df.to_csv(f'{plot_dir}{material}_MCC_Heats_of_Combustion.csv', float_format='%.2f')
+    hoc_df.to_csv(f'{data_dir}{material}/MCC/{material}_MCC_Heats_of_Combustion.csv', float_format='%.2f')
