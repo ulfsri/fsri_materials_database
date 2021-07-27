@@ -172,7 +172,7 @@ def format_and_save_plot(xlims, ylims, inc, quantity, file_loc):
     plt.savefig(file_loc)
     plt.close()
 
-    print()
+    print('Plotting ' + label_dict[quantity])
 
 data_dir = '../01_Data/'
 save_dir = '../03_Charts/'
@@ -198,7 +198,7 @@ for d in os.scandir(data_dir):
             reduced_df = pd.DataFrame()
             for f in glob.iglob(f'{d.path}/Cone/*.csv'):
             # for f in os.scandir(f'{d.path}/Cone/'):
-                if 'scalar' in f.lower():
+                if 'scalar' in f.lower() or 'cone_analysis_data' in f.lower():
                     continue
                 else:
                     label_list = f.split('.csv')[0].split('_')
@@ -320,4 +320,4 @@ for d in os.scandir(data_dir):
     else:
         continue
 
-    output_df.to_csv(f'{plot_dir}{material}_Cone_Analysis_Data.csv', float_format='%.2f')
+    output_df.to_csv(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_Data.csv', float_format='%.2f')
