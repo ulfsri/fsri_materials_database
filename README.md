@@ -28,3 +28,22 @@ Raw data generated from each apparatus are included here in plain-text format. T
 - __Simultaneous Thermal Analyzer__ (STA)
     + Data file structure is the material, the abbreviated name for the apparatus, the atmosphere tested in, the heating rate in Kelvin per minute and data/meta, date of test, and replicate number. Data is for the raw output data and meta is for the initial conditions and high-level test parameters. 
         * Example: __Polyester_Batting_STA_N2_3KData_210215_R1.csv__ stands for the first replicate of the data generated from a polyester batting board test in the simultaneous thermal analyzer tested in nitrogen with a heating rate of 3 Kelvin per minute on March 15, 2021.
+
+## 02_Scripts/
+Python processing scripts exist for analyzing the experimental data to generate derived quantities and to plot the experimental data. The scripts are apparatus specific and cycle through all materials upon execution. Each apparatus has a pair of scripts: __data.py__ and __data_html.py__. 
+
+- The __data.py__ script produces any reduced data files, computes any derived quantities, and produces _.pdf_ graphs in __03_Charts/Material/Apparatus__. 
+    + Derived quantities and/or reduced data files will get dropped into __02_Data/Material/Apparatus__. These files get updated each time the script gets executed.
+
+- The __data_html.py__ script produces interactive _.html_ files that allow interactions such as hover, zoom, and pan. This script requires the __plotly__ package which can be installed using:
+```
+pip install plotly
+```
+Similar to the __data.py__ script, _.html_ graphs are output to __03_Charts/Material/Apparatus__ and can be opened in a web browser.
+
+- __.bat__ and __.sh__ files exist for both the set of __data.py__ scripts and the __data_html.py__ scripts. These files will execute the respective python scripts for all data in the repository. 
+    + If there are issues executing the script, in particular the __.sh__ script, a change mode may be needed. In a command prompt type:
+```
+chmod +x run_all_data.sh OR chmod +x run_all_data_html.sh
+```
+
