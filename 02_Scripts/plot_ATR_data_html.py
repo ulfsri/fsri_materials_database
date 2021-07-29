@@ -19,7 +19,7 @@ import pandas as pd
 import math
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
-
+import subprocess
 
 label_size = 20
 tick_size = 18
@@ -44,6 +44,19 @@ def format_and_save_plot(file_loc):
 
     fig.update_layout(xaxis_title='Wavelength (nm)', font=dict(size=18))
     fig.update_layout(yaxis_title='ATR Signal (-)', title ='ATR Signal')
+
+    #Get github hash to display on graph
+    label = subprocess.check_output(["git", "describe", "--always"]).strip().decode()
+    fig.add_annotation(dict(font=dict(color='black',size=15),
+                                        x=1,
+                                        y=1.02,
+                                        showarrow=False,
+                                        text="Repository Version: " + label,
+                                        textangle=0,
+                                        xanchor='right',
+                                        xref="paper",
+                                        yref="paper"))
+
     fig.write_html(file_loc,include_plotlyjs="cdn")
     plt.close()
     print()
