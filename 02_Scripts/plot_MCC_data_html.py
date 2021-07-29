@@ -19,6 +19,7 @@ import pandas as pd
 import math
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
+import subprocess
 
 label_size = 20
 tick_size = 18
@@ -71,9 +72,21 @@ def plot_mean_data(df):
 
 def format_and_save_plot(file_loc):
 
-
     fig.update_layout(xaxis_title='Temperature (&deg;C)', font=dict(size=18))
     fig.update_layout(yaxis_title='Specific HRR (W/g)', title ='Specific HRR')
+
+    #Get github hash to display on graph
+    label = subprocess.check_output(["git", "describe", "--always"]).strip().decode()
+    fig.add_annotation(dict(font=dict(color='black',size=15),
+                                        x=1,
+                                        y=1.02,
+                                        showarrow=False,
+                                        text="Repository Version: " + label,
+                                        textangle=0,
+                                        xanchor='right',
+                                        xref="paper",
+                                        yref="paper"))
+
     fig.write_html(file_loc,include_plotlyjs="cdn")
     plt.close()
     print()
@@ -91,20 +104,18 @@ for d in os.scandir(data_dir):
     plot_data_df = pd.DataFrame()
     if d.is_dir():
         if os.path.isdir(f'{d.path}/MCC'):
-            for f in os.scandir(f'{d.path}/MCC/'):
-                label_list = f.path.split('/')[-1].split('.')[0].split('_')
-                if 'MASS' in label_list:
+            for f in glob.iglob(f'{d.path}/MCC/*.txt'):
+                if 'mass' in f.lower():
                     continue
                 else:
-
                     # import data for each test
                     header_df = pd.read_csv(f, header = None, sep = '\t', nrows = 3, index_col = 0, squeeze = True)
                     initial_mass = float(header_df.at['Sample Weight (mg):'])
                     data_temp_df = pd.read_csv(f, sep = '\t', header = 10, index_col = 'Time (s)')
-                    fid = open(f.path.split('.txt')[0] + '_FINAL_MASS.txt', 'r')
+                    fid = open(f.split('.txt')[0] + '_FINAL_MASS.txt', 'r')
                     final_mass = float(fid.readlines()[0].split('/n')[0])
 
-                    col_name = f.path.split('.txt')[0].split('_')[-1]
+                    col_name = f.split('.txt')[0].split('_')[-1]
 
                     reduced_df = data_temp_df.loc[:,['Temperature (C)', 'HRR (W/g)']]
 
