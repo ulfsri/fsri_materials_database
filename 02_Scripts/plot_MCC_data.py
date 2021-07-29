@@ -26,7 +26,7 @@ from tkinter.filedialog import askdirectory
 import matplotlib.pyplot as plt
 from scipy.signal import savgol_filter
 from scipy import integrate
-
+import subprocess
 
 label_size = 20
 tick_size = 18
@@ -120,6 +120,14 @@ def format_and_save_plot(xlims, ylims, file_loc):
     ax3.set_xticks(xticks_list)
     empty_labels = ['']*len(xticks_list)
     ax3.set_xticklabels(empty_labels)
+
+    #Get github hash to display on graph
+    label = subprocess.check_output(["git", "describe", "--always"]).strip().decode()
+
+    ax1.text(1, 1,'Repository Version: ' + label,
+         horizontalalignment='right',
+         verticalalignment='bottom',
+         transform = ax1.transAxes)
 
     # Add legend
     handles1, labels1 = ax1.get_legend_handles_labels()
