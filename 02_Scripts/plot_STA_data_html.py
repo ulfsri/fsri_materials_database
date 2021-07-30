@@ -20,7 +20,7 @@ import math
 import matplotlib.pyplot as plt
 from scipy.signal import savgol_filter
 import plotly.graph_objects as go
-import subprocess
+import git
 
 label_size = 20
 tick_size = 18
@@ -97,12 +97,15 @@ def format_and_save_plot(inc, file_loc):
     fig.update_layout(yaxis_title=axis_dict[keyword], title ='Simultaneous Thermal Analysis')
 
     #Get github hash to display on graph
-    label = subprocess.check_output(["git", "describe", "--always"]).strip().decode()
+    repo = git.Repo(search_parent_directories=True)
+    sha = repo.head.commit.hexsha
+    short_sha = repo.git.rev_parse(sha, short=True)
+
     fig.add_annotation(dict(font=dict(color='black',size=15),
                                         x=1,
                                         y=1.02,
                                         showarrow=False,
-                                        text="Repository Version: " + label,
+                                        text="Repository Version: " + short_sha,
                                         textangle=0,
                                         xanchor='right',
                                         xref="paper",
