@@ -46,4 +46,9 @@ Similar to the __data.py__ script, _.html_ graphs are output to __03_Charts/Mate
 ```
 chmod +x run_all_data.sh OR chmod +x run_all_data_html.sh
 ```
+- When the scripts, either __data.py__ or __data_html.py__, are run, the current version of the repository (i.e., Github hash) is appended to the figure. To successfully execute the scripts, the GitPython package will need to be installed using:
+```
+pip install GitPython
+```
+
 
