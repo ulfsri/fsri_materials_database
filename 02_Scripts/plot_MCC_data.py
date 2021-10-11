@@ -1,5 +1,5 @@
 # MCC Data Import and Pre-processing
-#   by: Mark McKinnon
+#   by: Mark McKinnon and Conor McCoy
 # ***************************** Run Notes ***************************** #
 # - Prompts user for directory with MCC raw data                        #
 #                                                                       #
@@ -17,6 +17,7 @@
 # Import Packages #
 # --------------- #
 import os
+import os.path # check for file existence
 import glob
 import numpy as np
 import pandas as pd
@@ -186,6 +187,7 @@ for d in os.scandir(data_dir):
     data_df = pd.DataFrame()
     plot_data_df = pd.DataFrame()
     hoc_df = pd.DataFrame()
+    all_col_names = []
     if d.is_dir():
         if os.path.isdir(f'{d.path}/MCC'):
             for f in glob.iglob(f'{d.path}/MCC/*.txt'):
@@ -203,9 +205,11 @@ for d in os.scandir(data_dir):
 
                     col_name = f.split('.txt')[0].split('_')[-1]
 
+                    all_col_names.append(col_name) # collect reptition numbers to account for botched tests (ex. R2, R3, R4, if R1 was bad)
+                  
                     reduced_df = data_temp_df.loc[:, [
                         'Temperature (C)', 'HRR (W/g)']]
-                    reduced_df[f'Time_copy_{col_name}'] = reduced_df.index
+                    reduced_df[f'Time_copy_{col_name[-1]}'] = reduced_df.index  #col_name[-1] to have the reptition number as -1 (not -R1) to help Regex later
 
                     # Correct from initial mass basis to mass lost basis
                     reduced_df['HRR (W/g)'] = reduced_df['HRR (W/g)'] * \
@@ -239,9 +243,8 @@ for d in os.scandir(data_dir):
                         reduced_df['HRR correction']
 
                     data_df = pd.concat([data_df, reduced_df], axis=1)
-
                     data_array = data_df[col_name].to_numpy()
-                    time_array = data_df[f'Time_copy_{col_name}'].to_numpy()
+                    time_array = data_df[f'Time_copy_{col_name[-1]}'].to_numpy() #col_name[-1] to have the reptition number as -1 (not -R1) to help Regex later
                     data_array = data_array[~np.isnan(data_array)]
                     time_array = time_array[~np.isnan(time_array)]
 
@@ -260,12 +263,15 @@ for d in os.scandir(data_dir):
     else:
         continue
 
+    
     mean_hoc = hoc_df.mean(axis=1)
     std_hoc = hoc_df.std(axis=1)
-
+   
     hoc_df.at['Heat of Combustion (MJ/kg)', 'Mean'] = mean_hoc
     hoc_df.at['Heat of Combustion (MJ/kg)', 'Std. Dev.'] = std_hoc
-    hoc_df = hoc_df[['R1', 'R2', 'R3', 'Mean', 'Std. Dev.']]
+    all_col_names.append('Mean')
+    all_col_names.append('Std. Dev.')
+    hoc_df = hoc_df[all_col_names] # sorting HoC dataframe, using reptition numbers
 
     ymin, ymax, xmin, xmax = plot_mean_data(plot_data_df)
 
@@ -288,3 +294,13 @@ for d in os.scandir(data_dir):
 
     hoc_df.to_csv(
         f'{data_dir}{material}/MCC/{material}_MCC_Heats_of_Combustion.csv', float_format='%.2f')
+
+
+    # # trouble-shooting by outputting the dataframes
+    # if material == 'HDPE':
+    #     data_df.to_csv(
+    #     f'{data_dir}{material}/MCC/{material}_MCC_DataDF.csv', float_format='%.2f')
+    #     corrected_data.to_csv(
+    #     f'{data_dir}{material}/MCC/{material}_MCC_CorrectedDataDF.csv', float_format='%.2f')
+    #     plot_data_df.to_csv(
+    #     f'{data_dir}{material}/MCC/{material}_MCC_PlotDataDF.csv', float_format='%.2f')
