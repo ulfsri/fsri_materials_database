@@ -204,57 +204,57 @@ for d in os.scandir(data_dir):
                     final_mass = float(fid.readlines()[0].split('/n')[0])
 
                     col_name = f.split('.txt')[0].split('_')[-1]
-
-                    all_col_names.append(col_name) # collect reptition numbers to account for botched tests (ex. R2, R3, R4, if R1 was bad)
+                    if "_O" not in col_name: # to ignore outliers (run code only for reptitions)
+                        
+                        all_col_names.append(col_name) # collect reptition numbers to account for botched tests (ex. R2, R3, R4, if R1 was bad)
                   
-                    reduced_df = data_temp_df.loc[:, [
+                        reduced_df = data_temp_df.loc[:, [
                         'Temperature (C)', 'HRR (W/g)']]
-                    reduced_df[f'Time_copy_{col_name[-1]}'] = reduced_df.index  #col_name[-1] to have the reptition number as -1 (not -R1) to help Regex later
+                        reduced_df[f'Time_copy_{col_name[-1]}'] = reduced_df.index  #col_name[-1] to have the reptition number as -1 (not -R1) to help Regex later
 
-                    # Correct from initial mass basis to mass lost basis
-                    reduced_df['HRR (W/g)'] = reduced_df['HRR (W/g)'] * \
+                        # Correct from initial mass basis to mass lost basis
+                        reduced_df['HRR (W/g)'] = reduced_df['HRR (W/g)'] * \
                         (initial_mass / (initial_mass - final_mass))
 
-                    max_lim = reduced_df['Temperature (C)'].iloc[-1] - (
+                        max_lim = reduced_df['Temperature (C)'].iloc[-1] - (
                         (reduced_df['Temperature (C)'].iloc[-1]) % 50)
-                    new_index = np.arange(150, int(max_lim) + 1)
-                    new_data = np.empty((len(new_index),))
-                    new_data[:] = np.nan
-                    df_dict = {
+                        new_index = np.arange(150, int(max_lim) + 1)
+                        new_data = np.empty((len(new_index),))
+                        new_data[:] = np.nan
+                        df_dict = {
                         'Temperature (C)': new_index, 'HRR (W/g)': new_data}
-                    temp_df = pd.DataFrame(df_dict)
+                        temp_df = pd.DataFrame(df_dict)
 
-                    # Resample data to every temperature
-                    reduced_df = pd.concat(
+                       # Resample data to every temperature
+                        reduced_df = pd.concat(
                         [reduced_df, temp_df], ignore_index=True)
-                    reduced_df.set_index('Temperature (C)', inplace=True)
-                    reduced_df.sort_index(inplace=True)
-                    reduced_df.interpolate(
+                        reduced_df.set_index('Temperature (C)', inplace=True)
+                        reduced_df.sort_index(inplace=True)
+                        reduced_df.interpolate(
                         method='linear', axis=0, inplace=True)
-                    reduced_df = reduced_df.loc[new_index, :]
+                        reduced_df = reduced_df.loc[new_index, :]
 
-                    reduced_df = reduced_df[~reduced_df.index.duplicated(
+                        reduced_df = reduced_df[~reduced_df.index.duplicated(
                         keep='first')]
 
-                    # Baseline Correction
-                    reduced_df['HRR correction'] = reduced_df.loc[150, 'HRR (W/g)'] + ((reduced_df.index - 150) / (
+                        # Baseline Correction
+                        reduced_df['HRR correction'] = reduced_df.loc[150, 'HRR (W/g)'] + ((reduced_df.index - 150) / (
                         reduced_df.index.max() - 150)) * (reduced_df.loc[reduced_df.index.max(), 'HRR (W/g)'] - reduced_df.loc[150, 'HRR (W/g)'])
-                    reduced_df[col_name] = reduced_df['HRR (W/g)'] - \
+                        reduced_df[col_name] = reduced_df['HRR (W/g)'] - \
                         reduced_df['HRR correction']
 
-                    data_df = pd.concat([data_df, reduced_df], axis=1)
-                    data_array = data_df[col_name].to_numpy()
-                    time_array = data_df[f'Time_copy_{col_name[-1]}'].to_numpy() #col_name[-1] to have the reptition number as -1 (not -R1) to help Regex later
-                    data_array = data_array[~np.isnan(data_array)]
-                    time_array = time_array[~np.isnan(time_array)]
-
-                    hoc_df.at['Heat of Combustion (MJ/kg)', col_name] = (
+                        data_df = pd.concat([data_df, reduced_df], axis=1)
+                        data_array = data_df[col_name].to_numpy()
+                        time_array = data_df[f'Time_copy_{col_name[-1]}'].to_numpy() #col_name[-1] to have the reptition number of the time column as -1 (not -R1) to help Regex later
+                        data_array = data_array[~np.isnan(data_array)]
+                        time_array = time_array[~np.isnan(time_array)]
+                        hoc_df.at['Heat of Combustion (MJ/kg)', col_name] = (
                         integrate.trapz(y=data_array, x=time_array)) / 1000
-                    hoc_df.at['Heat of Combustion (MJ/kg)', 'Mean'] = np.nan
-                    hoc_df.at['Heat of Combustion (MJ/kg)',
+                        hoc_df.at['Heat of Combustion (MJ/kg)', 'Mean'] = np.nan
+                        hoc_df.at['Heat of Combustion (MJ/kg)',
                               'Std. Dev.'] = np.nan
 
-            corrected_data = data_df.filter(regex='R[0-9]')
+            corrected_data = data_df.filter(regex='R[0-9]')  # TESTS WITHOUT Rnumber (ex. R1) are ignored and not used in HRR averaging or HoC determination.
             plot_data_df.loc[:, 'HRR_mean'] = corrected_data.mean(axis=1)
             plot_data_df.loc[:, 'HRR_std'] = corrected_data.std(axis=1)
 
@@ -263,7 +263,6 @@ for d in os.scandir(data_dir):
     else:
         continue
 
-    
     mean_hoc = hoc_df.mean(axis=1)
     std_hoc = hoc_df.std(axis=1)
    
@@ -296,8 +295,8 @@ for d in os.scandir(data_dir):
         f'{data_dir}{material}/MCC/{material}_MCC_Heats_of_Combustion.csv', float_format='%.2f')
 
 
-    # # trouble-shooting by outputting the dataframes
-    # if material == 'Polyester_Felt':
+    # trouble-shooting by outputting the dataframes
+    # if material == 'Particleboard':
     #     data_df.to_csv(
     #     f'{data_dir}{material}/MCC/{material}_MCC_DataDF.csv', float_format='%.2f')
     #     corrected_data.to_csv(

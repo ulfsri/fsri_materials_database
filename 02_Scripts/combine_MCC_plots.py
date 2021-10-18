@@ -1,9 +1,11 @@
 # MCC plots combined into a single PDF
 #   by: Conor McCoy
 # ***************************** Run Notes ***************************** #
+# - FIRST TIME? Install pdfcombine via: pip install pdfcombine          #
+#																		#
 # - Requires that the plots have already been made                      #
 # - Useful for quick evaluation of all results 							#
-# - MATERIAL / FILENAMES ARE SEEN ON BOOKMARKS 	                        #
+# - MATERIAL / FILENAMES ARE SEEN ON BOOKMARKS of output file           #
 #                                                                       #
 # TO DO:                                                                #
 # - Add filenames on plots?												#
