@@ -295,8 +295,8 @@ for d in os.scandir(data_dir):
         f'{data_dir}{material}/MCC/{material}_MCC_Heats_of_Combustion.csv', float_format='%.2f')
 
 
-    # trouble-shooting by outputting the dataframes
-    # if material == 'Particleboard':
+    # # trouble-shooting by outputting the dataframes
+    # if material == 'Polyester_Felt':
     #     data_df.to_csv(
     #     f'{data_dir}{material}/MCC/{material}_MCC_DataDF.csv', float_format='%.2f')
     #     corrected_data.to_csv(
