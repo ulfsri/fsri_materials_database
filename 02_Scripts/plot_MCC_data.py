@@ -204,7 +204,8 @@ for d in os.scandir(data_dir):
                     final_mass = float(fid.readlines()[0].split('/n')[0])
 
                     col_name = f.split('.txt')[0].split('_')[-1]
-                    if "_O" not in col_name: # to ignore outliers (run code only for reptitions)
+                    print(col_name)
+                    if "O" not in col_name: # to ignore outliers (run code only for reptitions)
                         
                         all_col_names.append(col_name) # collect reptition numbers to account for botched tests (ex. R2, R3, R4, if R1 was bad)
                   
