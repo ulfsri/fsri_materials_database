@@ -297,10 +297,10 @@ for d in os.scandir(data_dir):
 
 
    # # trouble-shooting by outputting the dataframes
-    # if material == 'Mineral_Wool_Insulation':
-    #     data_df.to_csv(
-    #     f'{data_dir}{material}/MCC/{material}_MCC_DataDF.csv', float_format='%.2f')
-    #     corrected_data.to_csv(
-    #     f'{data_dir}{material}/MCC/{material}_MCC_CorrectedDataDF.csv', float_format='%.2f')
-    #     plot_data_df.to_csv(
-    #     f'{data_dir}{material}/MCC/{material}_MCC_PlotDataDF.csv', float_format='%.2f')
+   #  if material == 'PineLap_SidingA':
+   #      data_df.to_csv(
+   #      f'{data_dir}{material}/MCC/{material}_MCC_DataDF.csv', float_format='%.2f')
+   #      corrected_data.to_csv(
+   #      f'{data_dir}{material}/MCC/{material}_MCC_CorrectedDataDF.csv', float_format='%.2f')
+   #      plot_data_df.to_csv(
+   #      f'{data_dir}{material}/MCC/{material}_MCC_PlotDataDF.csv', float_format='%.2f')
