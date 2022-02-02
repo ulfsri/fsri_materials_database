@@ -209,7 +209,7 @@ for d in os.scandir(data_dir):
 		continue
 	
 	### CHOOSE MATERIAL ###
-	if material != 'HDPE':
+	if material != 'LDPE':
 		continue
 	#######################
 
@@ -323,12 +323,6 @@ for d in os.scandir(data_dir):
 					y_min = max(ymin, y_min)
 					x_min = max(xmin, x_min)
 					y_max = max(ymax, y_max)
-					# a = np.array([ymax, y_max])
-					# print(data_temp_df['SPR'])
-					# print(a)
-					# print(max(data_temp_df['SPR']))
-					# print(plot_df)
-					# y_max = a[np.isfinite(a)].min()
 					x_max = max(xmax, x_max)
 
 					inc = y_inc_dict[n]
@@ -356,4 +350,5 @@ for d in os.scandir(data_dir):
 	else:
 		continue
 
+	output_df.sort_index(axis=1, inplace=True)
 	output_df.to_csv(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_Data.csv', float_format='%.2f')
