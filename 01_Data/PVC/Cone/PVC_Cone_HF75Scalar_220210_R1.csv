@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,PVC_HF75_1
+OPERATOR,Dow
+MATERIAL,PVC
+ORIENTATION,Horizontal
+HEAT FLUX,75
+SURF AREA,0.009999999776482582
+C FACTOR,0.03936708718538284
+SPEC HOLDER DIFF,303.219970703125
+SPECIMEN MASS,43.5
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,1892
+TIME TO IGN,24.5
+END OF TEST SCAN,1412
+END OF TEST TIME,353
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 98.49 x 98.91 x 3.13 mm
+POST TEST CMT,"Sample shriveled prior to ignition, reducing exposed surface area. Sample expanded in height throughout test, reaching several centemeters above calibrated surface height, thereby increasing incident heat flux. Near end of test sample fell on its side."
