@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,PC_HF50_3
+OPERATOR,Dow
+MATERIAL,Polycarbonate
+ORIENTATION,Horizontal
+HEAT FLUX,50
+SURF AREA,0.009999999776482582
+C FACTOR,0.03936708718538284
+SPEC HOLDER DIFF,302.04998779296875
+SPECIMEN MASS,64.19999694824219
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,3955
+TIME TO IGN,148.25
+END OF TEST SCAN,3475
+END OF TEST TIME,868.75
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 98.38 x 98.85 x 5.40 mm
+POST TEST CMT,"Bubble formed prior to ignition. Ignition occurred when gases released from bubble. Sample expanded vertically after ignition, affecting incident heat flux. Likely extended test duration by maintaining combustion at elevated areas. See post test pictures."

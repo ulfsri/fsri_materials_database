@@ -209,8 +209,8 @@ for d in os.scandir(data_dir):
 		continue
 	
 	### CHOOSE MATERIAL ###
-	if material != 'LDPE':
-		continue
+	# if material != 'PETG':
+	# 	continue
 	#######################
 
 	plot_data_df = pd.DataFrame()
@@ -327,7 +327,7 @@ for d in os.scandir(data_dir):
 
 					inc = y_inc_dict[n]
 
-					if equal_scales or np.isinf(y_max) or np.isinf(y_min):
+					if equal_scales or np.isinf(y_min) or y_max > 10*y_max_dict[n]:
 						ylims[0] = 0
 						ylims[1] = y_max_dict[n]
 						xlims[0] = 0
