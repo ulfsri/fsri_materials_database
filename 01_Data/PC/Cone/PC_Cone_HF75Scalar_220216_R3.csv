@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,PC_HF75_3
+OPERATOR,Dow
+MATERIAL,Polycarbonate
+ORIENTATION,Horizontal
+HEAT FLUX,75
+SURF AREA,0.009999999776482582
+C FACTOR,0.03936708718538284
+SPEC HOLDER DIFF,301.1300048828125
+SPECIMEN MASS,64.9000015258789
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,3076
+TIME TO IGN,52.5
+END OF TEST SCAN,2596
+END OF TEST TIME,649
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 98.88 x 99.05 x 5.40 mm
+POST TEST CMT,"Sample expanded vertically after ignition, affecting incident heat flux. Likely extended test duration by maintaining combustion at elevated areas. See post test pictures. Sample also touched against heating coil, affecting mass data. "
