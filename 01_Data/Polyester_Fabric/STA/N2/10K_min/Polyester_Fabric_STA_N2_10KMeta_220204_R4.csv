@@ -1,0 +1,33 @@
+#EXPORTTYPE,                 DATA ALL                                                  
+#FILE,                       Polyester_Fabric_Verification_STA_N2_10K_220204_R4.ngb-ss3
+#FORMAT,                     NETZSCH5                                                  
+#FTYPE,                      ANSI                                                      
+#IDENTITY,                   Poly_Fab_10K_4                                            
+#DECIMAL,                    POINT                                                     
+#SEPARATOR,                  COMMA                                                     
+#MTYPE,                      TG                                                        
+#INSTRUMENT,                 NETZSCH STA 449F3                                         
+#PROJECT,                    NIJ 2019                                                  
+#DATE/TIME,                  04/02/2022 19
+#CORR. FILE,                                                                           
+#TEMPCAL,                    07-12-2021 13
+#SENSITIVITY,                07-12-2021 13
+#LABORATORY,                 UL FSRI                                                   
+#OPERATOR,                   Mark                                                      
+#REMARK,                     Verification closed pan                                  
+#SAMPLE,                     Poly_Fab_10K_4                                            
+#SAMPLE MASS /mg,            4.09                                                      
+#MATERIAL,                   Polyester_Fabric                                          
+#REFERENCE,                                                                            
+#REFERENCE MASS /mg,         0                                                         
+#TYPE OF CRUCIBLE,           PtRh20 85 µl with lid                                    
+#SAMPLE CRUCIBLE MASS /mg,   0                                                         
+#REFERENCE CRUCIBLE MASS /mg,0                                                         
+#DSC RANGE /µV,              5000                                                      
+#TG RANGE /mg,               35000                                                     
+#TAU-R,                      ---                                                       
+#CORR. CODE,                 000                                                       
+#EXO,                        -1                                                        
+#RANGE,                      50°C/10.0(K/min)/700°C                                    
+#SEGMENT,                    S2/3                                                      
+#SEG. 2,                     50°C/10.0(K/min)/700°C                                    

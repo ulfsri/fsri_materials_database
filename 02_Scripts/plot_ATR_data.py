@@ -27,7 +27,6 @@ import matplotlib.pyplot as plt
 from scipy.signal import savgol_filter
 import git
 
-
 label_size = 20
 tick_size = 18
 line_width = 2
@@ -91,6 +90,7 @@ def format_and_save_plot(xlims, ylims, file_loc):
     ax3.set_xticklabels(empty_labels)
 
     #Get github hash to display on graph
+    # git.refresh(path = 'C:/Users/23501/AppData/Local/Programs/Git/mingw64/bin/')
     repo = git.Repo(search_parent_directories=True)
     sha = repo.head.commit.hexsha
     short_sha = repo.git.rev_parse(sha, short=True)
