@@ -1,0 +1,33 @@
+#EXPORTTYPE,                 DATA ALL                               
+#FILE,                       Black_PMMA_STA_N2_30K_220214_R1.ngb-ss3
+#FORMAT,                     NETZSCH5                               
+#FTYPE,                      ANSI                                   
+#IDENTITY,                   Black_PMMA_30K_1                       
+#DECIMAL,                    POINT                                  
+#SEPARATOR,                  COMMA                                  
+#MTYPE,                      DSC                                    
+#INSTRUMENT,                 NETZSCH STA 449F3                      
+#PROJECT,                    NIJ 2019                               
+#DATE/TIME,                  14/02/2022 11
+#CORR. FILE,                                                        
+#TEMPCAL,                    11-02-2022 06
+#SENSITIVITY,                11-02-2022 06
+#LABORATORY,                 UL FSRI                                
+#OPERATOR,                   Mark                                   
+#REMARK,                                                            
+#SAMPLE,                     Black_PMMA_30K_1                       
+#SAMPLE MASS /mg,            4.06                                   
+#MATERIAL,                   Black PMMA                             
+#REFERENCE,                                                         
+#REFERENCE MASS /mg,         0                                      
+#TYPE OF CRUCIBLE,           PtRh20 85 µl with lid                 
+#SAMPLE CRUCIBLE MASS /mg,   241.20                                 
+#REFERENCE CRUCIBLE MASS /mg,0                                      
+#DSC RANGE /µV,              5000                                   
+#TG RANGE /mg,               35000                                  
+#TAU-R,                      ---                                    
+#CORR. CODE,                 000                                    
+#EXO,                        -1                                     
+#RANGE,                      50°C/30.0(K/min)/550°C                 
+#SEGMENT,                    S2/4                                   
+#SEG. 2,                     50°C/30.0(K/min)/550°C                 
