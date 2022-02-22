@@ -30,8 +30,17 @@ fig_width = 10
 fig_height = 6
 
 def apply_savgol_filter(raw_data):
+
+    window_raw = int((raw_data.count())/40)
+    window = int(np.ceil(window_raw) // 2 * 2 + 1)
+
+    if window < 6:
+        poly_order = 3
+    else:
+        poly_order = 5
+
     raw_data = raw_data.dropna().loc[0:]
-    converted_data = savgol_filter(raw_data,15,3)
+    converted_data = savgol_filter(raw_data,window,poly_order)
     filtered_data = pd.Series(converted_data, index=raw_data.index.values)
     return(filtered_data.loc[0:])
 
@@ -83,7 +92,7 @@ def plot_mean_data(df):
 
         i_str = i.replace('_','/')
 
-        fig.add_trace(go.Scatter(x=np.concatenate([df.index,df.index[::-1]]),y=pd.concat([y_upper,y_lower[::-1]]),
+        fig.add_trace(go.Scatter(x=np.concatenate([y_upper.index,y_lower.index[::-1]]),y=pd.concat([y_upper,y_lower[::-1]]),
             fill='toself',hoveron='points',fillcolor=hr_dict[i],line=dict(color=hr_dict[i]),opacity=0.25,name='2'+ "\u03C3"))
         fig.add_trace(go.Scatter(x=mean_hr_df.index, y=mean_hr_df.iloc[:,0], marker=dict(color=hr_dict[i], size=8),name=i_str))
 
@@ -138,12 +147,24 @@ for d in os.scandir(data_dir):
                     else:
                         # import data for each test
                         print(f)
+
                         data_temp_df = pd.read_csv(f, header = 0)
-                        data_temp_df.rename(columns = {'##Temp./°C':'Temp (C)', 'Time/min':'time (s)'}, inplace = True)
+                        data_temp_df['Temp (C)']  = data_temp_df.filter(regex='Temp', axis='columns')
+                        data_temp_df['time (s)'] = data_temp_df.filter(regex='Time', axis='columns')
+                        data_temp_df['Mass/%'] = data_temp_df.filter(regex='Mass', axis='columns')
+                        data_temp_df['DSC/(mW/mg)'] = data_temp_df.filter(regex='DSC', axis='columns')
+                        
                         data_temp_df['Mass/%'] = data_temp_df['Mass/%']/data_temp_df.loc[0,'Mass/%']
                         data_temp_df['time (s)'] = (data_temp_df['time (s)']-data_temp_df.loc[0,'time (s)'])*60
                         data_temp_df['Normalized MLR (1/s)'] = -data_temp_df['Mass/%'].diff()/data_temp_df['time (s)'].diff()
                         data_temp_df['Normalized MLR (1/s)'] = apply_savgol_filter(data_temp_df['Normalized MLR (1/s)'])
+
+                        # data_temp_df = pd.read_csv(f, header = 0)
+                        # data_temp_df.rename(columns = {'##Temp./°C':'Temp (C)', 'Time/min':'time (s)'}, inplace = True)
+                        # data_temp_df['Mass/%'] = data_temp_df['Mass/%']/data_temp_df.loc[0,'Mass/%']
+                        # data_temp_df['time (s)'] = (data_temp_df['time (s)']-data_temp_df.loc[0,'time (s)'])*60
+                        # data_temp_df['Normalized MLR (1/s)'] = -data_temp_df['Mass/%'].diff()/data_temp_df['time (s)'].diff()
+                        # data_temp_df['Normalized MLR (1/s)'] = apply_savgol_filter(data_temp_df['Normalized MLR (1/s)'])
 
                         col_name = f.split('.csv')[0].split('_')[-1]
 
@@ -186,7 +207,7 @@ for d in os.scandir(data_dir):
     else:
         continue
 
-    # plot_data_df.to_csv(f'{data_dir}{material}/STA/N2/TEST.csv')
+    # plot_data_df.to_csv(f'{data_dir}{material}/STA/N2/TEST_html.csv')
 
     plot_dir = f'../03_Charts/{material}/STA/N2/'
 
