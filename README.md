@@ -51,4 +51,13 @@ chmod +x run_all_data.sh OR chmod +x run_all_data_html.sh
 pip install GitPython
 ```
 
+## 03_Charts
+This directory and resulting material sub directories get generated upon executing of the plotting scripts. The sub directories are broken down by material and further by test apparatus. The Charts directory is included in the .gitignore file for the repository since all the contents can be produced using the included python scripts.
+
+## 04_Pictures
+This directory includes representative photographs of the materials that comprise this database.
+
+## 05_Computed
+Derived material properties require the use of models to interpret the raw data acquired from the test apparatus. This directory and resulting material sub directories is generated upon execution of the processing scripts included in the repository and is populated by derived material properties. Similar to the Charts directory, this directory is also included in the .gitignore as the contents are produced by the included python scripts.
+
 
