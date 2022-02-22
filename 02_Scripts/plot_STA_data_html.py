@@ -92,10 +92,10 @@ def plot_mean_data(df):
 
         i_str = i.replace('_','/')
 
-        fig.add_trace(go.Scatter(x=np.concatenate([y_upper.index,y_lower.index[::-1]]),y=pd.concat([y_upper,y_lower[::-1]]),
-            fill='toself',hoveron='points',fillcolor=hr_dict[i],line=dict(color=hr_dict[i]),opacity=0.25,name='2'+ "\u03C3"))
         fig.add_trace(go.Scatter(x=mean_hr_df.index, y=mean_hr_df.iloc[:,0], marker=dict(color=hr_dict[i], size=8),name=i_str))
-
+        fig.add_trace(go.Scatter(x=y_lower.index,y=y_lower,fill=None, mode='lines', line_color= hr_dict[i], hoveron='points',name='-2'+ "\u03C3"))
+        fig.add_trace(go.Scatter(x=y_upper.index,y=y_upper,
+            fill='tonexty',hoveron='points',line_color=hr_dict[i],mode='lines',opacity=0.25,name='+2'+ "\u03C3"))
     return()
 
 def format_and_save_plot(inc, file_loc):
