@@ -18,5 +18,5 @@ TIME TO IGN,59
 END OF TEST SCAN,2821
 END OF TEST TIME,705.25
 TEST STATUS,1
-PRE TEST CMT,Dimensions: 98.40 x 98.71 x 5.40 mm
+PRE TEST CMT,Dimensions: 98.40 x 98.71 x 5.40 mm; 60 mm spacing
 POST TEST CMT,"Sample expanded vertically after ignition, affecting incident heat flux. Likely extended test duration by maintaining combustion at elevated areas. See post test pictures."
