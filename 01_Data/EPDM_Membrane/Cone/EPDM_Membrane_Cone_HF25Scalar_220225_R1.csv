@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,EPDM_HF25_1
+OPERATOR,Dow
+MATERIAL,EPDM Roofing Membrane
+ORIENTATION,Horizontal
+HEAT FLUX,25
+SURF AREA,0.009999999776482582
+C FACTOR,0.03706778958439827
+SPEC HOLDER DIFF,305.95001220703125
+SPECIMEN MASS,82.30000305175781
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,2684
+TIME TO IGN,108
+END OF TEST SCAN,2204
+END OF TEST TIME,551
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 100.11 x 99.19 x 5.93 mm
+POST TEST CMT,"After ignition the sample warped and expanded significantly. Expanded vertically several centimeters and contacted the cone heater, causing spikes in mass data. Expanded horizontally until charred pieces fell out of the foil pan, mostly caught by lower drip tray where it continued to burn. See test pictures. "
