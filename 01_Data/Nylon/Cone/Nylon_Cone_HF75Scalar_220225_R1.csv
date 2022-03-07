@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Nylon_HF75_1
+OPERATOR,Dow
+MATERIAL,Nylon
+ORIENTATION,Horizontal
+HEAT FLUX,75
+SURF AREA,0.009999999776482582
+C FACTOR,0.03706778958439827
+SPEC HOLDER DIFF,305.0999755859375
+SPECIMEN MASS,36.400001525878906
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,1109
+TIME TO IGN,30
+END OF TEST SCAN,629
+END OF TEST TIME,157.25
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 99.88 x 99.84 x 3.06 mm
+POST TEST CMT,Sample warped prior to ignition and contacted the spark ignitor. Caused spike in mass data and likely shortened time to ignition. Minor spilling of sample out of foil pan after ignition. See test pictures.
