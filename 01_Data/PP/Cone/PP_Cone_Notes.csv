@@ -1,0 +1,13 @@
+,Surface Area (mm^2),Pretest,Posttest
+HF15-noSpark_R1,10000.00,no spark ignitor. end test at MLR less than 2.5 g/m^2/s or 20 min,MLR did not exceed 1.0 g/min
+HF15-noSpark_R2,10000.00,no spark ignitor. end test at 20 min, 
+HF15-noSpark_R3,10000.00,no spark ignitor. end test at 20 min, 
+HF25_R1,9945.93,Dimensions: 100.11 x 99.35 x 3.06 mm, 
+HF25_R2,9916.94,Dimensions: 100.07 x 99.10 x 2.99 mm, 
+HF25_R3,9827.31,Dimensions: 98.47 x 99.80 x 3.06 mm, 
+HF50_R1,9929.01,Dimensions: 99.31 x 99.98 x 3.04 mm, 
+HF50_R2,9835.98,Dimensions: 100.01 x 98.35 x 3.04 mm,some sample dripped from foil pan
+HF50_R3,9839.00,Dimensions: 100.00 x 98.39 x 3.05 mm, 
+HF75_R1,9925.03,Dimensions: 99.95 x 99.30 x 3.05 mm,some sample dripped from foil pan during test and continued burning. see test pictures
+HF75_R2,9936.98,Dimensions: 100.03 x 99.34 x 3.04 mm,"sample dripped from foil pan during test, see test pictures"
+HF75_R3,9914.15,Dimensions: 99.39 x 99.75 x 3.02 mm,sample dripped and burned below foil pan. see test pictures

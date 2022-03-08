@@ -1,0 +1,10 @@
+,Surface Area (mm^2),Pretest,Posttest
+HF25_R1,9707.15,Dimensions: 98.70 x 98.35 x 5.40 mm; 60 mm spacing,no ignition
+HF25_R2,9792.08,Dimensions: 98.85 x 99.06  x 5.40 mm; 60 mm spacing,no ignition
+HF25_R3,9713.08,Dimensions: 98.45 x 98.66 x 5.48 mm; 60 mm spacing,no ignition
+HF50_R1,9788.12,Dimensions: 98.81 x 99.06 x 5.50 mm; 60 mm spacing,"Sample expanded vertically after ignition, affecting incident heat flux. Likely extended test duration by maintaining combustion at elevated areas. See post test pictures."
+HF50_R2,9778.22,Dimensions: 99.03 x 98.74 x 5.47 mm; 60 mm spacing,"Sample expanded vertically after ignition, affecting incident heat flux. Likely extended test duration by maintaining combustion at elevated areas. See post test pictures."
+HF50_R3,9724.86,Dimensions: 98.38 x 98.85 x 5.40 mm; 60 mm spacing,"Bubble formed prior to ignition. Ignition occurred when gases released from bubble. Sample expanded vertically after ignition, affecting incident heat flux. Likely extended test duration by maintaining combustion at elevated areas. See post test pictures."
+HF75_R1,9665.54,Dimensions: 98.86 x 97.77 x 5.45 mm; 60 mm spacing,"Sample expanded vertically after ignition, affecting incident heat flux. Likely extended test duration by maintaining combustion at elevated areas. See post test pictures."
+HF75_R2,9713.06,Dimensions: 98.40 x 98.71 x 5.40 mm; 60 mm spacing,"Sample expanded vertically after ignition, affecting incident heat flux. Likely extended test duration by maintaining combustion at elevated areas. See post test pictures."
+HF75_R3,9794.06,Dimensions: 98.88 x 99.05 x 5.40 mm; 60 mm spacing,"Sample expanded vertically after ignition, affecting incident heat flux. Likely extended test duration by maintaining combustion at elevated areas. See post test pictures. Sample also touched against heating coil, affecting mass data. "

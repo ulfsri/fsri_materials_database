@@ -34,6 +34,7 @@ y_max_dict = {'HRRPUA':500, 'MLR':1, 'SPR':5, 'SEA':1000, 'Extinction Coefficien
 y_inc_dict = {'HRRPUA':100, 'MLR':0.2, 'SPR':1, 'SEA':200, 'Extinction Coefficient':0.5, 'EHC':10}
 
 output_df = pd.DataFrame()
+notes_df = pd.DataFrame()
 
 equal_scales = False
 
@@ -102,7 +103,7 @@ def create_1plot_fig():
 
 def plot_data(df, rep):
 
-	rep_dict = {'R1': 'k', 'R2': 'b', 'R3': 'r', 'R4': 'g'}
+	rep_dict = {'R1': 'k', 'R2': 'b', 'R3': 'r', 'R4': 'g', 'R5': 'm', 'R6': 'c'}
 
 	ax1.plot(df.index, df.iloc[:,0], color=rep_dict[rep], ls='-', marker=None, label = rep)
 
@@ -209,7 +210,7 @@ for d in os.scandir(data_dir):
 		continue
 	
 	### CHOOSE MATERIAL ###
-	# if material != 'PETG':
+	# if material != 'PVC':
 	# 	continue
 	#######################
 
@@ -221,7 +222,7 @@ for d in os.scandir(data_dir):
 			reduced_df = pd.DataFrame()
 			for f in glob.iglob(f'{d.path}/Cone/*.csv'):
 			# for f in os.scandir(f'{d.path}/Cone/'):
-				if 'scalar' in f.lower() or 'cone_analysis_data' in f.lower():
+				if 'scalar' in f.lower() or 'cone_analysis_data' in f.lower() or 'cone_notes' in f.lower():
 					continue
 				else:
 					label_list = f.split('.csv')[0].split('_')
@@ -230,6 +231,39 @@ for d in os.scandir(data_dir):
 
 					scalar_data_fid = f.replace('Scan','Scalar')
 					scalar_data_series = pd.read_csv(scalar_data_fid, index_col = 0, squeeze='True')
+
+					# Test Notes # 
+					try:
+						pretest_notes = scalar_data_series.at['PRE TEST CMT']
+					except:
+						pretest_notes = ' '
+					surf_area_mm2 = 10000
+					dims = 'not specified'
+					frame = False
+					for notes in pretest_notes.split(';'):
+						if 'Dimensions' in notes:
+							dims = []
+							for i in notes.split(' '):
+								try: 
+									dims.append(float(i))
+								except: continue
+							surf_area_mm2 = dims[0] * dims[1]
+						elif 'frame' in notes:
+							frame = True
+					if frame or '-Frame' in f:
+							surf_area_mm2 = 8836
+
+					surf_area_m2 = surf_area_mm2 / 1000000.0
+
+					# notes_df.at[label, 'Dimensions (mm)'] = str(dims)
+					notes_df.at[label, 'Surface Area (mm^2)'] = surf_area_mm2
+
+					notes_df.at[label, 'Pretest'] = pretest_notes
+					try:
+						notes_df.at[label, 'Posttest'] = scalar_data_series.at['POST TEST CMT']
+					except:
+						notes_df.at[label, 'Posttest'] = ' '
+					
 
 					c_factor = float(scalar_data_series.at['C FACTOR'])
 
@@ -245,7 +279,7 @@ for d in os.scandir(data_dir):
 					data_temp_df.loc[:,'ODF_ext'] = (data_temp_df.at['Baseline', 'O2 Meter']*(1-data_temp_df.loc[:, 'CO2 Meter'] - data_temp_df.loc[:, 'CO Meter']) - data_temp_df.loc[:, 'O2 Meter']*(1-data_temp_df.at['Baseline', 'CO2 Meter']))/(data_temp_df.at['Baseline', 'O2 Meter']*(1-data_temp_df.loc[:, 'CO2 Meter']-data_temp_df.loc[:, 'CO Meter']-data_temp_df.loc[:, 'O2 Meter'])) # Oxygen Depletion Factor with O2, CO, and CO2
 					data_temp_df.loc[:,'HRR'] = 1.10*(e)*data_temp_df.loc[:,'EDF']*data_temp_df.loc[:,'ODF']
 					data_temp_df.loc[:,'HRR_ext'] = 1.10*(e)*data_temp_df.loc[:,'EDF']*data_temp_df.at['Baseline', 'O2 Meter']*((data_temp_df.loc[:,'ODF_ext']-0.172*(1-data_temp_df.loc[:,'ODF'])*(data_temp_df.loc[:, 'CO2 Meter']/data_temp_df.loc[:, 'O2 Meter']))/((1-data_temp_df.loc[:,'ODF'])+1.105*data_temp_df.loc[:,'ODF']))
-					data_temp_df.loc[:,'HRRPUA'] = data_temp_df.loc[:,'HRR']/float(scalar_data_series.at['SURF AREA'])
+					data_temp_df.loc[:,'HRRPUA'] = data_temp_df.loc[:,'HRR']/surf_area_m2
 					data_temp_df['THR'] = 0.25*data_temp_df['HRRPUA'].cumsum()/1000
 					data_temp_df['MLR_grad'] = -np.gradient(data_temp_df['Sample Mass'], 0.25)
 					data_temp_df['MLR'] = apply_savgol_filter(data_temp_df['MLR_grad'])
@@ -265,7 +299,7 @@ for d in os.scandir(data_dir):
 
 					data_temp_df['EHC'] = data_temp_df['HRR']/data_temp_df['MLR'] # kW/(g/s) -> MJ/kg
 					data_temp_df['Extinction Coefficient'] = data_temp_df['Ext Coeff'] - data_temp_df.at['Baseline','Ext Coeff']
-					data_temp_df['SPR'] = (data_temp_df.loc[:,'Extinction Coefficient'] * data_temp_df.loc[:,'Volumetric Flow'])/float(scalar_data_series.at['SURF AREA'])
+					data_temp_df['SPR'] = (data_temp_df.loc[:,'Extinction Coefficient'] * data_temp_df.loc[:,'Volumetric Flow'])/surf_area_m2
 					data_temp_df['SPR'][data_temp_df['SPR'] < 0] = 0
 					data_temp_df['SEA'] = (1000*data_temp_df.loc[:,'Volumetric Flow']*data_temp_df.loc[:,'Extinction Coefficient'])/data_temp_df['MLR']
 					# data_temp_df['SEA'][np.isinf(data_temp_df['SEA'])] = np.nan
@@ -299,7 +333,7 @@ for d in os.scandir(data_dir):
 					output_df.at['Total Heat Released (MJ/m2)', label] = data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'THR']
 					total_mass_lost = data_temp_df.at['1','Sample Mass'] - data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'Sample Mass']
 					holder_mass = data_temp_df.at['1','Sample Mass'] - float(scalar_data_series.at['SPECIMEN MASS'])
-					output_df.at['Avg. Effective Heat of Combustion (MJ/kg)', label] = ((data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'THR'])*float(scalar_data_series.at['SURF AREA']))/(total_mass_lost/1000)
+					output_df.at['Avg. Effective Heat of Combustion (MJ/kg)', label] = ((data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'THR'])*surf_area_m2)/(total_mass_lost/1000)
 					output_df.at['Initial Mass (g)', label] = scalar_data_series.at['SPECIMEN MASS']
 					output_df.at['Final Mass (g)', label] = data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'Sample Mass'] - holder_mass
 					output_df.at['Mass at Ignition (g)', label] = data_temp_df.at[ign_index,'Sample Mass'] - holder_mass
@@ -307,7 +341,8 @@ for d in os.scandir(data_dir):
 					t10 = data_temp_df['Sample Mass'].sub(data_temp_df.at['1','Sample Mass'] - 0.1*total_mass_lost).abs().idxmin()
 					t90 = data_temp_df['Sample Mass'].sub(data_temp_df.at['1','Sample Mass'] - 0.9*total_mass_lost).abs().idxmin()
 
-					output_df.at['Avg. Mass Loss Rate [10% to 90%] (g/m2s)', label] = np.mean(data_temp_df.loc[t10:t90,'MLR']/float(scalar_data_series.at['SURF AREA']))                    
+					output_df.at['Avg. Mass Loss Rate [10% to 90%] (g/m2s)', label] = np.mean(data_temp_df.loc[t10:t90,'MLR']/surf_area_m2)                    
+
 					
 			for n in quant_list:
 				for m in hf_list:
@@ -352,3 +387,6 @@ for d in os.scandir(data_dir):
 
 	output_df.sort_index(axis=1, inplace=True)
 	output_df.to_csv(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_Data.csv', float_format='%.2f')
+
+	notes_df.sort_index(axis=0, inplace=True)
+	notes_df.to_csv(f'{data_dir}{material}/Cone/{material}_Cone_Notes.csv', float_format='%.2f')
