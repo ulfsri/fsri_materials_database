@@ -1,0 +1,30 @@
+,Surface Area (mm^2),Pretest,Posttest
+HF15-noSpark_R1,10000.00,no spark ignitor. end test at MLR less than 2.5 g/m^2/s or 20 min,MLR did not exceed 1.0 g/min
+HF15-noSpark_R2,10000.00,no spark ignitor. end test at 20 min, 
+HF15-noSpark_R3,10000.00,no spark ignitor. end test at 20 min, 
+HF25-Frame+Grid_R1,8836.00, , 
+HF25-Frame+Grid_R2,8836.00, , 
+HF25-Frame+Grid_R3,8836.00,Dimensions: 100.10 x 99.83 x 5.94 mm, 
+HF25-Frame_R2,8836.00,Dimensions: 99.61 x 99.77 x 5.94 mm,After ignition the sample expanded vertically several centimeters above starting surface height. See test pictures. 
+HF25_R1,9531.14,Dimensions: 96.94 x 98.32 x 6.71 mm,sample expanded prior to ignition and contacted the spark ignitor. The spark ignitor remained in position for the duration of the test. Mass data was affected.
+HF25_R2,10000.00,Dimension: 98.97 x 96.94 x 6.64 mm,"sample expanded and warped prior to ignition, and came into contact with spark igntior. Caused spikkes in mass data and faster time to ignition. Sample continued to warp and expand throughout test."
+HF25_R3,9814.86,Dimensions: 99.16 x 98.98 x 6.58 mm, 
+HF25_R4,10298.19,Dimensions: 101.48 x 101.48 x 6.80 mm; 60 mm spacing,Minor sampling dripping from foil pan prior to ignition. Sample expanded vertically after ignition. See test pictures.
+HF25_R5,10307.32,Dimensions: 101.60 x 101.45 x 6.70 mm; 60 mm spacing,Sample expanded vertically after ignition. See post test pictures.
+HF25_R6,10333.63,Dimensions: 101.99 x 101.32 x 3.11 mm; 60 mm spacing,"Sample warped and shriveled prior to ignition, then melted into a pool fire after ignition. No dripping from foil pan."
+HF35-Frame+Grid_R1,8836.00, , 
+HF35-Frame+Grid_R2,8836.00, , 
+HF35-Frame+Grid_R3,8836.00, , 
+HF50-Frame+Grid_R1,8836.00,Dimensions: 100.44 x 99.57 x 6.06 mm; with frame and grid, 
+HF50-Frame+Grid_R2,8836.00,Dimensions: 99.50 x 100.27 x 6.05 mm; with frame and grid, 
+HF50-Frame+Grid_R3,8836.00,Dimensions: 100.26 x 99.94 x 6.02 mm; with frame and grid, 
+HF50_R1,9748.59,Dimensions: 98.85 x 98.62 x 6.63 mm,"Sample dripped from foil pan during test, see test pictures"
+HF50_R2,9717.94,Dimensions: 98.31 x 98.85 x 6.75 mm,"sample warped and dripped from foil pan during test, see test pictures"
+HF50_R3,9753.45,Dimensions: 99.05 x 98.47 x 6.60 mm,"Sample dripped and warped during test, see test pictures"
+HF50_R4,10313.42,Dimensions: 101.52 x 101.59 x 2.97 mm; 60 mm spacing,"Some sample dripped from foil pan during test, and continued burning from lower drip tray. Less so than in previous replicates. See test pictures. "
+HF75-Frame+Grid_R1,8836.00,Dimensions: 100.8 x 99.90 x 5.88 mm; with frame and grid, 
+HF75-Frame+Grid_R2,8836.00,Dimensions: 100.09 x 100.78 x 5.98 mm; with frame and grid, 
+HF75-Frame+Grid_R3,8836.00,Dimensions: 100.47 x 100.15 x 5.94 mm; with frame and grid, 
+HF75_R1,9714.72,Dimensions: 99.15 x 97.98 x 6.62 mm, 
+HF75_R2,9449.54,Dimensions: 96.11 x 98.32 x 6.65 mm, 
+HF75_R3,9665.37,Dimensions: 97.63 x 99.0 x 6.71 mm,"Sample dripped in foil pan, see test pictures"

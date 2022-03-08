@@ -18,5 +18,5 @@ TIME TO IGN,191
 END OF TEST SCAN,2178
 END OF TEST TIME,544.5
 TEST STATUS,1
-PRE TEST CMT,Dimensions:101.99 x 101.32 x 3.11 mm; 60 mm spacing
+PRE TEST CMT,Dimensions: 101.99 x 101.32 x 3.11 mm; 60 mm spacing
 POST TEST CMT,"Sample warped and shriveled prior to ignition, then melted into a pool fire after ignition. No dripping from foil pan."
