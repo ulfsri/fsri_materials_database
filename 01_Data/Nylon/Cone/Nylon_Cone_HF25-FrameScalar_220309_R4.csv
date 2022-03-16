@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Nylon_HF25_220309_1
+OPERATOR,Dow
+MATERIAL,Nylon
+ORIENTATION,Horizontal
+HEAT FLUX,25
+SURF AREA,0.00884
+C FACTOR,0.03748675435781479
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,36.70000076293945
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,5642
+TIME TO IGN,468
+END OF TEST SCAN,5162
+END OF TEST TIME,1290.5
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 10088 x 100.67 x 3.11 mm; with frame; 60 mm spacing
+POST TEST CMT,"Sample formed a bubble prior to ignition. Ignition occurred when the bubble contacted the spark ignitor, therefore time to ignition data should be ignored. Also possible for spike in mass data prior to ignition."

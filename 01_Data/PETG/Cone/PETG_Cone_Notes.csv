@@ -1,25 +1,10 @@
 ,Surface Area (mm^2),Pretest,Posttest
-HF15-noSpark_R1,10000.00,no spark ignitor. end test at MLR less than 2.5 g/m^2/s or 20 min,MLR did not exceed 1.0 g/min
-HF15-noSpark_R2,10000.00,no spark ignitor. end test at 20 min, 
-HF15-noSpark_R3,10000.00,no spark ignitor. end test at 20 min, 
-HF25-Frame+Grid_R1,8836.00, , 
-HF25-Frame+Grid_R2,8836.00, , 
-HF25-Frame+Grid_R3,8836.00, , 
 HF25_R1,9834.69,Dimensions: 99.19 x 99.15 x 2.64 mm,Sample warped near the end of the test with corners rising up.
 HF25_R2,9801.97,Dimensions: 99.13 x 98.88 x 2.62 mm,Sample warped near the end of the test with corners rising up.
 HF25_R3,9827.73,Dimensions: 99.25 x 99.02 x 2.58 mm,Sample warped near the end of the test with corners rising up.
-HF35-Frame+Grid_R1,8836.00, , 
-HF35-Frame+Grid_R2,8836.00, , 
-HF35-Frame+Grid_R3,8836.00, , 
-HF50-Frame+Grid_R1,8836.00, , 
-HF50-Frame+Grid_R2,8836.00, , 
-HF50-Frame+Grid_R3,8836.00, , 
 HF50_R1,9782.09,Dimensions: 98.57 x 99.24 x 2.61 mm,Sample warped during test with corners lifting up.
 HF50_R2,9794.06,Dimensions: 98.86 x 99.07 x 2.59 mm,Sample warped near the end of the test with corners rising up.
 HF50_R3,9888.19,Dimensions: 99.09 x 99.79 x 2.60 mm,Sample warped near the end of the test with corners rising up.
-HF75-Frame+Grid_R1,8836.00, , 
-HF75-Frame+Grid_R2,8836.00, , 
-HF75-Frame+Grid_R3,8836.00, , 
 HF75_R1,9834.69,Dimensions: 99.18 x 99.16 x 2.66 mm, 
 HF75_R2,9826.75,Dimensions: 99.04 x 99.22 x 2.64 mm, 
 HF75_R3,9787.13,Dimensions: 99.03 x 98.83 x 2.63 mm, 

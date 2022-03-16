@@ -1,7 +1,4 @@
 ,Surface Area (mm^2),Pretest,Posttest
-HF15-noSpark_R1,10000.00,no spark ignitor. end test at MLR less than 2.5 g/m^2/s or 20 min,MLR did not exceed 1.0 g/min
-HF15-noSpark_R2,10000.00,no spark ignitor. end test at 20 min, 
-HF15-noSpark_R3,10000.00,no spark ignitor. end test at 20 min, 
 HF25_R1,9945.93,Dimensions: 100.11 x 99.35 x 3.06 mm, 
 HF25_R2,9916.94,Dimensions: 100.07 x 99.10 x 2.99 mm, 
 HF25_R3,9827.31,Dimensions: 98.47 x 99.80 x 3.06 mm, 
