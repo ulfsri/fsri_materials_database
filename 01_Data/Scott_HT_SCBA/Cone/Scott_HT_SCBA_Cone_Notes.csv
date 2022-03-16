@@ -1,32 +1,4 @@
 ,Surface Area (mm^2),Pretest,Posttest
 HF100-Frame_R1,8836.00, ,Sample removed 10 seconds after ignition
-HF15-noSpark_R1,10000.00,no spark ignitor. end test at MLR less than 2.5 g/m^2/s or 20 min,MLR did not exceed 1.0 g/min
-HF15-noSpark_R2,10000.00,no spark ignitor. end test at 20 min, 
-HF15-noSpark_R3,10000.00,no spark ignitor. end test at 20 min, 
-HF25-Frame+Grid_R1,8836.00, , 
-HF25-Frame+Grid_R2,8836.00, , 
-HF25-Frame+Grid_R3,8836.00,Dimensions: 100.10 x 99.83 x 5.94 mm, 
-HF25-Frame_R2,8836.00,Dimensions: 99.61 x 99.77 x 5.94 mm,After ignition the sample expanded vertically several centimeters above starting surface height. See test pictures. 
-HF25_R1,10256.49,Dimensions: 101.65 x 100.90 x 3.09 mm; 60 mm spacing, Self extinguished after full surface burning. Unburned sample remained.
-HF25_R2,10224.02,Dimensions: 100.64 x 101.59 x 3.05 mm; 60 mm spacing,"Sample self extinguished at approximately 6:20 with unburned material remaining. Spark ignitor was reinserted, but sample did not reignite after another 6 minutes."
-HF25_R3,9814.85,Dimensions: 98.97 x 99.17 x 3.14 mm; 60 mm spacing,Sample self extinguished at approximately 6 minutes with unburned material remaining.
-HF25_R4,10298.19,Dimensions: 101.48 x 101.48 x 6.80 mm; 60 mm spacing,Minor sampling dripping from foil pan prior to ignition. Sample expanded vertically after ignition. See test pictures.
-HF25_R5,10307.32,Dimensions: 101.60 x 101.45 x 6.70 mm; 60 mm spacing,Sample expanded vertically after ignition. See post test pictures.
-HF25_R6,10333.63,Dimensions: 101.99 x 101.32 x 3.11 mm; 60 mm spacing,"Sample warped and shriveled prior to ignition, then melted into a pool fire after ignition. No dripping from foil pan."
-HF35-Frame+Grid_R1,8836.00, , 
-HF35-Frame+Grid_R2,8836.00, , 
-HF35-Frame+Grid_R3,8836.00, , 
-HF50-Frame+Grid_R1,8836.00,Dimensions: 100.44 x 99.57 x 6.06 mm; with frame and grid, 
-HF50-Frame+Grid_R2,8836.00,Dimensions: 99.50 x 100.27 x 6.05 mm; with frame and grid, 
-HF50-Frame+Grid_R3,8836.00,Dimensions: 100.26 x 99.94 x 6.02 mm; with frame and grid, 
 HF50-Frame_R1,8836.00, ,Sample removed 10 seconds after ignition.
-HF50_R1,10174.41,Dimensions: 101.46 x 100.28 x 3.10 mm; 60 mm spacing,"After ignition, sample expanded in height and shrunk in length and width. See post test pictures."
-HF50_R2,9801.98,Dimensions: 99.10 x 98.91 x 3.12 mm; 60 mm spacing,"Sample shriveled prior to ignition, reducing exposed surface area. Sample expanded in height throughout test, reaching several centemeters above calibrated surface height, thereby increasing incident heat flux."
-HF50_R3,9756.40,Dimensions: 98.45 x 99.10 x 3.14 mm; 60 mm spacing,"Sample shriveled prior to ignition, reducing exposed surface area. Sample expanded in height throughout test, reaching several centemeters above calibrated surface height, thereby increasing incident heat flux. Near end of test sample fell on its side."
-HF50_R4,10313.42,Dimensions: 101.52 x 101.59 x 2.97 mm; 60 mm spacing,"Some sample dripped from foil pan during test, and continued burning from lower drip tray. Less so than in previous replicates. See test pictures. "
 HF75-Frame+Grid_R1,8836.00, ,removed and extinguished sample 10 seconds after ignition. Pressed end test button shortly after. 
-HF75-Frame+Grid_R2,8836.00,Dimensions: 100.09 x 100.78 x 5.98 mm; with frame and grid, 
-HF75-Frame+Grid_R3,8836.00,Dimensions: 100.47 x 100.15 x 5.94 mm; with frame and grid, 
-HF75_R1,9741.65,Dimensions: 98.49 x 98.91 x 3.13 mm; 60 mm spacing,"Sample shriveled prior to ignition, reducing exposed surface area. Sample expanded in height throughout test, reaching several centemeters above calibrated surface height, thereby increasing incident heat flux. Near end of test sample fell on its side."
-HF75_R2,9768.36,Dimensions: 98.88 x 98.79 x 3.12 mm; 60 mm spacing,"Sample shriveled prior to ignition, reducing exposed surface area. Sample expanded in height throughout test, reaching several centemeters above calibrated surface height, thereby increasing incident heat flux. Sample fell on its side mid test after becoming unbalanced due to height expansion."
-HF75_R3,9776.25,Dimensions: 98.99 x 98.76 x 3.12 mm; 60 mm spacing,"Sample expanded in height throughout test, reaching several centemeters above calibrated surface height, thereby increasing incident heat flux. "

@@ -33,9 +33,6 @@ quant_list = ['HRRPUA', 'MLR', 'SPR', 'SEA', 'Extinction Coefficient', 'EHC']
 y_max_dict = {'HRRPUA':500, 'MLR':1, 'SPR':5, 'SEA':1000, 'Extinction Coefficient':2, 'EHC':50}
 y_inc_dict = {'HRRPUA':100, 'MLR':0.2, 'SPR':1, 'SEA':200, 'Extinction Coefficient':0.5, 'EHC':10}
 
-output_df = pd.DataFrame()
-notes_df = pd.DataFrame()
-
 equal_scales = False
 
 label_size = 20
@@ -210,11 +207,13 @@ for d in os.scandir(data_dir):
 		continue
 	
 	### CHOOSE MATERIAL ###
-	# if material != 'PVC':
-	# 	continue
+	if material != 'EPDM_Membrane':
+		continue
 	#######################
 
 	plot_data_df = pd.DataFrame()
+	output_df = pd.DataFrame()
+	notes_df = pd.DataFrame()
 	print(f'{material} Cone')
 	if d.is_dir():
 		if os.path.isdir(f'{d.path}/Cone/'):

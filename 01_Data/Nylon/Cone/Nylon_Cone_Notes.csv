@@ -1,32 +1,11 @@
 ,Surface Area (mm^2),Pretest,Posttest
-HF100-Frame_R1,8836.00, ,Sample removed 10 seconds after ignition
-HF15-noSpark_R1,10000.00,no spark ignitor. end test at MLR less than 2.5 g/m^2/s or 20 min,MLR did not exceed 1.0 g/min
-HF15-noSpark_R2,10000.00,no spark ignitor. end test at 20 min, 
-HF15-noSpark_R3,10000.00,no spark ignitor. end test at 20 min, 
-HF25-Frame+Grid_R1,8836.00, , 
-HF25-Frame+Grid_R2,8836.00, , 
-HF25-Frame+Grid_R3,8836.00,Dimensions: 100.10 x 99.83 x 5.94 mm, 
-HF25-Frame_R2,8836.00,Dimensions: 99.61 x 99.77 x 5.94 mm,After ignition the sample expanded vertically several centimeters above starting surface height. See test pictures. 
+HF25-Frame_R4,8836.00,Dimensions: 10088 x 100.67 x 3.11 mm; with frame; 60 mm spacing,"Sample formed a bubble prior to ignition. Ignition occurred when the bubble contacted the spark ignitor, therefore time to ignition data should be ignored. Also possible for spike in mass data prior to ignition."
 HF25_R1,9949.03,Dimensions: 99.93 x 99.56 x 3.12 mm; 60 mm spacing,Sample did not ignite. Expanded vertically. See post test pictures. 
 HF25_R2,9940.07,Dimensions: 99.55 x 99.85 x 3.08 mm; 60 mm spacing,"Prior to ignition, the sample expanded vertically and a single large bubble formed. A small hole opened in the bubble which produced a candle-sized flame. The time to ignition event was recorded when the flame began spreading across the surface of the sample. "
 HF25_R3,9985.01,Dimensions: 99.95 x 99.90 x 3.10 mm; 60 mm spacing,"Prior to ignition, the sample expanded vertically and a single large bubble formed. Top of the bubble touched the spark ignitor which immediately created a small hole releasing a candle-sized flame. This flame remained steady for approximately one minute with occassonal bursts as gases released from the bubble. The time to ignition event was recorded when the flame began spreading across the surface of the sample. "
-HF25_R4,10298.19,Dimensions: 101.48 x 101.48 x 6.80 mm; 60 mm spacing,Minor sampling dripping from foil pan prior to ignition. Sample expanded vertically after ignition. See test pictures.
-HF25_R5,10307.32,Dimensions: 101.60 x 101.45 x 6.70 mm; 60 mm spacing,Sample expanded vertically after ignition. See post test pictures.
-HF25_R6,10333.63,Dimensions: 101.99 x 101.32 x 3.11 mm; 60 mm spacing,"Sample warped and shriveled prior to ignition, then melted into a pool fire after ignition. No dripping from foil pan."
-HF35-Frame+Grid_R1,8836.00, , 
-HF35-Frame+Grid_R2,8836.00, , 
-HF35-Frame+Grid_R3,8836.00, , 
-HF50-Frame+Grid_R1,8836.00, , 
-HF50-Frame+Grid_R2,8836.00,Dimensions: 99.50 x 100.27 x 6.05 mm; with frame and grid, 
-HF50-Frame+Grid_R3,8836.00,Dimensions: 100.26 x 99.94 x 6.02 mm; with frame and grid, 
-HF50-Frame_R1,8836.00, ,Sample removed about 13 seconds after igntion
 HF50_R1,9935.09,Dimensions: 99.55 x 99.80 x 3.00 mm; 60 mm spacing ,Minor spilled out of foil pan into lower drip tray.
 HF50_R2,9976.01,Dimensions: 99.89 x 99.87 x 2.99 mm; 60 mm spacing,Minor spill out of foil pan into lower drip tray.
 HF50_R3,9916.17,Dimensions: 99.52 x 99.64 x 3.00 mm; 60 mm spacing, 
-HF50_R4,10313.42,Dimensions: 101.52 x 101.59 x 2.97 mm; 60 mm spacing,"Some sample dripped from foil pan during test, and continued burning from lower drip tray. Less so than in previous replicates. See test pictures. "
-HF75-Frame+Grid_R1,8836.00, ,Sample was removed 10s after ignition and test was ended.
-HF75-Frame+Grid_R2,8836.00,Dimensions: 100.09 x 100.78 x 5.98 mm; with frame and grid, 
-HF75-Frame+Grid_R3,8836.00,Dimensions: 100.47 x 100.15 x 5.94 mm; with frame and grid, 
 HF75_R1,9972.02,Dimensions: 99.88 x 99.84 x 3.06 mm,Sample warped prior to ignition and contacted the spark ignitor. Caused spike in mass data and likely shortened time to ignition. Minor spilling of sample out of foil pan after ignition. See test pictures.
 HF75_R2,9941.06,Dimensions: 99.53 x 99.88 x 3.11 mm; 60 mm spacing, 
 HF75_R3,9974.01,Dimensions: 99.81 x 99.93 x 3.11 mm; 60 mm spacing,Minor spilling of sample out of foil pan after ignition. See post test pictures.
