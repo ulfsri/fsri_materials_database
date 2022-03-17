@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,PE_FPI_HF25_2
+OPERATOR,Dow
+MATERIAL,PE Foam Pipe Insulation
+ORIENTATION,Horizontal
+HEAT FLUX,25
+SURF AREA,0.009999999776482582
+C FACTOR,0.039002254605293274
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,4.940000057220459
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,996
+TIME TO IGN,36
+END OF TEST SCAN,516
+END OF TEST TIME,129
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 100.65 x 100.36 x 11.55 mm
+POST TEST CMT,"Prior to ignition, sample corners rose and curled towards the center. The sample impacted the spark ignitor, causing a spike in mass data. After ignition, the sample melted and spread out, with flames filling the entire foil pan. "

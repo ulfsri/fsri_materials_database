@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,EPDM_HF75_4
+OPERATOR,Dow
+MATERIAL,EPDM Membrane
+ORIENTATION,Horizontal
+HEAT FLUX,75
+SURF AREA,0.00884
+C FACTOR,0.03914763405919075
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,81.4000015258789
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,3054
+TIME TO IGN,8
+END OF TEST SCAN,2574
+END OF TEST TIME,643.5
+TEST STATUS,1
+PRE TEST CMT,Thickness: 6.04 mm; with frame; primary interest on time to ignition
+POST TEST CMT,After ignition the sample expanded vertically more than two centimeters. Small charred pieces of sample rolled off of the sample holder two or three times. 
