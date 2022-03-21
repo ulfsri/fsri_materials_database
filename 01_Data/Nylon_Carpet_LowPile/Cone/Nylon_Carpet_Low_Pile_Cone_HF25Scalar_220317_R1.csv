@@ -1,0 +1,23 @@
+LABORATORY,FSRI 
+TEST IDENT,NylonCarpetLP_HF25_1
+OPERATOR,Dow
+MATERIAL,Nylon Carpet - low pile
+ORIENTATION,Horizontal
+HEAT FLUX,25
+SURF AREA,0.009999999776482582
+C FACTOR,0.04186420142650604
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,26.260000228881836
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,4176
+TIME TO IGN,625.25
+END OF TEST SCAN,3696
+END OF TEST TIME,924
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 100.31 x 98.98 x 14.52 mm; 60 mm spacing
+POST TEST CMT,"
+At start of heat flux exposure the sample corners lifted and curled towards the center. The sample continued to warp, then relaxed as the material started melting. The sample remained as a partially melted mass with less than half of the original exposed surfaced area. Ignition began as a candle sized flame which slowly spread across the sample surface. The time to ignition event was recorded when flames had spread across the majority of the sample area, more than a minute after the initial ignition. By the time of peak heat release rate, the flames had spread across the entire foil pan area. "

@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,NylonCarpetLP_HF50_2
+OPERATOR,Dow
+MATERIAL,Nylon Carpet - low pile
+ORIENTATION,Horizontal
+HEAT FLUX,50
+SURF AREA,0.009999999776482582
+C FACTOR,0.04186420142650604
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,27.15999984741211
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,1681
+TIME TO IGN,53.25
+END OF TEST SCAN,1201
+END OF TEST TIME,300.25
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 102.44 x 100.49 x 13.72 mm; 60 mm spacing
+POST TEST CMT,"Prior to ignition the sample corners lifted and curled toward the center, then a few seconds later returned to a flat position as the material began melting."
