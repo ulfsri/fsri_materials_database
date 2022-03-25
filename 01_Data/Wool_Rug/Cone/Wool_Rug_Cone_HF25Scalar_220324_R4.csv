@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,WoolRug_HF25_4
+OPERATOR,Dow
+MATERIAL,Wool Rug
+ORIENTATION,Horizontal
+HEAT FLUX,25
+SURF AREA,0.00884
+C FACTOR,0.03922773897647858
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,38.43000030517578
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,4442
+TIME TO IGN,25.25
+END OF TEST SCAN,3962
+END OF TEST TIME,990.5
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 101.85 x 101.43 x 16.53 mm; with frame
+POST TEST CMT,"Ignition across whole surface at once, then reduced to candle sized flame that nearly extinguished. Small flames continued to ignite and extinguish at various locations on the surface. See test pictures."
