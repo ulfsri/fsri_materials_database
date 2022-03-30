@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Roof_Felt_HF50_2
+OPERATOR,Dow
+MATERIAL,Roof Felt Underlayment
+ORIENTATION,Horizontal
+HEAT FLUX,50
+SURF AREA,0.009999999776482582
+C FACTOR,0.03958353400230408
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,7.050000190734863
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,872
+TIME TO IGN,11
+END OF TEST SCAN,392
+END OF TEST TIME,98
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 101.45 x 101.27 x 0.89 mm; with frame; with calcium silicate substrate
+POST TEST CMT,"After ignition an air bubble formed beneath the sample which raised the height of the sample surface. After a few seconds a hole formed in the sample which released the gases in the bubble at high enough velocity to form a horizontal flame that extended beyond the radius of the cone. This lasted less than 5 seconds, then the sample returned to normal burning behavoir. "
