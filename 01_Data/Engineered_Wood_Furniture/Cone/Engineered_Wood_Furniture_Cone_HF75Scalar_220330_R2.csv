@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,EngWoodFurn_HF75_2
+OPERATOR,Dow
+MATERIAL,Engineered Wood Furniture - Wood Veneer on MDF
+ORIENTATION,Horizontal
+HEAT FLUX,75
+SURF AREA,0.009999999776482582
+C FACTOR,0.040247540920972824
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,112.83999633789062
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,3486
+TIME TO IGN,11.75
+END OF TEST SCAN,3006
+END OF TEST TIME,751.5
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 101.02 x 100.56 x 13.76
+POST TEST CMT,At approximately 11:30 the sample began to crack and warp such that large parts of the sample became elevated. This occurred as the flames began to extinguish at the end of the test. This timing is consistent with deformations observed in the previous replicate and at 50 kW/m^2. See test pictures.

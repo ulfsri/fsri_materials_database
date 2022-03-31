@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,EngWoodFurn_HF75_1
+OPERATOR,Dow
+MATERIAL,Engineered Wood Furniture - Wood Veneer on MDF
+ORIENTATION,Horizontal
+HEAT FLUX,75
+SURF AREA,0.009999999776482582
+C FACTOR,0.040247540920972824
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,109.23999786376953
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,4306
+TIME TO IGN,10.25
+END OF TEST SCAN,3826
+END OF TEST TIME,956.5
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 100.32 x 101.03 x 13.69 mm
+POST TEST CMT,Cracks formed near the center of the sample which by end of test became elevated and formed a bridge shape. The foil pan followed the shape of the sample. See test pictures. 
