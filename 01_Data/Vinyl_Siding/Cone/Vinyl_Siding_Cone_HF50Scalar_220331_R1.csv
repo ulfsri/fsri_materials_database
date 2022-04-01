@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Vinyl_Siding_HF50_1
+OPERATOR,Dow
+MATERIAL,Vinyl Siding
+ORIENTATION,Horizontal
+HEAT FLUX,50
+SURF AREA,0.00884
+C FACTOR,0.03971550241112709
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,14.779999732971191
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,1078
+TIME TO IGN,35.5
+END OF TEST SCAN,598
+END OF TEST TIME,149.5
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 102.28 x 100.10 x 1.03 mm; with frame; with calcium silicate substrate
+POST TEST CMT,"Prior to ignition, the sample warped and shrivel with one edge shrinking from the overlap with the frame. The sample impacted the spark ignitor causing a spike in mass data immediately prior to ignition. "
