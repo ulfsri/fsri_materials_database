@@ -297,7 +297,7 @@ for d in os.scandir(data_dir):
 
 
    # # trouble-shooting by outputting the dataframes
-   #  if material == 'Coaxial_Cable' or  material == 'Pipe_Heat_Cable':
+   #  if material == 'Bean_Bag_Chair_Outer_Cover': #'Coaxial_Cable' or  material == 'Pipe_Heat_Cable':
    #      data_df.to_csv(
    #      f'{data_dir}{material}/MCC/{material}_MCC_DataDF.csv', float_format='%.2f')
    #      corrected_data.to_csv(
