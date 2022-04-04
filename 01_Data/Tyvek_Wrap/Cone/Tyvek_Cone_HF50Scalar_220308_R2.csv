@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Tyvek_HF50_2
+OPERATOR,Dow
+MATERIAL,Tyvek
+ORIENTATION,Horizontal
+HEAT FLUX,50
+SURF AREA,0.00884
+C FACTOR,0.039038047194480896
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,0.699999988079071
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,673
+TIME TO IGN,34
+END OF TEST SCAN,193
+END OF TEST TIME,48.25
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 101 x 101 x 0.11; with frame; with calcium silicate substrate
+POST TEST CMT,"The sample immediately shriveled towards the edges upon exposure. Enough mass shriveled towards the same corner to subsesequently ignite, unlike previous replicates where the mass of the sample was too thinly distributed after shriveling to ignite. "

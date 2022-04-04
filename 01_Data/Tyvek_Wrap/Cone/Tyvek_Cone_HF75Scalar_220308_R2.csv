@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Tyvek_HF75_2
+OPERATOR,Dow
+MATERIAL,Tyvek
+ORIENTATION,Horizontal
+HEAT FLUX,75
+SURF AREA,0.00884
+C FACTOR,0.039038047194480896
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,0.6000000238418579
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,858
+TIME TO IGN,10
+END OF TEST SCAN,378
+END OF TEST TIME,94.5
+TEST STATUS,1
+PRE TEST CMT,Thickness: 0.12 mm; with frame; with calcium silicate substrate
+POST TEST CMT,The sample immediately shriveled towards the edges upon exposure. Ignition occurred in two corners of the sample and did not spread further due to a lack of sample mass to sustain flame travel. Some mass dripped down the outside of the frame - see post test pictures. 
