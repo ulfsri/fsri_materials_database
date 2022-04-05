@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Vinyl_Tile_HF25_1
+OPERATOR,Dow
+MATERIAL,Vinyl Tile
+ORIENTATION,Horizontal
+HEAT FLUX,25
+SURF AREA,0.00884
+C FACTOR,0.038662128150463104
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,57.91999816894531
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,1880
+TIME TO IGN,103
+END OF TEST SCAN,1400
+END OF TEST TIME,350
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 101.30 x 101.26 x 2.61 mm; with frame and grid
+POST TEST CMT,Flames extinguished quickly after spark ignitor was removed. The spark ignitor was reinserted and the sample reignited immediately. The spark ignitor remained in place for the duration of the test. 
