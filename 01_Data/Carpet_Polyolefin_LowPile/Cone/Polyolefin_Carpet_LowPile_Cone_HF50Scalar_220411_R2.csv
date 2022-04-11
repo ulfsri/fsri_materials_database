@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,OlefinCarpet_HF50_2
+OPERATOR,Dow
+MATERIAL,Polyolefin carpet - low pile
+ORIENTATION,Horizontal
+HEAT FLUX,50
+SURF AREA,0.00884
+C FACTOR,0.03969724476337433
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,12.65999984741211
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,1625
+TIME TO IGN,11.25
+END OF TEST SCAN,1145
+END OF TEST TIME,286.25
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 100.69 x 95.58 x 6.02 mm; with frame; with calcium silicate substrate
+POST TEST CMT,After ignition the sample shriveled causing one corner to release from overlap with retainer frame. Total burning area was subsequentally less than the area of the frame. See test pictures. 
