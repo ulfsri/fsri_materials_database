@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,OlefinCarpet_HF25_2
+OPERATOR,Dow
+MATERIAL,Polyolefin carpet - low pile
+ORIENTATION,Horizontal
+HEAT FLUX,25
+SURF AREA,0.00884
+C FACTOR,0.03854366019368172
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,14.029999732971191
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,1257
+TIME TO IGN,40.75
+END OF TEST SCAN,777
+END OF TEST TIME,194.25
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 101.62 x 99.31 x 6.21 mm; with frame; with calcium silicate substrate
+POST TEST CMT,Warping prior to ignition freed one edge of the sample from beneath the retainer frame which curled upwards and touched the spark ignitor causing a spike in mass data. See test pictures.
