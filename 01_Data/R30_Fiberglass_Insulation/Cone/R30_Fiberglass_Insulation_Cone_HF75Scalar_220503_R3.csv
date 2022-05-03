@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,R30Insulation_HF75_3
+OPERATOR,Dow
+MATERIAL,R30 Fiberglass Insulation
+ORIENTATION,Horizontal
+HEAT FLUX,75
+SURF AREA,0.009999999776482582
+C FACTOR,0.04175092279911041
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,4.380000114440918
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,2884
+TIME TO IGN,0
+END OF TEST SCAN,2404
+END OF TEST TIME,601
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 100 x 97 x 51 mm
+POST TEST CMT,Within the first minute of exposure the sample shriveled significantly (see post test pictures). No ignition. Test ended after 10 minutes. No mass loss after 10 minutes in replicate R1. 
