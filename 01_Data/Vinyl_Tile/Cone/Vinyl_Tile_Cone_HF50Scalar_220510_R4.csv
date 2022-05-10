@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Vinyl_Tile_HF50_4
+OPERATOR,Dow
+MATERIAL,vinyl tile
+ORIENTATION,Horizontal
+HEAT FLUX,50
+SURF AREA,0.009999999776482582
+C FACTOR,0.041460584849119186
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,52.86000061035156
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,846
+TIME TO IGN,28.75
+END OF TEST SCAN,366
+END OF TEST TIME,91.5
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 100.91 x 101.00 x 2.58 mm; with frame; focus on time to ignition
+POST TEST CMT,Test ended at 90 seconds. Sample surface became elevated after ignition due to expanding gases between the bottom surface of the sample and the foil pan. 
