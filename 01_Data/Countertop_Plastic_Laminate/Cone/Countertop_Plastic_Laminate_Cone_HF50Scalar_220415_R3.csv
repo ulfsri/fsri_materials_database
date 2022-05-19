@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Countertop_HF50_3
+OPERATOR,Dow
+MATERIAL,laminate - particle board countertop
+ORIENTATION,Horizontal
+HEAT FLUX,50
+SURF AREA,0.009999999776482582
+C FACTOR,0.0417814701795578
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,274.07000732421875
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,14886
+TIME TO IGN,21.5
+END OF TEST SCAN,14406
+END OF TEST TIME,3601.5
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 100.34 x 100.56 x 40.04 mm; with frame and grid
+POST TEST CMT,"A few seconds prior to ignition the laminate inflated, then popped violently, possibly affecting mass data. The flames extinguished within 10 seconds of ignition. The spark ignitor was reinserted, and reignition occurred immediately. Throughout this time, the inflation of the laminate pushed the wire grid upwards, approaching and slightly impacting the spark ignitor. Test ended after 60 minutes, per ASTM criteria. "

@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Countertop_HF25_3
+OPERATOR,Dow
+MATERIAL,laminate over particle board countertop
+ORIENTATION,Horizontal
+HEAT FLUX,25
+SURF AREA,0.009999999776482582
+C FACTOR,0.043097011744976044
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,260.3299865722656
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,15025
+TIME TO IGN,672.75
+END OF TEST SCAN,14545
+END OF TEST TIME,3636.25
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 99.67 x 98.23 x 39.58 mm; with frame and grid
+POST TEST CMT,"Prior to ignition the laminate inflated and popped multiple times. The majority of the smoke released from the laminate exited from the sides of the sample then out of the bottom of the retaining frame, not passing the spark ignitor. Test ended after 60 minutes, per ASTM criteria. "

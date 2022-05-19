@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Countertop_HF25_1
+OPERATOR,Dow
+MATERIAL,laminate - particle board countertop
+ORIENTATION,Horizontal
+HEAT FLUX,25
+SURF AREA,0.009999999776482582
+C FACTOR,0.04229031130671501
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,265.6000061035156
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,24698
+TIME TO IGN,313.75
+END OF TEST SCAN,24218
+END OF TEST TIME,6054.5
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 99.95 x 99.30 x 39.76 mm; with frame and grid
+POST TEST CMT,"The laminate bubbled, then popped at about 1 minute causing a spike in mass data. There were intermittant candle-sized flames prior to ignition. Marked ignition began as a candle sized flame near center of sample, and remained steady for about 2.5 minutes until extinguishing at 7:42. The spark ignitor was reinserted, and reignition occurred at 9:30, and flames spread across the entire sample surface and sustained until end of test. "
