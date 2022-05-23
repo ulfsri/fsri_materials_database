@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,MicrofiberSheet_25_1
+OPERATOR,Dow
+MATERIAL,Microfiber Sheet
+ORIENTATION,Horizontal
+HEAT FLUX,25
+SURF AREA,0.00884
+C FACTOR,0.04124549776315689
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,4.809999942779541
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,4196
+TIME TO IGN,857.5
+END OF TEST SCAN,3716
+END OF TEST TIME,929
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 100 x 102 x 1 mm; with frame and grid; with calcium silicate substrate; sample includes 5 layers of sheet
+POST TEST CMT,Intermittent flashes of flames prior to ignition. The exposed area of the sample shrank upon heating due to shriveling and melting. See post-test pictures.
