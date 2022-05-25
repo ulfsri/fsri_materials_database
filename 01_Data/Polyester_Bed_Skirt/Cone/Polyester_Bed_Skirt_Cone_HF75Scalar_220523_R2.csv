@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Polyester_Skirt_75_2
+OPERATOR,Dow
+MATERIAL,Polyester Bed Skirt
+ORIENTATION,Horizontal
+HEAT FLUX,75
+SURF AREA,0.00884
+C FACTOR,0.04176945611834526
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,4.539999961853027
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,1365
+TIME TO IGN,19
+END OF TEST SCAN,885
+END OF TEST TIME,221.25
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 102 x 104 x 0.73 mm; with frame and grid; with calcium silicate substrate; sample includes 5 layers
+POST TEST CMT,The exposed area of the sample shrank upon heating due to shriveling and melting. See post test pictures.
