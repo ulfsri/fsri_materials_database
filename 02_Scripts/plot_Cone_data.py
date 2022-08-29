@@ -207,7 +207,7 @@ for d in os.scandir(data_dir):
 		continue
 	
 	### CHOOSE MATERIAL ###
-	if material != 'EPDM_Membrane':
+	if material != 'Black_PMMA':
 		continue
 	#######################
 

@@ -1,0 +1,33 @@
+#EXPORTTYPE,                 DATA ALL                                  
+#FILE,                       Coaxial_Cable_STA_N2_10K_220714_R1.ngb-ss3
+#FORMAT,                     NETZSCH5                                  
+#FTYPE,                      ANSI                                      
+#IDENTITY,                   Coaxial_Cable_10K_1                       
+#DECIMAL,                    POINT                                     
+#SEPARATOR,                  COMMA                                     
+#MTYPE,                      TG                                        
+#INSTRUMENT,                 NETZSCH STA 449F3                         
+#PROJECT,                    NIJ 2019                                  
+#DATE/TIME,                  14/07/2022 18
+#CORR. FILE,                                                           
+#TEMPCAL,                    10-05-2022 19
+#SENSITIVITY,                10-05-2022 20
+#LABORATORY,                 UL FSRI                                   
+#OPERATOR,                   Mark                                      
+#REMARK,                     Coaxial cable                             
+#SAMPLE,                     Coaxial_Cable_10K_1                       
+#SAMPLE MASS /mg,            4.06                                      
+#MATERIAL,                   PVC_Pipe                                  
+#REFERENCE,                                                            
+#REFERENCE MASS /mg,         0                                         
+#TYPE OF CRUCIBLE,           PtRh20 85 µl with lid                    
+#SAMPLE CRUCIBLE MASS /mg,   0                                         
+#REFERENCE CRUCIBLE MASS /mg,0                                         
+#PURGE 1 MFC,                NITROGEN250.0 ml/min                     
+#PURGE 2 MFC,                OXYGEN252.5 ml/min                       
+#PROTECTIVE MFC,             NITROGEN250.0 ml/min                     
+#DSC RANGE /µV,              5000                                      
+#TG RANGE /mg,               35000                                     
+#TAU-R,                      ---                                       
+#CORR. CODE,                 000                                       
+#EXO,                        -1                                        
