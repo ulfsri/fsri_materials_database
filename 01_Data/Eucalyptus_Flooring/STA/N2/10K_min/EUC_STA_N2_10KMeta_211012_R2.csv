@@ -1,0 +1,33 @@
+#EXPORTTYPE,                 DATA ALL                        
+#FILE,                       EUC_STA_N2_10K_211210_R2.ngb-ss3
+#FORMAT,                     NETZSCH5                        
+#FTYPE,                      ANSI                            
+#IDENTITY,                   EUC_Flooring_2                  
+#DECIMAL,                    POINT                           
+#SEPARATOR,                  COMMA                           
+#MTYPE,                      TG                              
+#INSTRUMENT,                 NETZSCH STA 449F3               
+#PROJECT,                    NIJ 2019                        
+#DATE/TIME,                  12/10/2021 3
+#CORR. FILE,                                                 
+#TEMPCAL,                    07-12-2021 13
+#SENSITIVITY,                07-12-2021 13
+#LABORATORY,                 UL FSRI                         
+#OPERATOR,                   Mark                            
+#REMARK,                     237.91                          
+#SAMPLE,                     EUC_Flooring_2                  
+#SAMPLE MASS /mg,            4.1                             
+#MATERIAL,                   Eucalyptus Flooring             
+#REFERENCE,                                                  
+#REFERENCE MASS /mg,         0                               
+#TYPE OF CRUCIBLE,           PtRh20 85 µl with lid          
+#SAMPLE CRUCIBLE MASS /mg,   0                               
+#REFERENCE CRUCIBLE MASS /mg,0                               
+#PURGE 1 MFC,                NITROGEN250.0 ml/min           
+#PURGE 2 MFC,                OXYGEN252.5 ml/min             
+#PROTECTIVE MFC,             NITROGEN250.0 ml/min           
+#DSC RANGE /µV,              5000                            
+#TG RANGE /mg,               35000                           
+#TAU-R,                      ---                             
+#CORR. CODE,                 000                             
+#EXO,                        -1                              
