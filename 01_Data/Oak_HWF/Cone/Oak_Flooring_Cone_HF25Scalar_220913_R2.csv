@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Oak_Floor_HF25_2
+OPERATOR,Dow
+MATERIAL,Oak Flooring
+ORIENTATION,Horizontal
+HEAT FLUX,25
+SURF AREA,0.009999999776482582
+C FACTOR,0.042408816516399384
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,162.22000122070312
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,7498
+TIME TO IGN,221
+END OF TEST SCAN,7018
+END OF TEST TIME,1754.5
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 102.27 x 101.47 x 18.76 mm; with tie wires; joint between boards on centered on sample
+POST TEST CMT,"Flaming biased towards one half of sample during period between HRR peaks, then biased towards other half during final decay stage. Some seperation at joint between boards by end of test. "
