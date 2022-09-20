@@ -1,0 +1,33 @@
+#EXPORTTYPE,                 DATA ALL                             
+#FILE,                       Homasote_STA_N2_30K_220421_R1.ngb-ss3
+#FORMAT,                     NETZSCH5                             
+#FTYPE,                      ANSI                                 
+#IDENTITY,                   Homasote_30_1                        
+#DECIMAL,                    POINT                                
+#SEPARATOR,                  COMMA                                
+#MTYPE,                      TG                                   
+#INSTRUMENT,                 NETZSCH STA 449F3                    
+#PROJECT,                    NIJ 2019                             
+#DATE/TIME,                  4/21/2022 5
+#CORR. FILE,                                                      
+#TEMPCAL,                    01-04-2022 16
+#SENSITIVITY,                01-04-2022 16
+#LABORATORY,                 UL FSRI                              
+#OPERATOR,                   Mark                                 
+#REMARK,                                                          
+#SAMPLE,                     Homasote_30_1                        
+#SAMPLE MASS /mg,            4.1                                  
+#MATERIAL,                   Pallet Wood                          
+#REFERENCE,                                                       
+#REFERENCE MASS /mg,         0                                    
+#TYPE OF CRUCIBLE,           PtRh20 85 µl with lid               
+#SAMPLE CRUCIBLE MASS /mg,   0                                    
+#REFERENCE CRUCIBLE MASS /mg,0                                    
+#PURGE 1 MFC,                NITROGEN250.0 ml/min                
+#PURGE 2 MFC,                OXYGEN252.5 ml/min                  
+#PROTECTIVE MFC,             NITROGEN250.0 ml/min                
+#DSC RANGE /µV,              5000                                 
+#TG RANGE /mg,               35000                                
+#TAU-R,                      ---                                  
+#CORR. CODE,                 000                                  
+#EXO,                        -1                                   
