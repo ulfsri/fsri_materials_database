@@ -1,0 +1,33 @@
+#EXPORTTYPE,                 DATA ALL                                                
+#FILE,                       Latex_Pillow_Outer_Fabric_A_STA_N2_10K_220802_R3.ngb-ss3
+#FORMAT,                     NETZSCH5                                                
+#FTYPE,                      ANSI                                                    
+#IDENTITY,                   Sample_10K_3                                            
+#DECIMAL,                    POINT                                                   
+#SEPARATOR,                  COMMA                                                   
+#MTYPE,                      TG                                                      
+#INSTRUMENT,                 NETZSCH STA 449F3                                       
+#PROJECT,                    NIJ 2019                                                
+#DATE/TIME,                  02/08/2022 15
+#CORR. FILE,                                                                         
+#TEMPCAL,                    10-05-2022 19
+#SENSITIVITY,                10-05-2022 20
+#LABORATORY,                 UL FSRI                                                 
+#OPERATOR,                   Malhar                                                  
+#REMARK,                     Latex Pillow Outer Fabric A                             
+#SAMPLE,                     Sample_10K_3                                            
+#SAMPLE MASS /mg,            4.07                                                    
+#MATERIAL,                   Latex Pillow                                            
+#REFERENCE,                                                                          
+#REFERENCE MASS /mg,         0                                                       
+#TYPE OF CRUCIBLE,           PtRh20 85 µl with lid                                  
+#SAMPLE CRUCIBLE MASS /mg,   242.66                                                  
+#REFERENCE CRUCIBLE MASS /mg,0                                                       
+#PURGE 1 MFC,                NITROGEN250.0 ml/min                                   
+#PURGE 2 MFC,                OXYGEN252.5 ml/min                                     
+#PROTECTIVE MFC,             NITROGEN250.0 ml/min                                   
+#DSC RANGE /µV,              5000                                                    
+#TG RANGE /mg,               35000                                                   
+#TAU-R,                      ---                                                     
+#CORR. CODE,                 000                                                     
+#EXO,                        -1                                                      

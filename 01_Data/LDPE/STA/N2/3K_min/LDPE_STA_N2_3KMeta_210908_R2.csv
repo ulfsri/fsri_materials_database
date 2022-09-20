@@ -1,0 +1,33 @@
+#EXPORTTYPE,                 DATA ALL                        
+#FILE,                       LDPE_STA_N2_3K_210908_R2.ngb-ss3
+#FORMAT,                     NETZSCH5                        
+#FTYPE,                      ANSI                            
+#IDENTITY,                   LDPE_3K                         
+#DECIMAL,                    POINT                           
+#SEPARATOR,                  COMMA                           
+#MTYPE,                      DSC                             
+#INSTRUMENT,                 NETZSCH STA 449F3               
+#PROJECT,                    NIJ 2019                        
+#DATE/TIME,                  08/09/2021 19
+#CORR. FILE,                                                 
+#TEMPCAL,                    16-08-2021 06
+#SENSITIVITY,                16-08-2021 06
+#LABORATORY,                 UL FSRI                         
+#OPERATOR,                   Matt                            
+#REMARK,                     LDPE                            
+#SAMPLE,                     LDPE_3K                         
+#SAMPLE MASS /mg,            4.18                            
+#MATERIAL,                   LDPE                            
+#REFERENCE,                                                  
+#REFERENCE MASS /mg,         0                               
+#TYPE OF CRUCIBLE,           PtRh20 0.19 ml with lid        
+#SAMPLE CRUCIBLE MASS /mg,   0                               
+#REFERENCE CRUCIBLE MASS /mg,0                               
+#DSC RANGE /µV,              5000                            
+#TG RANGE /mg,               35000                           
+#TAU-R,                      ---                             
+#CORR. CODE,                 000                             
+#EXO,                        -1                              
+#RANGE,                      50°C/3.0(K/min)/650°C           
+#SEGMENT,                    S2/4                            
+#SEG. 2,                     50°C/3.0(K/min)/650°C           
