@@ -207,8 +207,8 @@ for d in os.scandir(data_dir):
 		continue
 	
 	### CHOOSE MATERIAL ###
-	if material != 'Black_PMMA':
-		continue
+	# if material != 'Black_PMMA':
+	# 	continue
 	#######################
 
 	plot_data_df = pd.DataFrame()
@@ -229,7 +229,7 @@ for d in os.scandir(data_dir):
 					data_temp_df = pd.read_csv(f, header = 0, skiprows = [1, 2, 3, 4], index_col = 'Names')
 
 					scalar_data_fid = f.replace('Scan','Scalar')
-					scalar_data_series = pd.read_csv(scalar_data_fid, index_col = 0, squeeze='True')
+					scalar_data_series = pd.read_csv(scalar_data_fid, index_col = 0).squeeze()
 
 					# Test Notes # 
 					try:
@@ -312,35 +312,35 @@ for d in os.scandir(data_dir):
 					drop_list = list(np.linspace(end_time, max(df_dict[label].index), int(num_intervals+1)))
 					df_dict[label].drop(labels = drop_list, axis = 0, inplace = True)
 
-					output_df.at['Time to Sustained Ignition (s)', label] = float(scalar_data_series.at['TIME TO IGN'])
-					output_df.at['Peak HRRPUA (kW/m2)', label] = max(data_temp_df['HRRPUA'])
+					output_df.at['Time to Sustained Ignition (s)', label] = scalar_data_series.at['TIME TO IGN']
+					output_df.at['Peak HRRPUA (kW/m2)', label] = float("{:.2f}".format(max(data_temp_df['HRRPUA'])))
 					output_df.at['Time to Peak HRRPUA (s)', label] = data_temp_df.loc[data_temp_df['HRRPUA'].idxmax(), 'Time'] - float(scalar_data_series.at['TIME TO IGN'])
 					ign_index = data_temp_df.index[data_temp_df['Time'] == float(scalar_data_series.at['TIME TO IGN'])][0]
 					t60 = str(int(ign_index) + 240)
 					t180 = str(int(ign_index) + 720)
 					t300 = str(int(ign_index) + 1200)
 
-					try: output_df.at['Average HRRPUA over 60 seconds (kW/m2)', label] = np.mean(data_temp_df.loc[ign_index:t60,'HRRPUA'])
+					try: output_df.at['Average HRRPUA over 60 seconds (kW/m2)', label] = float("{:.2f}".format(np.mean(data_temp_df.loc[ign_index:t60,'HRRPUA'])))
 					except: output_df.at['Average HRRPUA over 60 seconds (kW/m2)', label] = math.nan
 
-					try: output_df.at['Average HRRPUA over 180 seconds (kW/m2)', label] = np.mean(data_temp_df.loc[ign_index:t180,'HRRPUA'])
+					try: output_df.at['Average HRRPUA over 180 seconds (kW/m2)', label] = float("{:.2f}".format(np.mean(data_temp_df.loc[ign_index:t180,'HRRPUA'])))
 					except: output_df.at['Average HRRPUA over 180 seconds (kW/m2)', label] = math.nan
 					
-					try: output_df.at['Average HRRPUA over 300 seconds (kW/m2)', label] = np.mean(data_temp_df.loc[ign_index:t300,'HRRPUA'])
+					try: output_df.at['Average HRRPUA over 300 seconds (kW/m2)', label] = float("{:.2f}".format(np.mean(data_temp_df.loc[ign_index:t300,'HRRPUA'])))
 					except: output_df.at['Average HRRPUA over 300 seconds (kW/m2)', label] = math.nan
 
-					output_df.at['Total Heat Released (MJ/m2)', label] = data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'THR']
+					output_df.at['Total Heat Released (MJ/m2)', label] = float("{:.2f}".format(data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'THR']))
 					total_mass_lost = data_temp_df.at['1','Sample Mass'] - data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'Sample Mass']
 					holder_mass = data_temp_df.at['1','Sample Mass'] - float(scalar_data_series.at['SPECIMEN MASS'])
-					output_df.at['Avg. Effective Heat of Combustion (MJ/kg)', label] = ((data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'THR'])*surf_area_m2)/(total_mass_lost/1000)
+					output_df.at['Avg. Effective Heat of Combustion (MJ/kg)', label] = float("{:.2f}".format(((data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'THR'])*surf_area_m2)/(total_mass_lost/1000)))
 					output_df.at['Initial Mass (g)', label] = scalar_data_series.at['SPECIMEN MASS']
-					output_df.at['Final Mass (g)', label] = data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'Sample Mass'] - holder_mass
-					output_df.at['Mass at Ignition (g)', label] = data_temp_df.at[ign_index,'Sample Mass'] - holder_mass
+					output_df.at['Final Mass (g)', label] = float("{:.2f}".format(data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'Sample Mass'] - holder_mass))
+					output_df.at['Mass at Ignition (g)', label] = float("{:.2f}".format(data_temp_df.at[ign_index,'Sample Mass'] - holder_mass))
 					
 					t10 = data_temp_df['Sample Mass'].sub(data_temp_df.at['1','Sample Mass'] - 0.1*total_mass_lost).abs().idxmin()
 					t90 = data_temp_df['Sample Mass'].sub(data_temp_df.at['1','Sample Mass'] - 0.9*total_mass_lost).abs().idxmin()
 
-					output_df.at['Avg. Mass Loss Rate [10% to 90%] (g/m2s)', label] = np.mean(data_temp_df.loc[t10:t90,'MLR']/surf_area_m2)                    
+					output_df.at['Avg. Mass Loss Rate [10% to 90%] (g/m2s)', label] = float("{:.2f}".format(np.mean(data_temp_df.loc[t10:t90,'MLR']/surf_area_m2)))
 
 					
 			for n in quant_list:
