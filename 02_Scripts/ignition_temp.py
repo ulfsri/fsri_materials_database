@@ -68,7 +68,7 @@ def unique(list1):
     return unique_list
 
 data_dir = '../01_Data/'
-save_dir = '../05_Computed/'
+save_dir = '../04_Computed/'
 
 if not os.path.exists(save_dir): os.makedirs(save_dir)
 

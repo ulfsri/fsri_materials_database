@@ -182,7 +182,7 @@ def format_and_save_plot(xlims, ylims, inc, file_loc):
     print()
 
 data_dir = '../01_Data/'
-save_dir = '../05_Computed/'
+save_dir = '../04_Computed/'
 
 # path = askdirectory(title='Select Folder') # shows dialog box and return the path -> this or a similar method can be used when interacting with database
 # data_dir = path
