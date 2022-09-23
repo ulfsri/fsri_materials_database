@@ -28,6 +28,7 @@ Raw data generated from each apparatus are included here in plain-text format. T
 - __Simultaneous Thermal Analyzer__ (STA)
     + Data file structure is the material, the abbreviated name for the apparatus, the atmosphere tested in, the heating rate in Kelvin per minute and data/meta, date of test, and replicate number. Data is for the raw output data and meta is for the initial conditions and high-level test parameters. 
         * Example: __Polyester_Batting_STA_N2_3KData_210215_R1.csv__ stands for the first replicate of the data generated from a polyester batting board test in the simultaneous thermal analyzer tested in nitrogen with a heating rate of 3 Kelvin per minute on March 15, 2021.
+- This directory also includes representative photographs of the respective material.
 
 ## 02_Scripts/
 Python processing scripts exist for analyzing the experimental data to generate derived quantities and to plot the experimental data. The scripts are apparatus specific and cycle through all materials upon execution. Each apparatus has a pair of scripts: __data.py__ and __data_html.py__. 
@@ -54,10 +55,7 @@ pip install GitPython
 ## 03_Charts
 This directory and resulting material sub directories get generated upon executing of the plotting scripts. The sub directories are broken down by material and further by test apparatus. The Charts directory is included in the .gitignore file for the repository since all the contents can be produced using the included python scripts.
 
-## 04_Pictures
-This directory includes representative photographs of the materials that comprise this database.
-
-## 05_Computed
+## 04_Computed
 Derived material properties require the use of models to interpret the raw data acquired from the test apparatus. This directory and resulting material sub directories is generated upon execution of the processing scripts included in the repository and is populated by derived material properties. Similar to the Charts directory, this directory is also included in the .gitignore as the contents are produced by the included python scripts.
 
 
