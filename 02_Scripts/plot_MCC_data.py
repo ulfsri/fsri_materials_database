@@ -196,7 +196,7 @@ for d in os.scandir(data_dir):
                 else:
                     # import data for each test
                     header_df = pd.read_csv(
-                        f, header=None, sep='\t', nrows=3, index_col=0, squeeze=True)
+                        f, header=None, sep='\t', nrows=3, index_col=0).squeeze()
                     initial_mass = float(header_df.at['Sample Weight (mg):'])
                     data_temp_df = pd.read_csv(
                         f, sep='\t', header=10, index_col='Time (s)')
