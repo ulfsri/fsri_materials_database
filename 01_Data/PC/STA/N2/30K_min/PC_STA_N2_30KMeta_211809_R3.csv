@@ -1,0 +1,33 @@
+#EXPORTTYPE:                 ,DATA ALL                       
+#FILE:                       ,PC_STA_N2_30K_210917_R3.ngb-ss3
+#FORMAT:                     ,NETZSCH5                       
+#FTYPE:                      ,ANSI                           
+#IDENTITY:                   ,PC_30K_3                       
+#DECIMAL:                    ,POINT                          
+#SEPARATOR:                  ,COMMA                          
+#MTYPE:                      ,DSC                            
+#INSTRUMENT:                 ,NETZSCH STA 449F3              
+#PROJECT:                    ,NIJ 2019                       
+#DATE/TIME:                  ,18/09/2021 15:16:59 (UTC-4)    
+#CORR. FILE:                 ,                               
+#TEMPCAL:                    ,16-08-2021 06:12               
+#SENSITIVITY:                ,16-08-2021 06:20               
+#LABORATORY:                 ,UL FSRI                        
+#OPERATOR:                   ,Mark                           
+#REMARK:                     ,Polycarbonate                  
+#SAMPLE:                     ,PC_30K_3                       
+#SAMPLE MASS /mg:            ,4.02                           
+#MATERIAL:                   ,PC                             
+#REFERENCE:                  ,                               
+#REFERENCE MASS /mg:         ,0                              
+#TYPE OF CRUCIBLE:           ,PtRh20 0.19 ml
+#SAMPLE CRUCIBLE MASS /mg:   ,0                              
+#REFERENCE CRUCIBLE MASS /mg:,0                              
+#DSC RANGE /µV:              ,5000                           
+#TG RANGE /mg:               ,35000                          
+#TAU-R:                      ,---                            
+#CORR. CODE:                 ,000                            
+#EXO:                        ,-1                             
+#RANGE:                      ,50°C/30.0(K/min)/650°C         
+#SEGMENT:                    ,S2/4                           
+#SEG. 2:                     ,50°C/30.0(K/min)/650°C         
