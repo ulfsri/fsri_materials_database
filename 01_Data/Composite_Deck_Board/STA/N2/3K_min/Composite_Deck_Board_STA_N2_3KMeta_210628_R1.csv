@@ -1,0 +1,38 @@
+#EXPORTTYPE:                 ,DATA ALL                   
+#FILE:                       ,Trex_3_1.ngb-ss3           
+#FORMAT:                     ,NETZSCH5                   
+#FTYPE:                      ,ANSI                       
+#IDENTITY:                   ,Trex_3_1                   
+#DECIMAL:                    ,POINT                      
+#SEPARATOR:                  ,COMMA                      
+#MTYPE:                      ,TG                         
+#INSTRUMENT:                 ,NETZSCH STA 449F3          
+#PROJECT:                    ,NIJ 2019                   
+#DATE/TIME:                  ,28/06/2021 17:13:05 (UTC-4)
+#CORR. FILE:                 ,                           
+#TEMPCAL:                    ,08-06-2021 09:06           
+#SENSITIVITY:                ,08-06-2021 09:24           
+#LABORATORY:                 ,UL FSRI                    
+#OPERATOR:                   ,Matt                       
+#REMARK:                     ,Crucible mass 236.12 mg.   
+#SAMPLE:                     ,Trex_3_1                   
+#SAMPLE MASS /mg:            ,4.02                       
+#MATERIAL:                   ,Trex                       
+#REFERENCE:                  ,                           
+#REFERENCE MASS /mg:         ,0                          
+#TYPE OF CRUCIBLE:           ,PtRh20 0.19 ml
+#SAMPLE CRUCIBLE MASS /mg:   ,0                          
+#REFERENCE CRUCIBLE MASS /mg:,0                          
+#DSC RANGE /µV:              ,5000                       
+#TG RANGE /mg:               ,35000                      
+#TAU-R:                      ,---                        
+#CORR. CODE:                 ,000                        
+#EXO:                        ,-1                         
+#RANGE:                      ,50°C/3.0(K/min)/750°C      
+#SEGMENT:                    ,S2/3                       
+#SEG. 2:                     ,50°C/3.0(K/min)/750°C      
+##Temp./°C,Time/min
+ 48.91200, 10.01000
+ 49.01200, 11.02423
+ 49.11200, 11.36996
+ 49.21200, 11.59261

@@ -1,0 +1,33 @@
+#EXPORTTYPE:                 ,DATA ALL                   
+#FILE:                       ,Vinyl_Siding_10_1.ngb-ss3  
+#FORMAT:                     ,NETZSCH5                   
+#FTYPE:                      ,ANSI                       
+#IDENTITY:                   ,Vinyl_Siding_10_1          
+#DECIMAL:                    ,POINT                      
+#SEPARATOR:                  ,COMMA                      
+#MTYPE:                      ,TG                         
+#INSTRUMENT:                 ,NETZSCH STA 449F3          
+#PROJECT:                    ,NIJ 2019                   
+#DATE/TIME:                  ,30/06/2021 09:35:51 (UTC-4)
+#CORR. FILE:                 ,                           
+#TEMPCAL:                    ,04-06-2021 08:23           
+#SENSITIVITY:                ,04-06-2021 08:30           
+#LABORATORY:                 ,UL FSRI                    
+#OPERATOR:                   ,Matt                       
+#REMARK:                     ,crucible mass 236.28 mg    
+#SAMPLE:                     ,Vinyl_Siding_10_1          
+#SAMPLE MASS /mg:            ,3.51                       
+#MATERIAL:                   ,Vinyl Siding               
+#REFERENCE:                  ,                           
+#REFERENCE MASS /mg:         ,0                          
+#TYPE OF CRUCIBLE:           ,PtRh20 0.19 ml
+#SAMPLE CRUCIBLE MASS /mg:   ,0                          
+#REFERENCE CRUCIBLE MASS /mg:,0                          
+#DSC RANGE /µV:              ,5000                       
+#TG RANGE /mg:               ,35000                      
+#TAU-R:                      ,---                        
+#CORR. CODE:                 ,000                        
+#EXO:                        ,-1                         
+#RANGE:                      ,50°C/10.0(K/min)/750°C     
+#SEGMENT:                    ,S2/3                       
+#SEG. 2:                     ,50°C/10.0(K/min)/750°C     

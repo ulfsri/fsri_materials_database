@@ -1,0 +1,33 @@
+#EXPORTTYPE:                 ,DATA ALL                   
+#FILE:                       ,Pine_Siding_30_2.ngb-ss3   
+#FORMAT:                     ,NETZSCH5                   
+#FTYPE:                      ,ANSI                       
+#IDENTITY:                   ,Pine_Siding_30_2           
+#DECIMAL:                    ,POINT                      
+#SEPARATOR:                  ,COMMA                      
+#MTYPE:                      ,TG                         
+#INSTRUMENT:                 ,NETZSCH STA 449F3          
+#PROJECT:                    ,NIJ 2019                   
+#DATE/TIME:                  ,15/06/2021 11:58:05 (UTC-4)
+#CORR. FILE:                 ,                           
+#TEMPCAL:                    ,04-06-2021 08:23           
+#SENSITIVITY:                ,04-06-2021 08:30           
+#LABORATORY:                 ,UL FSRI                    
+#OPERATOR:                   ,Matt                       
+#REMARK:                     ,crucible mass 239.09 mg    
+#SAMPLE:                     ,Pinel_Siding_30_2          
+#SAMPLE MASS /mg:            ,4.02                       
+#MATERIAL:                   ,Pine Siding                
+#REFERENCE:                  ,                           
+#REFERENCE MASS /mg:         ,0                          
+#TYPE OF CRUCIBLE:           ,PtRh20 0.19 ml
+#SAMPLE CRUCIBLE MASS /mg:   ,0                          
+#REFERENCE CRUCIBLE MASS /mg:,0                          
+#DSC RANGE /µV:              ,5000                       
+#TG RANGE /mg:               ,35000                      
+#TAU-R:                      ,---                        
+#CORR. CODE:                 ,000                        
+#EXO:                        ,-1                         
+#RANGE:                      ,50°C/30.0(K/min)/750°C     
+#SEGMENT:                    ,S2/3                       
+#SEG. 2:                     ,50°C/30.0(K/min)/750°C     

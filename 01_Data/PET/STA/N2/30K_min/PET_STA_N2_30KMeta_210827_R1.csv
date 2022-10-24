@@ -1,0 +1,33 @@
+#EXPORTTYPE:                 ,DATA ALL                        
+#FILE:                       ,PET_STA_N2_30K_210827_R1.ngb-ss3
+#FORMAT:                     ,NETZSCH5                        
+#FTYPE:                      ,ANSI                            
+#IDENTITY:                   ,PET_30K_1                       
+#DECIMAL:                    ,POINT                           
+#SEPARATOR:                  ,COMMA                           
+#MTYPE:                      ,TG                              
+#INSTRUMENT:                 ,NETZSCH STA 449F3               
+#PROJECT:                    ,NIJ 2019                        
+#DATE/TIME:                  ,8/27/2021 10:19:16 AM (UTC-4)   
+#CORR. FILE:                 ,                                
+#TEMPCAL:                    ,16-08-2021 06:12                
+#SENSITIVITY:                ,16-08-2021 06:20                
+#LABORATORY:                 ,UL FSRI                         
+#OPERATOR:                   ,Mark                            
+#REMARK:                     ,PET                             
+#SAMPLE:                     ,PET_30K_1                       
+#SAMPLE MASS /mg:            ,3.98                            
+#MATERIAL:                   ,PP                              
+#REFERENCE:                  ,                                
+#REFERENCE MASS /mg:         ,0                               
+#TYPE OF CRUCIBLE:           ,PtRh20 0.19 ml
+#SAMPLE CRUCIBLE MASS /mg:   ,0                               
+#REFERENCE CRUCIBLE MASS /mg:,0                               
+#PURGE 1 MFC:                ,NITROGEN
+#PURGE 2 MFC:                ,OXYGEN
+#PROTECTIVE MFC:             ,NITROGEN
+#DSC RANGE /µV:              ,5000                            
+#TG RANGE /mg:               ,35000                           
+#TAU-R:                      ,---                             
+#CORR. CODE:                 ,000                             
+#EXO:                        ,-1                              

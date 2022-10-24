@@ -1,0 +1,38 @@
+#EXPORTTYPE:                 ,DATA ALL                                  
+#FILE:                       ,SPF_Wood_Stud_STA_N2_30K_220128_R2.ngb-ss3
+#FORMAT:                     ,NETZSCH5                                  
+#FTYPE:                      ,UNICODE                                   
+#IDENTITY:                   ,SPF_Correction_30_2                       
+#DECIMAL:                    ,POINT                                     
+#SEPARATOR:                  ,COMMA                                     
+#MTYPE:                      ,TG                                        
+#INSTRUMENT:                 ,NETZSCH STA 449F3                         
+#PROJECT:                    ,NIJ 2019                                  
+#DATE/TIME:                  ,1/28/2022 9:26:17 AM (UTC-5)              
+#CORR. FILE:                 ,                                          
+#TEMPCAL:                    ,07-12-2021 13:10                          
+#SENSITIVITY:                ,07-12-2021 13:25                          
+#LABORATORY:                 ,UL FSRI                                   
+#OPERATOR:                   ,Mark                                      
+#REMARK:                     ,                                          
+#SAMPLE:                     ,SPF_Correction_30_2                       
+#SAMPLE MASS /mg:            ,3.99                                      
+#MATERIAL:                   ,SPF Wood Stud                             
+#REFERENCE:                  ,                                          
+#REFERENCE MASS /mg:         ,0                                         
+#TYPE OF CRUCIBLE:           ,PtRh20 85 µl
+#SAMPLE CRUCIBLE MASS /mg:   ,0                                         
+#REFERENCE CRUCIBLE MASS /mg:,0                                         
+#PURGE 1 MFC:                ,NITROGEN
+#PURGE 2 MFC:                ,OXYGEN
+#PROTECTIVE MFC:             ,NITROGEN
+#DSC RANGE /µV:              ,5000                                      
+#TG RANGE /mg:               ,35000                                     
+#TAU-R:                      ,---                                       
+#CORR. CODE:                 ,000                                       
+#EXO:                        ,-1                                        
+#RANGE:                      ,50°C/30.0(K/min)/800°C                    
+#SEGMENT:                    ,S2/3                                      
+#SEG. 2:                     ,50°C/30.0(K/min)/800°C                    
+##Temp./°C,Time/min
+ 48.38200,10.01000
