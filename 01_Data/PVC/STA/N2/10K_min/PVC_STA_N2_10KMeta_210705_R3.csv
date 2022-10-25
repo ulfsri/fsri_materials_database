@@ -1,0 +1,33 @@
+#EXPORTTYPE:                 ,DATA ALL                                
+#FILE:                       ,PVC_R01_3.ngb-ss3                       
+#FORMAT:                     ,NETZSCH5                                
+#FTYPE:                      ,ANSI                                    
+#IDENTITY:                   ,PVC_R01_3                               
+#DECIMAL:                    ,POINT                                   
+#SEPARATOR:                  ,COMMA                                   
+#MTYPE:                      ,TG                                      
+#INSTRUMENT:                 ,NETZSCH STA 449F3                       
+#PROJECT:                    ,NIJ 2019                                
+#DATE/TIME:                  ,07/05/2021 13:14:01 (UTC-4)             
+#CORR. FILE:                 ,                                        
+#TEMPCAL:                    ,19-04-2021 07:10                        
+#SENSITIVITY:                ,19-04-2021 07:14                        
+#LABORATORY:                 ,UL FSRI                                 
+#OPERATOR:                   ,Mark                                    
+#REMARK:                     ,237.06 mg crucible mass  R01 Preparation
+#SAMPLE:                     ,PVC_R01_3                               
+#SAMPLE MASS /mg:            ,3.74                                    
+#MATERIAL:                   , PMMA                                   
+#REFERENCE:                  ,                                        
+#REFERENCE MASS /mg:         ,0                                       
+#TYPE OF CRUCIBLE:           ,PtRh20 0.19 ml
+#SAMPLE CRUCIBLE MASS /mg:   ,0                                       
+#REFERENCE CRUCIBLE MASS /mg:,0                                       
+#DSC RANGE /µV:              ,5000                                    
+#TG RANGE /mg:               ,35000                                   
+#TAU-R:                      ,---                                     
+#CORR. CODE:                 ,000                                     
+#EXO:                        ,-1                                      
+#RANGE:                      ,50°C/10.0(K/min)/650°C                  
+#SEGMENT:                    ,S2/4                                    
+#SEG. 2:                     ,50°C/10.0(K/min)/650°C                  

@@ -1,0 +1,33 @@
+#EXPORTTYPE:                 ,DATA ALL                   
+#FILE:                       ,PVC_R01_3K_1.ngb-ss3       
+#FORMAT:                     ,NETZSCH5                   
+#FTYPE:                      ,ANSI                       
+#IDENTITY:                   ,PVC_R01_3K                 
+#DECIMAL:                    ,POINT                      
+#SEPARATOR:                  ,COMMA                      
+#MTYPE:                      ,DSC                        
+#INSTRUMENT:                 ,NETZSCH STA 449F3          
+#PROJECT:                    ,NIJ 2019                   
+#DATE/TIME:                  ,07/10/2021 09:48:19 (UTC-4)
+#CORR. FILE:                 ,                           
+#TEMPCAL:                    ,16-08-2021 06:16           
+#SENSITIVITY:                ,16-08-2021 06:27           
+#LABORATORY:                 ,UL FSRI                    
+#OPERATOR:                   ,Conor                      
+#REMARK:                     ,R01 Preparation            
+#SAMPLE:                     ,PVC_R01_3K                 
+#SAMPLE MASS /mg:            ,4.07                       
+#MATERIAL:                   , PVC                       
+#REFERENCE:                  ,                           
+#REFERENCE MASS /mg:         ,0                          
+#TYPE OF CRUCIBLE:           ,PtRh20 0.19 ml
+#SAMPLE CRUCIBLE MASS /mg:   ,0                          
+#REFERENCE CRUCIBLE MASS /mg:,0                          
+#DSC RANGE /µV:              ,5000                       
+#TG RANGE /mg:               ,35000                      
+#TAU-R:                      ,---                        
+#CORR. CODE:                 ,000                        
+#EXO:                        ,-1                         
+#RANGE:                      ,50°C/3.0(K/min)/650°C      
+#SEGMENT:                    ,S2/4                       
+#SEG. 2:                     ,50°C/3.0(K/min)/650°C      
