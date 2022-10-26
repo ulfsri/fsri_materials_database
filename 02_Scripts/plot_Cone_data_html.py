@@ -77,7 +77,7 @@ def unique(list1):
 
 def plot_data(df, rep):
 
-    rep_dict = {'R1': 'black', 'R2': 'blue', 'R3': 'red'}
+    rep_dict = {'R1': 'black', 'R2': 'blue', 'R3': 'red', 'R4': 'green', 'R5': 'magenta', 'R6': 'cyan'}
 
     fig.add_trace(go.Scatter(x=df.index, y=df.iloc[:,0], marker=dict(color=rep_dict[rep], size=8),name=rep))
 
@@ -109,8 +109,9 @@ def format_and_save_plot(quantity, file_loc,m):
                                         xanchor='right',
                                         xref="paper",
                                         yref="paper"))
+
+    fig.write_html(file_loc,include_plotlyjs="cdn")
     plt.close()
-    print()
 
 data_dir = '../01_Data/'
 save_dir = '../03_Charts/'
@@ -127,14 +128,16 @@ for d in os.scandir(data_dir):
     if material == '.DS_Store':
         continue
     plot_data_df = pd.DataFrame()
-    print(f'{material} Cone')
+    output_df = pd.DataFrame()
+    notes_df = pd.DataFrame()
     if d.is_dir():
         if os.path.isdir(f'{d.path}/Cone/'):
+            print(f'{material} Cone')
             data_df = pd.DataFrame()
             reduced_df = pd.DataFrame()
             for f in glob.iglob(f'{d.path}/Cone/*.csv'):
-                print(f)
-                if 'scalar' in f.lower() or 'cone_analysis_data' in f.lower():
+            # for f in os.scandir(f'{d.path}/Cone/'):
+                if 'scalar' in f.lower() or 'cone_analysis_data' in f.lower() or 'cone_notes' in f.lower()or 'hrrpua_table' in f.lower():
                     continue
                 else:
                     label_list = f.split('.csv')[0].split('_')
@@ -142,7 +145,39 @@ for d in os.scandir(data_dir):
                     data_temp_df = pd.read_csv(f, header = 0, skiprows = [1, 2, 3, 4], index_col = 'Names')
 
                     scalar_data_fid = f.replace('Scan','Scalar')
-                    scalar_data_series = pd.read_csv(scalar_data_fid, index_col = 0, squeeze='True')
+                    scalar_data_series = pd.read_csv(scalar_data_fid, index_col = 0).squeeze()
+
+                    # Test Notes # 
+                    try:
+                        pretest_notes = scalar_data_series.at['PRE TEST CMT']
+                    except:
+                        pretest_notes = ' '
+                    surf_area_mm2 = 10000
+                    dims = 'not specified'
+                    frame = False
+                    for notes in pretest_notes.split(';'):
+                        if 'Dimensions' in notes:
+                            dims = []
+                            for i in notes.split(' '):
+                                try: 
+                                    dims.append(float(i))
+                                except: continue
+                            surf_area_mm2 = dims[0] * dims[1]
+                        elif 'frame' in notes:
+                            frame = True
+                    if frame or '-Frame' in f:
+                            surf_area_mm2 = 8836
+
+                    surf_area_m2 = surf_area_mm2 / 1000000.0
+
+                    # notes_df.at[label, 'Dimensions (mm)'] = str(dims)
+                    notes_df.at[label, 'Surface Area (mm^2)'] = surf_area_mm2
+
+                    notes_df.at[label, 'Pretest'] = pretest_notes
+                    try:
+                        notes_df.at[label, 'Posttest'] = scalar_data_series.at['POST TEST CMT']
+                    except:
+                        notes_df.at[label, 'Posttest'] = ' '
 
                     c_factor = float(scalar_data_series.at['C FACTOR'])
 
@@ -191,6 +226,9 @@ for d in os.scandir(data_dir):
                     drop_list = list(np.linspace(end_time, max(df_dict[label].index), int(num_intervals+1)))
                     df_dict[label].drop(labels = drop_list, axis = 0, inplace = True)
 
+                    output_df.at['Peak HRRPUA (kW/m2)', label] = float("{:.2f}".format(max(data_temp_df['HRRPUA'])))
+                    output_df.at['Time to Peak HRRPUA (s)', label] = data_temp_df.loc[data_temp_df['HRRPUA'].idxmax(), 'Time'] - float(scalar_data_series.at['TIME TO IGN'])
+
             for n in quant_list:
                 for m in hf_list:
                     fig = go.Figure()
@@ -202,18 +240,21 @@ for d in os.scandir(data_dir):
 
                     inc = y_inc_dict[n]
 
-                    print(n)
-                    print(f'{m} kW/m2')
-                    print(inc)
+                    # print(n)
+                    # print(f'{m} kW/m2')
+                    # print(inc)
 
                     plot_dir = f'../03_Charts/{material}/Cone/'
 
                     if not os.path.exists(plot_dir):
                         os.makedirs(plot_dir)
 
-                    format_and_save_plot(n, f'{plot_dir}{material}_Cone_{n}_{m}.html',m),
+                    format_and_save_plot(n, f'{plot_dir}{material}_Cone_{n}_{m}.html',m)
 
         else:
             continue
     else:
         continue
+
+    output_df.sort_index(axis=1, inplace=True)
+    output_df.to_csv(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_HRRPUA_Table.csv', float_format='%.2f')
