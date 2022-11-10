@@ -178,7 +178,7 @@ for d in os.scandir(data_dir):
         for d_ in os.scandir(d):
             if d_.is_dir() and 'Density' in d_.path:
                 for f in os.scandir(d_):
-                    temp_density_series = pd.read_csv(f, squeeze = True, index_col = 0)
+                    temp_density_series = pd.read_csv(f, index_col = 0).squeeze()
                     f_str = f.path.split('.')[-2].split('_')[-3] + '_' + f.path.split('.')[-2].split('_')[-1]
                     temp_df.at['Density', f_str] = temp_density_series['Density']
 
