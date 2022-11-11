@@ -80,22 +80,25 @@ def plot_mean_data(df):
     hr_dict = {'3K_min':'red', '10K_min':'green', '30K_min':'blue'}
 
     for i in hr_dict.keys():
-        mean_df = df.filter(regex = 'mean')
-        mean_hr_df_temp = mean_df.filter(regex = i)
-        mean_hr_df = mean_hr_df_temp.dropna(axis = 'index')
-        std_df = df.filter(regex = 'std')
-        std_hr_df_temp = std_df.filter(regex = i)
-        std_hr_df = std_hr_df_temp.dropna(axis = 'index')
+        try:
+            mean_df = df.filter(regex = 'mean')
+            mean_hr_df_temp = mean_df.filter(regex = i)
+            mean_hr_df = mean_hr_df_temp.dropna(axis = 'index')
+            std_df = df.filter(regex = 'std')
+            std_hr_df_temp = std_df.filter(regex = i)
+            std_hr_df = std_hr_df_temp.dropna(axis = 'index')
 
-        y_upper = mean_hr_df.iloc[:,0] + 2*std_hr_df.iloc[:,0]
-        y_lower = mean_hr_df.iloc[:,0] - 2*std_hr_df.iloc[:,0]
+            y_upper = mean_hr_df.iloc[:,0] + 2*std_hr_df.iloc[:,0]
+            y_lower = mean_hr_df.iloc[:,0] - 2*std_hr_df.iloc[:,0]
 
-        i_str = i.replace('_','/')
+            i_str = i.replace('_','/')
 
-        fig.add_trace(go.Scatter(x=mean_hr_df.index, y=mean_hr_df.iloc[:,0], marker=dict(color=hr_dict[i], size=8),name=i_str))
-        fig.add_trace(go.Scatter(x=y_lower.index,y=y_lower,fill=None, mode='lines', line_color= hr_dict[i], hoveron='points',name='-2'+ "\u03C3"))
-        fig.add_trace(go.Scatter(x=y_upper.index,y=y_upper,
-            fill='tonexty',hoveron='points',line_color=hr_dict[i],mode='lines',opacity=0.25,name='+2'+ "\u03C3"))
+            fig.add_trace(go.Scatter(x=mean_hr_df.index, y=mean_hr_df.iloc[:,0], marker=dict(color=hr_dict[i], size=8),name=i_str))
+            fig.add_trace(go.Scatter(x=y_lower.index,y=y_lower,fill=None, mode='lines', line_color= hr_dict[i], hoveron='points',name='-2'+ "\u03C3"))
+            fig.add_trace(go.Scatter(x=y_upper.index,y=y_upper,
+                fill='tonexty',hoveron='points',line_color=hr_dict[i],mode='lines',opacity=0.25,name='+2'+ "\u03C3"))
+        except:
+            continue
     return()
 
 def format_and_save_plot(inc, file_loc):
@@ -146,18 +149,37 @@ for d in os.scandir(data_dir):
                         continue
                     else:
                         # import data for each test
+
                         print(f)
 
+                        fid = f.split('/')[-1]
+                        fid_meta = fid.replace('Data', 'Meta')
+                        f_meta = f.replace(fid, fid_meta)
+
                         data_temp_df = pd.read_csv(f, header = 0)
+                        meta_temp_df = pd.read_csv(f_meta).squeeze()
+                        meta_col_df = meta_temp_df.filter(regex='EXPORT').squeeze()
+
+                        mass_ind = meta_col_df.str.find('SAMPLE MASS', start = 0).idxmax()
+                        m0 = float(meta_temp_df.iloc[mass_ind, 1])
+
                         data_temp_df['Temp (C)']  = data_temp_df.filter(regex='Temp', axis='columns')
+
                         data_temp_df['time (s)'] = data_temp_df.filter(regex='Time', axis='columns')
-                        data_temp_df['Mass/%'] = data_temp_df.filter(regex='Mass', axis='columns')
-                        data_temp_df['DSC/(mW/mg)'] = data_temp_df.filter(regex='DSC', axis='columns')
-                        
-                        data_temp_df['Mass/%'] = data_temp_df['Mass/%']/data_temp_df.loc[0,'Mass/%']
                         data_temp_df['time (s)'] = (data_temp_df['time (s)']-data_temp_df.loc[0,'time (s)'])*60
-                        data_temp_df['Normalized MLR (1/s)'] = -data_temp_df['Mass/%'].diff()/data_temp_df['time (s)'].diff()
+
+                        data_temp_df['Mass/mg'] = m0 + data_temp_df.filter(regex='Mass', axis='columns')
+                        data_temp_df['nMass'] = data_temp_df['Mass/mg']/data_temp_df.at[0,'Mass/mg']
+
+                        data_temp_df['Normalized MLR (1/s)'] = -np.gradient(data_temp_df['nMass'], data_temp_df['time (s)'])
                         data_temp_df['Normalized MLR (1/s)'] = apply_savgol_filter(data_temp_df['Normalized MLR (1/s)'])
+
+                        test_list = [i for i in data_temp_df.columns.to_list() if 'mW/mg' in i]
+
+                        if not test_list:
+                            data_temp_df['DSC/(mW/mg)'] = data_temp_df.filter(regex='DSC', axis='columns')/m0
+                        else:
+                            data_temp_df['DSC/(mW/mg)'] = data_temp_df.filter(regex='DSC', axis='columns')
 
                         # data_temp_df = pd.read_csv(f, header = 0)
                         # data_temp_df.rename(columns = {'##Temp./°C':'Temp (C)', 'Time/min':'time (s)'}, inplace = True)
@@ -171,7 +193,7 @@ for d in os.scandir(data_dir):
                         min_lim = data_temp_df['Temp (C)'].iloc[1] - ((data_temp_df['Temp (C)'].iloc[1])%1)
                         max_lim = data_temp_df['Temp (C)'].iloc[-1] - ((data_temp_df['Temp (C)'].iloc[-1])%1)
 
-                        reduced_df = data_temp_df.loc[:,['Temp (C)', 'Mass/%', 'Normalized MLR (1/s)', 'DSC/(mW/mg)']]
+                        reduced_df = data_temp_df.loc[:,['Temp (C)', 'nMass', 'Normalized MLR (1/s)', 'DSC/(mW/mg)']]
 
                         new_index = np.arange(int(min_lim),int(max_lim)+1)
                         new_data = np.empty((len(new_index),))
@@ -186,10 +208,8 @@ for d in os.scandir(data_dir):
                         reduced_df.interpolate(method='linear', axis=0, inplace=True)
                         reduced_df = reduced_df.loc[new_index, :]
 
-                        reduced_df['Normalized Mass'] = reduced_df['Mass/%']
-                        reduced_df['Heat Flow Rate (W/g)'] = reduced_df['DSC/(mW/mg)']
-                        reduced_df.drop(labels = ['Mass/%', 'DSC/(mW/mg)'], axis = 1, inplace = True)
-
+                        reduced_df['Normalized Mass'] = reduced_df.pop('nMass')
+                        reduced_df['Heat Flow Rate (W/g)'] = reduced_df.pop('DSC/(mW/mg)')
                         reduced_df = reduced_df[~reduced_df.index.duplicated(keep='first')]
 
                         if data_df.empty:
