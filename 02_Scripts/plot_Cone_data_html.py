@@ -35,6 +35,9 @@ fig_height = 6
 # c = 
 # d = 
 e = 13100 # [kJ/kg O2] del_hc/r_0
+laser_wl = 632.8/10e9 # m
+smoke_density = 1100 # kg/m3
+c = 7 # average coefficient of smoke extinction
 
 def apply_savgol_filter(raw_data):
 
@@ -85,7 +88,20 @@ def plot_data(df, rep):
 
 def air_density(temperature):
     # returns density in kg/m3 given a temperature in C
-    rho = 1.2883 - 4.327e-3*temperature + 8.78e-6*temperature**2
+    Pr = 101325
+    R_spec = 287.1
+    T = temperature+273.15
+    # rho = 1.2883 - 4.327e-3*temperature + 8.78e-6*temperature**2
+    rho = Pr/(R_spec*T)
+    return rho
+
+def CO_density(temperature):
+    # returns density in kg/m3 given a temperature in C
+    Pr = 101325
+    R_spec = 296.8
+    T = temperature+273.15
+    # rho = 1.2883 - 4.327e-3*temperature + 8.78e-6*temperature**2
+    rho = Pr/(R_spec*T)
     return rho
 
 def format_and_save_plot(quantity, file_loc,m):
@@ -184,7 +200,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                 data_temp_df['CO Meter'] = data_temp_df['CO Meter']/100
 
                 data_temp_df.loc[:,'EDF'] = ((data_temp_df.loc[:,'Exh Press']/(data_temp_df.loc[:,'Stack TC']+273.15)).apply(np.sqrt)).multiply(c_factor) # Exhaust Duct Flow (m_e_dot)
-                data_temp_df.loc[:,'Volumetric Flow'] = data_temp_df.loc[:,'EDF']*air_density(data_temp_df.loc[:,'Smoke TC']) # Exhaust Duct Flow (m_e_dot)
+                data_temp_df.loc[:,'Volumetric Flow'] = data_temp_df.loc[:,'EDF']/air_density(data_temp_df.loc[:,'Smoke TC']) # Exhaust Duct Flow (V_e_dot)
                 # O2_offset = 0.2095 - data_temp_df.at['Baseline', 'O2 Meter']
                 # data_temp_df.loc[:,'ODF'] = (0.2095 - data_temp_df.loc[:,'O2 Meter'] + O2_offset) / (1.105 - (1.5*(data_temp_df.loc[:,'O2 Meter'] + O2_offset))) # Oxygen depletion factor with only O2
                 data_temp_df.loc[:,'ODF'] = (data_temp_df.at['Baseline', 'O2 Meter'] - data_temp_df.loc[:,'O2 Meter']) / (1.105 - (1.5*(data_temp_df.loc[:,'O2 Meter']))) # Oxygen depletion factor with only O2                    
@@ -192,6 +208,8 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                 data_temp_df.loc[:,'HRR'] = 1.10*(e)*data_temp_df.loc[:,'EDF']*data_temp_df.loc[:,'ODF']
                 data_temp_df.loc[:,'HRR_ext'] = 1.10*(e)*data_temp_df.loc[:,'EDF']*data_temp_df.at['Baseline', 'O2 Meter']*((data_temp_df.loc[:,'ODF_ext']-0.172*(1-data_temp_df.loc[:,'ODF'])*(data_temp_df.loc[:, 'CO2 Meter']/data_temp_df.loc[:, 'O2 Meter']))/((1-data_temp_df.loc[:,'ODF'])+1.105*data_temp_df.loc[:,'ODF']))
                 data_temp_df.loc[:,'HRRPUA'] = data_temp_df.loc[:,'HRR']/float(scalar_data_series.at['SURF AREA'])
+                data_temp_df.loc[:,'Smoke Comp Norm'] = (data_temp_df.loc[:, 'Smoke Comp']/data_temp_df.at['Baseline','Smoke Comp'])
+                data_temp_df.loc[:,'Smoke Meas Norm'] = (data_temp_df.loc[:, 'Smoke Meas']/data_temp_df.at['Baseline','Smoke Meas'])
                 data_temp_df['THR'] = 0.25*data_temp_df['HRRPUA'].cumsum()/1000
                 data_temp_df['MLR_grad'] = -np.gradient(data_temp_df['Sample Mass'], 0.25)
                 data_temp_df['MLR'] = apply_savgol_filter(data_temp_df['MLR_grad'])
@@ -210,7 +228,11 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                 #         data_temp_df['MLR'].iloc[i] = ( -(data_temp_df['Sample Mass'].iloc[i-2]) + 8*(data_temp_df['Sample Mass'].iloc[i-1]) - 8*(data_temp_df['Sample Mass'].iloc[i+1]) + (data_temp_df['Sample Mass'].iloc[i+2])) / (12*0.25)
 
                 data_temp_df['EHC'] = data_temp_df['HRR']/data_temp_df['MLR'] # kW/(g/s) -> MJ/kg
-                data_temp_df['Extinction Coefficient'] = data_temp_df['Ext Coeff'] - data_temp_df.at['Baseline','Ext Coeff']
+                # data_temp_df['Extinction Coefficient'] = data_temp_df['Ext Coeff'] - data_temp_df.at['Baseline','Ext Coeff']
+                data_temp_df['Extinction_Coefficient'] = (1/0.11)*np.log(data_temp_df['Smoke Comp Norm']/data_temp_df['Smoke Meas Norm']) # 1/m
+                data_temp_df['Soot Mass Concentration'] = (laser_wl*data_temp_df['Extinction_Coefficient']*smoke_density)/c # kg/m3
+                data_temp_df['Soot Mass Fraction'] = data_temp_df['Soot Mass Concentration']/air_density(data_temp_df['Smoke TC']) # kg/kg
+                data_temp_df['Soot Mass Flow'] = data_temp_df['Soot Mass Fraction']*data_temp_df['EDF'] # kg/s
                 data_temp_df['SPR'] = (data_temp_df.loc[:,'Extinction Coefficient'] * data_temp_df.loc[:,'Volumetric Flow'])/float(scalar_data_series.at['SURF AREA'])
                 data_temp_df['SPR'][data_temp_df['SPR'] < 0] = 0
                 data_temp_df['SEA'] = (1000*data_temp_df.loc[:,'Volumetric Flow']*data_temp_df.loc[:,'Extinction Coefficient'])/data_temp_df['MLR']
