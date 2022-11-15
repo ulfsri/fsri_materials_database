@@ -21,6 +21,7 @@ import matplotlib.pyplot as plt
 from scipy.signal import savgol_filter
 import plotly.graph_objects as go
 import git
+from scipy.integrate import trapezoid
 
 label_size = 20
 tick_size = 18
@@ -30,14 +31,15 @@ fig_width = 10
 fig_height = 6
 
 ### Fuel Properties ###
-# a = 
-# b = 
-# c = 
-# d = 
+# a =
+# b =
+# c =
+# d =
 e = 13100 # [kJ/kg O2] del_hc/r_0
 laser_wl = 632.8/10e9 # m
 smoke_density = 1100 # kg/m3
 c = 7 # average coefficient of smoke extinction
+avg_ext_coeff = 8700 # m2/kg  from Mullholland
 
 def apply_savgol_filter(raw_data):
 
@@ -69,9 +71,9 @@ def search_string_in_file(file_name, string_to_search):
     return line_num
 
 def unique(list1):
- 
+
     unique_list = []
-     
+
     for x in list1:
         if x not in unique_list:
             unique_list.append(x)
@@ -105,8 +107,8 @@ def CO_density(temperature):
     return rho
 
 def format_and_save_plot(quantity, file_loc,m):
-    
-    label_dict = {'HRRPUA': 'Heat Release Rate per Unit Area (kW/m<sup>2</sup>)', 'MLR': 'Mass Loss Rate (g/s)', 'EHC':'Effective Heat of Combustion (MJ/kg)' , 'SPR': 'Smoke Production Rate (1/s)', 'SEA': 'Specific Extinction Area', 'Extinction Coefficient': 'Extinction Coefficient (1/m)'}
+
+    label_dict = {'HRRPUA': 'Heat Release Rate per Unit Area (kW/m<sup>2</sup>)', 'MLR': 'Mass Loss Rate (g/s)', 'EHC':'Effective Heat of Combustion (MJ/kg)' , 'SPR': 'Smoke Production Rate (1/s)', 'SEA': 'Specific Extinction Area', 'Extinction Coefficient': 'Extinction Coefficient (1/m)', 'CO': 'CO Yield (g/g)', 'Soot': 'Soot Yield (g/g)'}
 
     fig.update_layout(xaxis_title='Time (s)', font=dict(size=18))
     fig.update_layout(yaxis_title=label_dict[quantity], title ='Cone Calorimeter at ' + m + ' kW/m<sup>2</sup>')
@@ -133,16 +135,17 @@ data_dir = '../01_Data/'
 save_dir = '../03_Charts/'
 
 hf_list = ['25', '50', '75']
-quant_list = ['HRRPUA', 'MLR', 'SPR', 'SEA', 'Extinction Coefficient'] #'EHC'
+quant_list = ['HRRPUA', 'MLR', 'SPR', 'SEA', 'Extinction Coefficient'] #'EHC', 'CO Yield', 'Soot Yield'
 
-y_max_dict = {'HRRPUA':500, 'MLR':1, 'SPR':5, 'SEA':1000, 'Extinction Coefficient':2, 'EHC':50000}
-y_inc_dict = {'HRRPUA':100, 'MLR':0.2, 'SPR':1, 'SEA':200, 'Extinction Coefficient':0.5, 'EHC':10000}
+y_max_dict = {'HRRPUA':500, 'MLR':1, 'SPR':5, 'SEA':1000, 'Extinction Coefficient':2, 'EHC':50000, 'CO':0.1, 'Soot':0.1}
+y_inc_dict = {'HRRPUA':100, 'MLR':0.2, 'SPR':1, 'SEA':200, 'Extinction Coefficient':0.5, 'EHC':10000, 'CO':0.02, 'Soot':0.02}
 
 for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
     df_dict = {}
     material = d
-    plot_data_df = pd.DataFrame()
     output_df = pd.DataFrame()
+    co_df = pd.DataFrame()
+    soot_df = pd.DataFrame()
     notes_df = pd.DataFrame()
     # if d.is_dir():
     if os.path.isdir(f'{data_dir}{d}/Cone/'):
@@ -161,7 +164,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                 scalar_data_fid = f.replace('Scan','Scalar')
                 scalar_data_series = pd.read_csv(scalar_data_fid, index_col = 0).squeeze()
 
-                # Test Notes # 
+                # Test Notes #
                 try:
                     pretest_notes = scalar_data_series.at['PRE TEST CMT']
                 except:
@@ -173,7 +176,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                     if 'Dimensions' in notes:
                         dims = []
                         for i in notes.split(' '):
-                            try: 
+                            try:
                                 dims.append(float(i))
                             except: continue
                         surf_area_mm2 = dims[0] * dims[1]
@@ -199,11 +202,11 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                 data_temp_df['CO2 Meter'] = data_temp_df['CO2 Meter']/100
                 data_temp_df['CO Meter'] = data_temp_df['CO Meter']/100
 
-                data_temp_df.loc[:,'EDF'] = ((data_temp_df.loc[:,'Exh Press']/(data_temp_df.loc[:,'Stack TC']+273.15)).apply(np.sqrt)).multiply(c_factor) # Exhaust Duct Flow (m_e_dot)
+                data_temp_df.loc[:,'EDF'] = ((data_temp_df.loc[:,'Exh Press']/(data_temp_df.loc[:,'Stack TC']+273.15)).apply(np.sqrt)).multiply(c_factor) # Exhaust Duct Flow (m_e_dot) kg/s
                 data_temp_df.loc[:,'Volumetric Flow'] = data_temp_df.loc[:,'EDF']/air_density(data_temp_df.loc[:,'Smoke TC']) # Exhaust Duct Flow (V_e_dot)
                 # O2_offset = 0.2095 - data_temp_df.at['Baseline', 'O2 Meter']
                 # data_temp_df.loc[:,'ODF'] = (0.2095 - data_temp_df.loc[:,'O2 Meter'] + O2_offset) / (1.105 - (1.5*(data_temp_df.loc[:,'O2 Meter'] + O2_offset))) # Oxygen depletion factor with only O2
-                data_temp_df.loc[:,'ODF'] = (data_temp_df.at['Baseline', 'O2 Meter'] - data_temp_df.loc[:,'O2 Meter']) / (1.105 - (1.5*(data_temp_df.loc[:,'O2 Meter']))) # Oxygen depletion factor with only O2                    
+                data_temp_df.loc[:,'ODF'] = (data_temp_df.at['Baseline', 'O2 Meter'] - data_temp_df.loc[:,'O2 Meter']) / (1.105 - (1.5*(data_temp_df.loc[:,'O2 Meter']))) # Oxygen depletion factor with only O2
                 data_temp_df.loc[:,'ODF_ext'] = (data_temp_df.at['Baseline', 'O2 Meter']*(1-data_temp_df.loc[:, 'CO2 Meter'] - data_temp_df.loc[:, 'CO Meter']) - data_temp_df.loc[:, 'O2 Meter']*(1-data_temp_df.at['Baseline', 'CO2 Meter']))/(data_temp_df.at['Baseline', 'O2 Meter']*(1-data_temp_df.loc[:, 'CO2 Meter']-data_temp_df.loc[:, 'CO Meter']-data_temp_df.loc[:, 'O2 Meter'])) # Oxygen Depletion Factor with O2, CO, and CO2
                 data_temp_df.loc[:,'HRR'] = 1.10*(e)*data_temp_df.loc[:,'EDF']*data_temp_df.loc[:,'ODF']
                 data_temp_df.loc[:,'HRR_ext'] = 1.10*(e)*data_temp_df.loc[:,'EDF']*data_temp_df.at['Baseline', 'O2 Meter']*((data_temp_df.loc[:,'ODF_ext']-0.172*(1-data_temp_df.loc[:,'ODF'])*(data_temp_df.loc[:, 'CO2 Meter']/data_temp_df.loc[:, 'O2 Meter']))/((1-data_temp_df.loc[:,'ODF'])+1.105*data_temp_df.loc[:,'ODF']))
@@ -229,15 +232,21 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
 
                 data_temp_df['EHC'] = data_temp_df['HRR']/data_temp_df['MLR'] # kW/(g/s) -> MJ/kg
                 # data_temp_df['Extinction Coefficient'] = data_temp_df['Ext Coeff'] - data_temp_df.at['Baseline','Ext Coeff']
-                data_temp_df['Extinction_Coefficient'] = (1/0.11)*np.log(data_temp_df['Smoke Comp Norm']/data_temp_df['Smoke Meas Norm']) # 1/m
-                data_temp_df['Soot Mass Concentration'] = (laser_wl*data_temp_df['Extinction_Coefficient']*smoke_density)/c # kg/m3
+                data_temp_df['Extinction Coefficient'] = (1/0.11)*np.log(data_temp_df.at['Baseline','Smoke Meas']/data_temp_df.loc[:,'Smoke Meas']) # 1/m
+                # data_temp_df['Soot Mass Concentration'] = (laser_wl*data_temp_df['Extinction Coefficient']*smoke_density)/c # kg/m3
+                data_temp_df['Soot Mass Concentration'] = data_temp_df['Extinction Coefficient']/avg_ext_coeff # kg/m3
                 data_temp_df['Soot Mass Fraction'] = data_temp_df['Soot Mass Concentration']/air_density(data_temp_df['Smoke TC']) # kg/kg
                 data_temp_df['Soot Mass Flow'] = data_temp_df['Soot Mass Fraction']*data_temp_df['EDF'] # kg/s
+                data_temp_df['Soot Yield'] = data_temp_df['Soot Mass Flow']/data_temp_df['MLR'] # kg/kg
+                data_temp_df['CO Mass Fraction'] = data_temp_df['CO Meter']*(CO_density(data_temp_df['Smoke TC'])/air_density(data_temp_df['Smoke TC']))
+                data_temp_df['CO Mass Flow'] = data_temp_df['CO Mass Fraction']*data_temp_df['EDF'] # kg/s
+                data_temp_df['CO Yield'] = data_temp_df['CO Mass Flow']/data_temp_df['MLR'] # kg/kg
+
                 data_temp_df['SPR'] = (data_temp_df.loc[:,'Extinction Coefficient'] * data_temp_df.loc[:,'Volumetric Flow'])/float(scalar_data_series.at['SURF AREA'])
                 data_temp_df['SPR'][data_temp_df['SPR'] < 0] = 0
                 data_temp_df['SEA'] = (1000*data_temp_df.loc[:,'Volumetric Flow']*data_temp_df.loc[:,'Extinction Coefficient'])/data_temp_df['MLR']
 
-                df_dict[label] = data_temp_df[['Time', 'HRRPUA', 'MLR', 'EHC', 'SPR', 'SEA', 'Extinction Coefficient']].copy()
+                df_dict[label] = data_temp_df[['Time', 'HRRPUA', 'MLR', 'EHC', 'SPR', 'SEA', 'Extinction Coefficient', 'CO Yield', 'Soot Yield']].copy()
                 df_dict[label].set_index(df_dict[label].loc[:,'Time'], inplace = True)
                 df_dict[label] = df_dict[label][df_dict[label].index.notnull()]
                 df_dict[label].drop('Time', axis = 1, inplace = True)
@@ -245,6 +254,27 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                 num_intervals = (max(df_dict[label].index)-end_time)/0.25
                 drop_list = list(np.linspace(end_time, max(df_dict[label].index), int(num_intervals+1)))
                 df_dict[label].drop(labels = drop_list, axis = 0, inplace = True)
+
+                # Determine intervals for yield integrals
+
+                ign_time = float(scalar_data_series.at['TIME TO IGN'])
+                end_time = float(scalar_data_series.at['END OF TEST TIME'])
+                ign_ind = str(int(4 * ign_time + 1))
+                end_ind = str(int(4 * end_time + 1))
+                ign_mass = float(data_temp_df.loc[ign_ind,'Sample Mass'])
+                end_mass = float(data_temp_df.loc[end_ind,'Sample Mass'])
+                mass_lost = ign_mass-end_mass
+                ml_10 = ign_mass - 0.1*mass_lost
+                ml_90 = ign_mass - 0.9*mass_lost
+                ml_10_ind = data_temp_df['Sample Mass'].sub(ml_10).abs().idxmin()
+                ml_90_ind = data_temp_df['Sample Mass'].sub(ml_90).abs().idxmin()
+
+                x = data_temp_df.loc[ml_10_ind:ml_90_ind, 'Time'].to_numpy()
+
+                soot_prod = (trapezoid(data_temp_df.loc[ml_10_ind:ml_90_ind,'Soot Mass Flow'], x = x))*1000 # g
+                soot_df.at['Soot Yield (g/g)', label] = soot_prod/(0.8*mass_lost)
+                co_prod = (trapezoid(data_temp_df.loc[ml_10_ind:ml_90_ind,'CO Mass Flow'], x = x))*1000 # g
+                co_df.at['CO Yield (g/g)', label] = co_prod/(0.8*mass_lost)
 
                 output_df.at['Peak HRRPUA (kW/m2)', label] = float("{:.2f}".format(max(data_temp_df['HRRPUA'])))
                 output_df.at['Time to Peak HRRPUA (s)', label] = data_temp_df.loc[data_temp_df['HRRPUA'].idxmax(), 'Time'] - float(scalar_data_series.at['TIME TO IGN'])
@@ -274,9 +304,35 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
     else:
         continue
 
+    co_html_df = pd.DataFrame(index = ['25', '50', '75'], columns = ['Mean CO Yield [g/g]', 'CO Yield Std. Dev. [g/g]'])
+    soot_html_df = pd.DataFrame(index = ['25', '50', '75'], columns = ['Mean Soot Yield [g/g]', 'Soot Yield Std. Dev. [g/g]'])
+
     hf_ranges = ['25','50','75']
     for hf in hf_ranges:
         html_df = output_df.filter(like=hf)
         html_df.columns = html_df.columns.str.replace('HF'+hf+'_', hf+' kW/m"&#xB2;" ')
         html_df.to_html(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_HRRPUA_Table_{hf}.html', float_format='%.2f',classes='col-xs-12 col-sm-6')
 
+        co_hf_df = co_df.filter(like=hf)
+        # co_html_df.loc[hf, 'Incident Heat Flux [kW/m"&#xB2;"]'] = hf
+
+        co_html_df.loc[hf,'Mean CO Yield [g/g]'] = np.around(co_hf_df.mean(axis=1).to_numpy()[0], decimals=3)
+        co_html_df.loc[hf, 'CO Yield Std. Dev. [g/g]'] = np.around(co_hf_df.std(axis=1).to_numpy()[0], decimals=3)
+        co_html_df.index.names = ['Incident Heat Flux [kW/m"&#xB2;"]']
+
+        soot_hf_df = soot_df.filter(like=hf)
+        soot_hf_df.drop(columns=[col for col in soot_hf_df.columns if soot_hf_df[col].lt(0).any()], inplace=True)
+
+        soot_html_df.loc[hf,'Mean Soot Yield [g/g]'] = np.around(soot_hf_df.mean(axis=1).to_numpy()[0], decimals=3)
+        soot_html_df.loc[hf, 'Soot Yield Std. Dev. [g/g]'] = np.around(soot_hf_df.std(axis=1).to_numpy()[0], decimals=3)
+        soot_html_df.index.names = ['Incident Heat Flux [kW/m"&#xB2;"]']
+
+
+    co_html_df.to_html(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_CO_Table.html',# float_format='%.3f',
+    classes='col-xs-12 col-sm-6')
+
+    if soot_html_df.isnull().values.any():
+        pass
+    else:
+        soot_html_df.to_html(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_Soot_Table.html', #float_format='%.3f',
+        classes='col-xs-12 col-sm-6')
