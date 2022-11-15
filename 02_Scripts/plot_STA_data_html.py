@@ -29,7 +29,7 @@ legend_font = 10
 fig_width = 10
 fig_height = 6
 
-def apply_savgol_filter(raw_data):
+def apply_savgol_filter(raw_data, deriv=0):
 
     window_raw = int((raw_data.count())/40)
     window = int(np.ceil(window_raw) // 2 * 2 + 1)
@@ -40,7 +40,7 @@ def apply_savgol_filter(raw_data):
         poly_order = 5
 
     raw_data = raw_data.dropna().loc[0:]
-    converted_data = savgol_filter(raw_data,window,poly_order)
+    converted_data = savgol_filter(raw_data,window,poly_order, deriv=deriv)
     filtered_data = pd.Series(converted_data, index=raw_data.index.values)
     return(filtered_data.loc[0:])
 
@@ -102,7 +102,7 @@ def plot_mean_data(df):
     return()
 
 def format_and_save_plot(inc, file_loc):
-    axis_dict = {'Mass': 'Normalized Mass', 'MLR': 'Normalized MLR (1/s)', 'Flow': 'Heat Flow Rate (W/g)'}
+    axis_dict = {'Mass': 'Normalized Mass', 'MLR': 'Normalized MLR (1/s)', 'Flow': 'Heat Flow Rate (W/g)', 'Cp': 'Apparent Heat Capacity (J/g-K)', 'd': 'DSC Derivative (W/g-K)'}
     keyword = file_loc.split('.html')[0].split('_')[-1]
 
     fig.update_layout(xaxis_title='Temperature (&deg;C)', font=dict(size=18))
@@ -130,13 +130,14 @@ def format_and_save_plot(inc, file_loc):
 data_dir = '../01_Data/'
 save_dir = '../03_Charts/'
 
-plot_dict = {'Normalized Mass':'Mass', 'Normalized MLR':'MLR', 'Heat Flow Rate':'Heat_Flow'}
+plot_dict = {'Normalized Mass':'Mass', 'Normalized MLR':'MLR', 'Heat Flow Rate':'Heat_Flow', 'Apparent Heat Capacity':'Cp', 'DSC_deriv':'d'}
 
 for d in os.scandir(data_dir):
     material = d.path.split('/')[-1]
     if material == '.DS_Store':
         continue
     plot_data_df = pd.DataFrame()
+    melt_temp = []
     print(f'{material} STA')
     if d.is_dir():
         if os.path.isdir(f'{d.path}/STA/'):
@@ -168,18 +169,25 @@ for d in os.scandir(data_dir):
                         data_temp_df['time (s)'] = data_temp_df.filter(regex='Time', axis='columns')
                         data_temp_df['time (s)'] = (data_temp_df['time (s)']-data_temp_df.loc[0,'time (s)'])*60
 
+                        data_temp_df['Heating rate (K/s)'] = np.gradient(data_temp_df['Temp (C)'], data_temp_df['time (s)'])
+
                         data_temp_df['Mass/mg'] = m0 + data_temp_df.filter(regex='Mass', axis='columns')
                         data_temp_df['nMass'] = data_temp_df['Mass/mg']/data_temp_df.at[0,'Mass/mg']
 
                         data_temp_df['Normalized MLR (1/s)'] = -np.gradient(data_temp_df['nMass'], data_temp_df['time (s)'])
                         data_temp_df['Normalized MLR (1/s)'] = apply_savgol_filter(data_temp_df['Normalized MLR (1/s)'])
 
-                        test_list = [i for i in data_temp_df.columns.to_list() if 'mW/mg' in i]
+                        test_list = [i for i in data_temp_df.columns.to_list() if 'mW/mg' in i] # determine if DSC is given in mW or mW/mg
 
                         if not test_list:
                             data_temp_df['DSC/(mW/mg)'] = data_temp_df.filter(regex='DSC', axis='columns')/m0
                         else:
                             data_temp_df['DSC/(mW/mg)'] = data_temp_df.filter(regex='DSC', axis='columns')
+
+                        data_temp_df['Apparent Heat Capacity (J/g-K)'] = data_temp_df['DSC/(mW/mg)']/data_temp_df['Heating rate (K/s)']
+
+                        # data_temp_df['DSC_deriv'] = np.gradient(data_temp_df['nMass'], data_temp_df['Temp (C)'])
+
 
                         # data_temp_df = pd.read_csv(f, header = 0)
                         # data_temp_df.rename(columns = {'##Temp./°C':'Temp (C)', 'Time/min':'time (s)'}, inplace = True)
@@ -193,24 +201,43 @@ for d in os.scandir(data_dir):
                         min_lim = data_temp_df['Temp (C)'].iloc[1] - ((data_temp_df['Temp (C)'].iloc[1])%1)
                         max_lim = data_temp_df['Temp (C)'].iloc[-1] - ((data_temp_df['Temp (C)'].iloc[-1])%1)
 
-                        reduced_df = data_temp_df.loc[:,['Temp (C)', 'nMass', 'Normalized MLR (1/s)', 'DSC/(mW/mg)']]
+                        reduced_df = data_temp_df.loc[:,['Temp (C)', 'nMass', 'Normalized MLR (1/s)', 'DSC/(mW/mg)', 'Apparent Heat Capacity (J/g-K)']]
+
+                        # Re-index data
 
                         new_index = np.arange(int(min_lim),int(max_lim)+1)
                         new_data = np.empty((len(new_index),))
                         new_data[:] = np.nan
-                        df_dict = {'Temp (C)': new_index, 'Normalized Mass': new_data, 'Normalized MLR (1/s)': new_data, 'Heat Flow Rate (W/g)': new_data}
+                        df_dict = {'Temp (C)': new_index, 'Normalized Mass': new_data, 'Normalized MLR (1/s)': new_data, 'Heat Flow Rate (W/g)': new_data, 'Apparent Heat Capacity (J/g-K)': new_data, 'DSC_deriv': new_data}
                         temp_df = pd.DataFrame(df_dict)
 
-                        # Resample data to every temperature
+                        # Resample data to every 1 degree
                         reduced_df = pd.concat([reduced_df, temp_df], ignore_index = True)
                         reduced_df.set_index('Temp (C)', inplace = True)
                         reduced_df.sort_index(inplace=True)
-                        reduced_df.interpolate(method='linear', axis=0, inplace=True)
+                        reduced_df.interpolate(method='slinear', axis=0, inplace=True)
                         reduced_df = reduced_df.loc[new_index, :]
 
                         reduced_df['Normalized Mass'] = reduced_df.pop('nMass')
                         reduced_df['Heat Flow Rate (W/g)'] = reduced_df.pop('DSC/(mW/mg)')
                         reduced_df = reduced_df[~reduced_df.index.duplicated(keep='first')]
+
+                        reduced_df['DSC_deriv'] = apply_savgol_filter(reduced_df['Heat Flow Rate (W/g)'], deriv=1)
+
+                        max_mlr = reduced_df['Normalized MLR (1/s)'].max()
+                        mlr_threshold = 0.1*max_mlr
+                        max_d_dsc = reduced_df['DSC_deriv'].max()
+                        d_dsc_threshold = 0.3*max_d_dsc
+
+                        signs = np.sign(reduced_df['DSC_deriv']).diff().ne(0)
+                        signs_list = signs.index[signs].tolist()
+
+                        for i in signs_list:
+                            if i < 60 or i > 400:
+                                continue
+                            elif reduced_df.abs().loc[i-5,'DSC_deriv'] > d_dsc_threshold and reduced_df.abs().loc[i+5,'DSC_deriv'] > d_dsc_threshold:
+                                if reduced_df.abs().loc[i,'Normalized MLR (1/s)'] < mlr_threshold:
+                                    melt_temp.append(i)
 
                         if data_df.empty:
                             data_df = reduced_df
@@ -229,9 +256,22 @@ for d in os.scandir(data_dir):
 
     # plot_data_df.to_csv(f'{data_dir}{material}/STA/N2/TEST_html.csv')
 
+    # calculate mean melting temperature
+    html_df = pd.DataFrame()
+    if len(melt_temp) > 2:
+        melt_temp_arr = np.array(melt_temp)
+        melt_mean = np.mean(melt_temp_arr)
+        melt_std = np.std(melt_temp_arr)
+
+        html_df.at[0, 'Value'] = 'Peak Melting Temperature (C)',
+        html_df.at[0, 'Mean'] = melt_mean
+        html_df.at[0, 'Std. Dev.'] = melt_std
+        html_df.set_index('Value', inplace=True)
+        html_df.to_html(f'{data_dir}{material}/STA/{material}_STA_Analysis_Melting_Temp_Table.html', float_format='%.1f',classes='col-xs-12 col-sm-6')
+
     plot_dir = f'../03_Charts/{material}/STA/N2/'
 
-    plot_inc = {'Mass': 0.2, 'MLR': 0.001, 'Heat_Flow': 0.5}
+    plot_inc = {'Mass': 0.2, 'MLR': 0.001, 'Heat_Flow': 0.5, 'Cp': 0.5, 'd': 0.1}
 
     for m in plot_dict.keys():    
         fig = go.Figure()
