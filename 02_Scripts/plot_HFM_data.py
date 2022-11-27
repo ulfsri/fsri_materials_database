@@ -21,8 +21,6 @@ import glob
 import numpy as np
 import pandas as pd
 import math
-from tkinter import Tk
-from tkinter.filedialog import askdirectory
 import matplotlib.pyplot as plt
 from scipy.signal import savgol_filter
 import git
