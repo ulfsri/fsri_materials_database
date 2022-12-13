@@ -1,0 +1,26 @@
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "McKinnon"
+  given-names: "Mark"
+  orcid: "https://orcid.org/0000-0002-3344-4957"
+  affiliation: "Underwriters Laboratories Inc, Fire Safety Research Institute"
+- family-names: "Weinschenk"
+  given-names: "Craig"
+  orcid: "https://orcid.org/0000-0002-2782-6692"
+  affiliation: "Underwriters Laboratories Inc, Fire Safety Research Institute"
+- family-names:"McCoy"
+  given-names:"Conor"
+  orcid:"https://orcid.org/0000-0003-0959-8558"
+  affiliation: "Underwriters Laboratories Inc, Fire Safety Research Institute"
+- family-names:"DiDomizio"
+  given-names:"Matthew"
+  orcid:"https://orcid.org/0000-0002-0472-4722"
+  affiliation: "Underwriters Laboratories Inc, Fire Safety Research Institute"
+- family-names: "Madrzykowski"
+  given-names: "Daniel"
+  orcid: "https://orcid.org/0000-0003-1829-0491"
+  affiliation: "Underwriters Laboratories Inc, Fire Safety Research Institute"
+title: "Materials and Products Database"
+version: 1.0.0
+type: dataset
+date-released: 2023-01-01
