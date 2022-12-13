@@ -32,6 +32,12 @@ Raw data generated from each apparatus are included here in plain-text format. T
         * Example: __Polyester_Batting_STA_N2_3KData_210215_R1.csv__ stands for the first replicate of the data generated from a polyester batting board test in the simultaneous thermal analyzer tested in nitrogen with a heating rate of 3 Kelvin per minute on March 15, 2021.
 - This directory also includes representative photographs of the respective material.
 
+### Additional Data Files
+- __material_name.json__
+    Each material has a json file that links the data stored in the repository and data and graphs produced by the accompanying scripts to the respective landing page for the material on the front-end website. The file also contains a brief description of the material and alternate names of the material to facilitate search.
+- __Photos__
+    A full-size and thumbnail photo are included of materials for visualization on front-end website.
+
 ## 02_Scripts/
 Python processing scripts exist for analyzing the experimental data to generate derived quantities and to plot the experimental data. The scripts are apparatus specific and cycle through all materials upon execution. Each apparatus has a pair of scripts: __data.py__ and __data_html.py__. 
 
