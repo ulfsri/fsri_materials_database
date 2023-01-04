@@ -41,12 +41,12 @@ Raw data generated from each apparatus are included here in plain-text format. T
 ## 02_Scripts/
 Python processing scripts exist for analyzing the experimental data to generate derived quantities and to plot the experimental data. The scripts are apparatus specific and cycle through all materials upon execution. Each apparatus has a pair of scripts: __data.py__ and __data_html.py__. 
 
-- The __data.py__ script produces any reduced data files, computes any derived quantities, and produces _.pdf_ graphs in __03_Charts/Material/Apparatus__. 
+- The __data.py__ script computes derived quantities, produces reduced data _.csv_ files, and produces _.pdf_ graphs in __03_Charts/Material/Apparatus__. 
     + Derived quantities and/or reduced data files will get dropped into __01_Data/Material/Apparatus__. These files get updated each time the script gets executed.
 
 - The __data_html.py__ script produces interactive _.html_ files that allow interactions such as hover, zoom, and pan and _.html_ tables of relevant processed data. Similar to the __data.py__ script, _.html_ graphs are output to __03_Charts/Material/Apparatus__ and can be opened in a web browser.
 
-- __.bat__ and __.sh__ files exist for both the set of __data.py__ scripts and the __data_html.py__ scripts. These files will execute the respective python scripts for all data in the repository. 
+- __run_all__ __.bat__ and __.sh__ files exist for both the set of __data.py__ scripts and the __data_html.py__ scripts. These files will execute the respective python scripts for all data in the repository. 
     + If there are issues executing the script, in particular the __.sh__ script, a change mode may be needed. In a command prompt type:
 ```
 chmod +x run_all_data.sh OR chmod +x run_all_data_html.sh
@@ -67,4 +67,4 @@ pip install pybaselines         #used for melting analysis in STA
 ```
 
 ## 03_Charts
-This directory and resulting material sub directories get generated upon executing of the plotting scripts. The sub directories are broken down by material and further by test apparatus. The Charts directory is included in the .gitignore file for the repository since all the contents can be produced using the included python scripts.
+The material sub directories get generated upon executing of the plotting scripts. The sub directories are broken down by material and further by test apparatus.
