@@ -1,0 +1,106 @@
+{
+	"material": "Polyester Fabric",
+	"alternate names": [
+		"PET fabric",
+		"polyester upholstery",
+		"polyethylene terephthalate fabric",
+		"upholstery fabric"
+	],
+	"material_dir": "Polyester_Fabric",
+	"parent material": "Overstuffed Chair",
+	"component material": [],
+	"material category": [
+		"upholstered furniture"
+	],
+	"image file": "Polyester_Fabric.JPG",
+	"image 600x400 file": "Polyester_Fabric600x400.jpg",
+	"video file": "https://www.youtube.com/embed/87hAnxuh1g8",
+	"description": "Polyester Fabric is a fabric woven from synthetic polyethylene terephthalate fibers.",
+	"short desc": "Polyester Fabric is a fabric woven from synthetic polyethylene terephthalate fibers.",
+	"source": "Samples cut from a cushion covering taken from an Overstuffed Chair.",
+	"density": "410.5 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
+	"measured property": [
+	{
+		"test name": "heat release rate per unit area",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "25 kW/m<sup>2</sup>",
+				"graph": "Cone/Polyester_Fabric_Cone_HRRPUA_25.html",
+				"table": "Cone/Polyester_Fabric_Cone_Analysis_HRRPUA_Table_25.html"
+			},
+			{
+				"display name": "50 kW/m<sup>2</sup>",
+				"graph": "Cone/Polyester_Fabric_Cone_HRRPUA_50.html",
+				"table": "Cone/Polyester_Fabric_Cone_Analysis_HRRPUA_Table_50.html"
+			},
+			{
+				"display name": "75 kW/m<sup>2</sup>",
+				"graph": "Cone/Polyester_Fabric_Cone_HRRPUA_75.html",
+				"table": "Cone/Polyester_Fabric_Cone_Analysis_HRRPUA_Table_75.html"
+			}
+		]
+	},
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Polyester_Fabric_STA_MLR.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Polyester_Fabric_Cone_MLR_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Polyester_Fabric_Cone_MLR_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Polyester_Fabric_Cone_MLR_75.html"
+			}
+		]
+	},
+	{
+		"test name": "carbon monoxide yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/Polyester_Fabric_Cone_Analysis_CO_Table.html"
+	},
+	{
+		"test name": "thermal conductivity",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Polyester_Fabric_HFM_Wet_conductivity.html",
+				"table": "HFM/Polyester_Fabric_HFM_Wet_conductivity.html"
+			}
+		]
+	},
+	{
+		"test name": "specific heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "MCC/Polyester_Fabric_MCC_HRR.html"
+	}],
+	"derived property": [
+	{
+		"test name": "soot yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/Polyester_Fabric_Cone_Analysis_Soot_Table.html"
+	},
+	{
+		"test name": "melting temperature and enthalpy of melting",
+		"test description": "",
+		"display name": "",
+		"table": "STA/Polyester_Fabric_STA_Analysis_Melting_Temp_Table.html"
+	}]
+}
