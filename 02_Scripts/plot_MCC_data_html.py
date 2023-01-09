@@ -6,6 +6,9 @@
 # - Script outputs as a function of temperature                         #
 #   -  HTML Graphs dir: /03_Charts/{Material}/MCC                       #
 #      Graphs: Specific HRR                                             #
+#                                                                       #
+#      HTML Tables dir: /01_Data/{Material}/MCC                         #
+#      Tables: Heat of Combustion                                       #
 # ********************************************************************* #
 
 # --------------- #
@@ -19,6 +22,7 @@ import math
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import git
+from scipy import integrate
 
 label_size = 20
 tick_size = 18
@@ -96,30 +100,32 @@ def format_and_save_plot(file_loc):
 data_dir = '../01_Data/'
 save_dir = '../03_Charts/'
 
-for d in os.scandir(data_dir):
-    material = d.path.split('/')[-1]
-    print(f'{material} MCC')
-    ylims = [0,0]
-    xlims = [0,0]
+for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
+    material = d
     fig = go.Figure()
     data_df = pd.DataFrame()
     plot_data_df = pd.DataFrame()
-    if d.is_dir():
-        if os.path.isdir(f'{d.path}/MCC'):
-            for f in glob.iglob(f'{d.path}/MCC/*.txt'):
-                if 'mass' in f.lower():
-                    continue
-                else:
-                    # import data for each test
-                    header_df = pd.read_csv(f, header = None, sep = '\t', nrows = 3, index_col = 0).squeeze()
-                    initial_mass = float(header_df.at['Sample Weight (mg):'])
-                    data_temp_df = pd.read_csv(f, sep = '\t', header = 10, index_col = 'Time (s)')
-                    fid = open(f.split('.txt')[0] + '_FINAL_MASS.txt', 'r')
-                    final_mass = float(fid.readlines()[0].split('/n')[0])
+    hoc_df = pd.DataFrame()
+    all_col_names = []
+    if os.path.isdir(f'{data_dir}{d}/MCC/'):
+        print(material + ' MCC')
+        for f in glob.iglob(f'{data_dir}{d}/MCC/*.txt'):
+            if 'mass' in f.lower():
+                continue
+            else:
+                # import data for each test
+                header_df = pd.read_csv(f, header = None, sep = '\t', nrows = 3, index_col = 0).squeeze()
+                initial_mass = float(header_df.at['Sample Weight (mg):'])
+                data_temp_df = pd.read_csv(f, sep = '\t', header = 10, index_col = 'Time (s)')
+                fid = open(f.split('.txt')[0] + '_FINAL_MASS.txt', 'r')
+                final_mass = float(fid.readlines()[0].split('/n')[0])
+                col_name = f.split('.txt')[0].split('_')[-1]
 
-                    col_name = f.split('.txt')[0].split('_')[-1]
+                if "O" not in col_name: # to ignore outliers (run code only for repetitions)
 
+                    all_col_names.append(col_name) # collect repetition numbers to account for botched tests (ex. R2, R3, R4, if R1 was bad)
                     reduced_df = data_temp_df.loc[:,['Temperature (C)', 'HRR (W/g)']]
+                    reduced_df[f'Time_copy_{col_name[-1]}'] = reduced_df.index  #col_name[-1] to have the repetition number as -1 (not -R1) to help Regex later
 
                     # Correct from initial mass basis to mass lost basis
                     reduced_df['HRR (W/g)'] = reduced_df['HRR (W/g)']*(initial_mass/(initial_mass-final_mass))
@@ -145,16 +151,27 @@ for d in os.scandir(data_dir):
                     reduced_df[col_name] = reduced_df['HRR (W/g)'] - reduced_df['HRR correction']
 
                     data_df = pd.concat([data_df, reduced_df], axis = 1)
+                    data_array = data_df[col_name].to_numpy()
+                    time_array = data_df[f'Time_copy_{col_name[-1]}'].to_numpy() #col_name[-1] to have the repetition number of the time column as -1 (not -R1) to help Regex later
+                    data_array = data_array[~np.isnan(data_array)]
+                    time_array = time_array[~np.isnan(time_array)]
+                    hoc_df.at['Heat of Combustion (MJ/kg)', col_name] = (integrate.trapz(y=data_array, x=time_array)) / 1000
 
             corrected_data = data_df.filter(regex = 'R[0-9]')
             plot_data_df.loc[:,'HRR_mean'] = corrected_data.mean(axis = 1)
             plot_data_df.loc[:,'HRR_std'] = corrected_data.std(axis = 1)
 
-        else:
-            continue
     else:
         continue
-    
+
+    hoc_df_html = pd.DataFrame(index = ['Heat of Combustion (MJ/kg)'], columns = ['Mean', 'Std. Dev.'])
+    hoc_df_html['Mean'] = hoc_df.mean(axis=1).round(decimals=2)
+    hoc_df_html['Std. Dev.'] = hoc_df.std(axis=1).round(decimals=2)
+
+    hoc_df_html.index.rename('Value',inplace=True)
+    hoc_df_html = hoc_df_html.reset_index()
+    hoc_df_html.to_html(f'{data_dir}{material}/MCC/{material}_MCC_Heats_of_Combustion.html',index=False,border=0)
+
     plot_mean_data(plot_data_df)
 
     plot_dir = f'../03_Charts/{material}/MCC/'
