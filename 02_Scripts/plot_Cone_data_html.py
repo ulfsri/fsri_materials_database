@@ -245,7 +245,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                 co_prod = (trapezoid(data_temp_df.loc[ml_10_ind:ml_90_ind,'CO Mass Flow'], x = x))*1000 # g
                 co_df.at['CO Yield (g/g)', label] = co_prod/(0.8*mass_lost)
 
-                output_df.at['Peak HRRPUA (kW/m2)', label] = float("{:.2f}".format(max(data_temp_df['HRRPUA'])))
+                output_df.at['Peak HRRPUA (kW/m\u00b2)', label] = float("{:.2f}".format(max(data_temp_df['HRRPUA'])))
                 output_df.at['Time to Peak HRRPUA (s)', label] = data_temp_df.loc[data_temp_df['HRRPUA'].idxmax(), 'Time'] - float(scalar_data_series.at['TIME TO IGN'])
 
         for n in quant_list:
@@ -278,25 +278,25 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
     hf_ranges = ['25','50','75']
     for hf in hf_ranges:
         html_df = output_df.filter(like=hf)
-        html_df.columns = html_df.columns.str.replace('HF'+hf+'_', hf+' kW/m<sup>2</sup>]')
-        html_df.to_html(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_HRRPUA_Table_{hf}.html', float_format='%.2f')
+        html_df.columns = html_df.columns.str.replace('HF'+hf+'_', hf+' kW/m\u00b2 ')
+        html_df.to_html(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_HRRPUA_Table_{hf}.html', float_format='%.2f', encoding='UTF-8', border=0)
 
         co_hf_df = co_df.filter(like=hf)
         co_html_df.loc[hf,'Mean CO Yield [g/g]'] = np.around(co_hf_df.mean(axis=1).to_numpy()[0], decimals=3)
         co_html_df.loc[hf, 'CO Yield Std. Dev. [g/g]'] = np.around(co_hf_df.std(axis=1).to_numpy()[0], decimals=3)
-        co_html_df.index.rename('Incident Heat Flux [kW/m<sup>2</sup>]',inplace=True)
+        co_html_df.index.rename('Incident Heat Flux [kW/m\u00b2]',inplace=True)
 
         soot_hf_df = soot_df.filter(like=hf)
         soot_hf_df = soot_hf_df.drop(columns=[col for col in soot_hf_df.columns if soot_hf_df[col].lt(0).any()])
         soot_html_df.loc[hf,'Mean Soot Yield [g/g]'] = np.around(soot_hf_df.mean(axis=1).to_numpy()[0], decimals=3)
         soot_html_df.loc[hf, 'Soot Yield Std. Dev. [g/g]'] = np.around(soot_hf_df.std(axis=1).to_numpy()[0], decimals=3)
-        soot_html_df.index.names = ['Incident Heat Flux [kW/m<sup>2</sup>]']
+        soot_html_df.index.names = ['Incident Heat Flux [kW/m\u00b2]']
 
     co_html_df = co_html_df.reset_index()
-    co_html_df.to_html(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_CO_Table.html',index=False,border=0)
+    co_html_df.to_html(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_CO_Table.html',index=False, encoding='UTF-8', border=0)
 
     if soot_html_df.isnull().values.any():
         pass
     else:
         soot_html_df = soot_html_df.reset_index()
-        soot_html_df.to_html(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_Soot_Table.html',index=False,border=0)
+        soot_html_df.to_html(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_Soot_Table.html',index=False, encoding='UTF-8', border=0)
