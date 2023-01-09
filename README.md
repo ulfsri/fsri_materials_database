@@ -33,7 +33,7 @@ Raw data generated from each apparatus are included here in plain-text format. T
 - This directory also includes representative photographs of the respective material.
 
 ### Additional Data Files
-- __material_name.json__
+- __material.json__
     Each material has a json file that links the data stored in the repository and data and graphs produced by the accompanying scripts to the respective landing page for the material on the front-end website. The file also contains a brief description of the material and alternate names of the material to facilitate search.
 - __Photos__
     A full-size and thumbnail photo are included of materials for visualization on front-end website.

@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Standard_Gypsum_25_1
+OPERATOR,Dow
+MATERIAL,Standard Gypsum
+ORIENTATION,Horizontal
+HEAT FLUX,25
+SURF AREA,0.009999999776482582
+C FACTOR,0.04185835272073746
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,85.69999694824219
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,5287
+TIME TO IGN,0
+END OF TEST SCAN,4807
+END OF TEST TIME,1201.75
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 102.40 x 103.80 x 12.70 mm
+POST TEST CMT,"The gypsum paper turned a dark color before shriveling and curling upwards. As it curled, the paper turned a glowing orange color, however there was no ignition. Test ended after 20 minutes."

@@ -1,12 +1,14 @@
-# MCC Data Import and Pre-processing
-#   by: Mark McKinnon and Craig Weinschenk
-# ***************************** Run Notes ***************************** #
-# - Prompts user for directory with MCC raw data                        #
+# Heat flow meter html data processing script
+#   by: ULRI's Fire Safety Research Institute
+#   Questions? Submit them here: https://github.com/ulfsri/fsri_materials_database/issues
+
+# ***************************** Usage Notes *************************** #
+# - Script outputs as a function of temperature                         #
+#   -  HTML Graphs dir: /03_Charts/{Material}/HFM                       #
+#      Graphs: Wet and Dry Thermal Conductivity and Heat Capacity       #
 #                                                                       #
-# - Imports raw MCC data and creates excel sheets with header           #
-#       information, raw data, and analyzed data (baseline and          #
-#       mass loss corrected)                                            #
-#                                                                       #
+#      HTML Tables dir: /01_Data/{Material}/HFM                         #
+#      Tables: Wet and Dry Thermal Conductivity and Heat Capacity       #
 # ********************************************************************* #
 
 # --------------- #
@@ -50,9 +52,9 @@ def search_string_in_file(file_name, string_to_search):
     return line_num
 
 def unique(list1):
- 
+
     unique_list = []
-     
+
     for x in list1:
         if x not in unique_list:
             unique_list.append(x)
@@ -74,7 +76,7 @@ def plot_mean_data(df):
 
 def format_and_save_plot(file_loc,material):
 
-    if file_loc.split('.')[-2].split('_')[-1] == 'Conductivity':
+    if file_loc.split('.')[-2].split('_')[-1].lower() == 'conductivity':
         fig.update_layout(yaxis_title='Thermal Conductivity (W/mK)', title ='Thermal Conductivity')
     else:
         fig.update_layout(yaxis_title='Specific Heat (J/kgK)', title ='Specific Heat')
@@ -99,37 +101,34 @@ def format_and_save_plot(file_loc,material):
     fig.write_html(file_loc,include_plotlyjs="cdn")
     plt.close()
 
-    print()
+    # print()
 
 data_dir = '../01_Data/'
 save_dir = '../03_Charts/'
 
-for d in os.scandir(data_dir):
-    material = d.path.split('/')[-1]
-    print(f'{material} Thermal Conductivity')
+for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
+    material = d
     ylims = [0,0]
     xlims = [0,0]
-    fig = go.Figure()
     k_wet = []
     k_dry = []
-    if d.is_dir():
-        for d_ in os.scandir(d):
-            if d_.is_dir() and 'HFM' in d_.path:
-                for f in os.scandir(d_):
-                    if 'Conductivity' in f.path:
-                        if 'Dry' in f.path:
-                            k_dry.append(f.path)
-                        else:
-                            k_wet.append(f.path)
-                    else:
-                        continue
+    if os.path.isdir(f'{data_dir}{d}/HFM/'):
+        print(f'{material} Thermal Conductivity')
+        for f in sorted(glob.iglob(f'{data_dir}{d}/HFM/*.tst')):
+            if 'conductivity' in str(f).lower():
+                if 'Dry' in f:
+                    k_dry.append(f)
+                else:
+                    k_wet.append(f)
+            else:
+                continue
         dirs = [k_wet, k_dry]
         k_plot_data = pd.DataFrame()
         for coll in dirs:
             k_df = pd.DataFrame()
 
             for file_path in coll:
-                if 'Conductivity' in file_path:
+                if 'conductivity' in str(file_path).lower() and '.csv' not in str(file_path).lower():
                     clean_file(file_path)
                     start_line = search_string_in_file(f'{file_path}_TEMP.tst', 'Results Table -- SI Units')
                     header_line = start_line+1
@@ -137,8 +136,9 @@ for d in os.scandir(data_dir):
                     os.remove(f'{file_path}_TEMP.tst')
                     temp_df.dropna(axis=0, inplace = True)
 
+                    temp_df.index = temp_df.index.astype('float64')
                     temp_df_ind = temp_df.index.to_series()
-                    temp_df.index = temp_df_ind.round(1)
+                    temp_df.index = temp_df_ind.round(0)
 
                     f_str = file_path.split('/')[-1].split('_')
                     rep = f_str[-1].split('.')[0]
@@ -156,31 +156,46 @@ for d in os.scandir(data_dir):
                     data_df = data_df.stack()
                 i_mean = data_df.mean()
                 i_std = data_df.std()
-                
-                k_plot_data.at[i,f'{f_str[-4]}_mean'] = i_mean
-                k_plot_data.at[i,f'{f_str[-4]}_std'] = i_std
 
-        plot_mean_data(k_plot_data)
+                k_plot_data.at[i,f'{f_str[-4]}_mean'] = round(i_mean, 3)
+                k_plot_data.at[i,f'{f_str[-4]}_std'] = round(i_std, 3)
 
-        plot_dir = f'../03_Charts/{material}/HFM/'
+        for cond in ['Wet', 'Dry']:
 
-        if not os.path.exists(plot_dir):
-            os.makedirs(plot_dir)
+            k_plot_data_cond = k_plot_data.filter(regex=cond)
 
-        format_and_save_plot(f'{plot_dir}{material}_Thermal_Conductivity.html',material)
+            if k_plot_data_cond.empty:
+                continue
 
-for d in os.scandir(data_dir):
-    material = d.path.split('/')[-1]
-   
-    temp_df = pd.DataFrame() 
+            fig = go.Figure()
+
+            plot_mean_data(k_plot_data_cond)
+
+            plot_dir = f'../03_Charts/{material}/HFM/'
+
+            if not os.path.exists(plot_dir):
+                os.makedirs(plot_dir)
+
+            format_and_save_plot(f'{plot_dir}{material}_HFM_{cond}_conductivity.html',material)
+
+            k_plot_data_cond = k_plot_data_cond.rename(columns = {f'{cond}_mean': 'Conductivity Mean (W/m-K)', f'{cond}_std': 'Standard Deviation (W/m-K)'})
+            k_plot_data_cond.index.names = ['Temperature (C)']
+            k_plot_data_cond = k_plot_data_cond.reset_index()
+            k_plot_data_cond.to_html(f'{data_dir}{material}/HFM/{material}_HFM_{cond}_conductivity.html',index=False,border=0)
+
+print()
+
+for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
+    material = d
+    temp_df = pd.DataFrame()
     density_df = pd.DataFrame(index = ['mean', 'std'])
-    if d.is_dir():
-        for d_ in os.scandir(d):
-            if d_.is_dir() and 'Density' in d_.path:
-                for f in os.scandir(d_):
-                    temp_density_series = pd.read_csv(f, index_col = 0).squeeze()
-                    f_str = f.path.split('.')[-2].split('_')[-3] + '_' + f.path.split('.')[-2].split('_')[-1]
-                    temp_df.at['Density', f_str] = temp_density_series['Density']
+    if os.path.isdir(f'{data_dir}{d}/HFM/'):
+        for f in sorted(glob.iglob(f'{data_dir}{d}/HFM/*.csv')):
+            if 'Density' in f and 'Summary' not in f and 'Ignition' not in f:
+                temp_density_series = pd.read_csv(f, index_col = 0).squeeze()
+                f_list = str(f).replace('.csv', '').split('_')
+                f_str = f_list[-2] + '_' + f_list[-1]
+                temp_df.at['Density', f_str] = temp_density_series['Sample Density [kg/m3]']
 
     if temp_df.empty:
         continue
@@ -196,20 +211,17 @@ for d in os.scandir(data_dir):
     print(f'{material} Heat Capacity')
     ylims = [0,0]
     xlims = [0,0]
-    fig = go.Figure()
     c_wet = []
     c_dry = []
-    if d.is_dir():
+    if os.path.isdir(f'{data_dir}{d}/HFM/'):
         file_counter = 0
-        for d_ in os.scandir(d):
-            if d_.is_dir() and 'HFM' in d_.path:
-                for f in os.scandir(d_):
-                    if 'HeatCapacity' in f.path:
-                        file_counter += 1
-                        if 'Dry' in f.path:
-                            c_dry.append(f.path)
-                        else:
-                            c_wet.append(f.path)
+        for f in sorted(glob.iglob(f'{data_dir}{d}/HFM/*.tst')):
+            if 'heatcapacity' in str(f).lower():
+                file_counter += 1
+                if 'Dry' in f:
+                    c_dry.append(f)
+                else:
+                    c_wet.append(f)
 
         if file_counter == 0:
             print('empty')
@@ -219,7 +231,7 @@ for d in os.scandir(data_dir):
         for coll in dirs:
             c_df = pd.DataFrame()
             for file_path in coll:
-                if 'HeatCapacity' in file_path:
+                if 'heatcapacity' in str(file_path).lower() and '.csv' not in str(file_path).lower():
                     clean_file(file_path)
                     start_line = search_string_in_file(f'{file_path}_TEMP.tst', 'Results Table -- SI Units')
                     header_line = start_line+1
@@ -248,16 +260,27 @@ for d in os.scandir(data_dir):
                     data_df = data_df.stack()
                 i_mean = data_df.mean()
                 i_std = data_df.std()
-                
-                c_plot_data.at[i,f'{f_str[-4]}_mean'] = i_mean / density_df.at['mean', f_str[-4]]
-                c_plot_data.at[i,f'{f_str[-4]}_std'] = i_std / density_df.at['mean', f_str[-4]]
 
-        plot_mean_data(c_plot_data)
+                c_plot_data.at[i,f'{f_str[-4]}_mean'] = round(i_mean / density_df.at['mean', f_str[-4]], 0)
+                c_plot_data.at[i,f'{f_str[-4]}_std'] = round(i_std / density_df.at['mean', f_str[-4]], 0)
+
+    for cond in ['Wet', 'Dry']:
+
+        c_plot_data_cond = c_plot_data.filter(regex=cond)
+        if c_plot_data_cond.empty:
+            continue
+
+        fig = go.Figure()
+        plot_mean_data(c_plot_data_cond)
 
         plot_dir = f'../03_Charts/{material}/HFM/'
 
         if not os.path.exists(plot_dir):
             os.makedirs(plot_dir)
 
-        print('Plotting Chart')
-        format_and_save_plot(f'{plot_dir}{material}_Specific_Heat.html',material)
+        format_and_save_plot(f'{plot_dir}{material}_HFM_{cond}_specific_heat.html',material)
+
+        c_plot_data_cond = c_plot_data_cond.rename(columns = {f'{cond}_mean': 'Specific Heat Mean (J/kg-K)', f'{cond}_std': 'Standard Deviation (J/kg-K)'})
+        c_plot_data_cond.index.names = ['Temperature (C)']
+        c_plot_data_cond = c_plot_data_cond.reset_index()
+        c_plot_data_cond.to_html(f'{data_dir}{material}/HFM/{material}_HFM_{cond}_specific_heat.html', index=False,border=0)

@@ -1,12 +1,11 @@
-# MCC Data Import and Pre-processing
-#   by: Mark McKinnon and Craig Weinschenk
-# ***************************** Run Notes ***************************** #
-# - Prompts user for directory with MCC raw data                        #
-#                                                                       #
-# - Imports raw MCC data and creates excel sheets with header           #
-#       information, raw data, and analyzed data (baseline and          #
-#       mass loss corrected)                                            #
-#                                                                       #
+# Reflection signal html data processing script
+#   by: ULRI's Fire Safety Research Institute
+#   Questions? Submit them here: https://github.com/ulfsri/fsri_materials_database/issues
+
+# ***************************** Usage Notes *************************** #
+# - Script outputs as a function of wavelength                          #
+#   -  HTML Graphs dir: /03_Charts/{Material}/FTIR/IS                   #
+#      Graphs: Reflection Signal                                        #
 # ********************************************************************* #
 
 # --------------- #

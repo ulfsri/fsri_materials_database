@@ -64,7 +64,7 @@ def format_and_save_plot(xlims, ylims, file_loc):
     ax1.set_position([0.15, 0.3, 0.77, 0.65])
 
     y_range_array = np.arange(ylims[0], ylims[1] + 0.05, 0.05)
-    ax1.set_ylabel('ATR Signal (-)', fontsize=label_size)        
+    ax1.set_ylabel('ATR Signal (-)', fontsize=label_size)
 
     yticks_list = list(y_range_array)
 
@@ -137,17 +137,17 @@ for d in os.scandir(data_dir):
     data = pd.DataFrame()
     data_df = pd.DataFrame()
     material = d.path.split('/')[-1]
-    print(f'{material} ATR')
     ylims = [0,0]
     xlims = [0,0]
     fig, ax1, x_min, x_max, y_min, y_max = create_1plot_fig()
     if d.is_dir():
-        if os.path.isdir(f'{d.path}/FTIR'):
+        if os.path.isdir(f'{d.path}/FTIR/ATR'):
+            print(f'{material} ATR')
             for f in os.scandir(f'{d.path}/FTIR/ATR/'):
                 temp_df = pd.read_csv(f, header = None) # index_col = 0
                 temp_df.rename(columns = {0:'wavenumber', 1: 'signal'}, inplace=True)
                 temp_df['wavelength'] = 10000000/temp_df.iloc[:,0] # wavelength in nm
-                data = pd.concat([data, temp_df], axis = 1)               
+                data = pd.concat([data, temp_df], axis = 1)
         else:
             continue
 

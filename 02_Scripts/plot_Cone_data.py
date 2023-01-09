@@ -41,10 +41,10 @@ fig_width = 10
 fig_height = 6
 
 ### Fuel Properties ###
-# a = 
-# b = 
-# c = 
-# d = 
+# a =
+# b =
+# c =
+# d =
 e = 13100 # [kJ/kg O2] del_hc/r_0
 
 def apply_savgol_filter(raw_data):
@@ -79,7 +79,7 @@ def search_string_in_file(file_name, string_to_search):
 def unique(list1):
 
 	unique_list = []
-	
+
 	for x in list1:
 		if x not in unique_list:
 			unique_list.append(x)
@@ -107,7 +107,7 @@ def plot_data(df, rep):
 
 	x_max = max(df.index)
 	x_min = min(df.index)
-	
+
 	return(y_min, y_max, x_min, x_max)
 
 def air_density(temperature):
@@ -116,7 +116,7 @@ def air_density(temperature):
 	return rho
 
 def format_and_save_plot(xlims, ylims, inc, quantity, file_loc):
-	
+
 	label_dict = {'HRRPUA': 'Heat Release Rate (kW/m2)', 'MLR': 'Mass Loss Rate (g/s)', 'EHC':'Effective Heat of Combustion (MJ/kg)' , 'SPR': 'Smoke Production Rate (1/s)', 'SEA': 'Specific Extinction Area', 'Extinction Coefficient': 'Extinction Coefficient (1/m)'}
 
 	# Set tick parameters
@@ -203,7 +203,7 @@ for d in os.scandir(data_dir):
 	material = d.path.split('/')[-1]
 	if material == '.DS_Store':
 		continue
-	
+
 	### CHOOSE MATERIAL ###
 	# if material != 'Black_PMMA':
 	# 	continue
@@ -219,7 +219,7 @@ for d in os.scandir(data_dir):
 			reduced_df = pd.DataFrame()
 			for f in glob.iglob(f'{d.path}/Cone/*.csv'):
 			# for f in os.scandir(f'{d.path}/Cone/'):
-				if 'scalar' in f.lower() or 'cone_analysis_data' in f.lower() or 'cone_notes' in f.lower():
+				if 'scalar' in f.lower() or 'cone_analysis_data' in f.lower() or 'cone_notes' in f.lower() or 'hrrpua_table' in f.lower() or 'ignition' in f.lower():
 					continue
 				else:
 					label_list = f.split('.csv')[0].split('_')
@@ -229,7 +229,7 @@ for d in os.scandir(data_dir):
 					scalar_data_fid = f.replace('Scan','Scalar')
 					scalar_data_series = pd.read_csv(scalar_data_fid, index_col = 0).squeeze()
 
-					# Test Notes # 
+					# Test Notes #
 					try:
 						pretest_notes = scalar_data_series.at['PRE TEST CMT']
 					except:
@@ -241,7 +241,7 @@ for d in os.scandir(data_dir):
 						if 'Dimensions' in notes:
 							dims = []
 							for i in notes.split(' '):
-								try: 
+								try:
 									dims.append(float(i))
 								except: continue
 							surf_area_mm2 = dims[0] * dims[1]
@@ -260,7 +260,7 @@ for d in os.scandir(data_dir):
 						notes_df.at[label, 'Posttest'] = scalar_data_series.at['POST TEST CMT']
 					except:
 						notes_df.at[label, 'Posttest'] = ' '
-					
+
 
 					c_factor = float(scalar_data_series.at['C FACTOR'])
 
@@ -272,7 +272,7 @@ for d in os.scandir(data_dir):
 					data_temp_df.loc[:,'Volumetric Flow'] = data_temp_df.loc[:,'EDF']*air_density(data_temp_df.loc[:,'Smoke TC']) # Exhaust Duct Flow (m_e_dot)
 					# O2_offset = 0.2095 - data_temp_df.at['Baseline', 'O2 Meter']
 					# data_temp_df.loc[:,'ODF'] = (0.2095 - data_temp_df.loc[:,'O2 Meter'] + O2_offset) / (1.105 - (1.5*(data_temp_df.loc[:,'O2 Meter'] + O2_offset))) # Oxygen depletion factor with only O2
-					data_temp_df.loc[:,'ODF'] = (data_temp_df.at['Baseline', 'O2 Meter'] - data_temp_df.loc[:,'O2 Meter']) / (1.105 - (1.5*(data_temp_df.loc[:,'O2 Meter']))) # Oxygen depletion factor with only O2                    
+					data_temp_df.loc[:,'ODF'] = (data_temp_df.at['Baseline', 'O2 Meter'] - data_temp_df.loc[:,'O2 Meter']) / (1.105 - (1.5*(data_temp_df.loc[:,'O2 Meter']))) # Oxygen depletion factor with only O2
 					data_temp_df.loc[:,'ODF_ext'] = (data_temp_df.at['Baseline', 'O2 Meter']*(1-data_temp_df.loc[:, 'CO2 Meter'] - data_temp_df.loc[:, 'CO Meter']) - data_temp_df.loc[:, 'O2 Meter']*(1-data_temp_df.at['Baseline', 'CO2 Meter']))/(data_temp_df.at['Baseline', 'O2 Meter']*(1-data_temp_df.loc[:, 'CO2 Meter']-data_temp_df.loc[:, 'CO Meter']-data_temp_df.loc[:, 'O2 Meter'])) # Oxygen Depletion Factor with O2, CO, and CO2
 					data_temp_df.loc[:,'HRR'] = 1.10*(e)*data_temp_df.loc[:,'EDF']*data_temp_df.loc[:,'ODF']
 					data_temp_df.loc[:,'HRR_ext'] = 1.10*(e)*data_temp_df.loc[:,'EDF']*data_temp_df.at['Baseline', 'O2 Meter']*((data_temp_df.loc[:,'ODF_ext']-0.172*(1-data_temp_df.loc[:,'ODF'])*(data_temp_df.loc[:, 'CO2 Meter']/data_temp_df.loc[:, 'O2 Meter']))/((1-data_temp_df.loc[:,'ODF'])+1.105*data_temp_df.loc[:,'ODF']))
@@ -281,7 +281,7 @@ for d in os.scandir(data_dir):
 					data_temp_df['MLR_grad'] = -np.gradient(data_temp_df['Sample Mass'], 0.25)
 					data_temp_df['MLR'] = apply_savgol_filter(data_temp_df['MLR_grad'])
 					data_temp_df['MLR'][data_temp_df['MLR'] > 5] = 0
-					
+
 					# # MLR Calculation
 					# data_temp_df['MLR'] = np.zeros(len(data_temp_df['Sample Mass']))
 					# data_temp_df['MLR'].iloc[0] = ( 25*(data_temp_df['Sample Mass'].iloc[0]) - 48*(data_temp_df['Sample Mass'].iloc[1]) + 36*(data_temp_df['Sample Mass'].iloc[2]) - 16*(data_temp_df['Sample Mass'].iloc[3]) + 3*(data_temp_df['Sample Mass'].iloc[4])) / (12*0.25)
@@ -323,7 +323,7 @@ for d in os.scandir(data_dir):
 
 					try: output_df.at['Average HRRPUA over 180 seconds (kW/m2)', label] = float("{:.2f}".format(np.mean(data_temp_df.loc[ign_index:t180,'HRRPUA'])))
 					except: output_df.at['Average HRRPUA over 180 seconds (kW/m2)', label] = math.nan
-					
+
 					try: output_df.at['Average HRRPUA over 300 seconds (kW/m2)', label] = float("{:.2f}".format(np.mean(data_temp_df.loc[ign_index:t300,'HRRPUA'])))
 					except: output_df.at['Average HRRPUA over 300 seconds (kW/m2)', label] = math.nan
 
@@ -334,13 +334,13 @@ for d in os.scandir(data_dir):
 					output_df.at['Initial Mass (g)', label] = scalar_data_series.at['SPECIMEN MASS']
 					output_df.at['Final Mass (g)', label] = float("{:.2f}".format(data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'Sample Mass'] - holder_mass))
 					output_df.at['Mass at Ignition (g)', label] = float("{:.2f}".format(data_temp_df.at[ign_index,'Sample Mass'] - holder_mass))
-					
+
 					t10 = data_temp_df['Sample Mass'].sub(data_temp_df.at['1','Sample Mass'] - 0.1*total_mass_lost).abs().idxmin()
 					t90 = data_temp_df['Sample Mass'].sub(data_temp_df.at['1','Sample Mass'] - 0.9*total_mass_lost).abs().idxmin()
 
 					output_df.at['Avg. Mass Loss Rate [10% to 90%] (g/m2s)', label] = float("{:.2f}".format(np.mean(data_temp_df.loc[t10:t90,'MLR']/surf_area_m2)))
 
-					
+
 			for n in quant_list:
 				for m in hf_list:
 					ylims = [0,0]
@@ -351,7 +351,7 @@ for d in os.scandir(data_dir):
 						if m in key:
 							plot_df = df_dict[key].filter(regex = n)
 							ymin, ymax, xmin, xmax = plot_data(plot_df, rep_str)
-					
+
 					y_min = max(ymin, y_min)
 					x_min = max(xmin, x_min)
 					y_max = max(ymax, y_max)
@@ -375,7 +375,7 @@ for d in os.scandir(data_dir):
 					if not os.path.exists(plot_dir):
 						os.makedirs(plot_dir)
 
-					format_and_save_plot(xlims, ylims, inc, n, f'{plot_dir}{material}_Cone_{n}_{m}.pdf')       
+					format_and_save_plot(xlims, ylims, inc, n, f'{plot_dir}{material}_Cone_{n}_{m}.pdf')
 
 		else:
 			continue

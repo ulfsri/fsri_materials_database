@@ -1,12 +1,11 @@
-# MCC Data Import and Pre-processing
-#   by: Mark McKinnon and Craig Weinschenk
-# ***************************** Run Notes ***************************** #
-# - Prompts user for directory with MCC raw data                        #
-#                                                                       #
-# - Imports raw MCC data and creates excel sheets with header           #
-#       information, raw data, and analyzed data (baseline and          #
-#       mass loss corrected)                                            #
-#                                                                       #
+# ATR html data processing script
+#   by: ULRI's Fire Safety Research Institute
+#   Questions? Submit them here: https://github.com/ulfsri/fsri_materials_database/issues
+
+# ***************************** Usage Notes *************************** #
+# - Script outputs as a function of wavelength                          #
+#   -  HTML Graphs dir: /03_Charts/{Material}/FTIR/ATR                  #
+#      Graphs: ATR Signal                                               #
 # ********************************************************************* #
 
 # --------------- #
@@ -67,21 +66,20 @@ def format_and_save_plot(file_loc):
 data_dir = '../01_Data/'
 save_dir = '../03_Charts/'
 
-for d in os.scandir(data_dir):
-    data = pd.DataFrame()
-    data_df = pd.DataFrame()
-    material = d.path.split('/')[-1]
-    print(f'{material} ATR')
-    ylims = [0,0]
-    xlims = [0,0]
-    fig = go.Figure()
-    if d.is_dir():
-        if os.path.isdir(f'{d.path}/FTIR'):
-            for f in os.scandir(f'{d.path}/FTIR/ATR/'):
-                temp_df = pd.read_csv(f, header = None) # index_col = 0
-                temp_df.rename(columns = {0:'wavenumber', 1: 'signal'}, inplace=True)
-                temp_df['wavelength'] = 10000000/temp_df.iloc[:,0] # wavelength in nm
-                data = pd.concat([data, temp_df], axis = 1)
+for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
+    if os.path.isdir(f'{data_dir}{d}/FTIR/ATR'):
+        data = pd.DataFrame()
+        data_df = pd.DataFrame()
+        material = d
+        print(f'{material} ATR')
+        ylims = [0,0]
+        xlims = [0,0]
+        fig = go.Figure()
+        for f in sorted(glob.iglob(f'{data_dir}{material}/FTIR/ATR/*.tst')):
+            temp_df = pd.read_csv(f, header = None) # index_col = 0
+            temp_df.rename(columns = {0:'wavenumber', 1: 'signal'}, inplace=True)
+            temp_df['wavelength'] = 10000000/temp_df.iloc[:,0] # wavelength in nm
+            data = pd.concat([data, temp_df], axis = 1)
         else:
             continue
 

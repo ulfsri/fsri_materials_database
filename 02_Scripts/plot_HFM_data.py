@@ -54,9 +54,9 @@ def search_string_in_file(file_name, string_to_search):
     return line_num
 
 def unique(list1):
- 
+
     unique_list = []
-     
+
     for x in list1:
         if x not in unique_list:
             unique_list.append(x)
@@ -92,8 +92,8 @@ def plot_mean_data(df):
             y_max = max(df.iloc[:,mean_col]+2*df.iloc[:,std_col])
             y_min = min(df.iloc[:,mean_col]-2*df.iloc[:,std_col])
 
-    x_max = max(df.index)
-    x_min = min(df.index)
+    x_max = df.index.max()
+    x_min = df.index.min()
     return(y_min, y_max, x_min, x_max)
 
 def format_and_save_plot(xlims, ylims, file_loc):
@@ -109,10 +109,10 @@ def format_and_save_plot(xlims, ylims, file_loc):
 
     if file_loc.split('.')[-2].split('_')[-1] == 'Conductivity':
         y_range_array = np.arange(ylims[0], ylims[1] + 0.05, 0.05)
-        ax1.set_ylabel('Thermal Conductivity (W/mK)', fontsize=label_size)        
+        ax1.set_ylabel('Thermal Conductivity (W/mK)', fontsize=label_size)
     else:
         y_range_array = np.arange(ylims[0], ylims[1] + 100, 100)
-        ax1.set_ylabel('Specific Heat (J/kgK)', fontsize=label_size)    
+        ax1.set_ylabel('Specific Heat (J/kgK)', fontsize=label_size)
 
     yticks_list = list(y_range_array)
 
@@ -168,6 +168,7 @@ def format_and_save_plot(xlims, ylims, file_loc):
 
     # Save plot to file
     plt.savefig(file_loc)
+    plt.clf()
     plt.close()
 
     print()
@@ -181,7 +182,6 @@ save_dir = '../03_Charts/'
 
 for d in os.scandir(data_dir):
     material = d.path.split('/')[-1]
-    print(f'{material} Thermal Conductivity')
     ylims = [0,0]
     xlims = [0,0]
     fig, ax1, x_min, x_max, y_min, y_max = create_1plot_fig()
@@ -231,10 +231,12 @@ for d in os.scandir(data_dir):
                     data_df = data_df.stack()
                 i_mean = data_df.mean()
                 i_std = data_df.std()
-                
+
                 k_plot_data.at[i,f'{f_str[-4]}_mean'] = i_mean
                 k_plot_data.at[i,f'{f_str[-4]}_std'] = i_std
 
+        if k_plot_data.empty:
+            continue
         ymin, ymax, xmin, xmax = plot_mean_data(k_plot_data)
 
         y_min = max(ymin, y_min)
@@ -256,20 +258,22 @@ for d in os.scandir(data_dir):
 
 for d in os.scandir(data_dir):
     material = d.path.split('/')[-1]
-   
-    temp_df = pd.DataFrame() 
+
+    temp_df = pd.DataFrame()
     density_df = pd.DataFrame(index = ['mean', 'std'])
     if d.is_dir():
         for d_ in os.scandir(d):
             if d_.is_dir() and 'Density' in d_.path:
                 for f in os.scandir(d_):
-                    temp_density_series = pd.read_csv(f, squeeze = True, index_col = 0)
+                    temp_density_series = pd.read_csv(f, names=['Measure', 'Value'])
+                    temp_density_series = temp_density_series.set_index('Measure')['Value']
                     f_str = f.path.split('.')[-2].split('_')[-3] + '_' + f.path.split('.')[-2].split('_')[-1]
                     temp_df.at['Density', f_str] = temp_density_series['Density']
 
     if temp_df.empty:
         continue
     else:
+        print(f'{material} Thermal Conductivity')
         wet_mean_density = temp_df.filter(regex = 'Wet').mean(axis = 1).at['Density']
         wet_std_density = temp_df.filter(regex = 'Wet').std(axis = 1).at['Density']
         dry_mean_density = temp_df.filter(regex = 'Dry').mean(axis = 1).at['Density']
@@ -333,7 +337,7 @@ for d in os.scandir(data_dir):
                     data_df = data_df.stack()
                 i_mean = data_df.mean()
                 i_std = data_df.std()
-                
+
                 c_plot_data.at[i,f'{f_str[-4]}_mean'] = i_mean / density_df.at['mean', f_str[-4]]
                 c_plot_data.at[i,f'{f_str[-4]}_std'] = i_std / density_df.at['mean', f_str[-4]]
 
@@ -359,7 +363,7 @@ for d in os.scandir(data_dir):
         format_and_save_plot(xlims, ylims, f'{plot_dir}{material}_Specific_Heat.pdf')
 
 #     f_name = file.split('.txt')[0]
-#     sample_name = f_name.split('_')[0]      
+#     sample_name = f_name.split('_')[0]
 
 #     header_df = pd.read_csv(f'{path}/{file}', header = 0, sep = '\t', nrows = 7, index_col = 'Sample ID:')
 #     raw_df = pd.read_csv(f'{path}/{file}', header = 11, sep = '\t', index_col = 'Time (s)')
@@ -398,7 +402,7 @@ for d in os.scandir(data_dir):
 # # create a mean data worksheet and calculate the mean HRR and THR
 # for i in materials_list:
 #     d[f'{i}_30_mean'] = pd.DataFrame()
-#     for key in d.keys():   
+#     for key in d.keys():
 #         if i in key and key.split('_')[-1] == 'reduced':
 #             d[f'{i}_30_mean'] = pd.concat([d[f'{i}_30_mean'], d[key]], axis = 0)
 #     d[f'{i}_30_mean'].reset_index(inplace = True)
@@ -409,7 +413,7 @@ for d in os.scandir(data_dir):
 # # Save an excel worksheet for each material
 # for i in materials_list:
 #     sheet_names = []
-#     for key in d.keys():   
+#     for key in d.keys():
 #         if i in key:
 #             sheet_names.append(key)
 

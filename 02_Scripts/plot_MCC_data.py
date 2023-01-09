@@ -22,8 +22,6 @@ import glob
 import numpy as np
 import pandas as pd
 import math
-from tkinter import Tk
-from tkinter.filedialog import askdirectory
 import matplotlib.pyplot as plt
 from scipy.signal import savgol_filter
 from scipy import integrate
@@ -206,9 +204,9 @@ for d in os.scandir(data_dir):
                     col_name = f.split('.txt')[0].split('_')[-1]
                     # print(col_name)
                     if "O" not in col_name: # to ignore outliers (run code only for reptitions)
-                        
+
                         all_col_names.append(col_name) # collect reptition numbers to account for botched tests (ex. R2, R3, R4, if R1 was bad)
-                  
+
                         reduced_df = data_temp_df.loc[:, [
                         'Temperature (C)', 'HRR (W/g)']]
                         reduced_df[f'Time_copy_{col_name[-1]}'] = reduced_df.index  #col_name[-1] to have the reptition number as -1 (not -R1) to help Regex later
@@ -264,9 +262,12 @@ for d in os.scandir(data_dir):
     else:
         continue
 
+    if hoc_df.empty:
+        continue
     mean_hoc = hoc_df.mean(axis=1)
     std_hoc = hoc_df.std(axis=1)
-   
+
+
     hoc_df.at['Heat of Combustion (MJ/kg)', 'Mean'] = mean_hoc
     hoc_df.at['Heat of Combustion (MJ/kg)', 'Std. Dev.'] = std_hoc
     all_col_names.append('Mean')

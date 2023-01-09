@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Standard_Gypsum_50_3
+OPERATOR,Dow
+MATERIAL,Standard Gypsum
+ORIENTATION,Horizontal
+HEAT FLUX,50
+SURF AREA,0.009999999776482582
+C FACTOR,0.04185835272073746
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,76.88999938964844
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,686
+TIME TO IGN,33
+END OF TEST SCAN,206
+END OF TEST TIME,51.5
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 102.17 x 103.02 x 12.72 mm
+POST TEST CMT ,"The gypsum paper continued to have a glowing orange color after the flame self-extinguished, however the test was ended because there was no longer ignition."
