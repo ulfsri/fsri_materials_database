@@ -1,0 +1,117 @@
+{
+	"material": "Asphalt Shingle",
+	"alternate names": [
+		"roof shingle"
+	],
+	"material_dir": "Asphalt_Shingle",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"exterior finish"
+	],
+	"image file": "Asphalt_Shingle.JPG",
+	"image 600x400 file": "Asphalt_Shingle600x400.jpg",
+	"video file": "",
+	"description": "Asphalt shingles have a glass fiber base layer (mat) coated with asphalt containing mineral fillers.",
+	"short desc": "Asphalt shingles have a glass fiber base layer (mat) coated with asphalt containing mineral fillers.",
+	"source": "Samples cut from 0.48 cm thick, 0.3 m x 0.9 m boards.",
+	"density": "1219 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
+	"measured property": [
+	{
+		"test name": "heat release rate per unit area",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "25 kW/m<sup>2</sup>",
+				"graph": "Cone/Asphalt_Shingle_Cone_HRRPUA_25.html",
+				"table": "Cone/Asphalt_Shingle_Cone_Analysis_HRRPUA_Table_25.html"
+			},
+			{
+				"display name": "50 kW/m<sup>2</sup>",
+				"graph": "Cone/Asphalt_Shingle_Cone_HRRPUA_50.html",
+				"table": "Cone/Asphalt_Shingle_Cone_Analysis_HRRPUA_Table_50.html"
+			},
+			{
+				"display name": "75 kW/m<sup>2</sup>",
+				"graph": "Cone/Asphalt_Shingle_Cone_HRRPUA_75.html",
+				"table": "Cone/Asphalt_Shingle_Cone_Analysis_HRRPUA_Table_75.html"
+			}
+		]
+	},
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Asphalt_Shingle_Cone_MLR_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Asphalt_Shingle_Cone_MLR_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Asphalt_Shingle_Cone_MLR_75.html"
+			}
+		]
+
+	},
+	{
+		"test name": "carbon monoxide yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/Asphalt_Shingle_Cone_Analysis_CO_Table.html"
+	},
+	{
+		"test name": "specific heat",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Asphalt_Shingle_HFM_Wet_specific_heat.html",
+				"table": "HFM/Asphalt_Shingle_HFM_Wet_specific_heat.html"
+			},
+			{
+				"display name": "Dried",
+				"graph": "HFM/Asphalt_Shingle_HFM_Dry_specific_heat.html",
+				"table": "HFM/Asphalt_Shingle_HFM_Dry_specific_heat.html"
+			}
+		]
+
+	},
+	{
+		"test name": "thermal conductivity",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Asphalt_Shingle_HFM_Wet_conductivity.html",
+				"table": "HFM/Asphalt_Shingle_HFM_Wet_conductivity.html"
+			},
+			{
+				"display name": "Dried",
+				"graph": "HFM/Asphalt_Shingle_HFM_Dry_conductivity.html",
+				"table": "HFM/Asphalt_Shingle_HFM_Dry_conductivity.html"
+			}
+		]
+
+	},
+	{
+		"test name": "specific heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "MCC/Asphalt_Shingle_MCC_HRR.html"
+	}],	
+	"derived property": [
+	{
+		"test name": "soot yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/Asphalt_Shingle_Cone_Analysis_Soot_Table.html"
+	}]
+}

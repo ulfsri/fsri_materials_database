@@ -1,0 +1,53 @@
+{
+	"material": "Polymethyl Methacrylate (PMMA)",
+	"alternate names": [
+		"polymethyl methacrylate",
+		"PMMA",
+		"acrylic",
+		"plexiglas",
+		"lucite"
+	],
+	"material_dir": "PMMA",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"general polymer"
+	],
+	"image file": "PMMA.JPG",
+	"image 600x400 file": "PMMA600x400.jpg",
+	"video file": "https://www.youtube.com/embed/87hAnxuh1g8",
+	"description": "Polymethyl methacrylate is an engineered thermoplastic most commonly used as a shatter resistant replacement for glass.",
+	"short desc": "Polymethyl methacrylate is an engineered thermoplastic most commonly used as a shatter resistant replacement for glass.",
+	"source": "Samples cut from 0.32 cm thick, 30 cm by 30 cm commercially available cast sheet.",
+	"density": "1180 kg/m<sup>3</sup>",
+	"property scales": [
+		"bench scale"
+	],
+	"measured property": [{
+		"test name": "heat release rate per unit area",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "25 kW/m<sup>2</sup>",
+				"graph": "Cone/PMMA_Cone_HRRPUA_25.html",
+				"table": "Cone/PMMA_Cone_Analysis_HRRPUA_Table_25.html"
+			},
+			{
+				"display name": "50 kW/m<sup>2</sup>",
+				"graph": "Cone/PMMA_Cone_HRRPUA_50.html",
+				"table": "Cone/PMMA_Cone_Analysis_HRRPUA_Table_50.html"
+			},
+			{
+				"display name": "75 kW/m<sup>2</sup>",
+				"graph": "Cone/PMMA_Cone_HRRPUA_75.html",
+				"table": "Cone/PMMA_Cone_Analysis_HRRPUA_Table_75.html"
+			}
+		]
+	},
+	{
+		"test name": "specific heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "MCC/PMMA_MCC_HRR.html"
+	}]
+}

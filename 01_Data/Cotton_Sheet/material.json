@@ -1,0 +1,108 @@
+{
+	"material": "Cotton Sheet",
+	"alternate names": [
+		"Cotton Bedding"
+	],
+	"material_dir": "Cotton_Sheet",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"sleeping product"
+	],
+	"image file": "Cotton_Sheet.JPG",
+	"image 600x400 file": "Cotton_Sheet600x400.jpg",
+	"video file": "",
+	"description": "Cotton fabric top sheet.",
+	"short desc": "Cotton fabric top sheet.",
+	"source": "Samples cut from 0.27 mm thick commercially available sheet.",
+	"density": "555.8 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
+	"measured property": [
+	{
+		"test name": "heat release rate per unit area",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "25 kW/m<sup>2</sup>",
+				"graph": "Cone/Cotton_Sheet_Cone_HRRPUA_25.html",
+				"table": "Cone/Cotton_Sheet_Cone_Analysis_HRRPUA_Table_25.html"
+			},
+			{
+				"display name": "50 kW/m<sup>2</sup>",
+				"graph": "Cone/Cotton_Sheet_Cone_HRRPUA_50.html",
+				"table": "Cone/Cotton_Sheet_Cone_Analysis_HRRPUA_Table_50.html"
+			},
+			{
+				"display name": "75 kW/m<sup>2</sup>",
+				"graph": "Cone/Cotton_Sheet_Cone_HRRPUA_75.html",
+				"table": "Cone/Cotton_Sheet_Cone_Analysis_HRRPUA_Table_75.html"
+			}
+		]
+	},
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [
+			{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Cotton_Sheet_Cone_MLR_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Cotton_Sheet_Cone_MLR_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Cotton_Sheet_Cone_MLR_75.html"
+			}
+		]
+	},
+	{
+		"test name": "carbon monoxide yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/Cotton_Sheet_Cone_Analysis_CO_Table.html"
+	},
+	{
+		"test name": "specific heat",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Cotton_Sheet_HFM_Wet_specific_heat.html",
+				"table": "HFM/Cotton_Sheet_HFM_Wet_specific_heat.html"
+			},
+			{
+				"display name": "Dried",
+				"graph": "HFM/Cotton_Sheet_HFM_Dry_specific_heat.html",
+				"table": "HFM/Cotton_Sheet_HFM_Dry_specific_heat.html"
+			}
+		]
+	},
+	{
+		"test name": "thermal conductivity",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Cotton_Sheet_HFM_Wet_conductivity.html",
+				"table": "HFM/Cotton_Sheet_HFM_Wet_conductivity.html"
+			},
+			{
+				"display name": "Dried",
+				"graph": "HFM/Cotton_Sheet_HFM_Dry_conductivity.html",
+				"table": "HFM/Cotton_Sheet_HFM_Dry_conductivity.html"
+			}
+		]
+	},
+	{
+		"test name": "specific heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "MCC/Cotton_Sheet_MCC_HRR.html"
+	}]
+}
