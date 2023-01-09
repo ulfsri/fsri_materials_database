@@ -21,8 +21,6 @@ import glob
 import numpy as np
 import pandas as pd
 import math
-from tkinter import Tk
-from tkinter.filedialog import askdirectory
 import matplotlib.pyplot as plt
 from scipy.signal import savgol_filter
 import git
@@ -71,9 +69,9 @@ def search_string_in_file(file_name, string_to_search):
     return line_num
 
 def unique(list1):
- 
+
     unique_list = []
-     
+
     for x in list1:
         if x not in unique_list:
             unique_list.append(x)
@@ -107,7 +105,12 @@ def plot_mean_data(df):
 
         i_str = i.replace('_','/')
 
-        ax1.plot(mean_hr_df.index, mean_hr_df, color=hr_dict[i], ls='-', marker=None, label = i_str)
+
+        ax1.plot(
+        mean_hr_df,
+        color=hr_dict[i],
+        ls='-', marker=None,
+        label = i_str)
         ax1.fill_between(upper_lim.index, lower_lim, upper_lim, color = hr_dict[i], alpha = 0.2)
 
     y_max = upper_lim.max()
@@ -132,7 +135,7 @@ def format_and_save_plot(xlims, ylims, inc, file_loc):
     ax1.set_position([0.15, 0.3, 0.77, 0.65])
 
     y_range_array = np.arange(ylims[0], ylims[1] + inc, inc)
-    ax1.set_ylabel(axis_dict[keyword], fontsize=label_size)    
+    ax1.set_ylabel(axis_dict[keyword], fontsize=label_size)
 
     yticks_list = list(y_range_array)
 
@@ -218,14 +221,13 @@ for d in os.scandir(data_dir):
                         continue
                     else:
                         # import data for each test
-                        print(f)
 
                         data_temp_df = pd.read_csv(f, header = 0)
                         data_temp_df['Temp (C)']  = data_temp_df.filter(regex='Temp', axis='columns')
                         data_temp_df['time (s)'] = data_temp_df.filter(regex='Time', axis='columns')
                         data_temp_df['Mass/%'] = data_temp_df.filter(regex='Mass', axis='columns')
                         data_temp_df['DSC/(mW/mg)'] = data_temp_df.filter(regex='DSC', axis='columns')
-                        
+
                         data_temp_df['Mass/%'] = data_temp_df['Mass/%']/data_temp_df.loc[0,'Mass/%']
                         data_temp_df['time (s)'] = (data_temp_df['time (s)']-data_temp_df.loc[0,'time (s)'])*60
                         data_temp_df['Normalized MLR (1/s)'] = -data_temp_df['Mass/%'].diff()/data_temp_df['time (s)'].diff()
@@ -278,7 +280,7 @@ for d in os.scandir(data_dir):
 
     plot_inc = {'Mass': 0.2, 'MLR': 0.001, 'Heat_Flow': 0.5}
 
-    for m in plot_dict.keys():    
+    for m in plot_dict.keys():
         ylims = [0,0]
         xlims = [0,0]
         fig, ax1, x_min, x_max, y_min, y_max = create_1plot_fig()

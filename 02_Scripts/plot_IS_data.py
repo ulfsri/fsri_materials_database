@@ -21,8 +21,6 @@ import glob
 import numpy as np
 import pandas as pd
 import math
-from tkinter import Tk
-from tkinter.filedialog import askdirectory
 import matplotlib.pyplot as plt
 from scipy.signal import savgol_filter
 import git
@@ -72,7 +70,7 @@ def format_and_save_plot(xlims, ylims, file_loc):
     ax1.set_position([0.15, 0.3, 0.77, 0.65])
 
     y_range_array = np.arange(ylims[0], ylims[1] + 0.2, 0.2)
-    ax1.set_ylabel('Reflection Signal (-)', fontsize=label_size)        
+    ax1.set_ylabel('Reflection Signal (-)', fontsize=label_size)
 
     yticks_list = list(y_range_array)
 
@@ -158,12 +156,12 @@ for d in os.scandir(data_dir):
                 temp_df.rename(columns = {0:'wavenumber', 1: col_name}, inplace=True)
                 temp_df['wavelength'] = 10000000/temp_df.iloc[:,0] # wavelength in nm
 
-                data = pd.concat([data, temp_df], axis = 1)               
+                data = pd.concat([data, temp_df], axis = 1)
         else:
             continue
 
         reflect_data = data.filter(regex = 'REFLECT')
-        bl_data = reflect_data.filter(regex = '_BL_') 
+        bl_data = reflect_data.filter(regex = '_BL_')
         ref_data = reflect_data.filter(regex = '_REF_')
         meas_data = reflect_data.filter(regex = '_MEAS_')
 

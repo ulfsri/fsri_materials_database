@@ -1,3 +1,16 @@
+# Calculate emissivity from FTIR integrating sphere
+#   by: ULRI's Fire Safety Research Institute
+#   Questions? Submit them here: https://github.com/ulfsri/fsri_materials_database/issues
+
+# ***************************** Usage Notes *************************** #
+# - Script outputs as a function of source temperature                  #
+#   -  HTML Graphs: dir: /03_Charts/{Material}/FTIR/IS                  #
+#      Graphs: Panel Emissivity                                         #
+#                                                                       #
+#      HTML Tables dir: /01_Data/{Material}/FTIR/IS                     #
+#      Tables: Panel Emissivity                                         #
+# ********************************************************************* #
+
 import glob
 import os
 import numpy as np
@@ -27,7 +40,6 @@ data_dir = '../01_Data/'
 save_dir = '../03_Charts/'
 
 def plot_mean_data(df):
-	# fig.add_trace(go.Scatter(x=df.index, y=df.iloc[:,mean_col],error_y=dict(type='data', array=2*df.iloc[:,std_col],),mode='markers',name=data_lab, marker=dict(color=c, size=8)))
 	fig.add_trace(go.Scatter(x=df.index, y=df['Emissivity'],error_y=dict(type='data', array=2*df['Std. Dev.']),mode='markers',name='Mean', marker=dict(color='blue', size=8)))
 
 	return()
@@ -65,17 +77,7 @@ def format_and_save_plot(file_loc,material):
 	fig.write_html(file_loc,include_plotlyjs="cdn")
 	plt.close()
 
-	print()
-
-# VF = 0.2112 # Cone calorimeter view factor at 40 mm Gemaque - Journal of Heat Transfer 2012
-VF = 0.6564 # Cone calorimeter view factor at 40 mm calculated by DiDomizio
-# VF = -0.00001686h^2 - 0.00155514h + 0.30035714
-
-# Calculate effective radiation temperature of cone heater
-T15 = ((15000/VF)/sig)**(1/4)
-T40 = ((40000/VF)/sig)**(1/4)
-T60 = ((60000/VF)/sig)**(1/4)
-T75 = ((80000/VF)/sig)**(1/4)
+	# print()
 
 t_range = np.linspace(600,2000,8)
 
@@ -156,10 +158,11 @@ for material in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")
 			ref_data['Emissivity'] = ref_data['Emissivity'].round(3)
 			ref_data['Std. Dev.'] = ref_data['Std. Dev.'].round(3)
 
-			print(ref_data)
+			# print(ref_data)
 
 			ref_data.index.rename('Source Temperature [K]', inplace=True)
-			ref_data.to_html(f'{data_dir}{material}/FTIR/IS/{material}_Emissivity.html', classes='col-xs-12 col-sm-6')
+			ref_data = ref_data.reset_index()
+			ref_data.to_html(f'{data_dir}{material}/FTIR/IS/{material}_Emissivity.html', index=False,border=0)
 
 			fig = go.Figure()
 			plot_mean_data(ref_data)
@@ -169,5 +172,5 @@ for material in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")
 			if not os.path.exists(plot_dir):
 				os.makedirs(plot_dir)
 
-			print('Plotting Chart')
+			# print('Plotting Chart')
 			format_and_save_plot(f'{plot_dir}{material}_Emissivity.html',material)

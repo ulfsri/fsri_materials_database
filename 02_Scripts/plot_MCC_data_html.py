@@ -1,12 +1,11 @@
-# MCC Data Import and Pre-processing
-#   by: Mark McKinnon and Craig Weinschenk
-# ***************************** Run Notes ***************************** #
-# - Prompts user for directory with MCC raw data                        #
-#                                                                       #
-# - Imports raw MCC data and creates excel sheets with header           #
-#       information, raw data, and analyzed data (baseline and          #
-#       mass loss corrected)                                            #
-#                                                                       #
+# Micro-scale calorimeter html data processing script
+#   by: ULRI's Fire Safety Research Institute
+#   Questions? Submit them here: https://github.com/ulfsri/fsri_materials_database/issues
+
+# ***************************** Usage Notes *************************** #
+# - Script outputs as a function of temperature                         #
+#   -  HTML Graphs dir: /03_Charts/{Material}/MCC                       #
+#      Graphs: Specific HRR                                             #
 # ********************************************************************* #
 
 # --------------- #
@@ -92,7 +91,7 @@ def format_and_save_plot(file_loc):
 
     fig.write_html(file_loc,include_plotlyjs="cdn")
     plt.close()
-    print()
+    # print()
 
 data_dir = '../01_Data/'
 save_dir = '../03_Charts/'
@@ -112,7 +111,7 @@ for d in os.scandir(data_dir):
                     continue
                 else:
                     # import data for each test
-                    header_df = pd.read_csv(f, header = None, sep = '\t', nrows = 3, index_col = 0, squeeze = True)
+                    header_df = pd.read_csv(f, header = None, sep = '\t', nrows = 3, index_col = 0).squeeze()
                     initial_mass = float(header_df.at['Sample Weight (mg):'])
                     data_temp_df = pd.read_csv(f, sep = '\t', header = 10, index_col = 'Time (s)')
                     fid = open(f.split('.txt')[0] + '_FINAL_MASS.txt', 'r')
@@ -163,4 +162,4 @@ for d in os.scandir(data_dir):
     if not os.path.exists(plot_dir):
         os.makedirs(plot_dir)
 
-    format_and_save_plot(f'{plot_dir}{material}_MCC.html')
+    format_and_save_plot(f'{plot_dir}{material}_MCC_HRR.html')
