@@ -1,16 +1,14 @@
-# MCC Data Import and Pre-processing
-#   by: Mark McKinnon and Conor McCoy
-# ***************************** Run Notes ***************************** #
-# - Prompts user for directory with MCC raw data                        #
+# Micro-scale calorimeter html data processing script
+#   by: ULRI's Fire Safety Research Institute
+#   Questions? Submit them here: https://github.com/ulfsri/fsri_materials_database/issues
+
+# ***************************** Usage Notes *************************** #
+# - Script outputs as a function of temperature                         #
+#   -  PDF Graphs dir: /03_Charts/{Material}/MCC                       #
+#      Graphs: Specific HRR                                             #
 #                                                                       #
-# - Imports raw MCC data and creates excel sheets with header           #
-#       information, raw data, and analyzed data (baseline and          #
-#       mass loss corrected)                                            #
-#                                                                       #
-#                                                                       #
-# TO DO:                                                                #
-# - scan directory so that Excel sheets are not overwritten             #
-#                                                                       #
+#      CSV Tables dir: /01_Data/{Material}/MCC                         #
+#      Tables: Heat of Combustion                                       #
 # ********************************************************************* #
 
 # --------------- #
@@ -71,7 +69,6 @@ def unique(list1):
 def create_1plot_fig():
     # Define figure for the plot
     fig, ax1 = plt.subplots(figsize=(fig_width, fig_height))
-    #plt.subplots_adjust(left=0.08, bottom=0.3, right=0.92, top=0.95)
 
     # Reset values for x & y limits
     x_min, x_max, y_min, y_max = 0, 0, 0, 0
@@ -141,19 +138,6 @@ def format_and_save_plot(xlims, ylims, file_loc):
     # Add legend
     handles1, labels1 = ax1.get_legend_handles_labels()
 
-    # print(f'handles1: {handles1}')
-
-    # # order = []
-    # # order.append(labels1.index('Wet Sample Preparation'))
-    # # order.append(labels1.index('Dry Sample Preparation'))
-
-    # handles1 = handles1[i]
-    # labels1 = labels1[i]
-
-    # n_col, leg_list, leg_labels = legend_entries(handles1, labels1)
-
-    #a_list = [a_list[i] for i in order]
-
     plt.legend(handles1, labels1, loc='upper center', bbox_to_anchor=(0.5, -0.23), fontsize=16,
                handlelength=2, frameon=True, framealpha=1.0, ncol=2)
 
@@ -164,21 +148,14 @@ def format_and_save_plot(xlims, ylims, file_loc):
     plt.savefig(file_loc)
     plt.close()
 
-    print()
+    # print()
 
 
 data_dir = '../01_Data/'
 save_dir = '../03_Charts/'
 
-# path = askdirectory(title='Select Folder') # shows dialog box and return the path -> this or a similar method can be used when interacting with database
-# data_dir = path
-# exp_names = []
-
-for d in os.scandir(data_dir):
-    material = d.path.split('/')[-1]
-    if material == '.DS_Store':
-        continue
-    print(f'{material} MCC')
+for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
+    material = d
     ylims = [0, 0]
     xlims = [0, 0]
     fig, ax1, x_min, x_max, y_min, y_max = create_1plot_fig()
@@ -186,79 +163,63 @@ for d in os.scandir(data_dir):
     plot_data_df = pd.DataFrame()
     hoc_df = pd.DataFrame()
     all_col_names = []
-    if d.is_dir():
-        if os.path.isdir(f'{d.path}/MCC'):
-            for f in glob.iglob(f'{d.path}/MCC/*.txt'):
-                if 'mass' in f.lower():
-                    continue
-                else:
-                    # import data for each test
-                    header_df = pd.read_csv(
-                        f, header=None, sep='\t', nrows=3, index_col=0).squeeze()
-                    initial_mass = float(header_df.at['Sample Weight (mg):'])
-                    data_temp_df = pd.read_csv(
-                        f, sep='\t', header=10, index_col='Time (s)')
-                    fid = open(f.split('.txt')[0] + '_FINAL_MASS.txt', 'r')
-                    final_mass = float(fid.readlines()[0].split('/n')[0])
+    if os.path.isdir(f'{data_dir}{d}/MCC/'):
+        print(material + ' MCC')
+        for f in glob.iglob(f'{data_dir}{d}/MCC/*.txt'):
+            if 'mass' in f.lower():
+                continue
+            else:
+                # import data for each test
+                header_df = pd.read_csv(f, header=None, sep='\t', nrows=3, index_col=0).squeeze()
+                initial_mass = float(header_df.at['Sample Weight (mg):'])
+                data_temp_df = pd.read_csv(f, sep='\t', header=10, index_col='Time (s)')
+                fid = open(f.split('.txt')[0] + '_FINAL_MASS.txt', 'r')
+                final_mass = float(fid.readlines()[0].split('/n')[0])
 
-                    col_name = f.split('.txt')[0].split('_')[-1]
-                    # print(col_name)
-                    if "O" not in col_name: # to ignore outliers (run code only for reptitions)
+                col_name = f.split('.txt')[0].split('_')[-1]
+                # print(col_name)
+                if "O" not in col_name: # to ignore outliers (run code only for repetitions)
 
-                        all_col_names.append(col_name) # collect reptition numbers to account for botched tests (ex. R2, R3, R4, if R1 was bad)
+                    all_col_names.append(col_name) # collect repetition numbers to account for botched tests (ex. R2, R3, R4, if R1 was bad)
+                    reduced_df = data_temp_df.loc[:, ['Temperature (C)', 'HRR (W/g)']]
+                    reduced_df[f'Time_copy_{col_name[-1]}'] = reduced_df.index  #col_name[-1] to have the repetition number as -1 (not -R1) to help Regex later
 
-                        reduced_df = data_temp_df.loc[:, [
-                        'Temperature (C)', 'HRR (W/g)']]
-                        reduced_df[f'Time_copy_{col_name[-1]}'] = reduced_df.index  #col_name[-1] to have the reptition number as -1 (not -R1) to help Regex later
+                    # Correct from initial mass basis to mass lost basis
+                    reduced_df['HRR (W/g)'] = reduced_df['HRR (W/g)'] * (initial_mass / (initial_mass - final_mass))
 
-                        # Correct from initial mass basis to mass lost basis
-                        reduced_df['HRR (W/g)'] = reduced_df['HRR (W/g)'] * \
-                        (initial_mass / (initial_mass - final_mass))
+                    max_lim = reduced_df['Temperature (C)'].iloc[-1] - ((reduced_df['Temperature (C)'].iloc[-1]) % 50)
+                    new_index = np.arange(150, int(max_lim) + 1)
+                    new_data = np.empty((len(new_index),))
+                    new_data[:] = np.nan
+                    df_dict = {'Temperature (C)': new_index, 'HRR (W/g)': new_data}
+                    temp_df = pd.DataFrame(df_dict)
 
-                        max_lim = reduced_df['Temperature (C)'].iloc[-1] - (
-                        (reduced_df['Temperature (C)'].iloc[-1]) % 50)
-                        new_index = np.arange(150, int(max_lim) + 1)
-                        new_data = np.empty((len(new_index),))
-                        new_data[:] = np.nan
-                        df_dict = {
-                        'Temperature (C)': new_index, 'HRR (W/g)': new_data}
-                        temp_df = pd.DataFrame(df_dict)
+                   # Resample data to every temperature
+                    reduced_df = pd.concat([reduced_df, temp_df], ignore_index=True)
+                    reduced_df.set_index('Temperature (C)', inplace=True)
+                    reduced_df.sort_index(inplace=True)
+                    reduced_df.interpolate(method='linear', axis=0, inplace=True)
+                    reduced_df = reduced_df.loc[new_index, :]
 
-                       # Resample data to every temperature
-                        reduced_df = pd.concat(
-                        [reduced_df, temp_df], ignore_index=True)
-                        reduced_df.set_index('Temperature (C)', inplace=True)
-                        reduced_df.sort_index(inplace=True)
-                        reduced_df.interpolate(
-                        method='linear', axis=0, inplace=True)
-                        reduced_df = reduced_df.loc[new_index, :]
+                    reduced_df = reduced_df[~reduced_df.index.duplicated(keep='first')]
 
-                        reduced_df = reduced_df[~reduced_df.index.duplicated(
-                        keep='first')]
+                    # Baseline Correction
+                    reduced_df['HRR correction'] = reduced_df.loc[150, 'HRR (W/g)'] + ((reduced_df.index - 150) / (reduced_df.index.max() - 150)) * (reduced_df.loc[reduced_df.index.max(), 'HRR (W/g)'] - reduced_df.loc[150, 'HRR (W/g)'])
+                    reduced_df[col_name] = reduced_df['HRR (W/g)'] - reduced_df['HRR correction']
 
-                        # Baseline Correction
-                        reduced_df['HRR correction'] = reduced_df.loc[150, 'HRR (W/g)'] + ((reduced_df.index - 150) / (
-                        reduced_df.index.max() - 150)) * (reduced_df.loc[reduced_df.index.max(), 'HRR (W/g)'] - reduced_df.loc[150, 'HRR (W/g)'])
-                        reduced_df[col_name] = reduced_df['HRR (W/g)'] - \
-                        reduced_df['HRR correction']
+                    data_df = pd.concat([data_df, reduced_df], axis=1)
+                    data_array = data_df[col_name].to_numpy()
+                    time_array = data_df[f'Time_copy_{col_name[-1]}'].to_numpy() #col_name[-1] to have the repetition number of the time column as -1 (not -R1) to help Regex later
+                    data_array = data_array[~np.isnan(data_array)]
+                    time_array = time_array[~np.isnan(time_array)]
+                    hoc_df.at['Heat of Combustion (MJ/kg)', col_name] = (integrate.trapz(y=data_array, x=time_array)) / 1000
+                    hoc_df.at['Heat of Combustion (MJ/kg)', 'Mean'] = np.nan
+                    hoc_df.at['Heat of Combustion (MJ/kg)','Std. Dev.'] = np.nan
 
-                        data_df = pd.concat([data_df, reduced_df], axis=1)
-                        data_array = data_df[col_name].to_numpy()
-                        time_array = data_df[f'Time_copy_{col_name[-1]}'].to_numpy() #col_name[-1] to have the reptition number of the time column as -1 (not -R1) to help Regex later
-                        data_array = data_array[~np.isnan(data_array)]
-                        time_array = time_array[~np.isnan(time_array)]
-                        hoc_df.at['Heat of Combustion (MJ/kg)', col_name] = (
-                        integrate.trapz(y=data_array, x=time_array)) / 1000
-                        hoc_df.at['Heat of Combustion (MJ/kg)', 'Mean'] = np.nan
-                        hoc_df.at['Heat of Combustion (MJ/kg)',
-                              'Std. Dev.'] = np.nan
+        corrected_data = data_df.filter(regex='R[0-9]')  # TESTS WITHOUT Rnumber (ex. R1) are ignored and not used in HRR averaging or HoC determination.
+        plot_data_df.loc[:, 'HRR_mean'] = corrected_data.mean(axis=1)
+        plot_data_df.loc[:, 'HRR_std'] = corrected_data.std(axis=1)
 
-            corrected_data = data_df.filter(regex='R[0-9]')  # TESTS WITHOUT Rnumber (ex. R1) are ignored and not used in HRR averaging or HoC determination.
-            plot_data_df.loc[:, 'HRR_mean'] = corrected_data.mean(axis=1)
-            plot_data_df.loc[:, 'HRR_std'] = corrected_data.std(axis=1)
-
-        else:
-            continue
     else:
         continue
 
@@ -272,7 +233,7 @@ for d in os.scandir(data_dir):
     hoc_df.at['Heat of Combustion (MJ/kg)', 'Std. Dev.'] = std_hoc
     all_col_names.append('Mean')
     all_col_names.append('Std. Dev.')
-    hoc_df = hoc_df[all_col_names] # sorting HoC dataframe, using reptition numbers
+    hoc_df = hoc_df[all_col_names] # sorting HoC dataframe, using repetition numbers
 
     ymin, ymax, xmin, xmax = plot_mean_data(plot_data_df)
 
@@ -291,17 +252,6 @@ for d in os.scandir(data_dir):
     if not os.path.exists(plot_dir):
         os.makedirs(plot_dir)
 
-    format_and_save_plot(xlims, ylims, f'{plot_dir}{material}_MCC.pdf')
+    format_and_save_plot(xlims, ylims, f'{plot_dir}{material}_MCC_HRR.pdf')
 
-    hoc_df.to_csv(
-        f'{data_dir}{material}/MCC/{material}_MCC_Heats_of_Combustion.csv', float_format='%.2f')
-
-
-   # # trouble-shooting by outputting the dataframes
-   #  if material == 'Bean_Bag_Chair_Outer_Cover': #'Coaxial_Cable' or  material == 'Pipe_Heat_Cable':
-   #      data_df.to_csv(
-   #      f'{data_dir}{material}/MCC/{material}_MCC_DataDF.csv', float_format='%.2f')
-   #      corrected_data.to_csv(
-   #      f'{data_dir}{material}/MCC/{material}_MCC_CorrectedDataDF.csv', float_format='%.2f')
-   #      plot_data_df.to_csv(
-   #      f'{data_dir}{material}/MCC/{material}_MCC_PlotDataDF.csv', float_format='%.2f')
+    hoc_df.to_csv(f'{data_dir}{material}/MCC/{material}_MCC_Heats_of_Combustion.csv', float_format='%.2f')

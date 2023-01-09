@@ -102,12 +102,12 @@ save_dir = '../03_Charts/'
 
 for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
     material = d
-    fig = go.Figure()
-    data_df = pd.DataFrame()
-    plot_data_df = pd.DataFrame()
-    hoc_df = pd.DataFrame()
-    all_col_names = []
     if os.path.isdir(f'{data_dir}{d}/MCC/'):
+        fig = go.Figure()
+        data_df = pd.DataFrame()
+        plot_data_df = pd.DataFrame()
+        hoc_df = pd.DataFrame()
+        all_col_names = []
         print(material + ' MCC')
         for f in glob.iglob(f'{data_dir}{d}/MCC/*.txt'):
             if 'mass' in f.lower():
@@ -157,9 +157,9 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                     time_array = time_array[~np.isnan(time_array)]
                     hoc_df.at['Heat of Combustion (MJ/kg)', col_name] = (integrate.trapz(y=data_array, x=time_array)) / 1000
 
-            corrected_data = data_df.filter(regex = 'R[0-9]')
-            plot_data_df.loc[:,'HRR_mean'] = corrected_data.mean(axis = 1)
-            plot_data_df.loc[:,'HRR_std'] = corrected_data.std(axis = 1)
+        corrected_data = data_df.filter(regex = 'R[0-9]')
+        plot_data_df.loc[:,'HRR_mean'] = corrected_data.mean(axis = 1)
+        plot_data_df.loc[:,'HRR_std'] = corrected_data.std(axis = 1)
 
     else:
         continue
