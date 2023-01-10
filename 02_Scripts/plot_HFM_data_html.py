@@ -108,8 +108,6 @@ save_dir = '../03_Charts/'
 
 for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
     material = d
-    ylims = [0,0]
-    xlims = [0,0]
     k_wet = []
     k_dry = []
     if os.path.isdir(f'{data_dir}{d}/HFM/'):
@@ -184,7 +182,6 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
             k_plot_data_cond.to_html(f'{data_dir}{material}/HFM/{material}_HFM_{cond}_conductivity.html',index=False,border=0)
 
 print()
-
 for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
     material = d
     temp_df = pd.DataFrame()
@@ -209,8 +206,6 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
     density_df = pd.DataFrame.from_dict(data, orient='index', columns = ['Wet', 'Dry'])
 
     print(f'{material} Heat Capacity')
-    ylims = [0,0]
-    xlims = [0,0]
     c_wet = []
     c_dry = []
     if os.path.isdir(f'{data_dir}{d}/HFM/'):
