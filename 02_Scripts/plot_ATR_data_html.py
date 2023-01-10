@@ -72,8 +72,6 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
         data_df = pd.DataFrame()
         material = d
         print(f'{material} ATR')
-        ylims = [0,0]
-        xlims = [0,0]
         fig = go.Figure()
         for f in sorted(glob.iglob(f'{data_dir}{material}/FTIR/ATR/*.tst')):
             temp_df = pd.read_csv(f, header = None) # index_col = 0

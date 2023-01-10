@@ -1,16 +1,14 @@
-# MCC Data Import and Pre-processing
-#   by: Mark McKinnon
-# ***************************** Run Notes ***************************** #
-# - Prompts user for directory with MCC raw data                        #
+# Heat flow meter pdf data processing script
+#   by: ULRI's Fire Safety Research Institute
+#   Questions? Submit them here: https://github.com/ulfsri/fsri_materials_database/issues
+
+# ***************************** Usage Notes *************************** #
+# - Script outputs as a function of temperature                         #
+#   -  PDF Graphs dir: /03_Charts/{Material}/HFM                       #
+#      Graphs: Wet and Dry Thermal Conductivity and Heat Capacity       #
 #                                                                       #
-# - Imports raw MCC data and creates excel sheets with header           #
-#       information, raw data, and analyzed data (baseline and          #
-#       mass loss corrected)                                            #
-#                                                                       #
-#                                                                       #
-# TO DO:                                                                #
-# - scan directory so that Excel sheets are not overwritten             #
-#                                                                       #
+#      CSV Tables dir: /01_Data/{Material}/HFM                         #
+#      Tables: Wet and Dry Thermal Conductivity and Heat Capacity       #
 # ********************************************************************* #
 
 # --------------- #
@@ -22,7 +20,6 @@ import numpy as np
 import pandas as pd
 import math
 import matplotlib.pyplot as plt
-from scipy.signal import savgol_filter
 import git
 
 label_size = 20
@@ -147,19 +144,6 @@ def format_and_save_plot(xlims, ylims, file_loc):
     # Add legend
     handles1, labels1 = ax1.get_legend_handles_labels()
 
-    # print(f'handles1: {handles1}')
-
-    # # order = []
-    # # order.append(labels1.index('Wet Sample Preparation'))
-    # # order.append(labels1.index('Dry Sample Preparation'))
-
-    # handles1 = handles1[i]
-    # labels1 = labels1[i]
-
-    # n_col, leg_list, leg_labels = legend_entries(handles1, labels1)
-
-    #a_list = [a_list[i] for i in order]
-
     plt.legend(handles1, labels1, loc = 'upper center', bbox_to_anchor = (0.5, -0.23), fontsize=16,
                 handlelength=2, frameon=True, framealpha=1.0, ncol=2)
 
@@ -171,40 +155,34 @@ def format_and_save_plot(xlims, ylims, file_loc):
     plt.clf()
     plt.close()
 
-    print()
+    # print()
 
 data_dir = '../01_Data/'
 save_dir = '../03_Charts/'
 
-# path = askdirectory(title='Select Folder') # shows dialog box and return the path -> this or a similar method can be used when interacting with database
-# data_dir = path
-# exp_names = []
-
-for d in os.scandir(data_dir):
-    material = d.path.split('/')[-1]
+for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
+    material = d
     ylims = [0,0]
     xlims = [0,0]
-    fig, ax1, x_min, x_max, y_min, y_max = create_1plot_fig()
     k_wet = []
     k_dry = []
-    if d.is_dir():
-        for d_ in os.scandir(d):
-            if d_.is_dir() and 'HFM' in d_.path:
-                for f in os.scandir(d_):
-                    if 'Conductivity' in f.path:
-                        if 'Dry' in f.path:
-                            k_dry.append(f.path)
-                        else:
-                            k_wet.append(f.path)
-                    else:
-                        continue
+    if os.path.isdir(f'{data_dir}{d}/HFM/'):
+        print(f'{material} Thermal Conductivity')
+        for f in sorted(glob.iglob(f'{data_dir}{d}/HFM/*.tst')):
+            if 'Conductivity' in f:
+                if 'Dry' in f:
+                    k_dry.append(f)
+                else:
+                    k_wet.append(f)
+            else:
+                continue
         dirs = [k_wet, k_dry]
         k_plot_data = pd.DataFrame()
         for coll in dirs:
             k_df = pd.DataFrame()
 
             for file_path in coll:
-                if 'Conductivity' in file_path:
+                if 'conductivity' in str(file_path).lower() and '.csv' not in str(file_path).lower():
                     clean_file(file_path)
                     start_line = search_string_in_file(f'{file_path}_TEMP.tst', 'Results Table -- SI Units')
                     header_line = start_line+1
@@ -235,45 +213,49 @@ for d in os.scandir(data_dir):
                 k_plot_data.at[i,f'{f_str[-4]}_mean'] = i_mean
                 k_plot_data.at[i,f'{f_str[-4]}_std'] = i_std
 
-        if k_plot_data.empty:
-            continue
-        ymin, ymax, xmin, xmax = plot_mean_data(k_plot_data)
+        for cond in ['Wet', 'Dry']:
 
-        y_min = max(ymin, y_min)
-        x_min = max(xmin, x_min)
-        y_max = max(ymax, y_max)
-        x_max = max(xmax, x_max)
+            k_plot_data_cond = k_plot_data.filter(regex=cond)
 
-        ylims[0] = 0.05 * (math.floor(y_min/0.05)-1)
-        ylims[1] = 0.05 * (math.ceil(y_max/0.05)+1)
-        xlims[0] = 5 * (math.floor(x_min/5)-1)
-        xlims[1] = 5 * (math.ceil(x_max/5)+1)
+            if k_plot_data.empty:
+                continue
 
-        plot_dir = f'../03_Charts/{material}/HFM/'
+            fig, ax1, x_min, x_max, y_min, y_max = create_1plot_fig()
 
-        if not os.path.exists(plot_dir):
-            os.makedirs(plot_dir)
+            ymin, ymax, xmin, xmax = plot_mean_data(k_plot_data)
 
-        format_and_save_plot(xlims, ylims, f'{plot_dir}{material}_Thermal_Conductivity.pdf')
+            y_min = max(ymin, y_min)
+            x_min = max(xmin, x_min)
+            y_max = max(ymax, y_max)
+            x_max = max(xmax, x_max)
 
-for d in os.scandir(data_dir):
-    material = d.path.split('/')[-1]
+            ylims[0] = 0.05 * (math.floor(y_min/0.05)-1)
+            ylims[1] = 0.05 * (math.ceil(y_max/0.05)+1)
+            xlims[0] = 5 * (math.floor(x_min/5)-1)
+            xlims[1] = 5 * (math.ceil(x_max/5)+1)
 
+            plot_dir = f'../03_Charts/{material}/HFM/'
+
+            if not os.path.exists(plot_dir):
+                os.makedirs(plot_dir)
+
+            format_and_save_plot(xlims, ylims, f'{plot_dir}{material}_Thermal_Conductivity.pdf')
+
+for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
+    material = d
     temp_df = pd.DataFrame()
     density_df = pd.DataFrame(index = ['mean', 'std'])
-    if d.is_dir():
-        for d_ in os.scandir(d):
-            if d_.is_dir() and 'Density' in d_.path:
-                for f in os.scandir(d_):
-                    temp_density_series = pd.read_csv(f, names=['Measure', 'Value'])
-                    temp_density_series = temp_density_series.set_index('Measure')['Value']
-                    f_str = f.path.split('.')[-2].split('_')[-3] + '_' + f.path.split('.')[-2].split('_')[-1]
-                    temp_df.at['Density', f_str] = temp_density_series['Density']
+    if os.path.isdir(f'{data_dir}{d}/HFM/'):
+        for f in sorted(glob.iglob(f'{data_dir}{d}/HFM/*.csv')):
+            if 'Density' in f and 'Summary' not in f and 'Ignition' not in f:
+                temp_density_series = pd.read_csv(f, index_col = 0).squeeze()
+                f_list = str(f).replace('.csv', '').split('_')
+                f_str = f_list[-2] + '_' + f_list[-1]
+                temp_df.at['Density', f_str] = temp_density_series['Sample Density [kg/m3]']
 
     if temp_df.empty:
         continue
     else:
-        print(f'{material} Thermal Conductivity')
         wet_mean_density = temp_df.filter(regex = 'Wet').mean(axis = 1).at['Density']
         wet_std_density = temp_df.filter(regex = 'Wet').std(axis = 1).at['Density']
         dry_mean_density = temp_df.filter(regex = 'Dry').mean(axis = 1).at['Density']
@@ -288,17 +270,15 @@ for d in os.scandir(data_dir):
     fig, ax1, x_min, x_max, y_min, y_max = create_1plot_fig()
     c_wet = []
     c_dry = []
-    if d.is_dir():
+    if os.path.isdir(f'{data_dir}{d}/HFM/'):
         file_counter = 0
-        for d_ in os.scandir(d):
-            if d_.is_dir() and 'HFM' in d_.path:
-                for f in os.scandir(d_):
-                    if 'HeatCapacity' in f.path:
-                        file_counter += 1
-                        if 'Dry' in f.path:
-                            c_dry.append(f.path)
-                        else:
-                            c_wet.append(f.path)
+        for f in sorted(glob.iglob(f'{data_dir}{d}/HFM/*.tst')):
+            if 'heatcapacity' in str(f).lower():
+                file_counter += 1
+                if 'Dry' in f:
+                    c_dry.append(f)
+                else:
+                    c_wet.append(f)
 
         if file_counter == 0:
             print('empty')
@@ -308,7 +288,7 @@ for d in os.scandir(data_dir):
         for coll in dirs:
             c_df = pd.DataFrame()
             for file_path in coll:
-                if 'HeatCapacity' in file_path:
+                if 'heatcapacity' in str(file_path).lower() and '.csv' not in str(file_path).lower():
                     clean_file(file_path)
                     start_line = search_string_in_file(f'{file_path}_TEMP.tst', 'Results Table -- SI Units')
                     header_line = start_line+1
@@ -341,6 +321,11 @@ for d in os.scandir(data_dir):
                 c_plot_data.at[i,f'{f_str[-4]}_mean'] = i_mean / density_df.at['mean', f_str[-4]]
                 c_plot_data.at[i,f'{f_str[-4]}_std'] = i_std / density_df.at['mean', f_str[-4]]
 
+    for cond in ['Wet', 'Dry']:
+
+        c_plot_data_cond = c_plot_data.filter(regex=cond)
+        if c_plot_data_cond.empty:
+            continue
         ymin, ymax, xmin, xmax = plot_mean_data(c_plot_data)
 
         y_min = max(ymin, y_min)
@@ -358,68 +343,4 @@ for d in os.scandir(data_dir):
         if not os.path.exists(plot_dir):
             os.makedirs(plot_dir)
 
-        print('Plotting Chart')
-
         format_and_save_plot(xlims, ylims, f'{plot_dir}{material}_Specific_Heat.pdf')
-
-#     f_name = file.split('.txt')[0]
-#     sample_name = f_name.split('_')[0]
-
-#     header_df = pd.read_csv(f'{path}/{file}', header = 0, sep = '\t', nrows = 7, index_col = 'Sample ID:')
-#     raw_df = pd.read_csv(f'{path}/{file}', header = 11, sep = '\t', index_col = 'Time (s)')
-
-#     reduced_df = raw_df.loc[:,['Temperature (C)','HRR (W/g)']]
-
-#     # Correct from initial mass basis to mass lost basis
-#     reduced_df['HRR (W/g)'] = reduced_df['HRR (W/g)']*(float(header_df.loc['Sample Weight (mg):'])/(float(header_df.loc['Sample Weight (mg):'])-float(header_df.loc['Final Weight (mg):'])))
-#     max_lim = reduced_df['Temperature (C)'].iloc[-1] - ((reduced_df['Temperature (C)'].iloc[-1])%50)
-#     new_index = np.arange(150,int(max_lim)+1)
-#     new_data = np.empty((len(new_index),))
-#     new_data[:] = np.nan
-#     df_dict = {'Temperature (C)': new_index, 'HRR (W/g)': new_data}
-#     temp_df = pd.DataFrame(df_dict)
-
-#     # Resample data to every temperature
-#     reduced_df = pd.concat([reduced_df, temp_df], ignore_index = True)
-#     reduced_df.set_index('Temperature (C)', inplace = True)
-#     reduced_df.sort_index(inplace=True)
-#     reduced_df.interpolate(method='linear', axis=0, inplace=True)
-#     reduced_df = reduced_df.loc[new_index, :]
-
-#     # Baseline Correction
-#     reduced_df['HRR correction'] = reduced_df.loc[150,'HRR (W/g)']+((reduced_df.index-150)/(reduced_df.index.max()-150))*(reduced_df.loc[reduced_df.index.max(),'HRR (W/g)'] - reduced_df.loc[150,'HRR (W/g)'])
-#     reduced_df['HRR (W/g)'] = reduced_df['HRR (W/g)'] - reduced_df['HRR correction']
-#     reduced_df.drop(columns = 'HRR correction', inplace = True)
-
-#     d[f'{f_name}_header'] = header_df
-#     d[f'{f_name}_raw'] = raw_df
-#     d[f'{f_name}_reduced'] = reduced_df
-
-# status = pd.read_csv('../02_Info/Materials_Status.csv', header = 0, index_col = 'Material', usecols = ['Material','MCC'])
-# materials_list = list(status[status['MCC'] == 'C'].index)
-# materials_list = [mat.replace(' ', '_') for mat in materials_list]
-
-# # create a mean data worksheet and calculate the mean HRR and THR
-# for i in materials_list:
-#     d[f'{i}_30_mean'] = pd.DataFrame()
-#     for key in d.keys():
-#         if i in key and key.split('_')[-1] == 'reduced':
-#             d[f'{i}_30_mean'] = pd.concat([d[f'{i}_30_mean'], d[key]], axis = 0)
-#     d[f'{i}_30_mean'].reset_index(inplace = True)
-#     d[f'{i}_30_mean'].loc[:,'Temperature (C)'] = d[f'{i}_30_mean'].loc[:,'Temperature (C)'].astype('int32')
-#     d[f'{i}_30_mean'] = d[f'{i}_30_mean'].groupby(by = ['Temperature (C)'], as_index=True, sort = True).mean()
-#     d[f'{i}_30_mean'].loc[:,'Total Heat Released (J/g)'] = d[f'{i}_30_mean']['HRR (W/g)'].cumsum()
-
-# # Save an excel worksheet for each material
-# for i in materials_list:
-#     sheet_names = []
-#     for key in d.keys():
-#         if i in key:
-#             sheet_names.append(key)
-
-#     with pd.ExcelWriter(f'../01_Data/MCC/{i}.xlsx') as writer:
-#         for sheet in sheet_names:
-#             if sheet.split('_')[-1] == 'header':
-#                 d[sheet].to_excel(writer, sheet_name = sheet, header = False)
-#             else:
-#                 d[sheet].to_excel(writer, sheet_name = sheet)

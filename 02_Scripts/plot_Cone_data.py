@@ -29,7 +29,7 @@ data_dir = '../01_Data/'
 save_dir = '../03_Charts/'
 
 hf_list = ['25', '50', '75']
-quant_list = ['HRRPUA', 'MLR', 'SPR', 'SEA', 'Extinction Coefficient', 'EHC']
+quant_list = ['HRRPUA', 'MLR', 'SPR', 'SEA', 'Extinction Coefficient'] #'EHC'
 
 y_max_dict = {'HRRPUA':500, 'MLR':1, 'SPR':5, 'SEA':1000, 'Extinction Coefficient':2, 'EHC':50}
 y_inc_dict = {'HRRPUA':100, 'MLR':0.2, 'SPR':1, 'SEA':200, 'Extinction Coefficient':0.5, 'EHC':10}

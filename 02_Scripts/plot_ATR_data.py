@@ -1,16 +1,11 @@
-# MCC Data Import and Pre-processing
-#   by: Mark McKinnon
-# ***************************** Run Notes ***************************** #
-# - Prompts user for directory with MCC raw data                        #
-#                                                                       #
-# - Imports raw MCC data and creates excel sheets with header           #
-#       information, raw data, and analyzed data (baseline and          #
-#       mass loss corrected)                                            #
-#                                                                       #
-#                                                                       #
-# TO DO:                                                                #
-# - scan directory so that Excel sheets are not overwritten             #
-#                                                                       #
+# ATR pdf data processing script
+#   by: ULRI's Fire Safety Research Institute
+#   Questions? Submit them here: https://github.com/ulfsri/fsri_materials_database/issues
+
+# ***************************** Usage Notes *************************** #
+# - Script outputs as a function of wavelength                          #
+#   -  PDF Graphs dir: /03_Charts/{Material}/FTIR/ATR                  #
+#      Graphs: ATR Signal                                               #
 # ********************************************************************* #
 
 # --------------- #
@@ -101,22 +96,6 @@ def format_and_save_plot(xlims, ylims, file_loc):
     # Add legend
     handles1, labels1 = ax1.get_legend_handles_labels()
 
-    # print(f'handles1: {handles1}')
-
-    # # order = []
-    # # order.append(labels1.index('Wet Sample Preparation'))
-    # # order.append(labels1.index('Dry Sample Preparation'))
-
-    # handles1 = handles1[i]
-    # labels1 = labels1[i]
-
-    # n_col, leg_list, leg_labels = legend_entries(handles1, labels1)
-
-    #a_list = [a_list[i] for i in order]
-
-    # plt.legend(handles1, labels1, loc = 'upper center', bbox_to_anchor = (0.5, -0.23), fontsize=16,
-    #            handlelength=2, frameon=True, framealpha=1.0, ncol=2)
-
     # Clean up whitespace padding
     #fig.tight_layout()
 
@@ -129,25 +108,20 @@ def format_and_save_plot(xlims, ylims, file_loc):
 data_dir = '../01_Data/'
 save_dir = '../03_Charts/'
 
-# path = askdirectory(title='Select Folder') # shows dialog box and return the path -> this or a similar method can be used when interacting with database
-# data_dir = path
-# exp_names = []
-
-for d in os.scandir(data_dir):
-    data = pd.DataFrame()
-    data_df = pd.DataFrame()
-    material = d.path.split('/')[-1]
-    ylims = [0,0]
-    xlims = [0,0]
-    fig, ax1, x_min, x_max, y_min, y_max = create_1plot_fig()
-    if d.is_dir():
-        if os.path.isdir(f'{d.path}/FTIR/ATR'):
-            print(f'{material} ATR')
-            for f in os.scandir(f'{d.path}/FTIR/ATR/'):
-                temp_df = pd.read_csv(f, header = None) # index_col = 0
-                temp_df.rename(columns = {0:'wavenumber', 1: 'signal'}, inplace=True)
-                temp_df['wavelength'] = 10000000/temp_df.iloc[:,0] # wavelength in nm
-                data = pd.concat([data, temp_df], axis = 1)
+for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
+    if os.path.isdir(f'{data_dir}{d}/FTIR/ATR'):
+        data = pd.DataFrame()
+        data_df = pd.DataFrame()
+        material = d
+        print(f'{material} ATR')
+        ylims = [0,0]
+        xlims = [0,0]
+        fig, ax1, x_min, x_max, y_min, y_max = create_1plot_fig()
+        for f in sorted(glob.iglob(f'{data_dir}{material}/FTIR/ATR/*.tst')):
+            temp_df = pd.read_csv(f, header = None) # index_col = 0
+            temp_df.rename(columns = {0:'wavenumber', 1: 'signal'}, inplace=True)
+            temp_df['wavelength'] = 10000000/temp_df.iloc[:,0] # wavelength in nm
+            data = pd.concat([data, temp_df], axis = 1)
         else:
             continue
 
