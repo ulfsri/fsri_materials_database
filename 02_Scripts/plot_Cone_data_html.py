@@ -78,6 +78,9 @@ def format_and_save_plot(quantity, file_loc,m):
 
     label_dict = {'HRRPUA': 'Heat Release Rate per Unit Area (kW/m<sup>2</sup>)', 'MLR': 'Mass Loss Rate (g/s)', 'EHC':'Effective Heat of Combustion (MJ/kg)' , 'SPR': 'Smoke Production Rate (1/s)', 'SEA': 'Specific Extinction Area', 'Extinction Coefficient': 'Extinction Coefficient (1/m)', 'CO': 'CO Yield (g/g)', 'Soot': 'Soot Yield (g/g)'}
 
+    if quantity == 'MLR':
+        fig.update_yaxes(rangemode='nonnegative')
+
     fig.update_layout(xaxis_title='Time (s)', font=dict(size=18))
     fig.update_layout(yaxis_title=label_dict[quantity], title ='Cone Calorimeter at ' + m + ' kW/m<sup>2</sup>')
 
@@ -114,14 +117,11 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
     output_df = pd.DataFrame()
     co_df = pd.DataFrame()
     soot_df = pd.DataFrame()
-    notes_df = pd.DataFrame()
-    # if d.is_dir():
     if os.path.isdir(f'{data_dir}{d}/Cone/'):
         print(material + ' Cone')
         data_df = pd.DataFrame()
         reduced_df = pd.DataFrame()
         for f in sorted(glob.iglob(f'{data_dir}{d}/Cone/*.csv')):
-        # for f in os.scandir(f'{d.path}/Cone/'):
             if 'scalar' in f.lower() or 'cone_analysis_data' in f.lower() or 'cone_notes' in f.lower() or 'hrrpua_table' in f.lower() or 'ignition' in f.lower():
                 continue
             else:
@@ -154,15 +154,6 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                         surf_area_mm2 = 8836
 
                 surf_area_m2 = surf_area_mm2 / 1000000.0
-
-                # notes_df.at[label, 'Dimensions (mm)'] = str(dims)
-                notes_df.at[label, 'Surface Area (mm^2)'] = surf_area_mm2
-
-                notes_df.at[label, 'Pretest'] = pretest_notes
-                try:
-                    notes_df.at[label, 'Posttest'] = scalar_data_series.at['POST TEST CMT']
-                except:
-                    notes_df.at[label, 'Posttest'] = ' '
 
                 c_factor = float(scalar_data_series.at['C FACTOR'])
 
