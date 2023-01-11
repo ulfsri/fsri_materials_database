@@ -49,37 +49,6 @@ def apply_savgol_filter(raw_data, deriv=0):
     filtered_data = pd.Series(converted_data, index=raw_data.index.values)
     return(filtered_data.loc[0:])
 
-def clean_file(file_name):
-    fin = open(file_name, 'rt', encoding = 'UTF-16')
-    fout = open(f'{file_name}_TEMP.tst', 'wt', encoding = 'UTF-16')
-    #output file to write the result to
-    for line in fin:
-        #read replace the string and write to output file
-        fout.write(line.replace('\t\t', '\t'))
-    #close input and output files
-    fin.close()
-    fout.close()
-
-def search_string_in_file(file_name, string_to_search):
-    line_number = 0
-    list_of_results = []
-    with open(file_name, 'r', encoding='UTF-16') as read_obj:
-        for line in read_obj:
-            line_number += 1
-            if string_to_search in line:
-                line_num = line_number
-    return line_num
-
-def unique(list1):
- 
-    unique_list = []
-     
-    for x in list1:
-        if x not in unique_list:
-            unique_list.append(x)
-
-    return unique_list
-
 def plot_mean_data(df):
 
     hr_dict = {'3K_min':'red', '10K_min':'green', '30K_min':'blue'}
@@ -187,16 +156,6 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
 
                     data_temp_df['Apparent Heat Capacity (J/g-K)'] = data_temp_df['DSC/(mW/mg)']/data_temp_df['Heating rate (K/s)']
 
-                    # data_temp_df['DSC_deriv'] = np.gradient(data_temp_df['nMass'], data_temp_df['Temp (C)'])
-
-
-                    # data_temp_df = pd.read_csv(f, header = 0)
-                    # data_temp_df.rename(columns = {'##Temp./°C':'Temp (C)', 'Time/min':'time (s)'}, inplace = True)
-                    # data_temp_df['Mass/%'] = data_temp_df['Mass/%']/data_temp_df.loc[0,'Mass/%']
-                    # data_temp_df['time (s)'] = (data_temp_df['time (s)']-data_temp_df.loc[0,'time (s)'])*60
-                    # data_temp_df['Normalized MLR (1/s)'] = -data_temp_df['Mass/%'].diff()/data_temp_df['time (s)'].diff()
-                    # data_temp_df['Normalized MLR (1/s)'] = apply_savgol_filter(data_temp_df['Normalized MLR (1/s)'])
-
                     col_name = f.split('.csv')[0].split('_')[-1]
 
                     data_temp_df['Temp (C)'] = data_temp_df['Temp (C)'].round(decimals = 1)
@@ -212,7 +171,6 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                     reduced_df = reduced_df.loc[51:]
                     reduced_df = reduced_df[~reduced_df.index.duplicated(keep='first')]
 
-                    # reduced_df = reduced_df[~reduced_df.index.duplicated(keep='first')]
                     reduced_df = reduced_df.reindex(reduced_df.index.union(np.arange(51, (max_lim+0.1), 0.1)))
                     reduced_df = reduced_df.astype('float64')
                     reduced_df.index = reduced_df.index.astype('float64')
