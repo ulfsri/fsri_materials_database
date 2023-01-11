@@ -76,13 +76,13 @@ def CO_density(temperature):
 
 def format_and_save_plot(quantity, file_loc,m):
 
-    label_dict = {'HRRPUA': 'Heat Release Rate per Unit Area (kW/m<sup>2</sup>)', 'MLR': 'Mass Loss Rate (g/s)', 'EHC':'Effective Heat of Combustion (MJ/kg)' , 'SPR': 'Smoke Production Rate (1/s)', 'SEA': 'Specific Extinction Area', 'Extinction Coefficient': 'Extinction Coefficient (1/m)', 'CO': 'CO Yield (g/g)', 'Soot': 'Soot Yield (g/g)'}
+    label_dict = {'HRRPUA': 'HRRPUA (kW/m<sup>2</sup>)', 'MLR': 'Mass Loss Rate (g/s)', 'EHC':'Effective Heat of Combustion (MJ/kg)' , 'SPR': 'Smoke Production Rate (1/s)', 'SEA': 'Specific Extinction Area', 'Extinction Coefficient': 'Extinction Coefficient (1/m)', 'CO': 'CO Yield (g/g)', 'Soot': 'Soot Yield (g/g)'}
 
     if quantity == 'MLR':
         fig.update_yaxes(rangemode='nonnegative')
 
     fig.update_layout(xaxis_title='Time (s)', font=dict(size=18))
-    fig.update_layout(yaxis_title=label_dict[quantity], title ='Cone Calorimeter at ' + m + ' kW/m<sup>2</sup>')
+    fig.update_layout(yaxis_title=label_dict[quantity])
 
     #Get github hash to display on graph
     repo = git.Repo(search_parent_directories=True)

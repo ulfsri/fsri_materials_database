@@ -89,7 +89,7 @@ def air_density(temperature):
 
 def format_and_save_plot(xlims, ylims, inc, quantity, file_loc):
 
-	label_dict = {'HRRPUA': 'Heat Release Rate (kW/m^2)', 'MLR': 'Mass Loss Rate (g/s)', 'EHC':'Effective Heat of Combustion (MJ/kg)' , 'SPR': 'Smoke Production Rate (1/s)', 'SEA': 'Specific Extinction Area', 'Extinction Coefficient': 'Extinction Coefficient (1/m)'}
+	label_dict = {'HRRPUA': 'HRRPUA (kW/m$^2$)', 'MLR': 'Mass Loss Rate (g/s)', 'EHC':'Effective Heat of Combustion (MJ/kg)' , 'SPR': 'Smoke Production Rate (1/s)', 'SEA': 'Specific Extinction Area', 'Extinction Coefficient': 'Extinction Coefficient (1/m)'}
 
 	# Set tick parameters
 	ax1.tick_params(labelsize=tick_size, length=8, width=0.75, direction = 'inout')
@@ -147,7 +147,7 @@ def format_and_save_plot(xlims, ylims, inc, quantity, file_loc):
 				handlelength=2, frameon=True, framealpha=1.0, ncol=3)
 
 	# Clean up whitespace padding
-	#fig.tight_layout()
+	fig.tight_layout()
 
 	# Save plot to file
 	plt.savefig(file_loc)
