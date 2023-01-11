@@ -9,9 +9,9 @@
 	"material_dir": "Overstuffed_Chair",
 	"parent material": "",
 	"component material": [
-		"Polyurethane Foam",
-		"Polyester Batting",
-		"Polyester Fabric"
+		"Overstuffed Chair Polyurethane Foam",
+		"Overstuffed Chair Polyester Batting",
+		"Overstuffed Chair Polyester Fabric"
 	],
 	"material category": [
 		"upholstered furniture"
