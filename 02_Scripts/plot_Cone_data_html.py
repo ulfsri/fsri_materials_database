@@ -105,11 +105,11 @@ def format_and_save_plot(quantity, file_loc,m):
 data_dir = '../01_Data/'
 save_dir = '../03_Charts/'
 
-hf_list = ['25', '50', '75']
+hf_list_default = ['25', '50', '75']
 quant_list = ['HRRPUA', 'MLR', 'SPR', 'SEA', 'Extinction Coefficient'] #'EHC', 'CO Yield', 'Soot Yield'
 
-y_max_dict = {'HRRPUA':500, 'MLR':1, 'SPR':5, 'SEA':1000, 'Extinction Coefficient':2, 'EHC':50000, 'CO':0.1, 'Soot':0.1}
-y_inc_dict = {'HRRPUA':100, 'MLR':0.2, 'SPR':1, 'SEA':200, 'Extinction Coefficient':0.5, 'EHC':10000, 'CO':0.02, 'Soot':0.02}
+y_max_dict = {'HRRPUA':500, 'MLR':1, 'SPR':5, 'SEA':1000, 'Extinction Coefficient':2} #'EHC':50000, 'CO':0.1, 'Soot':0.1
+y_inc_dict = {'HRRPUA':100, 'MLR':0.2, 'SPR':1, 'SEA':200, 'Extinction Coefficient':0.5} #'EHC':10000, 'CO':0.02, 'Soot':0.02
 
 for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
     df_dict = {}
@@ -121,10 +121,12 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
         print(material + ' Cone')
         data_df = pd.DataFrame()
         reduced_df = pd.DataFrame()
+        if os.path.isfile(f'{data_dir}{d}/Cone/hf_list.csv'):
+            hf_list =  pd.read_csv(f'{data_dir}{d}/Cone/hf_list.csv') # for parsing hf outside of base set of ranges
+        else:
+            hf_list = hf_list_default
         for f in sorted(glob.iglob(f'{data_dir}{d}/Cone/*.csv')):
-            if 'scalar' in f.lower() or 'cone_analysis_data' in f.lower() or 'cone_notes' in f.lower() or 'hrrpua_table' in f.lower() or 'ignition' in f.lower():
-                continue
-            else:
+            if 'scan' in f.lower():
                 label_list = f.split('.csv')[0].split('_')
                 label = label_list[-3].split('Scan')[0] + '_' + label_list[-1]
                 data_temp_df = pd.read_csv(f, header = 0, skiprows = [1, 2, 3, 4], index_col = 'Names')
@@ -236,8 +238,9 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                 co_prod = (trapezoid(data_temp_df.loc[ml_10_ind:ml_90_ind,'CO Mass Flow'], x = x))*1000 # g
                 co_df.at['CO Yield (g/g)', label] = co_prod/(0.8*mass_lost)
 
-                output_df.at['Peak HRRPUA (kW/m\u00b2)', label] = float("{:.2f}".format(max(data_temp_df['HRRPUA'])))
+                output_df.at['Time to Sustained Ignition (s)', label] = ign_time
                 output_df.at['Time to Peak HRRPUA (s)', label] = data_temp_df.loc[data_temp_df['HRRPUA'].idxmax(), 'Time'] - float(scalar_data_series.at['TIME TO IGN'])
+                output_df.at['Peak HRRPUA (kW/m\u00b2)', label] = float("{:.2f}".format(max(data_temp_df['HRRPUA'])))
 
         for n in quant_list:
             for m in hf_list:
@@ -250,9 +253,6 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                             plot_data(plot_df, rep_str)
                         except:
                             continue
-
-                inc = y_inc_dict[n]
-
                 plot_dir = f'../03_Charts/{material}/Cone/'
 
                 if not os.path.exists(plot_dir):
@@ -263,13 +263,12 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
     else:
         continue
 
-    co_html_df = pd.DataFrame(index = ['25', '50', '75'], columns = ['Mean CO Yield [g/g]', 'CO Yield Std. Dev. [g/g]'])
-    soot_html_df = pd.DataFrame(index = ['25', '50', '75'], columns = ['Mean Soot Yield [g/g]', 'Soot Yield Std. Dev. [g/g]'])
+    co_html_df = pd.DataFrame(index = hf_list, columns = ['Mean CO Yield [g/g]', 'CO Yield Std. Dev. [g/g]'])
+    soot_html_df = pd.DataFrame(index = hf_list, columns = ['Mean Soot Yield [g/g]', 'Soot Yield Std. Dev. [g/g]'])
 
-    hf_ranges = ['25','50','75']
-    for hf in hf_ranges:
+    for hf in hf_list:
         html_df = output_df.filter(like=hf)
-        html_df.columns = html_df.columns.str.replace('HF'+hf+'_', hf+' kW/m\u00b2 ')
+        html_df = html_df.rename(columns=lambda x: hf +' kW/m\u00b2 ' + x.split('_')[-1])
         html_df.to_html(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_HRRPUA_Table_{hf}.html', float_format='%.2f', encoding='UTF-8', border=0)
 
         co_hf_df = co_df.filter(like=hf)
