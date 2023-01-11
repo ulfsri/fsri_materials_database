@@ -26,17 +26,17 @@
 		"test description": "",
 		"display name": "",
 		"nested tests": [{
-				"display name": "25 kW/m<sup>2</sup>",
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
 				"graph": "Cone/Cotton_Sheet_Cone_HRRPUA_25.html",
 				"table": "Cone/Cotton_Sheet_Cone_Analysis_HRRPUA_Table_25.html"
 			},
 			{
-				"display name": "50 kW/m<sup>2</sup>",
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
 				"graph": "Cone/Cotton_Sheet_Cone_HRRPUA_50.html",
 				"table": "Cone/Cotton_Sheet_Cone_Analysis_HRRPUA_Table_50.html"
 			},
 			{
-				"display name": "75 kW/m<sup>2</sup>",
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
 				"graph": "Cone/Cotton_Sheet_Cone_HRRPUA_75.html",
 				"table": "Cone/Cotton_Sheet_Cone_Analysis_HRRPUA_Table_75.html"
 			}
