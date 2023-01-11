@@ -28,13 +28,11 @@ import git
 data_dir = '../01_Data/'
 save_dir = '../03_Charts/'
 
-hf_list = ['25', '50', '75']
+hf_list_default = ['25', '50', '75']
 quant_list = ['HRRPUA', 'MLR', 'SPR', 'SEA', 'Extinction Coefficient'] #'EHC'
 
-y_max_dict = {'HRRPUA':500, 'MLR':1, 'SPR':5, 'SEA':1000, 'Extinction Coefficient':2, 'EHC':50}
-y_inc_dict = {'HRRPUA':100, 'MLR':0.2, 'SPR':1, 'SEA':200, 'Extinction Coefficient':0.5, 'EHC':10}
-
-equal_scales = False
+y_max_dict = {'HRRPUA':500, 'MLR':1, 'SPR':5, 'SEA':1000, 'Extinction Coefficient':2} #'EHC':50
+y_inc_dict = {'HRRPUA':100, 'MLR':0.2, 'SPR':1, 'SEA':200, 'Extinction Coefficient':0.5} #'EHC':10
 
 label_size = 20
 tick_size = 18
@@ -164,10 +162,12 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
 		print(material + ' Cone')
 		data_df = pd.DataFrame()
 		reduced_df = pd.DataFrame()
+		if os.path.isfile(f'{data_dir}{d}/Cone/hf_list.csv'):
+			hf_list =  pd.read_csv(f'{data_dir}{d}/Cone/hf_list.csv') # for parsing hf outside of base set of ranges
+		else:
+			hf_list = hf_list_default
 		for f in sorted(glob.iglob(f'{data_dir}{d}/Cone/*.csv')):
-			if 'scalar' in f.lower() or 'cone_analysis_data' in f.lower() or 'cone_notes' in f.lower() or 'hrrpua_table' in f.lower() or 'ignition' in f.lower():
-				continue
-			else:
+			if 'scan' in f.lower():
 				label_list = f.split('.csv')[0].split('_')
 				label = label_list[-3].split('Scan')[0] + '_' + label_list[-1]
 				data_temp_df = pd.read_csv(f, header = 0, skiprows = [1, 2, 3, 4], index_col = 'Names')
@@ -290,16 +290,10 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
 
 				inc = y_inc_dict[n]
 
-				if equal_scales or np.isinf(y_min) or y_max > 10*y_max_dict[n]:
-					ylims[0] = 0
-					ylims[1] = y_max_dict[n]
-					xlims[0] = 0
-					xlims[1] = 120 * (math.ceil(x_max/120))
-				else:
-					ylims[0] = y_min - abs(y_min * 0.1)
-					ylims[1] = y_max * 1.1
-					xlims[0] = x_min
-					xlims[1] = x_max
+				ylims[0] = y_min - abs(y_min * 0.1)
+				ylims[1] = y_max * 1.1
+				xlims[0] = x_min
+				xlims[1] = x_max
 
 				plot_dir = f'../03_Charts/{material}/Cone/'
 
