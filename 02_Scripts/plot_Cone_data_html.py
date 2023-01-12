@@ -106,10 +106,10 @@ data_dir = '../01_Data/'
 save_dir = '../03_Charts/'
 
 hf_list_default = ['25', '50', '75']
-quant_list = ['HRRPUA', 'MLR', 'SPR', 'SEA', 'Extinction Coefficient'] #'EHC', 'CO Yield', 'Soot Yield'
+quant_list = ['HRRPUA', 'MLR', 'SPR', 'Extinction Coefficient'] #'EHC', 'CO Yield', 'Soot Yield','SEA',
 
-y_max_dict = {'HRRPUA':500, 'MLR':1, 'SPR':5, 'SEA':1000, 'Extinction Coefficient':2} #'EHC':50000, 'CO':0.1, 'Soot':0.1
-y_inc_dict = {'HRRPUA':100, 'MLR':0.2, 'SPR':1, 'SEA':200, 'Extinction Coefficient':0.5} #'EHC':10000, 'CO':0.02, 'Soot':0.02
+y_max_dict = {'HRRPUA':500, 'MLR':1, 'SPR':5, 'Extinction Coefficient':2} #'EHC':50000, 'CO':0.1, 'Soot':0.1,'SEA':1000,
+y_inc_dict = {'HRRPUA':100, 'MLR':0.2, 'SPR':1, 'Extinction Coefficient':0.5} #'EHC':10000, 'CO':0.02, 'Soot':0.02,'SEA':200,
 
 for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
     df_dict = {}

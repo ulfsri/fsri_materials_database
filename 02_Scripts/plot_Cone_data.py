@@ -29,10 +29,10 @@ data_dir = '../01_Data/'
 save_dir = '../03_Charts/'
 
 hf_list_default = ['25', '50', '75']
-quant_list = ['HRRPUA', 'MLR', 'SPR', 'SEA', 'Extinction Coefficient'] #'EHC'
+quant_list = ['HRRPUA', 'MLR', 'SPR', 'Extinction Coefficient'] #'EHC','SEA'
 
-y_max_dict = {'HRRPUA':500, 'MLR':1, 'SPR':5, 'SEA':1000, 'Extinction Coefficient':2} #'EHC':50
-y_inc_dict = {'HRRPUA':100, 'MLR':0.2, 'SPR':1, 'SEA':200, 'Extinction Coefficient':0.5} #'EHC':10
+y_max_dict = {'HRRPUA':500, 'MLR':1, 'SPR':5, 'Extinction Coefficient':2} #'EHC':50,'SEA':1000,
+y_inc_dict = {'HRRPUA':100, 'MLR':0.2, 'SPR':1, 'Extinction Coefficient':0.5} #'EHC':10,'SEA':200
 
 label_size = 20
 tick_size = 18
@@ -87,7 +87,7 @@ def air_density(temperature):
 
 def format_and_save_plot(xlims, ylims, inc, quantity, file_loc):
 
-	label_dict = {'HRRPUA': 'HRRPUA (kW/m$^2$)', 'MLR': 'Mass Loss Rate (g/s)', 'EHC':'Effective Heat of Combustion (MJ/kg)' , 'SPR': 'Smoke Production Rate (1/s)', 'SEA': 'Specific Extinction Area', 'Extinction Coefficient': 'Extinction Coefficient (1/m)'}
+	label_dict = {'HRRPUA': 'HRRPUA (kW/m$^2$)', 'MLR': 'Mass Loss Rate (g/s)', 'EHC':'Effective Heat of Combustion (MJ/kg)' , 'SPR': 'Smoke Production Rate (1/s)', 'Extinction Coefficient': 'Extinction Coefficient (1/m)'}
 
 	# Set tick parameters
 	ax1.tick_params(labelsize=tick_size, length=8, width=0.75, direction = 'inout')
