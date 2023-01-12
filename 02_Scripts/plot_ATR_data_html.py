@@ -20,13 +20,6 @@ import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import git
 
-label_size = 20
-tick_size = 18
-line_width = 2
-legend_font = 10
-fig_width = 10
-fig_height = 6
-
 def plot_mean_data(df):
 
     y_upper = df['mean'] + 2*df['std']
@@ -42,7 +35,8 @@ def plot_mean_data(df):
 def format_and_save_plot(file_loc):
 
     fig.update_layout(xaxis_title='Wavelength (nm)', font=dict(size=18))
-    fig.update_layout(yaxis_title='ATR Signal (-)', title ='ATR Signal')
+    fig.update_layout(yaxis_title='ATR Signal (-)')
+    fig.update_layout(autosize=False, width=513, height=450,margin=dict(l=25,r=25,b=40,t=40,pad=4))
 
     #Get github hash to display on graph
     repo = git.Repo(search_parent_directories=True)

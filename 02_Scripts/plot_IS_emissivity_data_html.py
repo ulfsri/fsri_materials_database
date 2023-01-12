@@ -23,14 +23,6 @@ from scipy import integrate
 import plotly.graph_objects as go
 import git
 
-# Define other general plot parameters
-label_size = 20
-tick_size = 18
-line_width = 2
-legend_font = 14
-fig_width = 10
-fig_height = 8
-
 h = 6.62607015e-34 # J-s (Planck's Constant)
 c = 299702547 # m/s (speed of light in air)
 kB = 1.380649e-23 # J/K (Boltzmann constant)
@@ -55,7 +47,9 @@ def reindex_data(data, min_x, max_x):
 	return data
 
 def format_and_save_plot(file_loc,material):
-	fig.update_layout(yaxis_title='Total Hemispherical Emissivity', title ='Specific Heat')
+	fig.update_layout(yaxis_title='Total Hemispherical Emissivity')
+
+	fig.update_layout(autosize=False, width=513, height=450,margin=dict(l=25,r=25,b=40,t=40,pad=4))
 
 	#Get github hash to display on graph
 	repo = git.Repo(search_parent_directories=True)

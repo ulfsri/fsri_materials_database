@@ -26,13 +26,6 @@ from scipy.integrate import trapezoid
 import plotly.graph_objects as go
 import git
 
-label_size = 20
-tick_size = 18
-line_width = 2
-legend_font = 10
-fig_width = 10
-fig_height = 6
-
 ### Fuel Properties ###
 e = 13100 # [kJ/kg O2] del_hc/r_0
 laser_wl = 632.8/10e9 # m
@@ -83,6 +76,7 @@ def format_and_save_plot(quantity, file_loc,m):
 
     fig.update_layout(xaxis_title='Time (s)', font=dict(size=18))
     fig.update_layout(yaxis_title=label_dict[quantity])
+    fig.update_layout(autosize=False, width=513, height=450,margin=dict(l=25,r=25,b=40,t=40,pad=4))
 
     #Get github hash to display on graph
     repo = git.Repo(search_parent_directories=True)
