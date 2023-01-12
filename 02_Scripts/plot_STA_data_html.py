@@ -27,13 +27,6 @@ import plotly.graph_objects as go
 import git
 from pybaselines import Baseline, utils
 
-label_size = 20
-tick_size = 18
-line_width = 2
-legend_font = 10
-fig_width = 10
-fig_height = 6
-
 def apply_savgol_filter(raw_data, deriv=0):
 
     window_raw = int((raw_data.count())/40)
@@ -80,7 +73,8 @@ def format_and_save_plot(inc, file_loc):
     keyword = file_loc.split('.html')[0].split('_')[-1]
 
     fig.update_layout(xaxis_title='Temperature (&deg;C)', font=dict(size=18))
-    fig.update_layout(yaxis_title=axis_dict[keyword], title ='Simultaneous Thermal Analysis')
+    fig.update_layout(yaxis_title=axis_dict[keyword])
+    fig.update_layout(autosize=False, width=513, height=450,margin=dict(l=25,r=25,b=40,t=40,pad=4))
 
     #Get github hash to display on graph
     repo = git.Repo(search_parent_directories=True)

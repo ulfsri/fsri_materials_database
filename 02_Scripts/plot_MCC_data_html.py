@@ -24,13 +24,6 @@ import plotly.graph_objects as go
 import git
 from scipy import integrate
 
-label_size = 20
-tick_size = 18
-line_width = 2
-legend_font = 10
-fig_width = 10
-fig_height = 6
-
 def clean_file(file_name):
     fin = open(file_name, 'rt', encoding = 'UTF-16')
     fout = open(f'{file_name}_TEMP.tst', 'wt', encoding = 'UTF-16')
@@ -76,7 +69,8 @@ def plot_mean_data(df):
 def format_and_save_plot(file_loc):
 
     fig.update_layout(xaxis_title='Temperature (&deg;C)', font=dict(size=18))
-    fig.update_layout(yaxis_title='Specific HRR (W/g)', title ='Specific HRR')
+    fig.update_layout(yaxis_title='Specific HRR (W/g)')
+    fig.update_layout(autosize=False, width=513, height=450,margin=dict(l=25,r=25,b=40,t=40,pad=4))
 
     #Get github hash to display on graph
     repo = git.Repo(search_parent_directories=True)
