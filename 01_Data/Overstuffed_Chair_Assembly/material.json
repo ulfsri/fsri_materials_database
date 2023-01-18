@@ -1,12 +1,12 @@
 {
-	"material": "Overstuffed Chair",
+	"material": "Overstuffed Chair Assembly",
 	"alternate names": [
 		"upholstered chair",
 		"darcy chair",
 		"flared frame chair",
 		"accent chair"
 	],
-	"material_dir": "Overstuffed_Chair",
+	"material_dir": "Overstuffed_Chair_Assembly",
 	"parent material": "",
 	"component material": [
 		"Overstuffed Chair Polyurethane Foam",
@@ -16,11 +16,11 @@
 	"material category": [
 		"upholstered furniture"
 	],
-	"image file": "Overstuffed_Chair.JPG",
-	"image 600x400 file": "Overstuffed_Chair600x400.jpg",
+	"image file": "Overstuffed_Chair_Assembly.JPG",
+	"image 600x400 file": "Overstuffed_Chair_Assembly600x400.jpg",
 	"video file": "",
-	"description": "The Overstuffed Chair is an accent chair with cushions comprised of polyurethane foam wrapped in polyester batting and covered with polyester fabric.",
-	"short desc": "The Overstuffed Chair is a polyester upholstered accent chair.",
+	"description": "The overstuffed chair assembly is part an accent chair with cushions comprised of polyurethane foam wrapped in polyester batting and covered with polyester fabric.",
+	"short desc": "The overstuffed chair assembly is part of a polyester upholstered accent chair.",
 	"source": "Samples cut from representative cushions and tested in assemblies stacked with 2.5 cm thick polyurethane foam, 4.4 cm thick polyester batting, and 0.47 mm thick polyester fabric.",
 	"density": "23.7 kg/m<sup>3</sup>",
 	"property scales": [
@@ -32,18 +32,18 @@
 		"display name": "",
 		"nested tests": [{
 				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
-				"graph": "Cone/Overstuffed_Chair_Cone_HRRPUA_25.html",
-				"table": "Cone/Overstuffed_Chair_Cone_Analysis_HRRPUA_Table_25.html"
+				"graph": "Cone/Overstuffed_Chair_Assembly_Cone_HRRPUA_25.html",
+				"table": "Cone/Overstuffed_Chair_Assembly_Cone_Analysis_HRRPUA_Table_25.html"
 			},
 			{
 				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
-				"graph": "Cone/Overstuffed_Chair_Cone_HRRPUA_50.html",
-				"table": "Cone/Overstuffed_Chair_Cone_Analysis_HRRPUA_Table_50.html"
+				"graph": "Cone/Overstuffed_Chair_Assembly_Cone_HRRPUA_50.html",
+				"table": "Cone/Overstuffed_Chair_Assembly_Cone_Analysis_HRRPUA_Table_50.html"
 			},
 			{
 				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
-				"graph": "Cone/Overstuffed_Chair_Cone_HRRPUA_75.html",
-				"table": "Cone/Overstuffed_Chair_Cone_Analysis_HRRPUA_Table_75.html"
+				"graph": "Cone/Overstuffed_Chair_Assembly_Cone_HRRPUA_75.html",
+				"table": "Cone/Overstuffed_Chair_Assembly_Cone_Analysis_HRRPUA_Table_75.html"
 			}
 		]
 	},
@@ -53,15 +53,15 @@
 		"display name": "",
 		"nested tests": [{
 				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
-				"graph": "Cone/Overstuffed_Chair_Cone_MLR_25.html"
+				"graph": "Cone/Overstuffed_Chair_Assembly_Cone_MLR_25.html"
 			},
 			{
 				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
-				"graph": "Cone/Overstuffed_Chair_Cone_MLR_50.html"
+				"graph": "Cone/Overstuffed_Chair_Assembly_Cone_MLR_50.html"
 			},
 			{
 				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
-				"graph": "Cone/Overstuffed_Chair_Cone_MLR_75.html"
+				"graph": "Cone/Overstuffed_Chair_Assembly_Cone_MLR_75.html"
 			}
 		]
 	},
@@ -69,7 +69,7 @@
 		"test name": "carbon monoxide yield",
 		"test description": "",
 		"display name": "",
-		"table": "Cone/Overstuffed_Chair_Cone_Analysis_CO_Table.html"
+		"table": "Cone/Overstuffed_Chair_Assembly_Cone_Analysis_CO_Table.html"
 	},	
 	{
 		"test name": "thermal conductivity",
@@ -77,8 +77,8 @@
 		"display name": "",
 		"nested tests": [{
 				"display name": "Unconditioned",
-				"graph": "HFM/Overstuffed_Chair_HFM_Wet_conductivity.html",
-				"table": "HFM/Overstuffed_Chair_HFM_Wet_conductivity.html"
+				"graph": "HFM/Overstuffed_Chair_Assembly_HFM_Wet_conductivity.html",
+				"table": "HFM/Overstuffed_Chair_Assembly_HFM_Wet_conductivity.html"
 			}
 		]
 	}],
@@ -87,6 +87,6 @@
 		"test name": "soot yield",
 		"test description": "",
 		"display name": "",
-		"table": "Cone/Overstuffed_Chair_Cone_Analysis_Soot_Table.html"
+		"table": "Cone/Overstuffed_Chair_Assembly_Cone_Analysis_Soot_Table.html"
 	}]
 }

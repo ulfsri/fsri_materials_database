@@ -76,7 +76,7 @@ def format_and_save_plot(quantity, file_loc,m):
 
     fig.update_layout(xaxis_title='Time (s)', font=dict(size=18))
     fig.update_layout(yaxis_title=label_dict[quantity])
-    fig.update_layout(autosize=False, width=513, height=450,margin=dict(l=25,r=25,b=40,t=40,pad=4))
+    fig.update_layout(autosize=True, width=513, height=450,margin=dict(l=25,r=25,b=40,t=40))
 
     #Get github hash to display on graph
     repo = git.Repo(search_parent_directories=True)
@@ -215,6 +215,9 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                 end_ind = str(int(4 * end_time + 1))
                 ign_mass = float(data_temp_df.loc[ign_ind,'Sample Mass'])
                 end_mass = float(data_temp_df.loc[end_ind,'Sample Mass'])
+                holder_mass = data_temp_df.at['1','Sample Mass'] - float(scalar_data_series.at['SPECIMEN MASS'])
+                if float("{:.2f}".format(data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'Sample Mass'] - holder_mass)) < 0:
+                    print('negative mass')
                 mass_lost = ign_mass-end_mass
                 ml_10 = ign_mass - 0.1*mass_lost
                 ml_90 = ign_mass - 0.9*mass_lost
