@@ -217,8 +217,8 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                 ign_mass = float(data_temp_df.loc[ign_ind,'Sample Mass'])
                 end_mass = float(data_temp_df.loc[end_ind,'Sample Mass'])
                 holder_mass = data_temp_df.at['1','Sample Mass'] - float(scalar_data_series.at['SPECIMEN MASS'])
-                if float("{:.2f}".format(data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'Sample Mass'] - holder_mass)) < 0:
-                    print('negative mass')
+                # if float("{:.2f}".format(data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'Sample Mass'] - holder_mass)) < 0:
+                #     print('negative mass')
                 mass_lost = ign_mass-end_mass
                 ml_10 = ign_mass - 0.1*mass_lost
                 ml_90 = ign_mass - 0.9*mass_lost
