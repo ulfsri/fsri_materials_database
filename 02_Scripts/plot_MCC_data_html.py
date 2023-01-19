@@ -70,7 +70,8 @@ def format_and_save_plot(file_loc):
 
     fig.update_layout(xaxis_title='Temperature (&deg;C)', font=dict(size=18))
     fig.update_layout(yaxis_title='Specific HRR (W/g)')
-    fig.update_layout(autosize=False, width=513, height=450,margin=dict(l=25,r=25,b=40,t=40,pad=4))
+    # fig.update_layout(autosize=False, width=513, height=450,margin=dict(l=25,r=25,b=40,t=40,pad=4))
+    fig.update_layout(margin=dict(l=25,r=25,b=40,t=40,pad=4))
 
     #Get github hash to display on graph
     repo = git.Repo(search_parent_directories=True)
