@@ -13,8 +13,8 @@
 	"image file": "Black_PMMA.JPG",
 	"image 600x400 file": "Black_PMMA600x400.jpg",
 	"video file": "",
-	"description": "Black polymethyl methacrylate is an opaque engineered thermoplastic most commonly used as a shatter resistant replacement for glass.",
-	"short desc": "Black PMMA is an opaque engineered thermoplastic most commonly used as a shatter resistant replacement for glass.",
+	"description": "Black polymethyl methacrylate is an opaque engineered thermoplastic most commonly used for calibrating fire models.",
+	"short desc": "Black PMMA is an opaque engineered thermoplastic most commonly used for calibrating fire models.",
 	"source": "Samples cut from 0.48 cm thick, 0.3 m x 0.9 m boards.",
 	"density": "1181 kg/m<sup>3</sup>",
 	"property scales": [
@@ -116,5 +116,11 @@
 		"test description": "",
 		"display name": "",
 		"table": "Cone/Black_PMMA_Cone_Analysis_Soot_Table.html"
+	},
+	{
+		"test name": "effective heat of combustion",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
+		"display name": "",
+		"table": "MCC/Black_PMMA_MCC_Heats_of_Combustion.html"
 	}]
 }

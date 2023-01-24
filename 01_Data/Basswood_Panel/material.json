@@ -3,14 +3,14 @@
 	"alternate names": [
 		"basswood"
 	],
-	"material_dir": "Baswood_Panel",
+	"material_dir": "Basswood_Panel",
 	"parent material": "",
 	"component material": [],
 	"material category": [
 		"exterior finish"
 	],
-	"image file": "Baswood_Panel.JPG",
-	"image 600x400 file": "Baswood_Panel600x400.jpg",
+	"image file": "Basswood_Panel.JPG",
+	"image 600x400 file": "Basswood_Panel600x400.jpg",
 	"video file": "",
 	"description": "Basswood is a soft, light wood often used in craft and hobby projects.",
 	"short desc": "Basswood is a soft, light wood often used in craft and hobby projects.",
@@ -27,18 +27,18 @@
 		"display name": "",
 		"nested tests": [{
 				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
-				"graph": "Cone/Baswood_Panel_Cone_HRRPUA_25.html",
-				"table": "Cone/Baswood_Panel_Cone_Analysis_HRRPUA_Table_25.html"
+				"graph": "Cone/Basswood_Panel_Cone_HRRPUA_25.html",
+				"table": "Cone/Basswood_Panel_Cone_Analysis_HRRPUA_Table_25.html"
 			},
 			{
 				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
-				"graph": "Cone/Baswood_Panel_Cone_HRRPUA_50.html",
-				"table": "Cone/Baswood_Panel_Cone_Analysis_HRRPUA_Table_50.html"
+				"graph": "Cone/Basswood_Panel_Cone_HRRPUA_50.html",
+				"table": "Cone/Basswood_Panel_Cone_Analysis_HRRPUA_Table_50.html"
 			},
 			{
 				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
-				"graph": "Cone/Baswood_Panel_Cone_HRRPUA_75.html",
-				"table": "Cone/Baswood_Panel_Cone_Analysis_HRRPUA_Table_75.html"
+				"graph": "Cone/Basswood_Panel_Cone_HRRPUA_75.html",
+				"table": "Cone/Basswood_Panel_Cone_Analysis_HRRPUA_Table_75.html"
 			}
 		]
 	},
@@ -47,16 +47,20 @@
 		"test description": "",
 		"display name": "",
 		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Basswood_STA_MLR.html"
+			},
+			{
 				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
-				"graph": "Cone/Baswood_Panel_Cone_MLR_25.html"
+				"graph": "Cone/Basswood_Panel_Cone_MLR_25.html"
 			},
 			{
 				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
-				"graph": "Cone/Baswood_Panel_Cone_MLR_50.html"
+				"graph": "Cone/Basswood_Panel_Cone_MLR_50.html"
 			},
 			{
 				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
-				"graph": "Cone/Baswood_Panel_Cone_MLR_75.html"
+				"graph": "Cone/Basswood_Panel_Cone_MLR_75.html"
 			}
 		]
 	},
@@ -64,7 +68,7 @@
 		"test name": "carbon monoxide yield",
 		"test description": "",
 		"display name": "",
-		"table": "Cone/Baswood_Panel_Cone_Analysis_CO_Table.html"
+		"table": "Cone/Basswood_Panel_Cone_Analysis_CO_Table.html"
 	},
 	{
 		"test name": "specific heat",
@@ -72,13 +76,13 @@
 		"display name": "",
 		"nested tests": [{
 				"display name": "Unconditioned",
-				"graph": "HFM/Baswood_Panel_HFM_Wet_specific_heat.html",
-				"table": "HFM/Baswood_Panel_HFM_Wet_specific_heat.html"
+				"graph": "HFM/Basswood_Panel_HFM_Wet_specific_heat.html",
+				"table": "HFM/Basswood_Panel_HFM_Wet_specific_heat.html"
 			},
 			{
 				"display name": "Dried",
-				"graph": "HFM/Baswood_Panel_HFM_Dry_specific_heat.html",
-				"table": "HFM/Baswood_Panel_HFM_Dry_specific_heat.html"
+				"graph": "HFM/Basswood_Panel_HFM_Dry_specific_heat.html",
+				"table": "HFM/Basswood_Panel_HFM_Dry_specific_heat.html"
 			}
 		]
 	},
@@ -88,13 +92,13 @@
 		"display name": "",
 		"nested tests": [{
 				"display name": "Unconditioned",
-				"graph": "HFM/Baswood_Panel_HFM_Wet_conductivity.html",
-				"table": "HFM/Baswood_Panel_HFM_Wet_conductivity.html"
+				"graph": "HFM/Basswood_Panel_HFM_Wet_conductivity.html",
+				"table": "HFM/Basswood_Panel_HFM_Wet_conductivity.html"
 			},
 			{
 				"display name": "Dried",
-				"graph": "HFM/Baswood_Panel_HFM_Dry_conductivity.html",
-				"table": "HFM/Baswood_Panel_HFM_Dry_conductivity.html"
+				"graph": "HFM/Basswood_Panel_HFM_Dry_conductivity.html",
+				"table": "HFM/Basswood_Panel_HFM_Dry_conductivity.html"
 			}
 		]
 	},
@@ -102,7 +106,7 @@
 		"test name": "specific heat release rate",
 		"test description": "",
 		"display name": "",
-		"graph": "MCC/Baswood_Panel_MCC_HRR.html"
+		"graph": "MCC/Basswood_Panel_MCC_HRR.html"
 	}],	
 	"derived property": [
 	{

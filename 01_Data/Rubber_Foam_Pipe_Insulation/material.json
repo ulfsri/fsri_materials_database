@@ -12,9 +12,9 @@
 	"image file": "Rubber_Foam_Pipe_Insulation.JPG",
 	"image 600x400 file": "Rubber_Foam_Pipe_Insulation600x400.jpg",
 	"video file": "",
-	"description": "",
-	"short desc": "",
-	"source": "",
+	"description": "Flexible and lightweight closed-cell elastomeric material designed for insulating plumbing or heating/air conditioning ventilation systems.",
+	"short desc": "Flexible and lightweight closed-cell elastomeric material designed for insulating plumbing or HVAC systems.",
+	"source": "Cut from 12 mm thick, tubular section.",
 	"density": "52 kg/m<sup>3</sup>",
 	"property scales": [
 		"milligram",
@@ -26,6 +26,10 @@
 		"test description": "",
 		"display name": "",
 		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Rubber_Foam_Pipe_STA_MLR.html"
+			},
+			{
 				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
 				"graph": "Cone/Rubber_Foam_Pipe_Insulation_Cone_HRRPUA_25.html",
 				"table": "Cone/Rubber_Foam_Pipe_Insulation_Cone_Analysis_HRRPUA_Table_25.html"
@@ -97,5 +101,12 @@
 		"test description": "",
 		"display name": "",
 		"graph": "MCC/Rubber_Foam_Pipe_Insulation_MCC_HRR.html"
+	}],
+	"derived property": [
+	{
+		"test name": "effective heat of combustion",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
+		"display name": "",
+		"table": "MCC/Rubber_Foam_Pipe_Insulation_MCC_Heats_of_Combustion.html"
 	}]
 }
