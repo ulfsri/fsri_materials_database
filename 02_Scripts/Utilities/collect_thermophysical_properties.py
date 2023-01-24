@@ -1,13 +1,5 @@
-# MCC Data Import and Pre-processing
+# Thermophysical property extractor
 #   by: Mark McKinnon and Craig Weinschenk
-# ***************************** Run Notes ***************************** #
-# - Prompts user for directory with MCC raw data                        #
-#                                                                       #
-# - Imports raw MCC data and creates excel sheets with header           #
-#       information, raw data, and analyzed data (baseline and          #
-#       mass loss corrected)                                            #
-#                                                                       #
-# ********************************************************************* #
 
 # --------------- #
 # Import Packages #
@@ -49,7 +41,7 @@ def unique(list1):
 
     return unique_list
 
-data_dir = '../01_Data/'
+data_dir = '../../01_Data/'
 
 for d in os.scandir(data_dir):
     material = d.path.split('/')[-1]
