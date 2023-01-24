@@ -57,14 +57,6 @@
 			"nested": false
 		},
 		{
-			"test name": "effective heat of combustion",
-			"display name": "Effective Heat of Combustion (&#916;h<sub>c</sub>)",
-			"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in both micro-scale combustion calorimeter experiments and cone calorimeter experiments.",
-			"table": true,
-			"graph": false,
-			"nested": true
-		},
-		{
 			"test name": "specific heat release rate",
 			"display name": "Specific Heat Release Rate",
 			"test description": "Experiments for specific heat release rate [W/g], were conducted using a micro-scale combustion calorimeter at a heating rate of 30 K/min.",
@@ -80,6 +72,14 @@
 			"table": true,
 			"graph": false,
 			"nested": false
+		},
+		{
+			"test name": "effective heat of combustion",
+			"display name": "Effective Heat of Combustion (&#916;h<sub>c</sub>)",
+			"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in both micro-scale combustion calorimeter experiments and cone calorimeter experiments.",
+			"table": true,
+			"graph": false,
+			"nested": true
 		},
 		{
 			"test name": "heat of reaction",
