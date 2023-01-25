@@ -1,7 +1,9 @@
 {
 	"material": "Roof Felt Underlayment",
 	"alternate names": [
-		"Roofing Felt"
+		"Roofing Felt",
+		"Roll Roofing",
+		"Roofing Tar Paper"
 	],
 	"material_dir": "Roof_Felt",
 	"parent material": "",
@@ -12,9 +14,9 @@
 	"image file": "Roof_Felt.JPG",
 	"image 600x400 file": "Roof_Felt600x400.jpg",
 	"video file": "",
-	"description": "",
-	"short desc": " ",
-	"source": " ",
+	"description": "Roof felt underlayment is layer of protection installed between the roof deck and the roofing shingles. It is typically created by saturating paper or fiberglass mat with asphalt.",
+	"short desc": "Roof felt underlayment is layer of protection installed between the roof deck and the roofing shingles.",
+	"source": "Samples cut from a commercially available 1 mm thick roll.",
 	"density": "699 kg/m<sup>3</sup>",
 	"property scales": [
 		"milligram",
@@ -59,7 +61,6 @@
 				"graph": "Cone/Roof_Felt_Cone_MLR_75.html"
 			}
 		]
-
 	},
 	{
 		"test name": "carbon monoxide yield",
@@ -82,7 +83,6 @@
 				"table": "HFM/Roof_Felt_HFM_Dry_specific_heat.html"
 			}
 		]
-
 	},
 	{
 		"test name": "thermal conductivity",
@@ -99,7 +99,6 @@
 				"table": "HFM/Roof_Felt_HFM_Dry_conductivity.html"
 			}
 		]
-
 	},
 	{
 		"test name": "specific heat release rate",
@@ -113,5 +112,11 @@
 		"test description": "",
 		"display name": "",
 		"table": "Cone/Roof_Felt_Cone_Analysis_Soot_Table.html"
+	},
+	{
+		"test name": "effective heat of combustion",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
+		"display name": "",
+		"table": "MCC/Roof_Felt_MCC_Heats_of_Combustion.html"
 	}]
 }
