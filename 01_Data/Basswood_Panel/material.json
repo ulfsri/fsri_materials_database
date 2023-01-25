@@ -48,7 +48,7 @@
 		"display name": "",
 		"nested tests": [{
 				"display name": "Simultaneous Thermal Analyzer",
-				"graph": "STA/N2/Basswood_STA_MLR.html"
+				"graph": "STA/N2/Basswood_Panel_STA_MLR.html"
 			},
 			{
 				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
