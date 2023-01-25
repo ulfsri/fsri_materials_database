@@ -13,9 +13,9 @@
 	"image file": "Mineral_Wool_Insulation.JPG",
 	"image 600x400 file": "Mineral_Wool_Insulation600x400.jpg",
 	"video file": "",
-	"description": "",
-	"short desc": " ",
-	"source": " ",
+	"description":"Mineral wool insulation is mainly made from natural stone fibers such as molten basalt or diabase that are spun into wool and bound with resin.",
+	"short desc": "Mineral wool insulation is mainly made from natural stone fibers and spun into a wool that is bound with resin.",
+	"source": " Samples cut from 89 mm thick, commercially available R-15 stone wool insulation batt.",
 	"density": "55 kg/m<sup>3</sup>",
 	"property scales": [
 		"milligram",
@@ -60,7 +60,6 @@
 				"graph": "Cone/Mineral_Wool_Insulation_Cone_MLR_75.html"
 			}
 		]
-
 	},
 	{
 		"test name": "carbon monoxide yield",
@@ -78,7 +77,6 @@
 				"table": "HFM/Mineral_Wool_Insulation_HFM_Wet_specific_heat.html"
 			}
 		]
-
 	},
 	{
 		"test name": "thermal conductivity",
@@ -90,12 +88,18 @@
 				"table": "HFM/Mineral_Wool_Insulation_HFM_Wet_conductivity.html"
 			}
 		]
-
 	},
 	{
 		"test name": "specific heat release rate",
 		"test description": "",
 		"display name": "",
 		"graph": "MCC/Mineral_Wool_Insulation_MCC_HRR.html"
+	}],
+	"derived property": [
+	{
+		"test name": "effective heat of combustion",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
+		"display name": "",
+		"table": "MCC/Mineral_Wool_Insulation_MCC_Heats_of_Combustion.html"
 	}]
 }
