@@ -1,7 +1,7 @@
 {
 	"material": "Vinyl Tile",
 	"alternate names": [
-		" "
+		""
 	],
 	"material_dir": "Vinyl_Tile",
 	"parent material": "",
@@ -12,10 +12,10 @@
 	"image file": "Vinyl_Tile.JPG",
 	"image 600x400 file": "Vinyl_Tile600x400.jpg",
 	"video file": "",
-	"description": "",
-	"short desc": " ",
-	"source": " ",
-	"density": " ",
+	"description": "Vinyl flooring is a synthetic flooring option made from polyvinyl chloride plastic.",
+	"short desc": "Vinyl flooring is a synthetic flooring option made from polyvinyl chloride plastic.",
+	"source":"Samples prepared from commercially available 2.5 mm thick tiles.",
+	"density":"2011 kg/m<sup>3</sup>",
 	"property scales": [
 		"milligram",
 		"bench scale"
@@ -47,6 +47,10 @@
 		"test description": "",
 		"display name": "",
 		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Vinyl_Tile_STA_MLR.html"
+			},
+			{
 				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
 				"graph": "Cone/Vinyl_Tile_Cone_MLR_25.html"
 			},
@@ -59,7 +63,6 @@
 				"graph": "Cone/Vinyl_Tile_Cone_MLR_75.html"
 			}
 		]
-
 	},
 	{
 		"test name": "carbon monoxide yield",
@@ -67,7 +70,6 @@
 		"display name": "",
 		"table": "Cone/Vinyl_Tile_Cone_Analysis_CO_Table.html"
 	},
-	
 	{
 		"test name": "specific heat release rate",
 		"test description": "",
@@ -80,5 +82,11 @@
 		"test description": "",
 		"display name": "",
 		"table": "Cone/Vinyl_Tile_Cone_Analysis_Soot_Table.html"
+	},
+	{
+		"test name": "effective heat of combustion",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
+		"display name": "",
+		"table": "MCC/Vinyl_Tile_MCC_Heats_of_Combustion.html"
 	}]
 }
