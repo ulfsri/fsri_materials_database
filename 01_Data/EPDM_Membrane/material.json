@@ -12,9 +12,9 @@
 	"image file": "EPDM_Membrane.JPG",
 	"image 600x400 file": "EPDM_Membrane600x400.jpg",
 	"video file": "",
-	"description": "",
-	"short desc": " ",
-	"source": " ",
+	"description": "Ethylene propylene diene monomer (EPDM) is a synthetic rubber roofing membrane derived from oil and natural gas. EPDM is an M-Class rubber under ASTM standard D-1418.",
+	"short desc": "EPDM is a synthetic rubber roofing membrane most commonly used in low-slope buildings",
+	"source": "Samples cut from a 6 mm thick roll.",
 	"density": "1200 kg/m<sup>3</sup>",
 	"property scales": [
 		"milligram",
@@ -59,7 +59,6 @@
 				"graph": "Cone/EPDM_Membrane_Cone_MLR_75.html"
 			}
 		]
-
 	},
 	{
 		"test name": "carbon monoxide yield",
@@ -77,7 +76,6 @@
 				"table": "HFM/EPDM_Membrane_HFM_Wet_specific_heat.html"
 			}
 		]
-
 	},
 	{
 		"test name": "thermal conductivity",
@@ -89,7 +87,6 @@
 				"table": "HFM/EPDM_Membrane_HFM_Wet_conductivity.html"
 			}
 		]
-
 	},
 	{
 		"test name": "specific heat release rate",
@@ -97,11 +94,16 @@
 		"display name": "",
 		"graph": "MCC/EPDM_Membrane_MCC_HRR.html"
 	}],	
-	"derived property": [
-	{
+	"derived property": [{
 		"test name": "soot yield",
 		"test description": "",
 		"display name": "",
 		"table": "Cone/EPDM_Membrane_Cone_Analysis_Soot_Table.html"
+	},
+	{
+		"test name": "effective heat of combustion",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
+		"display name": "",
+		"table": "MCC/EPDM_Membrane_MCC_Heats_of_Combustion.html"
 	}]
 }
