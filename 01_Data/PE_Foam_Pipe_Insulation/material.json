@@ -11,10 +11,10 @@
 	],
 	"image file": "PE_Foam_Pipe_Insulation.JPG",
 	"image 600x400 file": "PE_Foam_Pipe_Insulation600x400.jpg",
-	"video file": "",
-	"description": "",
-	"short desc": " ",
-	"source": " ",
+	"video file":"",
+	"description":"Polyethylene foam pipe insulation is a closed-cell, lightweight, thermoplastic insulation.",
+	"short desc": "Polyethylene foam pipe insulation is a closed-cell, lightweight, thermoplastic insulation.",
+	"source":"Cut from 13.5 mm thick, tubular section.",
 	"density": "35 kg/m<sup>3</sup>",
 	"property scales": [
 		"milligram",
@@ -77,11 +77,10 @@
 				"table": "HFM/PE_Foam_Pipe_Insulation_HFM_Wet_specific_heat.html"
 			}
 		]
-
 	},
 	{
 		"test name": "thermal conductivity",
-		"test description": "Experiments for thermal conductivity [k] were conducted using a heat flow meter on unconditioned and dried samples at 15 &#176;C and 65 &#176;C.",
+		"test description": "",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Unconditioned",
@@ -94,7 +93,6 @@
 				"table": "HFM/PE_Foam_Pipe_Insulation_HFM_Dry_conductivity.html"
 			}
 		]
-
 	},
 	{
 		"test name": "specific heat release rate",
@@ -108,5 +106,11 @@
 		"test description": "",
 		"display name": "",
 		"table": "Cone/PE_Foam_Pipe_Insulation_Cone_Analysis_Soot_Table.html"
+	},
+	{
+		"test name": "effective heat of combustion",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
+		"display name": "",
+		"table": "MCC/PE_Foam_Pipe_Insulation_MCC_Heats_of_Combustion.html"
 	}]
 }
