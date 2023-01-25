@@ -1,0 +1,42 @@
+{
+	"material": "Laminate Flooring",
+	"alternate names": [
+		" "
+	],
+	"material_dir": "Laminate_Flooring",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"roofing"
+	],
+	"image file": "Laminate_Flooring.JPG",
+	"image 600x400 file": "Laminate_Flooring600x400.jpg",
+	"video file": "",
+	"description": "",
+	"short desc": " ",
+	"source": " ",
+	"density": " ",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
+	"measured property": [
+	{
+		"test name": "thermal conductivity",
+		"test description": "Experiments for thermal conductivity [k] were conducted using a heat flow meter on unconditioned samples at 15 &#176;C and 65 &#176;C.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Laminate_Flooring_HFM_Wet_conductivity.html",
+				"table": "HFM/Laminate_Flooring_HFM_Wet_conductivity.html"
+			}
+		]
+
+	},
+	{
+		"test name": "specific heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "MCC/Laminate_Flooring_MCC_HRR.html"
+	}]
+}
