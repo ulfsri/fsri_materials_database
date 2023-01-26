@@ -268,6 +268,14 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
             fig = go.Figure()
 
             plot_data = plot_data_df.filter(regex = m)
+
+            min_lim = math.ceil(plot_data.index[-1])
+            max_lim = plot_data.index[-1] - ((plot_data.index[-1])%1)
+
+            try:
+                plot_data = plot_data.loc[np.arange(min_lim, max_lim, 1)] # Downsample data to every 1 degree C
+            except:
+                print(plot_data)
             plot_mean_data(plot_data)
 
             inc = plot_inc[plot_dict[m]]
