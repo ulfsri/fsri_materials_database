@@ -94,15 +94,5 @@
 		"test description": "",
 		"display name": "",
 		"graph": "MCC/Mineral_Wool_Insulation_MCC_HRR.html"
-	}],
-	"derived property": [
-	{
-		"test name": "effective heat of combustion",
-		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
-		"display name": "",
-		"nested tests": [{
-			"display name": "Micro-Scale Combustion Calorimeter",
-			"table": "MCC/Mineral_Wool_MCC_Heats_of_Combustion.html"
-		}]
 	}]
 }
