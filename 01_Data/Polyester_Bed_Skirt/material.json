@@ -106,6 +106,15 @@
 		"table": "Cone/Polyester_Bed_Skirt_Cone_Analysis_Soot_Table.html"
 	},
 	{
+		"test name": "effective heat of combustion",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
+		"display name": "",
+		"nested tests": [{
+			"display name": "Micro-Scale Combustion Calorimeter",
+			"table": "MCC/Polyester_Bed_Skirt_MCC_Heats_of_Combustion.html"
+		}]
+	},
+	{
 		"test name": "melting temperature and enthalpy of melting",
 		"test description": "",
 		"display name": "",
