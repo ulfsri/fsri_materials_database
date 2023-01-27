@@ -18,5 +18,5 @@ TIME TO IGN,108
 END OF TEST SCAN,2204
 END OF TEST TIME,551
 TEST STATUS,1
-PRE TEST CMT,Dimensions: 100.11 x 99.19 x 5.93 mm
+PRE TEST CMT,Dimensions: 100.11 x 99.19 x 5.93 mm; primary interest on time to ignition
 POST TEST CMT,"After ignition the sample warped and expanded significantly. Expanded vertically several centimeters and contacted the cone heater, causing spikes in mass data. Expanded horizontally until charred pieces fell out of the foil pan, mostly caught by lower drip tray where it continued to burn. See test pictures. "
