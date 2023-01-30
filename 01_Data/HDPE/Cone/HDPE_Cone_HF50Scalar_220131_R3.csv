@@ -19,4 +19,4 @@ END OF TEST SCAN,800
 END OF TEST TIME,200
 TEST STATUS,1
 PRE TEST CMT,Dimensions: 100.22 x 99.87 x 3.06 mm
-POST TEST CMT,adjusted foil prior to ignition causing spikes in mass time history data
+POST TEST CMT,Manually adjusted foil pan prior to ignition which caused spikes in mass time history data.

@@ -19,4 +19,4 @@ END OF TEST SCAN,807
 END OF TEST TIME,201.75
 TEST STATUS,1
 PRE TEST CMT,Dimensions: 101.52 x 101.59 x 2.97 mm; 60 mm spacing
-POST TEST CMT,"Some sample dripped from foil pan during test, and continued burning from lower drip tray. Less so than in previous replicates. See test pictures. "
+POST TEST CMT,"Some sample dripped from foil pan during test, and continued burning from lower drip tray. Less so than in previous replicates."
