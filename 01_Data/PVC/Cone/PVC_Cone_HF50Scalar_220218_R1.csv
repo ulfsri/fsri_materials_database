@@ -19,4 +19,4 @@ END OF TEST SCAN,2112
 END OF TEST TIME,528
 TEST STATUS,1
 PRE TEST CMT,Dimensions: 101.46 x 100.28 x 3.10 mm; 60 mm spacing
-POST TEST CMT,"After ignition, sample expanded in height and shrunk in length and width. See post test pictures."
+POST TEST CMT,"Sample shriveled prior to ignition, reducing exposed surface area. Sample expanded in height throughout test, reaching several centemeters above calibrated surface height, thereby increasing incident heat flux."
