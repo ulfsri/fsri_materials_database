@@ -37,7 +37,7 @@ for dirpath, dirs, files in os.walk(img_dir):
         
         print('Original Dimensions : ',img.shape)
 
-        img_resized = cv2.resize(img, (2000,1333), interpolation=cv2.INTER_AREA)
+        img_resized = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
 
         cv2.imwrite(dirpath + '/' + f, img_resized)
 

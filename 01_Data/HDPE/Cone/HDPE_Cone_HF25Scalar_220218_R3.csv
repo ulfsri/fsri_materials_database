@@ -19,4 +19,4 @@ END OF TEST SCAN,1926
 END OF TEST TIME,481.5
 TEST STATUS,1
 PRE TEST CMT,Dimensions: 101.54 x 101.26 x 3.05 mm
-POST TEST CMT,"Sample warped prior to ignition and contacted the spark ignitor, causing spike in mass data. Close proximity to spark ignitor likely shortened time to ignition. After ignition some sample spilled out of foil pan and continued burning from lower drip tray. See test pictures. "
+POST TEST CMT,"Sample warped prior to ignition and contacted the spark ignitor, causing spike in mass data. Close proximity to spark ignitor likely shortened time to ignition. After ignition some sample spilled out of foil pan and continued burning from lower drip tray. See test picture. "

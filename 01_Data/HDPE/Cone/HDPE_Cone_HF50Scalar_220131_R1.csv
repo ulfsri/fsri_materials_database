@@ -19,4 +19,4 @@ END OF TEST SCAN,668
 END OF TEST TIME,167
 TEST STATUS,1
 PRE TEST CMT,Dimensions: 100.01 x 99.89 x 3.00 mm
-POST TEST CMT,"minor dripping. adjusted foil pan by hand during test to minimize dripping, expect blip in mass time history data. "
+POST TEST CMT,"Sample warped and shriveled prior to ignition, then melted into a pool fire after ignition. Minor dripping from foil pan. Manually adjusted foil pan during test to minimize dripping, causing a spike in mass time history data. "
