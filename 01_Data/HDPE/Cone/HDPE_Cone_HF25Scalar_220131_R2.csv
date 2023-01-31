@@ -18,5 +18,5 @@ TIME TO IGN,191.75
 END OF TEST SCAN,1301
 END OF TEST TIME,325.25
 TEST STATUS,1
-PRE TEST CMT,Dimensions: 99.95 x 100.8 x 3.01
+PRE TEST CMT,Dimensions: 99.95 x 100.8 x 3.01 mm
 POST TEST CMT,"Significant dripping of sample, see test picture"
