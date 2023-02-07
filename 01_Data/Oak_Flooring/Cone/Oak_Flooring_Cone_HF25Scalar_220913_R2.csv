@@ -18,5 +18,5 @@ TIME TO IGN,221
 END OF TEST SCAN,7018
 END OF TEST TIME,1754.5
 TEST STATUS,1
-PRE TEST CMT,Dimensions: 102.27 x 101.47 x 18.76 mm; with tie wires; joint between boards on centered on sample
-POST TEST CMT,"Flaming biased towards one half of sample during period between HRR peaks, then biased towards other half during final decay stage. Some seperation at joint between boards by end of test. "
+PRE TEST CMT,Dimensions: 102.27 x 101.47 x 18.76 mm; with tie wires; joint between boards centered on sample
+POST TEST CMT,"Flaming biased towards one half of sample during period between HRR peaks, then biased towards other half during final decay stage. Some seperation at joint between boards by end of test. See test picture."
