@@ -19,4 +19,4 @@ END OF TEST SCAN,587
 END OF TEST TIME,146.75
 TEST STATUS,1
 PRE TEST CMT,Dimensions: 101.80 x 101.85 x 5.10 mm; with tie wires
-POST TEST CMT,"Burst of popping shortly after ignition due to expanding air bubbles in sample, apparent in mass data."
+POST TEST CMT,"Burst of popping shortly after ignition due to expanding air bubbles in sample."

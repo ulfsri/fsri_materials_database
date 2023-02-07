@@ -18,9 +18,7 @@ TIME TO IGN,30.25
 END OF TEST SCAN,4243
 END OF TEST TIME,1060.75
 TEST STATUS,1
-PRE TEST CMT,test w/o frame or grid
-POST TEST CMT,spike in mass loss rate caused by sample popping 
-
+PRE TEST CMT,"Nominal thickness: 3/4 inches"
 
 
 

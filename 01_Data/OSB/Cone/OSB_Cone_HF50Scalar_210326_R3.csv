@@ -18,5 +18,5 @@ TIME TO IGN,22.25
 END OF TEST SCAN,2945
 END OF TEST TIME,736.25
 TEST STATUS,1
-PRE TEST CMT,without frame or grid
-POST TEST CMT,sample lifted to approximately 30 degree angle near end of test as layers delaminated and bottom layers curled
+PRE TEST CMT,"Nominal thickness: 5/8 inches"
+POST TEST CMT,Sample lifted to approximately 30 degree angle near end of test as layers delaminated and bottom layers curled. See test picture.
