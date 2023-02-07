@@ -19,4 +19,4 @@ END OF TEST SCAN,975
 END OF TEST TIME,243.75
 TEST STATUS,1
 PRE TEST CMT,Dimensions: 101.65 x 100.90 x 3.09 mm; 60 mm spacing
-POST TEST CMT, Self extinguished after full surface burning. Unburned sample remained.
+POST TEST CMT,Self extinguished after full surface burning with unburned material remaining.

@@ -1,0 +1,72 @@
+{
+	"material": "Cellulose Insulation",
+	"alternate names": [
+		"Blow-in insulation",
+		"Blow-in cellulose insulation"
+	],
+	"material_dir": "Cellulose_Insulation",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"insulation"
+	],
+	"image file": "Cellulose_Insulation.JPG",
+	"image 600x400 file": "Cellulose_Insulation600x400.jpg",
+	"video file": "",
+	"description": "Cellulose insulation is composed of treated (fire retardants and mold growth inhibitors) recycled newspapers, cardboard, office paper, and other common waste paper products.",
+	"short desc": "Cellulose insulation is compared of small pieces of treated, recycled paper products.",
+	"source": "Samples prepared from 11 kg commercially available.",
+	"density": "68 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
+	"measured property": [{
+		"test name": "mass loss rate",
+		"test description": "Mass loss rate [kg/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Cellulose_Insulation_STA_MLR.html"
+			}
+		]
+	},
+	{
+		"test name": "specific heat",
+		"test description": "Experiments for specific heat [cp], or heat capacity, were conducted using a heat flow meter on unconditioned samples at 10 &#176;C, 20 &#176;C, 30 &#176;C and 40 &#176;C.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Cellulose_Insulation_HFM_Wet_specific_heat.html",
+				"table": "HFM/Cellulose_Insulation_HFM_Wet_specific_heat.html"
+			}
+		]
+	},
+	{
+		"test name": "thermal conductivity",
+		"test description": "Experiments for thermal conductivity [k] were conducted using a heat flow meter on unconditioned samples at 15 &#176;C and 45 &#176;C.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Cellulose_Insulation_HFM_Wet_conductivity.html",
+				"table": "HFM/Cellulose_Insulation_HFM_Wet_conductivity.html"
+			}
+		]
+	},
+	{
+		"test name": "specific heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "MCC/Cellulose_Insulation_MCC_HRR.html"
+	}],
+	"derived property": [
+	{
+		"test name": "effective heat of combustion",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
+		"display name": "",
+		"nested tests": [{
+			"display name": "Micro-Scale Combustion Calorimeter",
+			"table": "MCC/Cellulose_Insulation_MCC_Heats_of_Combustion.html"
+		}]
+	}]
+}
