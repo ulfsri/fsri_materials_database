@@ -1,8 +1,11 @@
 {
 	"material": "Rebond Foam Carpet Pad",
 	"alternate names": [
-		"Rebond Carpet Padding",
-		"Rebond Padding"
+		"carpet pad",
+		"carpet foam",
+		"rebond foam",
+		"bonded urethane",
+		"carpet padding"
 	],
 	"material_dir": "Rebond_Foam_Carpet_Pad",
 	"parent material": "",
@@ -13,9 +16,9 @@
 	"image file": "Rebond_Foam_Carpet_Pad.JPG",
 	"image 600x400 file": "Rebond_Foam_Carpet_Pad600x400.jpg",
 	"video file": "",
-	"description": " ",
-	"short desc": " ",
-	"source": " ",
+	"description": "Rebond foam carpet padding is cushioning for carpet that is made from reclaimed scrap high-density urethane foam.",
+	"short desc": "Carpet cushioning made from reclaimed high-density urethane foam.",
+	"source": "Samples cut from a 9 mm-thick roll",
 	"density": "85 kg/m<sup>3</sup>",
 	"property scales": [
 		"milligram",
