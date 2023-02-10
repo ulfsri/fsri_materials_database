@@ -1,0 +1,73 @@
+{
+	"material": "Plastic Laminate Countertop",
+	"alternate names": [
+		"kitchen countertop",
+		"laminate",
+		"prep surface"
+	],
+	"material_dir": "Plastic_Laminate_Counterop",
+	"parent material": "",
+	"component material": 	["Plastic Laminate Countertop Laminate",
+				 "Plastic Laminate Countertop Paticle Board"
+				],
+	"material category": [
+		"interior finish"
+	],
+	"image file": "Plastic_Laminate_Countertop.JPG",
+	"image 600x400 file": "Plastic_Laminate_Countertop600x400.jpg",
+	"video file": "",
+	"description": "A countertop often used in kitchens and bathrooms made with plastic laminate glued to particle board.",
+	"short desc": "A countertop made with plastic laminate glued to particle board.",
+	"source": "Samples cut from an 8 ft long section",
+	"density": "673 kg/m<sup>3</sup>",
+	"property scales": [
+		"bench scale"
+	],
+	"measured property": [
+	{
+		"test name": "heat release rate per unit area",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Plastic_Laminate_Countertop_Cone_HRRPUA_25.html",
+				"table": "Cone/Plastic_Laminate_Countertop_Cone_Analysis_HRRPUA_Table_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Plastic_Laminate_Countertop_Cone_HRRPUA_50.html",
+				"table": "Cone/Plastic_Laminate_Countertop_Cone_Analysis_HRRPUA_Table_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Plastic_Laminate_Countertop_Cone_HRRPUA_75.html",
+				"table": "Cone/Plastic_Laminate_Countertop_Cone_Analysis_HRRPUA_Table_75.html"
+			}
+		]
+	},
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Plastic_Laminate_Countertop_Cone_MLR_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Plastic_Laminate_Countertop_Cone_MLR_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Plastic_Laminate_Countertop_Cone_MLR_75.html"
+			}
+		]
+	},
+	{
+		"test name": "carbon monoxide yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/Plastic_Laminate_Countertop_Cone_Analysis_CO_Table.html"
+	}],
+	"derived property": []
+}
