@@ -18,4 +18,5 @@ TIME TO IGN,16.5
 END OF TEST SCAN,263
 END OF TEST TIME,65.75
 TEST STATUS,1
-PRE TEST CMT,test w/o frame or grid
+PRE TEST CMT,"Approximate thickness: 1.75 inches"
+POST TEST CMT,"Two opposing corners of the foil pan lifted upwards in the last few seconds prior to flame extinguishment."

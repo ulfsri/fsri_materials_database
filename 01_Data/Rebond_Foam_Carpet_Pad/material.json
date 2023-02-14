@@ -1,0 +1,127 @@
+{
+	"material": "Rebond Foam Carpet Pad",
+	"alternate names": [
+		"carpet pad",
+		"carpet foam",
+		"rebond foam",
+		"bonded urethane",
+		"carpet padding"
+	],
+	"material_dir": "Rebond_Foam_Carpet_Pad",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"interior finish"
+	],
+	"image file": "Rebond_Foam_Carpet_Pad.JPG",
+	"image 600x400 file": "Rebond_Foam_Carpet_Pad600x400.jpg",
+	"video file": "",
+	"description": "Rebond foam carpet padding is cushioning for carpet that is made from reclaimed scrap high-density urethane foam.",
+	"short desc": "Carpet cushioning made from reclaimed high-density urethane foam.",
+	"source": "Samples cut from a 9 mm-thick roll",
+	"density": "85 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
+	"measured property": [
+	{
+		"test name": "heat release rate per unit area",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Rebond_Foam_Carpet_Pad_Cone_HRRPUA_25.html",
+				"table": "Cone/Rebond_Foam_Carpet_Pad_Cone_Analysis_HRRPUA_Table_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Rebond_Foam_Carpet_Pad_Cone_HRRPUA_50.html",
+				"table": "Cone/Rebond_Foam_Carpet_Pad_Cone_Analysis_HRRPUA_Table_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Rebond_Foam_Carpet_Pad_Cone_HRRPUA_75.html",
+				"table": "Cone/Rebond_Foam_Carpet_Pad_Cone_Analysis_HRRPUA_Table_75.html"
+			}
+		]
+	},
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Rebond_Foam_Carpet_Pad_Cone_MLR_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Rebond_Foam_Carpet_Pad_Cone_MLR_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Rebond_Foam_Carpet_Pad_Cone_MLR_75.html"
+			}
+		]
+	},
+	{
+		"test name": "carbon monoxide yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/Rebond_Foam_Carpet_Pad_Cone_Analysis_CO_Table.html"
+	},
+	{
+		"test name": "specific heat",
+		"test description": "Experiments for specific heat [cp], or heat capacity, were conducted using a heat flow meter on unconditioned and dried samples at 10 &#176;C, 20 &#176;C, 30 &#176;C and 40 &#176;C.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Rebond_Foam_Carpet_Pad_HFM_Wet_specific_heat.html",
+				"table": "HFM/Rebond_Foam_Carpet_Pad_HFM_Wet_specific_heat.html"
+			},
+			{
+				"display name": "Dried",
+				"graph": "HFM/Rebond_Foam_Carpet_Pad_HFM_Dry_specific_heat.html",
+				"table": "HFM/Rebond_Foam_Carpet_Pad_HFM_Dry_specific_heat.html"
+			}
+		]
+	},
+	{
+		"test name": "thermal conductivity",
+		"test description": "Experiments for thermal conductivity [k] were conducted using a heat flow meter on unconditioned and dried samples at 15 &#176;C and 65 &#176;C.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Rebond_Foam_Carpet_Pad_HFM_Wet_conductivity.html",
+				"table": "HFM/Rebond_Foam_Carpet_Pad_HFM_Wet_conductivity.html"
+			},
+			{
+				"display name": "Dried",
+				"graph": "HFM/Rebond_Foam_Carpet_Pad_HFM_Dry_conductivity.html",
+				"table": "HFM/Rebond_Foam_Carpet_Pad_HFM_Dry_conductivity.html"
+			}
+		]
+	},
+	{
+		"test name": "specific heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "MCC/Rebond_Foam_Carpet_Pad_MCC_HRR.html"
+	}],	
+	"derived property": [
+	{
+		"test name": "soot yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/Rebond_Foam_Carpet_Pad_Cone_Analysis_Soot_Table.html"
+	},
+	{
+		"test name": "effective heat of combustion",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
+		"display name": "",
+		"nested tests": [{
+			"display name": "Micro-Scale Combustion Calorimeter",
+			"table": "MCC/Rebond_Foam_Carpet_Pad_MCC_Heats_of_Combustion.html"
+		}]
+	}]
+}

@@ -29,7 +29,7 @@
 	],
 	"measured property": [{
 		"test name": "heat release rate per unit area",
-		"test description": "",
+		"test description": "Experiments for heat release per unit area [kW/m<sup>2</sup>] were conducted on samples conditioned at 25&#176;C and 50% relative humidity using a cone calorimeter at three different heat fluxes: 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.<br><br>This material warps into an arched shape during the fire's decay phase. This was observed in the test, HF50_R1, and prevented in all other tests by the use of tie wires.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
@@ -50,7 +50,7 @@
 	},
 	{
 		"test name": "mass loss rate",
-		"test description": "",
+		"test description": "Mass loss rate [kg/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min and cone calorimeter experiments at three heat fluxes: 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.<br><br>In cone calorimeter tests, this material warps into an arched shape during the fire's decay phase. This was observed in the test, HF50_R1, and prevented in all other tests by the use of tie wires.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Simultaneous Thermal Analyzer",
@@ -72,7 +72,7 @@
 	},
 	{
 		"test name": "carbon monoxide yield",
-		"test description": "",
+		"test description": "Carbon monoxide yield was measured during cone calorimeter experiments conducted at heat fluxes of 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.<br><br>This material warps into an arched shape during the fire's decay phase. This was observed in the test, HF50_R1, and prevented in all other tests by the use of tie wires.",
 		"display name": "",
 		"table": "Cone/Luan_Panel_Cone_Analysis_CO_Table.html"
 	},
@@ -105,7 +105,7 @@
 	"derived property": [
 	{
 		"test name": "soot yield",
-		"test description": "",
+		"test description": "Soot yield [g/g] was calculated from smoke obscuration data collected in cone calorimeter experiments conducted at heat fluxes of 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.<br><br>This material warps into an arched shape during the fire's decay phase. This was observed in the test, HF50_R1, and prevented in all other tests by the use of tie wires.",
 		"display name": "",
 		"table": "Cone/Luan_Panel_Cone_Analysis_Soot_Table.html"
 	},

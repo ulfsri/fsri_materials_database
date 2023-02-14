@@ -1,0 +1,41 @@
+{
+	"material": "Plastic Laminate Countertop Laminate",
+	"alternate names": [
+		"kitchen countertop",
+		"laminate",
+		"prep surface"
+	],
+	"material_dir": "Plastic_Laminate_Countertop_Laminate",
+	"parent material": "Plastic Laminate Countertop",
+	"component material": 	[],
+	"material category": [
+		"interior finish"
+	],
+	"image file": "Plastic_Laminate_Countertop.JPG",
+	"image 600x400 file": "Plastic_Laminate_Countertop600x400.jpg",
+	"video file": "",
+	"description": "Plastic laminate that is glued to particle board for Plastic Laminate Countertop.",
+	"short desc": "Plastic laminate component of Plastic Laminate Countertop.",
+	"source": "Samples cut from an 8 ft long section and removed from particle board",
+	"density": "673 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram"
+	],
+	"measured property": [
+	{
+		"test name": "specific heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "MCC/Plastic_Laminate_Countertop_Laminate_MCC_HRR.html"
+	}],
+	"derived property": [
+	{
+		"test name": "effective heat of combustion",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
+		"display name": "",
+		"nested tests": [{
+			"display name": "Micro-Scale Combustion Calorimeter",
+			"table": "MCC/Plastic_Laminate_Countertop_Laminate_MCC_Heats_of_Combustion.html"
+		}]
+	}]
+}

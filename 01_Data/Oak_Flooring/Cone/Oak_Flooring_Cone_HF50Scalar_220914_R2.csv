@@ -19,3 +19,4 @@ END OF TEST SCAN,4497
 END OF TEST TIME,1124.25
 TEST STATUS,1
 PRE TEST CMT,Dimensions: 101.28 x 101.90 x 18.73 mm; with tie wires; joint between boards centered on sample
+POST TEST CMT,"Post test condition of sample is dissimilar between boards -- one board has a surface layer of ash and other is homogeneous char. See post test picture."

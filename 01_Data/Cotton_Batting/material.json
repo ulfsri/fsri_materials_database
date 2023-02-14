@@ -1,0 +1,56 @@
+{
+	"material": "Cotton Batting",
+	"alternate names": [
+		" "
+	],
+	"material_dir": "Cotton_Batting",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"roofing"
+	],
+	"image file": "Cotton_Batting.JPG",
+	"image 600x400 file": "Cotton_Batting600x400.jpg",
+	"video file": "",
+	"description": " ",
+	"short desc": " ",
+	"source": " ",
+	"density": "  ",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
+	"measured property": [
+	{
+		"test name": "thermal conductivity",
+		"test description": "Experiments for thermal conductivity [k] were conducted using a heat flow meter on unconditioned and dried samples at 15 &#176;C and 65 &#176;C.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Cotton_Batting_HFM_Wet_conductivity.html",
+				"table": "HFM/Cotton_Batting_HFM_Wet_conductivity.html"
+			},
+			{
+				"display name": "Dried",
+				"graph": "HFM/Cotton_Batting_HFM_Dry_conductivity.html",
+				"table": "HFM/Cotton_Batting_HFM_Dry_conductivity.html"
+			}
+		]
+	},
+	{
+		"test name": "specific heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "MCC/Cotton_Batting_MCC_HRR.html"
+	}],	
+	"derived property": [
+	{
+		"test name": "effective heat of combustion",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
+		"display name": "",
+		"nested tests": [{
+			"display name": "Micro-Scale Combustion Calorimeter",
+			"table": "MCC/Cotton_Batting_MCC_Heats_of_Combustion.html"
+		}]
+	}]
+}

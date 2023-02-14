@@ -18,5 +18,5 @@ TIME TO IGN,62.25
 END OF TEST SCAN,921
 END OF TEST TIME,230.25
 TEST STATUS,1
-PRE TEST CMT,Test w/o retainer grid or frame
-POST TEST CMT,Fabric was consistent with other tests.
+PRE TEST CMT,"Sample is an assembly of approximately 1 inch polyurethane foam, topped by 1.75 inch polyester batting, topped by polyester fabric."
+POST TEST CMT,"The fabric shrivelled upon heating and impacted the spark ignitor causing a spike in the mass time history data. The sample then retracted away from the spark ignitor prior to ignition due to further pyrolysis and melting of the materials."

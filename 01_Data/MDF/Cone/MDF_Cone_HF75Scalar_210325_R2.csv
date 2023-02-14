@@ -18,5 +18,5 @@ TIME TO IGN,13.75
 END OF TEST SCAN,4479
 END OF TEST TIME,1119.75
 TEST STATUS,1
-PRE TEST CMT,Test w/o retainer grid or frame
-POST TEST CMT,Sample had to be adjusted several times due to popping and settling causing pieces to fall
+PRE TEST CMT,"Nominal thickness: 3/4 inches"
+POST TEST CMT,Sample foil pan was manually adjusted several times in response to popping and fragmenting of the sample that caused some small pieces of material to fall.

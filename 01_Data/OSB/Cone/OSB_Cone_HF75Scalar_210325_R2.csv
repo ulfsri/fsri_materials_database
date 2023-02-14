@@ -18,4 +18,4 @@ TIME TO IGN,7.5
 END OF TEST SCAN,3121
 END OF TEST TIME,780.25
 TEST STATUS,1
-PRE TEST CMT,Test w/o frame or grid
+PRE TEST CMT,"Nominal thickness: 5/8 inches"
