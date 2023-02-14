@@ -72,29 +72,10 @@
 		"table": "Cone/Polyisocyanurate_Foam_Board_Cone_Analysis_CO_Table.html"
 	},
 	{
-		"test name": "specific heat",
-		"test description": "Experiments for specific heat [cp], or heat capacity, were conducted using a heat flow meter on unconditioned samples at 10 &#176;C, 20 &#176;C, 30 &#176;C and 40 &#176;C.",
-		"display name": "",
-		"nested tests": [{
-				"display name": "Unconditioned",
-				"graph": "HFM/Polyisocyanurate_Foam_Board_HFM_Wet_specific_heat.html",
-				"table": "HFM/Polyisocyanurate_Foam_Board_HFM_Wet_specific_heat.html"
-			}]
-	},
-	{
-		"test name": "thermal conductivity",
-		"test description": "Experiments for thermal conductivity [k] were conducted using a heat flow meter on unconditioned samples at 15 &#176;C and 65 &#176;C.",
-		"display name": "",
-		"nested tests": [{
-				"display name": "Unconditioned",
-				"graph": "HFM/Polyisocyanurate_Foam_Board_HFM_Wet_conductivity.html",
-				"table": "HFM/Polyisocyanurate_Foam_Board_HFM_Wet_conductivity.html"
-			}]
-	},
-	{
 		"test name": "specific heat release rate",
 		"test description": "",
 		"display name": "",
 		"graph": "MCC/Polyisocyanurate_Foam_Board_MCC_HRR.html"
-	}]
+	}],
+	"derived property": []
 }
