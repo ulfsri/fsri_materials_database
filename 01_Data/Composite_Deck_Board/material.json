@@ -1,0 +1,101 @@
+{
+	"material": "Composite Deck Board",
+	"alternate names": [
+		"trex",
+		"decking"
+	],
+	"material_dir": "Composite_Deck_Board",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"engineered wood",
+		"exterior finish"
+	],
+	"image file": "Composite_Deck_Board.JPG",
+	"image 600x400 file": "Composite_Deck_Board600x400.jpg",
+	"video file": "",
+	"description": "Composite Deck Boards are extruded boards composed of wood waste and a polymer matrix.",
+	"short desc": "Composite Deck Boards are extruded boards composed of wood waste and a polymer matrix.",
+	"source": "Samples cut from 1.3 cm thick boards.",
+	"density": "1076 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
+	"measured property": [
+	{
+		"test name": "heat release rate per unit area",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Composite_Deck_Board_Cone_HRRPUA_25.html",
+				"table": "Cone/Composite_Deck_Board_Cone_Analysis_HRRPUA_Table_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Composite_Deck_Board_Cone_HRRPUA_50.html",
+				"table": "Cone/Composite_Deck_Board_Cone_Analysis_HRRPUA_Table_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Composite_Deck_Board_Cone_HRRPUA_75.html",
+				"table": "Cone/Composite_Deck_Board_Cone_Analysis_HRRPUA_Table_75.html"
+			}
+		]
+	},
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Composite_Deck_Board_STA_MLR.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Composite_Deck_Board_Cone_MLR_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Composite_Deck_Board_Cone_MLR_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Composite_Deck_Board_Cone_MLR_75.html"
+			}
+		]
+	},
+	{
+		"test name": "carbon monoxide yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/Composite_Deck_Board_Cone_Analysis_CO_Table.html"
+	},
+	{
+		"test name": "specific heat",
+		"test description": "Experiments for specific heat [cp], or heat capacity, were conducted using a heat flow meter on unconditioned samples at 10 &#176;C, 20 &#176;C, 30 &#176;C and 40 &#176;C.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Composite_Deck_Board_HFM_Wet_specific_heat.html",
+				"table": "HFM/Composite_Deck_Board_HFM_Wet_specific_heat.html"
+			}]
+	},
+	{
+		"test name": "thermal conductivity",
+		"test description": "Experiments for thermal conductivity [k] were conducted using a heat flow meter on unconditioned samples at 15 &#176;C and 65 &#176;C.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Composite_Deck_Board_HFM_Wet_conductivity.html",
+				"table": "HFM/Composite_Deck_Board_HFM_Wet_conductivity.html"
+			}]
+	},
+	{
+		"test name": "specific heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "MCC/Composite_Deck_Board_MCC_HRR.html"
+	}]
+}
