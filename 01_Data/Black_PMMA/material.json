@@ -23,56 +23,6 @@
 	],
 	"measured property": [
 	{
-		"test name": "heat release rate per unit area",
-		"test description": "",
-		"display name": "",
-		"nested tests": [{
-				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
-				"graph": "Cone/Black_PMMA_Cone_HRRPUA_25.html",
-				"table": "Cone/Black_PMMA_Cone_Analysis_HRRPUA_Table_25.html"
-			},
-			{
-				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
-				"graph": "Cone/Black_PMMA_Cone_HRRPUA_50.html",
-				"table": "Cone/Black_PMMA_Cone_Analysis_HRRPUA_Table_50.html"
-			},
-			{
-				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
-				"graph": "Cone/Black_PMMA_Cone_HRRPUA_75.html",
-				"table": "Cone/Black_PMMA_Cone_Analysis_HRRPUA_Table_75.html"
-			}
-		]
-	},
-	{
-		"test name": "mass loss rate",
-		"test description": "",
-		"display name": "",
-		"nested tests": [{
-				"display name": "Simultaneous Thermal Analyzer",
-				"graph": "STA/N2/Black_PMMA_STA_MLR.html"
-			},
-			{
-				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
-				"graph": "Cone/Black_PMMA_Cone_MLR_25.html"
-			},
-			{
-				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
-				"graph": "Cone/Black_PMMA_Cone_MLR_50.html"
-			},
-			{
-				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
-				"graph": "Cone/Black_PMMA_Cone_MLR_75.html"
-			}
-		]
-
-	},
-	{
-		"test name": "carbon monoxide yield",
-		"test description": "",
-		"display name": "",
-		"table": "Cone/Black_PMMA_Cone_Analysis_CO_Table.html"
-	},
-	{
 		"test name": "specific heat",
 		"test description": "",
 		"display name": "",
@@ -105,11 +55,60 @@
 		]
 	},
 	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Black_PMMA_STA_MLR.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Black_PMMA_Cone_MLR_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Black_PMMA_Cone_MLR_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Black_PMMA_Cone_MLR_75.html"
+			}
+		]
+	},
+	{
+		"test name": "heat release rate per unit area",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Black_PMMA_Cone_HRRPUA_25.html",
+				"table": "Cone/Black_PMMA_Cone_Analysis_HRRPUA_Table_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Black_PMMA_Cone_HRRPUA_50.html",
+				"table": "Cone/Black_PMMA_Cone_Analysis_HRRPUA_Table_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Black_PMMA_Cone_HRRPUA_75.html",
+				"table": "Cone/Black_PMMA_Cone_Analysis_HRRPUA_Table_75.html"
+			}
+		]
+	},
+	{
+		"test name": "carbon monoxide yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/Black_PMMA_Cone_Analysis_CO_Table.html"
+	},
+	{
 		"test name": "specific heat release rate",
 		"test description": "",
 		"display name": "",
 		"graph": "MCC/Black_PMMA_MCC_HRR.html"
-	}],	
+	}],
 	"derived property": [
 	{
 		"test name": "soot yield",
@@ -119,11 +118,11 @@
 	},
 	{
 		"test name": "effective heat of combustion",
-		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
+		"test description": "",
 		"display name": "",
 		"nested tests": [{
-			"display name": "Micro-Scale Combustion Calorimeter",
-			"table": "MCC/Black_PMMA_MCC_Heats_of_Combustion.html"
-		}]
+				"display name": "Micro-scale Combustion Calorimeter",
+				"table": "MCC/Black_PMMA_MCC_Heats_of_Combustion.html"
+			}		]
 	}]
 }

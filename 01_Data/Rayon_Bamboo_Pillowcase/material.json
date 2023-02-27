@@ -22,16 +22,6 @@
 	],
 	"measured property": [
 	{
-		"test name": "mass loss rate",
-		"test description": "",
-		"display name": "",
-		"nested tests": [{
-				"display name": "Simultaneous Thermal Analyzer",
-				"graph": "STA/N2/Rayon_Bamboo_Pillowcase_STA_MLR.html"
-			}
-		]
-	},
-	{
 		"test name": "specific heat",
 		"test description": "",
 		"display name": "",
@@ -64,6 +54,15 @@
 		]
 	},
 	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Rayon_Bamboo_Pillowcase_STA_MLR.html"
+			}		]
+	},
+	{
 		"test name": "specific heat release rate",
 		"test description": "",
 		"display name": "",
@@ -72,11 +71,11 @@
 	"derived property": [
 	{
 		"test name": "effective heat of combustion",
-		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
+		"test description": "",
 		"display name": "",
 		"nested tests": [{
-			"display name": "Micro-Scale Combustion Calorimeter",
-			"table": "MCC/Rayon_Bamboo_Pillowcase_MCC_Heats_of_Combustion.html"
-		}]
+				"display name": "Micro-scale Combustion Calorimeter",
+				"table": "MCC/Rayon_Bamboo_Pillowcase_MCC_Heats_of_Combustion.html"
+			}		]
 	}]
 }

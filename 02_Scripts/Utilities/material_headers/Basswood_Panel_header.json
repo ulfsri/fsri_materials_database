@@ -1,0 +1,22 @@
+{
+	"material": "Basswood Panel",
+	"alternate names": [
+		"basswood"
+	],
+	"material_dir": "Basswood_Panel",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"exterior finish"
+	],
+	"image file": "Basswood_Panel.JPG",
+	"image 600x400 file": "Basswood_Panel600x400.jpg",
+	"video file": "",
+	"description": "Basswood is a soft, light wood often used in craft and hobby projects.",
+	"short desc": "Basswood is a soft, light wood often used in craft and hobby projects.",
+	"source": "Samples cut from 19 mm thick, 0.1 m x 0.61 m board.",
+	"density": "391 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

@@ -1,0 +1,26 @@
+{
+	"material": "Fiberglass Reinforced Panel",
+	"alternate names": [
+		"FRP",
+		"fiber-reinforced plastic",
+		"fiber-reinforced polymer composite",
+		"fiberglass",
+		"fiberglass structural composite"
+	],
+	"material_dir": "FRP_Panel",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"interior finish"
+	],
+	"image file": "FRP_Panel.JPG",
+	"image 600x400 file": "FRP_Panel600x400.jpg",
+	"video file": "",
+	"description": "Fiberglass Reinforced Panel is a polyester matrix reinforced with fiberglass strands.",
+	"short desc": "Fiberglass Reinforced Panel is a polyester matrix reinforced with fiberglass strands.",
+	"source": "Samples cut from 2.3 mm thick, 122 cm x 244 cm sheet.",
+	"density": "1614 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

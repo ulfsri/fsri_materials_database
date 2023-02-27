@@ -1,0 +1,22 @@
+{
+	"material": "Laminate Flooring",
+	"alternate names": [
+		""
+	],
+	"material_dir": "Laminate_Flooring",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"interior finish"
+	],
+	"image file": "Laminate_Flooring.JPG",
+	"image 600x400 file": "Laminate_Flooring600x400.jpg",
+	"video file": "",
+	"description": "Laminate flooring is comprised of layers of synthetic material engineered to look like wood or stone.",
+	"short desc": "Laminate flooring is comprised of layers of synthetic material engineered to look like wood or stone.",
+	"source": "Samples cut 3.5 mm thick board finished to look like gray wood.",
+	"density": "2006 kg/m<sup>3</sup> ",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

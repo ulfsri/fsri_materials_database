@@ -23,33 +23,24 @@
 	],
 	"measured property": [
 	{
-		"test name": "mass loss rate",
-		"test description": "",
-		"display name": "",
-		"nested tests": [{
-				"display name": "Simultaneous Thermal Analyzer",
-				"graph": "STA/N2/Particleboard_STA_MLR.html"
-			}
-		]
-	},
-	{
 		"test name": "specific heat",
-		"test description": "Experiments for specific heat [cp], or heat capacity, were conducted using a heat flow meter on unconditioned samples at 10 &#176;C, 20 &#176;C, 30 &#176;C and 40 &#176;C.",
+		"test description": "",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Unconditioned",
 				"graph": "HFM/Particleboard_HFM_Wet_specific_heat.html",
 				"table": "HFM/Particleboard_HFM_Wet_specific_heat.html"
-			},			
+			},
 			{
 				"display name": "Dried",
 				"graph": "HFM/Particleboard_HFM_Dry_specific_heat.html",
 				"table": "HFM/Particleboard_HFM_Dry_specific_heat.html"
-			}]
+			}
+		]
 	},
 	{
 		"test name": "thermal conductivity",
-		"test description": "Experiments for thermal conductivity [k] were conducted using a heat flow meter on unconditioned samples at 15 &#176;C and 65 &#176;C.",
+		"test description": "",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Unconditioned",
@@ -60,7 +51,17 @@
 				"display name": "Dried",
 				"graph": "HFM/Particleboard_HFM_Dry_conductivity.html",
 				"table": "HFM/Particleboard_HFM_Dry_conductivity.html"
-			}]
+			}
+		]
+	},
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Particleboard_STA_MLR.html"
+			}		]
 	},
 	{
 		"test name": "specific heat release rate",
@@ -71,11 +72,11 @@
 	"derived property": [
 	{
 		"test name": "effective heat of combustion",
-		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
+		"test description": "",
 		"display name": "",
 		"nested tests": [{
-			"display name": "Micro-Scale Combustion Calorimeter",
-			"table": "MCC/Particleboard_MCC_Heats_of_Combustion.html"
-		}]
+				"display name": "Micro-scale Combustion Calorimeter",
+				"table": "MCC/Particleboard_MCC_Heats_of_Combustion.html"
+			}		]
 	}]
 }

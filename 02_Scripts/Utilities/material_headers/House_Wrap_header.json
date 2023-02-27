@@ -1,0 +1,26 @@
+{
+	"material": "House Wrap",
+	"alternate names": [
+		"tyvek",
+		"weatherization membrane",
+		"waterproof membrane",
+		"moisture barrier"
+	],
+	"material_dir": "House_Wrap",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"exterior finish",
+		"insulation"
+	],
+	"image file": "House_Wrap.JPG",
+	"image 600x400 file": "House_Wrap600x400.jpg",
+	"video file": "",
+	"description": "House wrap is polyethylene membrane installed in exterior wall assemblies to limit moisture and air movement through walls.",
+	"short desc": "Polyethylene membrane installed in exterior wall assemblies to limit moisture and air movement.",
+	"source": "Samples cut from 3 ft x 100 ft roll.",
+	"density": "545 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

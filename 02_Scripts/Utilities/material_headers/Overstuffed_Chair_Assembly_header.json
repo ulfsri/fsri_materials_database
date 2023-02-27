@@ -1,0 +1,28 @@
+{
+	"material": "Overstuffed Chair Assembly",
+	"alternate names": [
+		"upholstered chair",
+		"darcy chair",
+		"flared frame chair",
+		"accent chair"
+	],
+	"material_dir": "Overstuffed_Chair_Assembly",
+	"parent material": "",
+	"component material": [
+		"Overstuffed Chair Polyurethane Foam",
+		"Overstuffed Chair Polyester Batting",
+		"Overstuffed Chair Polyester Fabric"
+	],
+	"material category": [
+		"upholstered furniture"
+	],
+	"image file": "Overstuffed_Chair_Assembly.JPG",
+	"image 600x400 file": "Overstuffed_Chair_Assembly600x400.jpg",
+	"video file": "",
+	"description": "The overstuffed chair assembly is part an accent chair with cushions comprised of polyurethane foam wrapped in polyester batting and covered with polyester fabric.",
+	"short desc": "The overstuffed chair assembly is part of a polyester upholstered accent chair.",
+	"source": "Samples cut from representative cushions and tested in assemblies stacked with 2.5 cm thick polyurethane foam, 4.4 cm thick polyester batting, and 0.47 mm thick polyester fabric.",
+	"density": "23.7 kg/m<sup>3</sup>",
+	"property scales": [
+		"bench scale"
+	],

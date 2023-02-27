@@ -29,25 +29,14 @@
 	],
 	"measured property": [
 	{
-		"test name": "heat release rate per unit area",
+		"test name": "thermal conductivity",
 		"test description": "",
 		"display name": "",
 		"nested tests": [{
-				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
-				"graph": "Cone/Overstuffed_Chair_Polyurethane_Foam_Cone_HRRPUA_25.html",
-				"table": "Cone/Overstuffed_Chair_Polyurethane_Foam_Cone_Analysis_HRRPUA_Table_25.html"
-			},
-			{
-				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
-				"graph": "Cone/Overstuffed_Chair_Polyurethane_Foam_Cone_HRRPUA_50.html",
-				"table": "Cone/Overstuffed_Chair_Polyurethane_Foam_Cone_Analysis_HRRPUA_Table_50.html"
-			},
-			{
-				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
-				"graph": "Cone/Overstuffed_Chair_Polyurethane_Foam_Cone_HRRPUA_75.html",
-				"table": "Cone/Overstuffed_Chair_Polyurethane_Foam_Cone_Analysis_HRRPUA_Table_75.html"
-			}
-		]
+				"display name": "Unconditioned",
+				"graph": "HFM/Overstuffed_Chair_Polyurethane_Foam_HFM_Wet_conductivity.html",
+				"table": "HFM/Overstuffed_Chair_Polyurethane_Foam_HFM_Wet_conductivity.html"
+			}		]
 	},
 	{
 		"test name": "mass loss rate",
@@ -72,21 +61,31 @@
 		]
 	},
 	{
+		"test name": "heat release rate per unit area",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Overstuffed_Chair_Polyurethane_Foam_Cone_HRRPUA_25.html",
+				"table": "Cone/Overstuffed_Chair_Polyurethane_Foam_Cone_Analysis_HRRPUA_Table_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Overstuffed_Chair_Polyurethane_Foam_Cone_HRRPUA_50.html",
+				"table": "Cone/Overstuffed_Chair_Polyurethane_Foam_Cone_Analysis_HRRPUA_Table_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Overstuffed_Chair_Polyurethane_Foam_Cone_HRRPUA_75.html",
+				"table": "Cone/Overstuffed_Chair_Polyurethane_Foam_Cone_Analysis_HRRPUA_Table_75.html"
+			}
+		]
+	},
+	{
 		"test name": "carbon monoxide yield",
 		"test description": "",
 		"display name": "",
 		"table": "Cone/Overstuffed_Chair_Polyurethane_Foam_Cone_Analysis_CO_Table.html"
-	},
-	{
-		"test name": "thermal conductivity",
-		"test description": "",
-		"display name": "",
-		"nested tests": [{
-				"display name": "Unconditioned",
-				"graph": "HFM/Overstuffed_Chair_Polyurethane_Foam_HFM_Wet_conductivity.html",
-				"table": "HFM/Overstuffed_Chair_Polyurethane_Foam_HFM_Wet_conductivity.html"
-			}
-		]
 	},
 	{
 		"test name": "specific heat release rate",
@@ -103,11 +102,11 @@
 	},
 	{
 		"test name": "effective heat of combustion",
-		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
+		"test description": "",
 		"display name": "",
 		"nested tests": [{
-			"display name": "Micro-Scale Combustion Calorimeter",
-			"table": "MCC/Overstuffed_Chair_Polyurethane_Foam_MCC_Heats_of_Combustion.html"
-		}]
+				"display name": "Micro-scale Combustion Calorimeter",
+				"table": "MCC/Overstuffed_Chair_Polyurethane_Foam_MCC_Heats_of_Combustion.html"
+			}		]
 	}]
 }

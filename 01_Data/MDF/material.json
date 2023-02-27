@@ -24,23 +24,32 @@
 	],
 	"measured property": [
 	{
-		"test name": "heat release rate per unit area",
+		"test name": "specific heat",
 		"test description": "",
 		"display name": "",
 		"nested tests": [{
-				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
-				"graph": "Cone/MDF_Cone_HRRPUA_25.html",
-				"table": "Cone/MDF_Cone_Analysis_HRRPUA_Table_25.html"
+				"display name": "Unconditioned",
+				"graph": "HFM/MDF_HFM_Wet_specific_heat.html",
+				"table": "HFM/MDF_HFM_Wet_specific_heat.html"
+			}				"display name": "Dried",
+				"graph": "HFM/MDF_HFM_Dry_specific_heat.html",
+				"table": "HFM/MDF_HFM_Dry_specific_heat.html"
+			}
+		]
+	},
+	{
+		"test name": "thermal conductivity",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/MDF_HFM_Wet_conductivity.html",
+				"table": "HFM/MDF_HFM_Wet_conductivity.html"
 			},
 			{
-				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
-				"graph": "Cone/MDF_Cone_HRRPUA_50.html",
-				"table": "Cone/MDF_Cone_Analysis_HRRPUA_Table_50.html"
-			},
-			{
-				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
-				"graph": "Cone/MDF_Cone_HRRPUA_75.html",
-				"table": "Cone/MDF_Cone_Analysis_HRRPUA_Table_75.html"
+				"display name": "Dried",
+				"graph": "HFM/MDF_HFM_Dry_conductivity.html",
+				"table": "HFM/MDF_HFM_Dry_conductivity.html"
 			}
 		]
 	},
@@ -67,30 +76,31 @@
 		]
 	},
 	{
+		"test name": "heat release rate per unit area",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/MDF_Cone_HRRPUA_25.html",
+				"table": "Cone/MDF_Cone_Analysis_HRRPUA_Table_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/MDF_Cone_HRRPUA_50.html",
+				"table": "Cone/MDF_Cone_Analysis_HRRPUA_Table_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/MDF_Cone_HRRPUA_75.html",
+				"table": "Cone/MDF_Cone_Analysis_HRRPUA_Table_75.html"
+			}
+		]
+	},
+	{
 		"test name": "carbon monoxide yield",
 		"test description": "",
 		"display name": "",
 		"table": "Cone/MDF_Cone_Analysis_CO_Table.html"
-	},
-	{
-		"test name": "specific heat",
-		"test description": "Experiments for specific heat [cp], or heat capacity, were conducted using a heat flow meter on unconditioned samples at 10 &#176;C, 20 &#176;C, 30 &#176;C and 40 &#176;C.",
-		"display name": "",
-		"nested tests": [{
-				"display name": "Unconditioned",
-				"graph": "HFM/MDF_HFM_Wet_specific_heat.html",
-				"table": "HFM/MDF_HFM_Wet_specific_heat.html"
-			}]
-	},
-	{
-		"test name": "thermal conductivity",
-		"test description": "Experiments for thermal conductivity [k] were conducted using a heat flow meter on unconditioned samples at 15 &#176;C and 65 &#176;C.",
-		"display name": "",
-		"nested tests": [{
-				"display name": "Unconditioned",
-				"graph": "HFM/MDF_HFM_Wet_conductivity.html",
-				"table": "HFM/MDF_HFM_Wet_conductivity.html"
-			}]
 	},
 	{
 		"test name": "specific heat release rate",
@@ -101,11 +111,11 @@
 	"derived property": [
 	{
 		"test name": "effective heat of combustion",
-		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
+		"test description": "",
 		"display name": "",
 		"nested tests": [{
-			"display name": "Micro-Scale Combustion Calorimeter",
-			"table": "MCC/MDF_MCC_Heats_of_Combustion.html"
-		}]
+				"display name": "Micro-scale Combustion Calorimeter",
+				"table": "MCC/MDF_MCC_Heats_of_Combustion.html"
+			}		]
 	}]
 }

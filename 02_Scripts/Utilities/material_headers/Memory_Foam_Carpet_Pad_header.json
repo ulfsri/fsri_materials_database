@@ -1,0 +1,26 @@
+{
+	"material": "Memory Foam Carpet Pad",
+	"alternate names": [
+		"carpet pad",
+		"carpet foam",
+		"carpet padding",
+		"memory foam",
+		"viscoelastic polyurethane foam"
+	],
+	"material_dir": "Memory_Foam_Carpet_Pad",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"interior finish"
+	],
+	"image file": "Memory_Foam_Carpet_Pad.JPG",
+	"image 600x400 file": "Memory_Foam_Carpet_Pad600x400.jpg",
+	"video file": "",
+	"description": "Memory foam carpet padding is cushioning for carpet that is made from viscoelastic polyurethane foam",
+	"short desc": "Carpet cushioning made from viscoelastic polyurethane foam",
+	"source": "Samples cut from a 12.8 mm-thick roll",
+	"density": "134 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

@@ -1,0 +1,25 @@
+{
+	"material": "Polymethyl Methacrylate (PMMA)",
+	"alternate names": [
+		"polymethyl methacrylate",
+		"PMMA",
+		"acrylic",
+		"plexiglas",
+		"lucite"
+	],
+	"material_dir": "PMMA",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"general polymer"
+	],
+	"image file": "PMMA.JPG",
+	"image 600x400 file": "PMMA600x400.jpg",
+	"video file": "",
+	"description": "PMMA is an engineered thermoplastic most commonly used as a shatter resistant replacement for glass.",
+	"short desc": "Polymethyl methacrylate (PMMA) is an engineered thermoplastic most commonly used as a shatter resistant replacement for glass.",
+	"source": "Samples cut from 0.32 cm thick, 30 cm by 30 cm commercially available cast sheet.",
+	"density": "1180 kg/m<sup>3</sup>",
+	"property scales": [
+		"bench scale"
+	],

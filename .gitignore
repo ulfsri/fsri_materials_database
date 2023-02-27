@@ -1,5 +1,6 @@
 *.DS_Store
 03_Charts/*
+02_Scripts/Utilities/Material_Status.csv
 
 # Files produced from python scripts
 *_Analysis_Data.csv

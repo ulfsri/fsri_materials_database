@@ -1,0 +1,21 @@
+{
+	"material": "Wool Rug",
+	"alternate names": [],
+	"material_dir": "Wool_Rug",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"sleeping product",
+		"interior finish"
+	],
+	"image file": "Wool_Rug.JPG",
+	"image 600x400 file": "Wool_Rug600x400.jpg",
+	"video file": "",
+	"description": "Interior rug composed of wool fibers.",
+	"short desc": "Interior rug composed of wool fibers.",
+	"source": "Samples cut from 16.46 mm thick commercially available rug.",
+	"density": "219 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

@@ -1,0 +1,22 @@
+{
+	"material": "Rayon Bamboo Pillowcase",
+	"alternate names": [
+		"Rayon Sheet"
+	],
+	"material_dir": "Rayon_Bamboo_Pillowcase",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"sleeping product"
+	],
+	"image file": "Rayon_Bamboo_Pillowcase.JPG",
+	"image 600x400 file": "Rayon_Bamboo_Pillowcase600x400.jpg",
+	"video file": "",
+	"description": "Rayon pillowcase made from bamboo cellulose fibers.",
+	"short desc": "Rayon pillowcase made from bamboo cellulose fibers.",
+	"source": "Samples cut from 0.27 mm thick commercially available pillowcase.",
+	"density": "654 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

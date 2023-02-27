@@ -1,0 +1,22 @@
+{
+	"material": "Vinyl Plank Flooring",
+	"alternate names": [
+		"Vinyl Flooring"
+	],
+	"material_dir": "Vinyl_Plank_Flooring",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"interior finish"
+	],
+	"image file": "Vinyl_Plank_Flooring.JPG",
+	"image 600x400 file": "Vinyl_Plank_Flooring600x400.jpg",
+	"video file": "",
+	"description":"",
+	"short desc":"",
+	"source": "",
+	"density": "643 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

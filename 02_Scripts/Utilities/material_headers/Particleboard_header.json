@@ -1,0 +1,23 @@
+{
+	"material": "Particleboard",
+	"alternate names": [
+		"Particle Board",
+		"Press Board"
+	],
+	"material_dir": "Particleboard",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"engineered wood"
+	],
+	"image file": "Particleboard.JPG",
+	"image 600x400 file": "Particleboard600x400.jpg",
+	"video file": "",
+	"description": "Particleboard is an engineered wood made by pressing wood chips and sawdust with an adhesive resin.",
+	"short desc": "Particleboard is an engineered wood made of wood chips and sawdust with an adhesive resin.",
+	"source": "Samples cut from 1.89 cm cm thick, 122 cm x 244 cm sheet.",
+	"density": "583 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

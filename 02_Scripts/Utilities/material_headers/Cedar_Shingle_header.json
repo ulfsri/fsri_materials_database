@@ -1,0 +1,23 @@
+{
+	"material": "Cedar Shingle",
+	"alternate names": [
+		"cedar shake"
+	],
+	"material_dir": "Cedar_Shingle",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"exterior finish",
+		"roofing"
+	],
+	"image file": "Cedar_Shingle.JPG",
+	"image 600x400 file": "Cedar_Shingle600x400.jpg",
+	"video file": "",
+	"description": "A cedar shingle is part of a siding or roof system made of natural wood (cedar) materials.",
+	"short desc": "A cedar shingle is part of a siding or roof system made of natural wood (cedar) materials.",
+	"source": "Samples cut from a single 9.5 mm thick shingle.",
+	"density": "320 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

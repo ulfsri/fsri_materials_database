@@ -1,0 +1,23 @@
+{
+	"material": "Mineral Wool Insulation",
+	"alternate names": [
+		"Mineral wool batt insulation",
+		"Rockwool"
+	],
+	"material_dir": "Mineral_Wool_Insulation",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"insulation"
+	],
+	"image file": "Mineral_Wool_Insulation.JPG",
+	"image 600x400 file": "Mineral_Wool_Insulation600x400.jpg",
+	"video file": "",
+	"description":"Mineral wool insulation is mainly made from natural stone fibers such as molten basalt or diabase that are spun into wool and bound with resin.",
+	"short desc": "Mineral wool insulation is mainly made from natural stone fibers and spun into a wool that is bound with resin.",
+	"source": " Samples cut from 89 mm thick, commercially available R-15 stone wool insulation batt.",
+	"density": "55 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

@@ -1,0 +1,25 @@
+{
+	"material": "Bamboo Rug",
+	"alternate names": [
+		"bamboo mat",
+		"bamboo floor mat",
+		"bamboo throw rug"
+	],
+	"material_dir": "Bamboo_Rug",
+	"parent material": "",
+	"component material": 	["Bamboo Rug Bamboo",
+				 "Bamboo Rug Fabric"
+				],
+	"material category": [
+		"interior finish"
+	],
+	"image file": "Bamboo_Rug.JPG",
+	"image 600x400 file": "Bamboo_Rug600x400.jpg",
+	"video file": "",
+	"description": "The bamboo rug that was tested is a rug composed of bamboo slats glued to a fabric substrate.",
+	"short desc": "A rug comprised of bamboo slats glued to a fabric substrate.",
+	"source": "Samples cut from a 2 ft x 3 ft rug",
+	"density": "1000 kg/m<sup>3</sup>",
+	"property scales": [
+		"bench scale"
+	],

@@ -1,0 +1,25 @@
+{
+	"material": "Fiber Cement Board",
+	"alternate names": [
+		"hardie board",
+		"siding",
+		"sheathing",
+		"hardiplank"
+	],
+	"material_dir": "Fiber_Cement_Board",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"exterior finish"
+	],
+	"image file": "Fiber_Cement_Board.JPG",
+	"image 600x400 file": "Fiber_Cement_Board600x400.jpg",
+	"video file": "",
+	"description": "Fiber Cement Board are composed of wood pulp and Portland cement.",
+	"short desc": "Fiber Cement Board are composed of wood pulp and Portland cement.",
+	"source": "Samples cut from 8.5 mm thick boards.",
+	"density": "1290 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

@@ -1,0 +1,27 @@
+{
+	"material": "Polyisocyanurate Foam Board",
+	"alternate names": [
+		"pir",
+		"pir foam",
+		"iso",
+		"polyiso",
+		"foam board insulation",
+		"rigid foam"
+	],
+	"material_dir": "Polyisocyanurate_Foam_Board",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"insulation"
+	],
+	"image file": "Polyisocyanurate_Foam_Board.JPG",
+	"image 600x400 file": "Polyisocyanurate_Foam_Board600x400.jpg",
+	"video file": "",
+	"description": "Polyisocyanurate Foam is a thermoset closed-cell foam board used for interior and exterior building insulation.",
+	"short desc": "Expanded polystyrene insulation is a thermoset closed-cell foam board used for insulation.",
+	"source": "Samples cut from 23 mm thick board.",
+	"density": "34 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

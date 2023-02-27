@@ -26,6 +26,48 @@
 	],
 	"measured property": [
 	{
+		"test name": "specific heat",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/XPS_Foam_Board_HFM_Wet_specific_heat.html",
+				"table": "HFM/XPS_Foam_Board_HFM_Wet_specific_heat.html"
+			}				"display name": "Dried",
+				"graph": "HFM/XPS_Foam_Board_HFM_Dry_specific_heat.html",
+				"table": "HFM/XPS_Foam_Board_HFM_Dry_specific_heat.html"
+			}
+		]
+	},
+	{
+		"test name": "thermal conductivity",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/XPS_Foam_Board_HFM_Wet_conductivity.html",
+				"table": "HFM/XPS_Foam_Board_HFM_Wet_conductivity.html"
+			}		]
+	},
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/XPS_Foam_Board_Cone_MLR_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/XPS_Foam_Board_Cone_MLR_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/XPS_Foam_Board_Cone_MLR_75.html"
+			}
+		]
+	},
+	{
 		"test name": "heat release rate per unit area",
 		"test description": "",
 		"display name": "",
@@ -47,60 +89,31 @@
 		]
 	},
 	{
-		"test name": "mass loss rate",
-		"test description": "",
-		"display name": "",
-		"nested tests": [{
-				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
-				"graph": "Cone/XPS_Foam_Board_Cone_MLR_25.html"
-			},
-			{
-				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
-				"graph": "Cone/XPS_Foam_Board_Cone_MLR_50.html"
-			},
-			{
-				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
-				"graph": "Cone/XPS_Foam_Board_Cone_MLR_75.html"
-			}
-		]
-	},
-	{
 		"test name": "carbon monoxide yield",
 		"test description": "",
 		"display name": "",
 		"table": "Cone/XPS_Foam_Board_Cone_Analysis_CO_Table.html"
 	},
 	{
-		"test name": "specific heat",
-		"test description": "Experiments for specific heat [cp], or heat capacity, were conducted using a heat flow meter on unconditioned samples at 10 &#176;C, 20 &#176;C, 30 &#176;C and 40 &#176;C.",
-		"display name": "",
-		"nested tests": [{
-				"display name": "Unconditioned",
-				"graph": "HFM/XPS_Foam_Board_HFM_Wet_specific_heat.html",
-				"table": "HFM/XPS_Foam_Board_HFM_Wet_specific_heat.html"
-			}]
-	},
-	{
-		"test name": "thermal conductivity",
-		"test description": "Experiments for thermal conductivity [k] were conducted using a heat flow meter on unconditioned samples at 15 &#176;C and 65 &#176;C.",
-		"display name": "",
-		"nested tests": [{
-				"display name": "Unconditioned",
-				"graph": "HFM/XPS_Foam_Board_HFM_Wet_conductivity.html",
-				"table": "HFM/XPS_Foam_Board_HFM_Wet_conductivity.html"
-			}]
-	},
-	{
 		"test name": "specific heat release rate",
 		"test description": "",
 		"display name": "",
 		"graph": "MCC/XPS_Foam_Board_MCC_HRR.html"
-	}],	
+	}],
 	"derived property": [
 	{
 		"test name": "soot yield",
-		"test description": "Soot yield [g/g] was calculated from smoke obscuration data collected in cone calorimeter experiments conducted at heat fluxes of 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.<br><br>This material warps into an arched shape during the fire's decay phase. Additional replicates with alternative sample preparation (i.e. tie wire method) may be necessary to supplement this data set. Representative test pictures are available at the link above to Download raw data.",
+		"test description": "",
 		"display name": "",
 		"table": "Cone/XPS_Foam_Board_Cone_Analysis_Soot_Table.html"
+	},
+	{
+		"test name": "effective heat of combustion",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Micro-scale Combustion Calorimeter",
+				"table": "MCC/XPS_Foam_Board_MCC_Heats_of_Combustion.html"
+			}		]
 	}]
 }

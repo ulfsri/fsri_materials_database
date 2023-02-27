@@ -22,8 +22,15 @@
 	],
 	"measured property": [
 	{
+		"test name": "specific heat",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+		]
+	},
+	{
 		"test name": "thermal conductivity",
-		"test description": "Experiments for thermal conductivity [k] were conducted using a heat flow meter on unconditioned and dried samples at 15 &#176;C and 65 &#176;C.",
+		"test description": "",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Unconditioned",
@@ -42,15 +49,15 @@
 		"test description": "",
 		"display name": "",
 		"graph": "MCC/Cotton_Batting_MCC_HRR.html"
-	}],	
+	}],
 	"derived property": [
 	{
 		"test name": "effective heat of combustion",
-		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
+		"test description": "",
 		"display name": "",
 		"nested tests": [{
-			"display name": "Micro-Scale Combustion Calorimeter",
-			"table": "MCC/Cotton_Batting_MCC_Heats_of_Combustion.html"
-		}]
+				"display name": "Micro-scale Combustion Calorimeter",
+				"table": "MCC/Cotton_Batting_MCC_Heats_of_Combustion.html"
+			}		]
 	}]
 }

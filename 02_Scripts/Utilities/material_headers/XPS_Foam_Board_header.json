@@ -1,0 +1,26 @@
+{
+	"material": "Expanded Polystyrene Board",
+	"alternate names": [
+		"xps",
+		"xps board",
+		"expanded ps",
+		"foam board insulation",
+		"rigid foam"
+	],
+	"material_dir": "XPS_Foam_Board",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"insulation"
+	],
+	"image file": "XPS_Foam_Board.JPG",
+	"image 600x400 file": "XPS_Foam_Board600x400.jpg",
+	"video file": "",
+	"description": "Expanded polystyrene insulation is a closed-cell foam board used for interior and exterior building insulation.",
+	"short desc": "Expanded polystyrene insulation is a closed-cell foam board used for insulation.",
+	"source": "Samples cut from 25.4 mm thick board.",
+	"density": "28 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

@@ -1,0 +1,22 @@
+{
+	"material": "Cotton Batting",
+	"alternate names": [
+		" "
+	],
+	"material_dir": "Cotton_Batting",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"roofing"
+	],
+	"image file": "Cotton_Batting.JPG",
+	"image 600x400 file": "Cotton_Batting600x400.jpg",
+	"video file": "",
+	"description": " ",
+	"short desc": " ",
+	"source": " ",
+	"density": "  ",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

@@ -1,0 +1,29 @@
+{
+	"material": "Overstuffed Chair Polyurethane Foam",
+	"alternate names": [
+		"polyurethane",
+		"foam",
+		"cushion foam",
+		"puf",
+		"flexible polyurethane foam",
+		"fpf",
+		"low density polyurethane"
+	],
+	"material_dir": "Overstuffed_Chair_Polyurethane_Foam",	
+	"parent material": "Overstuffed Chair Assembly",
+	"component material": [],
+	"material category": [
+		"general polymer",
+		"upholstered furniture"
+	],
+	"image file": "Overstuffed_Chair_Polyurethane_Foam.JPG",
+	"image 600x400 file": "Overstuffed_Chair_Polyurethane_Foam600x400.jpg",
+	"video file": "",
+	"description": "Polyurethane foam is a low density foam often used in upholstered furniture cushions.",
+	"short desc": "Polyurethane foam is a low density foam often used in upholstered furniture cushions.",
+	"source": "Samples cut from 0.75 m x 0.75 m x 0.2 m thick cushion taken from an overstuffed chair.",
+	"density": "31.7 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

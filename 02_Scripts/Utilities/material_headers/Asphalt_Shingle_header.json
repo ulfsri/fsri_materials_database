@@ -1,0 +1,22 @@
+{
+	"material": "Asphalt Shingle",
+	"alternate names": [
+		"roof shingle"
+	],
+	"material_dir": "Asphalt_Shingle",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"exterior finish"
+	],
+	"image file": "Asphalt_Shingle.JPG",
+	"image 600x400 file": "Asphalt_Shingle600x400.jpg",
+	"video file": "",
+	"description": "Asphalt shingles have a glass fiber base layer (mat) coated with asphalt containing mineral fillers.",
+	"short desc": "Asphalt shingles have a glass fiber base layer (mat) coated with asphalt containing mineral fillers.",
+	"source": "Samples cut from 0.48 cm thick, 0.3 m x 0.9 m boards.",
+	"density": "1219 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

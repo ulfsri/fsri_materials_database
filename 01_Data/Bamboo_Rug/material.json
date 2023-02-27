@@ -32,9 +32,8 @@
 				"display name": "Unconditioned",
 				"graph": "HFM/Bamboo_Rug_HFM_Wet_conductivity.html",
 				"table": "HFM/Bamboo_Rug_HFM_Wet_conductivity.html"
-			}
-		]
-
-	}],	
-	"derived property": []
+			}		]
+	}],
+	"derived property": [
+]
 }

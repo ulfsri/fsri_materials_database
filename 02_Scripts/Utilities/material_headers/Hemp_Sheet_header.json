@@ -1,0 +1,24 @@
+{
+	"material": "Hemp Sheet",
+	"alternate names": [
+		"fabric",
+		"linen",
+		"flat sheet"
+	],
+	"material_dir": "Hemp_Sheet",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"sleeping product"
+	],
+	"image file": "Hemp_Sheet.JPG",
+	"image 600x400 file": "Hemp_Sheet600x400.jpg",
+	"video file": "",
+	"description": "Hemp sheets are fabric used in bedding woven from hemp fibers.",
+	"short desc": "Hemp sheets are fabric used in bedding woven from hemp fibers.",
+	"source": "Samples cut from approximately 0.3 mm thick sheets.",
+	"density": "529 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
