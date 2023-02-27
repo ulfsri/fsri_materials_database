@@ -1,7 +1,12 @@
 # Materials and Products Database
-### Repository of materials and products properties and fire test data to improve fire modeling and fire investigation
+### Repository of materials and products properties and fire test data to improve fire modeling and fire investigation.
 
-This project was supported in part by Award No. 2019-DU-BX-0018, awarded by the National Institute of Justice, Office of Justice Programs, U.S. Department of Justice. 
+This project was supported in part by Award No. 2019-DU-BX-0018, awarded by the National Institute of Justice, Office of Justice Programs, U.S. Department of Justice. The opinions, findings, and conclusions or recommendations expressed in this publication / program / exhibition are those of the author(s) and do not necessarily reflect those of the Department of Justice.
+
+***
+***
+
+__Cite this database:__ "McKinnon, M., Weinschenk, C., Dow, N., DiDomizio, M., and Madrzykowski, D. Materials and Products Database (Version 1.0.0), Fire Safety Research Institute, UL Research Institutes. Columbia, MD 21045, 2023."
 
 ***
 ***
@@ -15,6 +20,7 @@ Raw data generated from each apparatus are included here in plain-text format. T
 - __Cone Calorimeter__ (Cone)
     + Data file structure includes the material, the short name for the apparatus, heat flux setting and scan/scalar, date of test, and replicate number. Scan is for the raw output data and scalar is for the initial conditions and high-level test parameters. 
         * Example: __MDF_Cone_HF25scalar_210323_R1__ stands for the first replicate of scalar data generated from a medium density fiber board test in cone calorimeter exposed to 25 kW/m<sup>2</sup> on March 23, 2021.
+    + A _Cone_Notes.csv_ is generated for each material from the __plot_Cone_data.py__ script. For materials whose experiments deviated from typical behavior relevant pictures are included in the respective material directory.
 - __Fourier Transform Infrared Spectrometer__ (FTIR)
     + The FTIR directory contains subdirectories for the Attenuated Total Reflectance method (ATR) and the Integrating Sphere (IS)
     + Data file structure for the ATR experiment files includes the material, the abbreviated name for the apparatus, date of test, and replicate number. 
