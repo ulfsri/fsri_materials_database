@@ -1,0 +1,27 @@
+{
+	"material": "Polycarbonate (PC)",
+	"alternate names": [
+		"carbonate",
+		"palsun",
+		"lexan",
+		"tuffak",
+		"makrolon",
+		"plaskolite"
+	],
+	"material_dir": "PC",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"general polymer"
+	],
+	"image file": "PC.JPG",
+	"image 600x400 file": "PC600x400.jpg",
+	"video file": "",
+	"description": "Polycarbonate (PC) is a durable thermoplastic often used in transparent glazing and electronic data storage.",
+	"short desc": "PC is a thermoplastic often used in transparent glazing and electronic data storage.",
+	"source": "Samples cut from 0.56 cm thick, 30 cm by 30 cm commercially available cast sheet.",
+	"density": "1220 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

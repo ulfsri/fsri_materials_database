@@ -1,0 +1,132 @@
+{
+	"material": "High Density Polyethylene (HDPE)",
+	"alternate names": [
+		"PEHD",
+		"alkathene",
+		"polythene",
+		"hitec",
+		"playboard",
+		"polystone",
+		"plexar",
+		"PE"		
+	],
+	"material_dir": "HDPE",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"general polymer"
+	],
+	"image file": "HDPE.JPG",
+	"image 600x400 file": "HDPE600x400.jpg",
+	"video file": "",
+	"description": "High Density Polyethylene (HDPE) is a durable polyolefin thermoplastic often used when molding manufactured parts.",
+	"short desc": "HDPE is a durable polyolefin thermoplastic often used when molding manufactured parts.",
+	"source": "Samples cut from 0.32 cm thick, 30 cm by 30 cm commercially available sheet.",
+	"density": "971 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
+	"measured property": [
+	{
+		"test name": "specific heat",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/HDPE_HFM_Wet_specific_heat.html",
+				"table": "HFM/HDPE_HFM_Wet_specific_heat.html"
+			}				"display name": "Dried",
+				"graph": "HFM/HDPE_HFM_Dry_specific_heat.html",
+				"table": "HFM/HDPE_HFM_Dry_specific_heat.html"
+			}
+		]
+	},
+	{
+		"test name": "thermal conductivity",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/HDPE_HFM_Wet_conductivity.html",
+				"table": "HFM/HDPE_HFM_Wet_conductivity.html"
+			}		]
+	},
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/HDPE_STA_MLR.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/HDPE_Cone_MLR_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/HDPE_Cone_MLR_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/HDPE_Cone_MLR_75.html"
+			}
+		]
+	},
+	{
+		"test name": "heat release rate per unit area",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/HDPE_Cone_HRRPUA_25.html",
+				"table": "Cone/HDPE_Cone_Analysis_HRRPUA_Table_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/HDPE_Cone_HRRPUA_50.html",
+				"table": "Cone/HDPE_Cone_Analysis_HRRPUA_Table_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/HDPE_Cone_HRRPUA_75.html",
+				"table": "Cone/HDPE_Cone_Analysis_HRRPUA_Table_75.html"
+			}
+		]
+	},
+	{
+		"test name": "carbon monoxide yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/HDPE_Cone_Analysis_CO_Table.html"
+	},
+	{
+		"test name": "specific heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "MCC/HDPE_MCC_HRR.html"
+	}],
+	"derived property": [
+	{
+		"test name": "soot yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/HDPE_Cone_Analysis_Soot_Table.html"
+	},
+	{
+		"test name": "effective heat of combustion",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Micro-scale Combustion Calorimeter",
+				"table": "MCC/HDPE_MCC_Heats_of_Combustion.html"
+			}		]
+	},
+	{
+		"test name": "melting temperature and enthalpy of melting",
+		"test description": "",
+		"display name": "",
+		"table": "STA/HDPE_STA_Analysis_Melting_Temp_Table.html"
+	}]
+}

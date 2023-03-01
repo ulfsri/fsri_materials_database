@@ -1,0 +1,111 @@
+{
+	"material": "Lightweight Gypsum Wallboard",
+	"alternate names": [
+		"gypsum",
+		"drywall",
+		"sheet rock",
+		"gypboard",
+		"plasterboard",
+		"dry lining",
+		"buster board",
+		"slap board",
+		"custard board"		
+	],
+	"material_dir": "Lightweight_Gypsum_Wallboard",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"interior finish"
+	],
+	"image file": "Lightweight_Gypsum_Wallboard.JPG",
+	"image 600x400 file": "Lightweight_Gypsum_Wallboard600x400.jpg",
+	"video file": "",
+	"description": "Lightweight gypsum wallboard is an interior finish panel made of gypsum extruded between layers of paper.",
+	"short desc": "Lightweight gypsum wallboard is an interior finish panel made of gypsum extruded between layers of paper.",
+	"source": "Samples cut from 1.28 cm thick, 1.2 m by 2.4 cm commercially available sheet.",
+	"density": "428 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
+	"measured property": [
+	{
+		"test name": "specific heat",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Lightweight_Gypsum_Wallboard_HFM_Wet_specific_heat.html",
+				"table": "HFM/Lightweight_Gypsum_Wallboard_HFM_Wet_specific_heat.html"
+			},
+			{
+				"display name": "Dried",
+				"graph": "HFM/Lightweight_Gypsum_Wallboard_HFM_Dry_specific_heat.html",
+				"table": "HFM/Lightweight_Gypsum_Wallboard_HFM_Dry_specific_heat.html"
+			}
+		]
+	},
+	{
+		"test name": "thermal conductivity",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Lightweight_Gypsum_Wallboard_HFM_Wet_conductivity.html",
+				"table": "HFM/Lightweight_Gypsum_Wallboard_HFM_Wet_conductivity.html"
+			},
+			{
+				"display name": "Dried",
+				"graph": "HFM/Lightweight_Gypsum_Wallboard_HFM_Dry_conductivity.html",
+				"table": "HFM/Lightweight_Gypsum_Wallboard_HFM_Dry_conductivity.html"
+			}
+		]
+	},
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Lightweight_Gypsum_Wallboard_Cone_MLR_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Lightweight_Gypsum_Wallboard_Cone_MLR_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Lightweight_Gypsum_Wallboard_Cone_MLR_75.html"
+			}
+		]
+	},
+	{
+		"test name": "heat release rate per unit area",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Lightweight_Gypsum_Wallboard_Cone_HRRPUA_25.html",
+				"table": "Cone/Lightweight_Gypsum_Wallboard_Cone_Analysis_HRRPUA_Table_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Lightweight_Gypsum_Wallboard_Cone_HRRPUA_50.html",
+				"table": "Cone/Lightweight_Gypsum_Wallboard_Cone_Analysis_HRRPUA_Table_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Lightweight_Gypsum_Wallboard_Cone_HRRPUA_75.html",
+				"table": "Cone/Lightweight_Gypsum_Wallboard_Cone_Analysis_HRRPUA_Table_75.html"
+			}
+		]
+	},
+	{
+		"test name": "carbon monoxide yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/Lightweight_Gypsum_Wallboard_Cone_Analysis_CO_Table.html"
+	}],
+	"derived property": [
+]
+}

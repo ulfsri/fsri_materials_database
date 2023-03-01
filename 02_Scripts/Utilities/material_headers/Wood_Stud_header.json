@@ -1,0 +1,30 @@
+{
+	"material": "Wood Stud",
+	"alternate names": [
+		"spf board",
+		"2x4",
+		"dimensional lumber",
+		"whitewood",
+		"framing lumber",
+		"structural softwood",
+		"construction framing"
+	],
+	"material_dir": "Wood_Stud",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"structural",
+		"exterior finish",
+		"interior finish"
+	],
+	"image file": "Wood_Stud.JPG",
+	"image 600x400 file": "Wood_Stud600x400.jpg",
+	"video file": "",
+	"description": "Dimensional lumber is softwood (typically spruce, pine, or fir) cut to specific dimensions for construction framing.",
+	"short desc": "Dimensional lumber is softwood used in construction framing.",
+	"source": "Samples cut from nomimal 2 in x 6 in board.",
+	"density": "355 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
