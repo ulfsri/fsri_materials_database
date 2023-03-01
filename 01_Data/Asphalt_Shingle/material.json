@@ -119,5 +119,12 @@
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Asphalt_Shingle_MCC_Heats_of_Combustion.html"
 			}		]
+	},
+	{
+		"test name": "emissivity",
+		"test description": "",
+		"display name": "",
+		"table": "FTIR/IS/Asphalt_Shingle_Emissivity.html",
+		"graph": "FTIR/IS/Asphalt_Shingle_Emissivity.html"
 	}]
 }

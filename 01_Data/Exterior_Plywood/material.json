@@ -71,5 +71,12 @@
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Exterior_Plywood_MCC_Heats_of_Combustion.html"
 			}		]
+	},
+	{
+		"test name": "emissivity",
+		"test description": "",
+		"display name": "",
+		"table": "FTIR/IS/Exterior_Plywood_Emissivity.html",
+		"graph": "FTIR/IS/Exterior_Plywood_Emissivity.html"
 	}]
 }

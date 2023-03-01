@@ -35,5 +35,11 @@
 			}		]
 	}],
 	"derived property": [
-]
+	{
+		"test name": "emissivity",
+		"test description": "",
+		"display name": "",
+		"table": "FTIR/IS/Bamboo_Rug_Emissivity.html",
+		"graph": "FTIR/IS/Bamboo_Rug_Emissivity.html"
+	}]
 }

@@ -117,5 +117,12 @@
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Basswood_Panel_MCC_Heats_of_Combustion.html"
 			}		]
+	},
+	{
+		"test name": "emissivity",
+		"test description": "",
+		"display name": "",
+		"table": "FTIR/IS/Basswood_Panel_Emissivity.html",
+		"graph": "FTIR/IS/Basswood_Panel_Emissivity.html"
 	}]
 }

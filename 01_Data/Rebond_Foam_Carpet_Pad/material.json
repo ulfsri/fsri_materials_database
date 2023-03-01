@@ -123,5 +123,12 @@
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Rebond_Foam_Carpet_Pad_MCC_Heats_of_Combustion.html"
 			}		]
+	},
+	{
+		"test name": "emissivity",
+		"test description": "",
+		"display name": "",
+		"table": "FTIR/IS/Rebond_Foam_Carpet_Pad_Emissivity.html",
+		"graph": "FTIR/IS/Rebond_Foam_Carpet_Pad_Emissivity.html"
 	}]
 }

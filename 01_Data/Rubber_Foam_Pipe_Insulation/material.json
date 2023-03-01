@@ -121,5 +121,12 @@
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Rubber_Foam_Pipe_Insulation_MCC_Heats_of_Combustion.html"
 			}		]
+	},
+	{
+		"test name": "emissivity",
+		"test description": "",
+		"display name": "",
+		"table": "FTIR/IS/Rubber_Foam_Pipe_Insulation_Emissivity.html",
+		"graph": "FTIR/IS/Rubber_Foam_Pipe_Insulation_Emissivity.html"
 	}]
 }

@@ -117,5 +117,12 @@
 		"test description": "",
 		"display name": "",
 		"table": "STA/Composite_Deck_Board_STA_Analysis_Melting_Temp_Table.html"
+	},
+	{
+		"test name": "emissivity",
+		"test description": "",
+		"display name": "",
+		"table": "FTIR/IS/Composite_Deck_Board_Emissivity.html",
+		"graph": "FTIR/IS/Composite_Deck_Board_Emissivity.html"
 	}]
 }

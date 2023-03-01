@@ -121,5 +121,12 @@
 		"test description": "",
 		"display name": "",
 		"table": "STA/Polyester_Bed_Skirt_STA_Analysis_Melting_Temp_Table.html"
+	},
+	{
+		"test name": "emissivity",
+		"test description": "",
+		"display name": "",
+		"table": "FTIR/IS/Polyester_Bed_Skirt_Emissivity.html",
+		"graph": "FTIR/IS/Polyester_Bed_Skirt_Emissivity.html"
 	}]
 }

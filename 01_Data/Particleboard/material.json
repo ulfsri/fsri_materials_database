@@ -78,5 +78,12 @@
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Particleboard_MCC_Heats_of_Combustion.html"
 			}		]
+	},
+	{
+		"test name": "emissivity",
+		"test description": "",
+		"display name": "",
+		"table": "FTIR/IS/Particleboard_Emissivity.html",
+		"graph": "FTIR/IS/Particleboard_Emissivity.html"
 	}]
 }

@@ -80,5 +80,12 @@
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Fiber_Cement_Board_MCC_Heats_of_Combustion.html"
 			}		]
+	},
+	{
+		"test name": "emissivity",
+		"test description": "",
+		"display name": "",
+		"table": "FTIR/IS/Fiber_Cement_Board_Emissivity.html",
+		"graph": "FTIR/IS/Fiber_Cement_Board_Emissivity.html"
 	}]
 }

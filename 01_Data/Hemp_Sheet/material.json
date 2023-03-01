@@ -119,5 +119,12 @@
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Hemp_Sheet_MCC_Heats_of_Combustion.html"
 			}		]
+	},
+	{
+		"test name": "emissivity",
+		"test description": "",
+		"display name": "",
+		"table": "FTIR/IS/Hemp_Sheet_Emissivity.html",
+		"graph": "FTIR/IS/Hemp_Sheet_Emissivity.html"
 	}]
 }

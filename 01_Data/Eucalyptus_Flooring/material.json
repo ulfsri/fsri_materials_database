@@ -119,5 +119,12 @@
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Eucalyptus_Flooring_MCC_Heats_of_Combustion.html"
 			}		]
+	},
+	{
+		"test name": "emissivity",
+		"test description": "",
+		"display name": "",
+		"table": "FTIR/IS/Eucalyptus_Flooring_Emissivity.html",
+		"graph": "FTIR/IS/Eucalyptus_Flooring_Emissivity.html"
 	}]
 }
