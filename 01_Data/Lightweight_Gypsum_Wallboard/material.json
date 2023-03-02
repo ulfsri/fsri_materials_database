@@ -13,7 +13,11 @@
 	],
 	"material_dir": "Lightweight_Gypsum_Wallboard",
 	"parent material": "",
-	"component material": [],
+	"component material": [
+		"Lightweight_Gypsum_Wallboard_Gypsum_Core",
+		"Lightweight_Gypsum_Wallboard_Painted_Paper",
+		"Lightweight_Gypsum_Wallboard_Unpainted_Paper"
+	],
 	"material category": [
 		"interior finish"
 	],

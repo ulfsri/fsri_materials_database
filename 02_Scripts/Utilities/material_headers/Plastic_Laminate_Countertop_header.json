@@ -7,9 +7,10 @@
 	],
 	"material_dir": "Plastic_Laminate_Countertop",
 	"parent material": "",
-	"component material": 	["Plastic Laminate Countertop Laminate",
-				 "Plastic Laminate Countertop Paticle Board"
-				],
+	"component material": [
+		"Plastic Laminate Countertop Laminate",
+		"Plastic Laminate Countertop Paticle Board"
+	],
 	"material category": [
 		"interior finish"
 	],

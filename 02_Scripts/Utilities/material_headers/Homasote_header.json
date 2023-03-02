@@ -1,0 +1,24 @@
+{
+	"material": "Homasote",
+	"alternate names": [
+		"sound board",
+		"cellulose board",
+		"fiber wallboard"
+	],
+	"material_dir": "Homasote",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"engineered wood"
+	],
+	"image file": "Homasote.JPG",
+	"image 600x400 file": "Homasote600x400.jpg",
+	"video file": "",
+	"description": "Homasote is a cellulose fiber board that is used for sound control and insulation.",
+	"short desc": "Homasote is a cellulose fiber board that is used for sound control and insulation.",
+	"source": "Samples cut from 1.16 cm thick, 122 cm x 244 cm sheet.",
+	"density": "409 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

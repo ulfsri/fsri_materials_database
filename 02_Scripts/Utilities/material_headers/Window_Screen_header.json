@@ -1,0 +1,25 @@
+{
+	"material": "Window Screen",
+	"alternate names": [
+		"wire mesh",
+		"insect screen",
+		"window net",
+		"ADFORS clear advantage"
+	],
+	"material_dir": "Window_Screen",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"exterior finish"
+	],
+	"image file": "Window_Screen.JPG",
+	"image 600x400 file": "Window_Screen600x400.jpg",
+	"video file": "",
+	"description": "Window screen is a mesh of fine PVC-coated fiberglass yarn used to prevent insects and other pests from passing through windows.",
+	"short desc": "Window screen is a mesh of fine PVC-coated fiberglass yarn.",
+	"source": "Samples cut from 36 in x 84 in. roll",
+	"density": "480 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

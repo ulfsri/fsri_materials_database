@@ -1,0 +1,81 @@
+{
+	"material": "Paper-faced R30 Fiberglass Insulation",
+	"alternate names": [
+		"fiberglass",
+		"batting",
+		"blanket insulation",
+		"kraft-faced insulation"
+	],
+	"material_dir": "Fiberglass_Insulation_R30_Paper_Faced",
+	"parent material": "",
+	"component material": [
+		"Fiberglass_Insulation_R30_Paper_Faced_Fiberglass",
+		"Fiberglass_Insulation_R30_Paper_Faced_Paper"
+	],
+	"material category": [
+		"insulation"
+	],
+	"image file": "Fiberglass_Insulation_R30_Paper_Faced.JPG",
+	"image 600x400 file": "Fiberglass_Insulation_R30_Paper_Faced600x400.jpg",
+	"video file": "",
+	"description": "Paper Faced R30 Fiberglass insulation is a fiberglass insulation typically used on attic ceilings.",
+	"short desc": "Paper Faced R30 Fiberglass insulation is a fiberglass insulation typically used on attic ceilings.",
+	"source": "Samples cut from a 25 cm thick roll.",
+	"density": "17 kg/m<sup>3</sup>",
+	"property scales": [
+		"bench scale"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Fiberglass_Insulation_R30_Paper_Faced_Cone_MLR_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Fiberglass_Insulation_R30_Paper_Faced_Cone_MLR_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Fiberglass_Insulation_R30_Paper_Faced_Cone_MLR_75.html"
+			}
+		]
+	},
+	{
+		"test name": "heat release rate per unit area",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Fiberglass_Insulation_R30_Paper_Faced_Cone_HRRPUA_25.html",
+				"table": "Cone/Fiberglass_Insulation_R30_Paper_Faced_Cone_Analysis_HRRPUA_Table_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Fiberglass_Insulation_R30_Paper_Faced_Cone_HRRPUA_50.html",
+				"table": "Cone/Fiberglass_Insulation_R30_Paper_Faced_Cone_Analysis_HRRPUA_Table_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Fiberglass_Insulation_R30_Paper_Faced_Cone_HRRPUA_75.html",
+				"table": "Cone/Fiberglass_Insulation_R30_Paper_Faced_Cone_Analysis_HRRPUA_Table_75.html"
+			}
+		]
+	},
+	{
+		"test name": "carbon monoxide yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/Fiberglass_Insulation_R30_Paper_Faced_Cone_Analysis_CO_Table.html"
+	}],
+	"derived property": [
+	{
+		"test name": "soot yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/Fiberglass_Insulation_R30_Paper_Faced_Cone_Analysis_Soot_Table.html"
+	}]
+}

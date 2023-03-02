@@ -1,0 +1,24 @@
+{
+	"material": "Paper-faced R30 Fiberglass Insulation Paper",
+	"alternate names": [
+		"fiberglass",
+		"batting",
+		"blanket insulation",
+		"kraft-faced insulation"
+	],
+	"material_dir": "Fiberglass_Insulation_R30_Paper_Faced_Paper",
+	"parent material": "Fiberglass_Insulation_R30_Paper_Faced",
+	"component material": [],
+	"material category": [
+		"insulation"
+	],
+	"image file": "Fiberglass_Insulation_R30_Paper_Faced.JPG",
+	"image 600x400 file": "Fiberglass_Insulation_R30_Paper_Faced600x400.jpg",
+	"video file": "",
+	"description": "The kraft paper facing for fiberglass insulation acts as a moisture barrier.",
+	"short desc": "The kraft paper facing for fiberglass insulation acts as a moisture barrier.",
+	"source": "Samples cut from a 25 cm thick roll.",
+	"density": "17 kg/m<sup>3</sup>",
+	"property scales": [
+		"bench scale"
+	],
