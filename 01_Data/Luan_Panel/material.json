@@ -36,11 +36,7 @@
 				"display name": "Unconditioned",
 				"graph": "HFM/Luan_Panel_HFM_Wet_specific_heat.html",
 				"table": "HFM/Luan_Panel_HFM_Wet_specific_heat.html"
-			}				"display name": "Dried",
-				"graph": "HFM/Luan_Panel_HFM_Dry_specific_heat.html",
-				"table": "HFM/Luan_Panel_HFM_Dry_specific_heat.html"
-			}
-		]
+			}		]
 	},
 	{
 		"test name": "thermal conductivity",

@@ -107,7 +107,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                 df.loc[material, 'Wet_cp'] = 'TRUE'
             if os.path.isfile(f'{data_dir}{material}/HFM/{material}_HFM_Wet_specific_heat.html') and os.path.isfile(f'{data_dir}{material}/HFM/{material}_HFM_Dry_specific_heat.html'):
                 cp_list.append(',\n\t\t\t{\n')
-            if os.path.isfile(f'{data_dir}{material}/HFM/{material}_HFM_Wet_specific_heat.html'):
+            if os.path.isfile(f'{data_dir}{material}/HFM/{material}_HFM_Dry_specific_heat.html'):
                 cp_list.append('\t\t\t\t"display name": "Dried",\n')
                 cp_list.append(f'\t\t\t\t"graph": "HFM/{material}_HFM_Dry_specific_heat.html",\n')
                 cp_list.append(f'\t\t\t\t"table": "HFM/{material}_HFM_Dry_specific_heat.html"\n')

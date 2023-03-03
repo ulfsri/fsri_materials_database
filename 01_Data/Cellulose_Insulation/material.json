@@ -30,11 +30,7 @@
 				"display name": "Unconditioned",
 				"graph": "HFM/Cellulose_Insulation_HFM_Wet_specific_heat.html",
 				"table": "HFM/Cellulose_Insulation_HFM_Wet_specific_heat.html"
-			}				"display name": "Dried",
-				"graph": "HFM/Cellulose_Insulation_HFM_Dry_specific_heat.html",
-				"table": "HFM/Cellulose_Insulation_HFM_Dry_specific_heat.html"
-			}
-		]
+			}		]
 	},
 	{
 		"test name": "thermal conductivity",

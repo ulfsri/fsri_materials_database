@@ -33,11 +33,7 @@
 				"display name": "Unconditioned",
 				"graph": "HFM/Polyolefin_Carpet_Low_Pile_HFM_Wet_specific_heat.html",
 				"table": "HFM/Polyolefin_Carpet_Low_Pile_HFM_Wet_specific_heat.html"
-			}				"display name": "Dried",
-				"graph": "HFM/Polyolefin_Carpet_Low_Pile_HFM_Dry_specific_heat.html",
-				"table": "HFM/Polyolefin_Carpet_Low_Pile_HFM_Dry_specific_heat.html"
-			}
-		]
+			}		]
 	},
 	{
 		"test name": "thermal conductivity",

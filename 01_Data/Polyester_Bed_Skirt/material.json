@@ -29,11 +29,7 @@
 				"display name": "Unconditioned",
 				"graph": "HFM/Polyester_Bed_Skirt_HFM_Wet_specific_heat.html",
 				"table": "HFM/Polyester_Bed_Skirt_HFM_Wet_specific_heat.html"
-			}				"display name": "Dried",
-				"graph": "HFM/Polyester_Bed_Skirt_HFM_Dry_specific_heat.html",
-				"table": "HFM/Polyester_Bed_Skirt_HFM_Dry_specific_heat.html"
-			}
-		]
+			}		]
 	},
 	{
 		"test name": "thermal conductivity",

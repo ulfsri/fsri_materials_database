@@ -26,7 +26,10 @@
 		"test description": "",
 		"display name": "",
 		"nested tests": [{
-		]
+				"display name": "Unconditioned",
+				"graph": "HFM/Cotton_Batting_HFM_Wet_specific_heat.html",
+				"table": "HFM/Cotton_Batting_HFM_Wet_specific_heat.html"
+			}		]
 	},
 	{
 		"test name": "thermal conductivity",
