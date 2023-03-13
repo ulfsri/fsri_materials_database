@@ -245,7 +245,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
         # calculate mean melting temperature
         if len(melt_temp) > 2:
             html_df = pd.DataFrame()
-            html_df = pd.DataFrame(index = ['Peak Melting Temperature (C)', 'Temperature at Onset of Melting (C)', 'Enthalpy of Melting (J/g-K)'], columns = ['Mean', 'Std. Dev.'])
+            html_df = pd.DataFrame(index = ['Peak Melting Temperature (C)', 'Temperature at Onset of Melting (C)', 'Enthalpy of Melting (J/g)'], columns = ['Mean', 'Std. Dev.'])
 
             html_df.at['Peak Melting Temperature (C)', 'Mean'] = np.mean(np.array(melt_temp)).round(1)
             html_df.at['Peak Melting Temperature (C)', 'Std. Dev.'] = np.std(np.array(melt_temp)).round(1)
