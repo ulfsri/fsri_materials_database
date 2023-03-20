@@ -67,6 +67,23 @@ def CO_density(temperature):
     rho = Pr/(R_spec*T)
     return rho
 
+label_size = 20
+tick_size = 18
+line_width = 2
+legend_font = 10
+fig_width = 10
+fig_height = 6
+
+def create_1plot_fig():
+    # Define figure for the plot
+    fig, ax1 = plt.subplots(figsize=(fig_width, fig_height))
+    #plt.subplots_adjust(left=0.08, bottom=0.3, right=0.92, top=0.95)
+
+    # Reset values for x & y limits
+    x_min, x_max, y_min, y_max = 0, 0, 0, 0
+
+    return(fig, ax1)
+
 def format_and_save_plot(quantity, file_loc,m):
 
     label_dict = {'HRRPUA': 'HRRPUA (kW/m<sup>2</sup>)', 'MLR': 'Mass Loss Rate (g/s)', 'EHC':'Effective Heat of Combustion (MJ/kg)' , 'SPR': 'Smoke Production Rate (1/s)', 'SEA': 'Specific Extinction Area', 'Extinction Coefficient': 'Extinction Coefficient (1/m)', 'CO': 'CO Yield (g/g)', 'Soot': 'Soot Yield (g/g)'}
@@ -134,21 +151,29 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                     pretest_notes = scalar_data_series.at['PRE TEST CMT']
                 except:
                     pretest_notes = ' '
-                surf_area_mm2 = 10000
-                dims = 'not specified'
-                frame = False
-                for notes in pretest_notes.split(';'):
-                    if 'Dimensions' in notes:
-                        dims = []
-                        for i in notes.split(' '):
-                            try:
-                                dims.append(float(i))
-                            except: continue
-                        surf_area_mm2 = dims[0] * dims[1]
-                    elif 'frame' in notes:
-                        frame = True
-                if frame or '-Frame' in f:
-                        surf_area_mm2 = 8836
+                
+                # import notes to get sample surface area
+                notes_df = pd.read_csv(f'{data_dir}{d}/Cone/{material}_Cone_Notes.csv', index_col = 0)
+                rep = f.split('_')[-1].replace('.csv','')
+                HF = f.split('_')[-3].replace('Scan', '')
+                notes_ind = f'{HF}_{rep}'
+                surf_area_mm2 = notes_df.loc[notes_ind, 'Surface Area (mm^2)']
+
+                # surf_area_mm2 = 10000
+                # dims = 'not specified'
+                # frame = False
+                # for notes in pretest_notes.split(';'):
+                #     if 'Dimensions' in notes:
+                #         dims = []
+                #         for i in notes.split(' '):
+                #             try:
+                #                 dims.append(float(i))
+                #             except: continue
+                #         surf_area_mm2 = dims[0] * dims[1]
+                #     elif 'frame' in notes:
+                #         frame = True
+                # if frame or '-Frame' in f:
+                #         surf_area_mm2 = 8836
 
                 surf_area_m2 = surf_area_mm2 / 1000000.0
 
@@ -215,10 +240,21 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                 ign_ind = str(int(4 * ign_time + 1))
                 end_ind = str(int(4 * end_time + 1))
                 ign_mass = float(data_temp_df.loc[ign_ind,'Sample Mass'])
-                end_mass = float(data_temp_df.loc[end_ind,'Sample Mass'])
-                holder_mass = data_temp_df.at['1','Sample Mass'] - float(scalar_data_series.at['SPECIMEN MASS'])
-                # if float("{:.2f}".format(data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'Sample Mass'] - holder_mass)) < 0:
-                #     print('negative mass')
+
+                if float(data_temp_df.loc[str(1),'Sample Mass']) - float(data_temp_df.loc[end_ind,'Sample Mass']) > float(scalar_data_series['SPECIMEN MASS']):
+                    sample_mass_inc = data_temp_df.loc[str(2):end_ind,'Sample Mass'].diff().abs() > 1
+                    mass_discont_list = sample_mass_inc.index[sample_mass_inc == True].tolist()
+                    mass_discont_list_test = [abs(int(end_ind) - int(i)) for i in mass_discont_list]
+                    if mass_discont_list_test:
+                        if int(min(mass_discont_list_test)) < 150: # this is an arbitrary threshold that appears to work well - filters out dicontinuities early in tests
+                            end_ind = int(min(mass_discont_list))-4 # -4 is an arbitrary number that works well - this ensure that if the holder was removed, we go back 1 second for the final mass 
+                            if end_ind < 0:
+                                end_ind = int(min(mass_discont_list))
+
+                end_mass = float(data_temp_df.loc[str(end_ind),'Sample Mass'])
+                if float(data_temp_df.loc[str(1),'Sample Mass']) - end_mass < 0:
+                    end_mass = float(data_temp_df.loc[str(1),'Sample Mass']) - float(scalar_data_series['SPECIMEN MASS'])
+
                 mass_lost = ign_mass-end_mass
                 ml_10 = ign_mass - 0.1*mass_lost
                 ml_90 = ign_mass - 0.9*mass_lost
