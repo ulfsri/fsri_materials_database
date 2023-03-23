@@ -14,8 +14,8 @@
 	"material_dir": "Gypsum_Wallboard",
 	"parent material": "",
 	"component material": [
-		"Gypsum_Wallboard_Gypsum_Core",
-		"Gypsum_Wallboard_Paper"
+		"Gypsum Wallboard - Gypsum Core",
+		"Gypsum Wallboard - Paper"
 	],
 	"material category": [
 		"interior finish"

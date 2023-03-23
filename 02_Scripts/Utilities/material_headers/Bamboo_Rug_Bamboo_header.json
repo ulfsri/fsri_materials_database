@@ -1,5 +1,5 @@
 {
-	"material": "Bamboo Rug Bamboo",
+	"material": "Bamboo Rug - Bamboo",
 	"alternate names": [
 		"bamboo mat",
 		"bamboo floor mat",
@@ -17,7 +17,7 @@
 	"description": "Bamboo slats that are glued to a fabric substrate to make the Bamboo Rug.",
 	"short desc": "Bamboo slats from the Bamboo Rug.",
 	"source": "Samples cut from a 2 ft x 3 ft rug",
-	"density": "1000 kg/m<sup>3</sup>",
+	"density": "700 kg/m<sup>3</sup>",
 	"property scales": [
 		"milligram"
 	],

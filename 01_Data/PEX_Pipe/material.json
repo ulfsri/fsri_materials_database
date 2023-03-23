@@ -1,0 +1,67 @@
+{
+	"material": "Cross-linked Polyethylene (PEX) Pipe",
+	"alternate names": [
+		"pex",
+		"pe pipe",
+		"polyethylene",
+		"tube",
+		"xpe",
+		"xlpe"
+	],
+	"material_dir": "PEX_Pipe",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"plumbing"
+	],
+	"image file": "PEX_Pipe.JPG",
+	"image 600x400 file": "PEX_Pipe600x400.jpg",
+	"video file": "",
+	"description": "Cross-linked polyethylene (PEX) Pipe is tubing made from a thermoset plastic that is often used in building services pipework.",
+	"short desc": "Pipe made with cross-linked polyethylene (PEX).",
+	"source": "Samples cut from nominal 1/2 in (15 mm) PEX-b tubing.",
+	"density": "941 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/PEX_Pipe_STA_MLR.html"
+			}		]
+	},
+	{
+		"test name": "specific heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "MCC/PEX_Pipe_MCC_HRR.html"
+	}],
+	"derived property": [
+	{
+		"test name": "effective heat of combustion",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Micro-scale Combustion Calorimeter",
+				"table": "MCC/PEX_Pipe_MCC_Heats_of_Combustion.html"
+			}		]
+	},
+	{
+		"test name": "melting temperature and enthalpy of melting",
+		"test description": "",
+		"display name": "",
+		"table": "STA/PEX_Pipe_STA_Analysis_Melting_Temp_Table.html"
+	},
+	{
+		"test name": "emissivity",
+		"test description": "",
+		"display name": "",
+		"table": "FTIR/IS/PEX_Pipe_Emissivity.html",
+		"graph": "FTIR/IS/PEX_Pipe_Emissivity.html"
+	}]
+}

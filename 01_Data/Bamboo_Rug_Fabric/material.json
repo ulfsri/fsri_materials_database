@@ -1,5 +1,5 @@
 {
-	"material": "Bamboo Rug Fabric",
+	"material": "Bamboo Rug - Fabric",
 	"alternate names": [
 		"polyester fabric"
 	],
@@ -15,7 +15,7 @@
 	"description": "Polyester fabric substrate from the Bamboo Rug.",
 	"short desc": "Fabric substrate from the Bamboo Rug.",
 	"source": "Samples cut from a 2 ft x 3 ft rug",
-	"density": "1000 kg/m<sup>3</sup>",
+	"density": "97 kg/m<sup>3</sup>",
 	"property scales": [
 		"milligram"
 	],

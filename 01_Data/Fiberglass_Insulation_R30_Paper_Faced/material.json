@@ -9,8 +9,8 @@
 	"material_dir": "Fiberglass_Insulation_R30_Paper_Faced",
 	"parent material": "",
 	"component material": [
-		"Fiberglass_Insulation_R30_Paper_Faced_Fiberglass",
-		"Fiberglass_Insulation_R30_Paper_Faced_Paper"
+		"Paper-faced R30 Fiberglass Insulation - Fiberglass",
+		"Paper-faced R30 Fiberglass Insulation - Paper"
 	],
 	"material category": [
 		"insulation"

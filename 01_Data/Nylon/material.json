@@ -119,5 +119,12 @@
 		"test description": "",
 		"display name": "",
 		"table": "STA/Nylon_STA_Analysis_Melting_Temp_Table.html"
+	},
+	{
+		"test name": "emissivity",
+		"test description": "",
+		"display name": "",
+		"table": "FTIR/IS/Nylon_Emissivity.html",
+		"graph": "FTIR/IS/Nylon_Emissivity.html"
 	}]
 }
