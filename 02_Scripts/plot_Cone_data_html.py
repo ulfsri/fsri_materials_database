@@ -153,27 +153,28 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                     pretest_notes = ' '
                 
                 # import notes to get sample surface area
-                notes_df = pd.read_csv(f'{data_dir}{d}/Cone/{material}_Cone_Notes.csv', index_col = 0)
-                rep = f.split('_')[-1].replace('.csv','')
-                HF = f.split('_')[-3].replace('Scan', '')
-                notes_ind = f'{HF}_{rep}'
-                surf_area_mm2 = notes_df.loc[notes_ind, 'Surface Area (mm^2)']
-
-                # surf_area_mm2 = 10000
-                # dims = 'not specified'
-                # frame = False
-                # for notes in pretest_notes.split(';'):
-                #     if 'Dimensions' in notes:
-                #         dims = []
-                #         for i in notes.split(' '):
-                #             try:
-                #                 dims.append(float(i))
-                #             except: continue
-                #         surf_area_mm2 = dims[0] * dims[1]
-                #     elif 'frame' in notes:
-                #         frame = True
-                # if frame or '-Frame' in f:
-                #         surf_area_mm2 = 8836
+                try:
+                    notes_df = pd.read_csv(f'{data_dir}{d}/Cone/{material}_Cone_Notes.csv', index_col = 0)
+                    rep = f.split('_')[-1].replace('.csv','')
+                    HF = f.split('_')[-3].replace('Scan', '')
+                    notes_ind = f'{HF}_{rep}'
+                    surf_area_mm2 = notes_df.loc[notes_ind, 'Surface Area (mm^2)']
+                except:
+                    surf_area_mm2 = 10000
+                    dims = 'not specified'
+                    frame = False
+                    for notes in pretest_notes.split(';'):
+                        if 'Dimensions' in notes:
+                            dims = []
+                            for i in notes.split(' '):
+                                try:
+                                    dims.append(float(i))
+                                except: continue
+                            surf_area_mm2 = dims[0] * dims[1]
+                        elif 'frame' in notes:
+                            frame = True
+                    if frame or '-Frame' in f:
+                            surf_area_mm2 = 8836
 
                 surf_area_m2 = surf_area_mm2 / 1000000.0
 
@@ -240,20 +241,24 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                 ign_ind = str(int(4 * ign_time + 1))
                 end_ind = str(int(4 * end_time + 1))
                 ign_mass = float(data_temp_df.loc[ign_ind,'Sample Mass'])
+                end_mass = float(data_temp_df.loc[str(end_ind),'Sample Mass'])
 
                 if float(data_temp_df.loc[str(1),'Sample Mass']) - float(data_temp_df.loc[end_ind,'Sample Mass']) > float(scalar_data_series['SPECIMEN MASS']):
-                    sample_mass_inc = data_temp_df.loc[str(2):end_ind,'Sample Mass'].diff().abs() > 1
-                    mass_discont_list = sample_mass_inc.index[sample_mass_inc == True].tolist()
-                    mass_discont_list_test = [abs(int(end_ind) - int(i)) for i in mass_discont_list]
-                    if mass_discont_list_test:
-                        if int(min(mass_discont_list_test)) < 150: # this is an arbitrary threshold that appears to work well - filters out dicontinuities early in tests
-                            end_ind = int(min(mass_discont_list))-4 # -4 is an arbitrary number that works well - this ensure that if the holder was removed, we go back 1 second for the final mass 
-                            if end_ind < 0:
-                                end_ind = int(min(mass_discont_list))
+                    try:
+                        sample_mass_inc = data_temp_df.loc[str(2):end_ind,'Sample Mass'].diff().abs() > 1
+                        mass_discont_list = sample_mass_inc.index[sample_mass_inc == True].tolist()
+                        mass_discont_list_test = [abs(int(end_ind) - int(i)) for i in mass_discont_list]
+                        if mass_discont_list_test:
+                            if int(min(mass_discont_list_test)) < 150: # this is an arbitrary threshold that appears to work well - filters out dicontinuities early in tests
+                                end_ind = int(min(mass_discont_list))-4 # -4 is an arbitrary number that works well - this ensure that if the holder was removed, we go back 1 second for the final mass 
+                                if end_ind < 0:
+                                    end_ind = int(min(mass_discont_list))
+                        end_mass = float(data_temp_df.loc[str(end_ind),'Sample Mass'])
+                        if float(data_temp_df.loc[str(1),'Sample Mass']) - end_mass < 0:
+                            end_mass = float(data_temp_df.loc[str(1),'Sample Mass']) - float(scalar_data_series['SPECIMEN MASS'])
 
-                end_mass = float(data_temp_df.loc[str(end_ind),'Sample Mass'])
-                if float(data_temp_df.loc[str(1),'Sample Mass']) - end_mass < 0:
-                    end_mass = float(data_temp_df.loc[str(1),'Sample Mass']) - float(scalar_data_series['SPECIMEN MASS'])
+                    except:
+                        end_mass = float(data_temp_df.loc[str(1),'Sample Mass']) - float(scalar_data_series['SPECIMEN MASS'])
 
                 mass_lost = ign_mass-end_mass
                 ml_10 = ign_mass - 0.1*mass_lost
