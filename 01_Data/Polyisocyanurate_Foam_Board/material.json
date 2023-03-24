@@ -27,6 +27,24 @@
 	],
 	"measured property": [
 	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Polyisocyanurate_Foam_Board_Cone_MLR_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Polyisocyanurate_Foam_Board_Cone_MLR_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Polyisocyanurate_Foam_Board_Cone_MLR_75.html"
+			}
+		]
+	},
+	{
 		"test name": "heat release rate per unit area",
 		"test description": "",
 		"display name": "",
@@ -48,24 +66,6 @@
 		]
 	},
 	{
-		"test name": "mass loss rate",
-		"test description": "",
-		"display name": "",
-		"nested tests": [{
-				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
-				"graph": "Cone/Polyisocyanurate_Foam_Board_Cone_MLR_25.html"
-			},
-			{
-				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
-				"graph": "Cone/Polyisocyanurate_Foam_Board_Cone_MLR_50.html"
-			},
-			{
-				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
-				"graph": "Cone/Polyisocyanurate_Foam_Board_Cone_MLR_75.html"
-			}
-		]
-	},
-	{
 		"test name": "carbon monoxide yield",
 		"test description": "",
 		"display name": "",
@@ -77,5 +77,14 @@
 		"display name": "",
 		"graph": "MCC/Polyisocyanurate_Foam_Board_MCC_HRR.html"
 	}],
-	"derived property": []
+	"derived property": [
+	{
+		"test name": "effective heat of combustion",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Micro-scale Combustion Calorimeter",
+				"table": "MCC/Polyisocyanurate_Foam_Board_MCC_Heats_of_Combustion.html"
+			}		]
+	}]
 }

@@ -1,0 +1,23 @@
+{
+	"material": "Rubber Foam Pipe Insulation",
+	"alternate names": [
+		"Foam Pipe Insulation"
+	],
+	"material_dir": "Rubber_Foam_Pipe_Insulation",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"insulation",
+		"plumbing"
+	],
+	"image file": "Rubber_Foam_Pipe_Insulation.JPG",
+	"image 600x400 file": "Rubber_Foam_Pipe_Insulation600x400.jpg",
+	"video file": "",
+	"description": "Flexible and lightweight closed-cell elastomeric material designed for insulating plumbing or heating/air conditioning ventilation systems.",
+	"short desc": "Flexible and lightweight closed-cell elastomeric material designed for insulating plumbing or HVAC systems.",
+	"source": "Cut from 12 mm thick, tubular section.",
+	"density": "52 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

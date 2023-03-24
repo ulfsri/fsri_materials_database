@@ -1,0 +1,56 @@
+{
+	"material": "Gypsum Wallboard - Paper",
+	"alternate names": [
+		"gypsum",
+		"drywall",
+		"sheet rock",
+		"gypboard",
+		"plasterboard",
+		"dry lining",
+		"buster board",
+		"slap board",
+		"custard board"		
+	],
+	"material_dir": "Gypsum_Wallboard_Paper",
+	"parent material": "Gypsum_Wallboard",
+	"component material": [],
+	"material category": [
+		"interior finish"
+	],
+	"image file": "Gypsum_Wallboard.JPG",
+	"image 600x400 file": "Gypsum_Wallboard600x400.jpg",
+	"video file": "",
+	"description": "The unpainted paper facing from lightweight gypsum wallboard.",
+	"short desc": "The unpainted paper facing from lightweight gypsum wallboard.",
+	"source": "Samples ground from pieces cut from 1.28 cm thick, 1.2 m by 2.4 cm commercially available sheet.",
+	"density": "635 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Gypsum_Wallboard_Paper_STA_MLR.html"
+			}		]
+	},
+	{
+		"test name": "specific heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "MCC/Gypsum_Wallboard_Paper_MCC_HRR.html"
+	}],
+	"derived property": [
+	{
+		"test name": "effective heat of combustion",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Micro-scale Combustion Calorimeter",
+				"table": "MCC/Gypsum_Wallboard_Paper_MCC_Heats_of_Combustion.html"
+			}		]
+	}]
+}

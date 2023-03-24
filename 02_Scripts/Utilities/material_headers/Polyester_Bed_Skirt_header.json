@@ -1,0 +1,22 @@
+{
+	"material": "Polyester Bed Skirt",
+	"alternate names": [
+		"Polyester Sheet"
+	],
+	"material_dir": "Polyester_Bed_Skirt",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"sleeping product"
+	],
+	"image file": "Polyester_Bed_Skirt.JPG",
+	"image 600x400 file": "Polyester_Bed_Skirt600x400.jpg",
+	"video file": "",
+	"description": "Piece of polyester fabric that is placed between the mattress and the box spring.",
+	"short desc": "Piece of polyester fabric that is placed between the mattress and the box spring.",
+	"source": "Samples cut from 0.2 mm thick commercially available bed skirt.",
+	"density": "432 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

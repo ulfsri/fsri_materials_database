@@ -1,0 +1,29 @@
+{
+	"material": "High Density Polyethylene (HDPE)",
+	"alternate names": [
+		"PEHD",
+		"alkathene",
+		"polythene",
+		"hitec",
+		"playboard",
+		"polystone",
+		"plexar",
+		"PE"		
+	],
+	"material_dir": "HDPE",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"general polymer"
+	],
+	"image file": "HDPE.JPG",
+	"image 600x400 file": "HDPE600x400.jpg",
+	"video file": "",
+	"description": "High Density Polyethylene (HDPE) is a durable polyolefin thermoplastic often used when molding manufactured parts.",
+	"short desc": "HDPE is a durable polyolefin thermoplastic often used when molding manufactured parts.",
+	"source": "Samples cut from 0.32 cm thick, 30 cm by 30 cm commercially available sheet.",
+	"density": "971 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

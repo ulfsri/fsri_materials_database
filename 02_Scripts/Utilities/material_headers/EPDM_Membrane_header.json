@@ -1,0 +1,22 @@
+{
+	"material": "Ethylene Propylene Diene Monomer (EPDM) Roofing Membrane",
+	"alternate names": [
+		"EPDM Membrane"
+	],
+	"material_dir": "EPDM_Membrane",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"roofing"
+	],
+	"image file": "EPDM_Membrane.JPG",
+	"image 600x400 file": "EPDM_Membrane600x400.jpg",
+	"video file": "",
+	"description": "Ethylene propylene diene monomer (EPDM) is a synthetic rubber roofing membrane derived from oil and natural gas. EPDM is an M-Class rubber under ASTM standard D-1418.",
+	"short desc": "EPDM is a synthetic rubber roofing membrane most commonly used in low-slope buildings",
+	"source": "Samples cut from a 6 mm thick roll.",
+	"density": "1200 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

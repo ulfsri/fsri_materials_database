@@ -1,0 +1,27 @@
+{
+	"material": "Overstuffed Chair Polyester - Batting",
+	"alternate names": [
+		"polyester foam",
+		"cushion batting",
+		"pet batting",
+		"polyester wadding",
+		"synthetic batting"
+	],
+	"material_dir": "Overstuffed_Chair_Polyester_Batting",
+	"parent material": "Overstuffed Chair Assembly",
+	"component material": [],
+	"material category": [
+		"general polymer",
+		"upholstered furniture"
+	],
+	"image file": "Overstuffed_Chair_Polyester_Batting.JPG",
+	"image 600x400 file": "Overstuffed_Chair_Polyester_Batting600x400.jpg",
+	"video file": "",
+	"description": "Polyester batting is a sheet of loosely matted fibers used for padding in cushions and blankets.",
+	"short desc": "Polyester batting is a sheet of loosely matted fibers used for padding in cushions and blankets.",
+	"source": "Samples cut from 0.75 m x 1.7 m x 0.044 m thick sheet wrapped around a polyurethane foam cushion taken from an overstuffed chair.",
+	"density": "18.0 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

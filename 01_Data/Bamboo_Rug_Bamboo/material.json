@@ -1,5 +1,5 @@
 {
-	"material": "Bamboo Rug Bamboo",
+	"material": "Bamboo Rug - Bamboo",
 	"alternate names": [
 		"bamboo mat",
 		"bamboo floor mat",
@@ -11,13 +11,13 @@
 	"material category": [
 		"interior finish"
 	],
-	"image file": "Bamboo_Rug.JPG",
-	"image 600x400 file": "Bamboo_Rug600x400.jpg",
+	"image file": "Bamboo_Rug_Bamboo.JPG",
+	"image 600x400 file": "Bamboo_Rug_Bamboo600x400.jpg",
 	"video file": "",
 	"description": "Bamboo slats that are glued to a fabric substrate to make the Bamboo Rug.",
 	"short desc": "Bamboo slats from the Bamboo Rug.",
 	"source": "Samples cut from a 2 ft x 3 ft rug",
-	"density": "1000 kg/m<sup>3</sup>",
+	"density": "700 kg/m<sup>3</sup>",
 	"property scales": [
 		"milligram"
 	],
@@ -29,24 +29,22 @@
 		"nested tests": [{
 				"display name": "Simultaneous Thermal Analyzer",
 				"graph": "STA/N2/Bamboo_Rug_Bamboo_STA_MLR.html"
-			}
-		]
-
+			}		]
 	},
 	{
 		"test name": "specific heat release rate",
 		"test description": "",
 		"display name": "",
 		"graph": "MCC/Bamboo_Rug_Bamboo_MCC_HRR.html"
-	}],	
+	}],
 	"derived property": [
 	{
 		"test name": "effective heat of combustion",
-		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
+		"test description": "",
 		"display name": "",
 		"nested tests": [{
-			"display name": "Micro-Scale Combustion Calorimeter",
-			"table": "MCC/Bamboo_Rug_Bamboo_MCC_Heats_of_Combustion.html"
-		}]
+				"display name": "Micro-scale Combustion Calorimeter",
+				"table": "MCC/Bamboo_Rug_Bamboo_MCC_Heats_of_Combustion.html"
+			}		]
 	}]
 }

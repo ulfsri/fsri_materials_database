@@ -1,0 +1,23 @@
+{
+	"material": "Cellulose Insulation",
+	"alternate names": [
+		"Blow-in insulation",
+		"Blow-in cellulose insulation"
+	],
+	"material_dir": "Cellulose_Insulation",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"insulation"
+	],
+	"image file": "Cellulose_Insulation.JPG",
+	"image 600x400 file": "Cellulose_Insulation600x400.jpg",
+	"video file": "",
+	"description": "Cellulose insulation is composed of treated (fire retardants and mold growth inhibitors) recycled newspapers, cardboard, office paper, and other common waste paper products.",
+	"short desc": "Cellulose insulation is compared of small pieces of treated, recycled paper products.",
+	"source": "Samples prepared from 11 kg commercially available.",
+	"density": "68 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

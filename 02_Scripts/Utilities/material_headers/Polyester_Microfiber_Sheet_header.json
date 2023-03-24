@@ -1,0 +1,23 @@
+{
+	"material": "Polyester Microfiber Sheet",
+	"alternate names": [
+		"Polyester Sheet",
+		"Microfiber Sheet"
+	],
+	"material_dir": "Polyester_Microfiber_Sheet",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"sleeping product"
+	],
+	"image file": "Polyester_Microfiber_Sheet.JPG",
+	"image 600x400 file": "Polyester_Microfiber_Sheet600x400.jpg",
+	"video file": "",
+	"description": "Polyester microfiber fabric top sheet.",
+	"short desc": "Polyester microfiber fabric top sheet.",
+	"source": "Samples cut from 0.14 mm thick commercially available sheet.",
+	"density": "457.3 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

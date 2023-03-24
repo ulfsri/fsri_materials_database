@@ -1,0 +1,23 @@
+{
+	"material": "Black Polymethyl Methacrylate (PMMA)",
+	"alternate names": [
+		"polymethyl methacrylate",
+		"PMMA"
+	],
+	"material_dir": "Black_PMMA",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"general polymer"
+	],
+	"image file": "Black_PMMA.JPG",
+	"image 600x400 file": "Black_PMMA600x400.jpg",
+	"video file": "",
+	"description": "Black polymethyl methacrylate is an opaque engineered thermoplastic most commonly used for calibrating fire models.",
+	"short desc": "Black PMMA is an opaque engineered thermoplastic most commonly used for calibrating fire models.",
+	"source": "Samples cut from 0.48 cm thick, 0.3 m x 0.9 m boards.",
+	"density": "1181 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

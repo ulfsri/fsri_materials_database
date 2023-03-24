@@ -1,0 +1,22 @@
+{
+	"material": "Vinyl Siding",
+	"alternate names": [
+		"Exterior Siding"
+	],
+	"material_dir": "Vinyl_Siding",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"exterior finish"
+	],
+	"image file": "Vinyl_Siding.JPG",
+	"image 600x400 file": "Vinyl_Siding600x400.jpg",
+	"video file": "",
+	"description": "Vinyl siding is an exterior finish for buildings primarily composed of polyvinyl chloride (PVC).",
+	"short desc": "Vinyl siding is an exterior finish for buildings primarily composed of polyvinyl chloride (PVC).",
+	"source": "Samples cut from 1.16 mm thick commercially available piece of siding.",
+	"density": " 1377 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

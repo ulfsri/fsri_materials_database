@@ -1,5 +1,5 @@
 {
-	"material": "Plastic Laminate Countertop Particle Board",
+	"material": "Plastic Laminate Countertop - Particle Board",
 	"alternate names": [
 		"kitchen countertop",
 		"laminate",
@@ -11,8 +11,8 @@
 	"material category": [
 		"interior finish"
 	],
-	"image file": "Plastic_Laminate_Countertop.JPG",
-	"image 600x400 file": "Plastic_Laminate_Countertop600x400.jpg",
+	"image file": "Plastic_Laminate_Countertop_Particle_Board.JPG",
+	"image 600x400 file": "Plastic_Laminate_Countertop_Particle_Board600x400.jpg",
 	"video file": "",
 	"description": "Particle board substrate from Plastic Laminate Countertop.",
 	"short desc": "Particle board of Plastic Laminate Countertop.",
@@ -31,11 +31,11 @@
 	"derived property": [
 	{
 		"test name": "effective heat of combustion",
-		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
+		"test description": "",
 		"display name": "",
 		"nested tests": [{
-			"display name": "Micro-Scale Combustion Calorimeter",
-			"table": "MCC/Plastic_Laminate_Countertop_Particle_Board_MCC_Heats_of_Combustion.html"
-		}]
+				"display name": "Micro-scale Combustion Calorimeter",
+				"table": "MCC/Plastic_Laminate_Countertop_Particle_Board_MCC_Heats_of_Combustion.html"
+			}		]
 	}]
 }

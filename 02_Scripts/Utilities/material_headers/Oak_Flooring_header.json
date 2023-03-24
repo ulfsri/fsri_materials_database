@@ -1,0 +1,23 @@
+{
+	"material": "Oak Flooring",
+	"alternate names": [
+		"Wood Flooring",
+		"Hardwood Flooring"
+	],
+	"material_dir": "Oak_Flooring",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"interior finish"
+	],
+	"image file": "Oak_Flooring.JPG",
+	"image 600x400 file": "Oak_Flooring600x400.jpg",
+	"video file": "",
+	"description": "Oak wood flooring is made with floorboards cut from Oak hardwood trees.",
+	"short desc": "Oak wood flooring is made with floorboards cut from Oak hardwood trees.",
+	"source": "Samples cut from 16.54 mm thick, 5.7 cm wide floor boards.",
+	"density": "687 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

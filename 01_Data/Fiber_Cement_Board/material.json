@@ -1,0 +1,91 @@
+{
+	"material": "Fiber Cement Board",
+	"alternate names": [
+		"hardie board",
+		"siding",
+		"sheathing",
+		"hardiplank"
+	],
+	"material_dir": "Fiber_Cement_Board",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"exterior finish"
+	],
+	"image file": "Fiber_Cement_Board.JPG",
+	"image 600x400 file": "Fiber_Cement_Board600x400.jpg",
+	"video file": "",
+	"description": "Fiber Cement Board are composed of wood pulp and Portland cement.",
+	"short desc": "Fiber Cement Board are composed of wood pulp and Portland cement.",
+	"source": "Samples cut from 8.5 mm thick boards.",
+	"density": "1290 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
+	"measured property": [
+	{
+		"test name": "specific heat",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Fiber_Cement_Board_HFM_Wet_specific_heat.html",
+				"table": "HFM/Fiber_Cement_Board_HFM_Wet_specific_heat.html"
+			},
+			{
+				"display name": "Dried",
+				"graph": "HFM/Fiber_Cement_Board_HFM_Dry_specific_heat.html",
+				"table": "HFM/Fiber_Cement_Board_HFM_Dry_specific_heat.html"
+			}
+		]
+	},
+	{
+		"test name": "thermal conductivity",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Fiber_Cement_Board_HFM_Wet_conductivity.html",
+				"table": "HFM/Fiber_Cement_Board_HFM_Wet_conductivity.html"
+			},
+			{
+				"display name": "Dried",
+				"graph": "HFM/Fiber_Cement_Board_HFM_Dry_conductivity.html",
+				"table": "HFM/Fiber_Cement_Board_HFM_Dry_conductivity.html"
+			}
+		]
+	},
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Fiber_Cement_Board_STA_MLR.html"
+			}		]
+	},
+	{
+		"test name": "specific heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "MCC/Fiber_Cement_Board_MCC_HRR.html"
+	}],
+	"derived property": [
+	{
+		"test name": "effective heat of combustion",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Micro-scale Combustion Calorimeter",
+				"table": "MCC/Fiber_Cement_Board_MCC_Heats_of_Combustion.html"
+			}		]
+	},
+	{
+		"test name": "emissivity",
+		"test description": "",
+		"display name": "",
+		"table": "FTIR/IS/Fiber_Cement_Board_Emissivity.html",
+		"graph": "FTIR/IS/Fiber_Cement_Board_Emissivity.html"
+	}]
+}

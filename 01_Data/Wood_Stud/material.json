@@ -1,0 +1,136 @@
+{
+	"material": "Wood Stud",
+	"alternate names": [
+		"spf board",
+		"2x4",
+		"dimensional lumber",
+		"whitewood",
+		"framing lumber",
+		"structural softwood",
+		"construction framing"
+	],
+	"material_dir": "Wood_Stud",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"structural",
+		"exterior finish",
+		"interior finish"
+	],
+	"image file": "Wood_Stud.JPG",
+	"image 600x400 file": "Wood_Stud600x400.jpg",
+	"video file": "",
+	"description": "Dimensional lumber is softwood (typically spruce, pine, or fir) cut to specific dimensions for construction framing.",
+	"short desc": "Dimensional lumber is softwood used in construction framing.",
+	"source": "Samples cut from nomimal 2 in x 6 in board.",
+	"density": "355 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
+	"measured property": [
+	{
+		"test name": "specific heat",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Wood_Stud_HFM_Wet_specific_heat.html",
+				"table": "HFM/Wood_Stud_HFM_Wet_specific_heat.html"
+			},
+			{
+				"display name": "Dried",
+				"graph": "HFM/Wood_Stud_HFM_Dry_specific_heat.html",
+				"table": "HFM/Wood_Stud_HFM_Dry_specific_heat.html"
+			}
+		]
+	},
+	{
+		"test name": "thermal conductivity",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Wood_Stud_HFM_Wet_conductivity.html",
+				"table": "HFM/Wood_Stud_HFM_Wet_conductivity.html"
+			},
+			{
+				"display name": "Dried",
+				"graph": "HFM/Wood_Stud_HFM_Dry_conductivity.html",
+				"table": "HFM/Wood_Stud_HFM_Dry_conductivity.html"
+			}
+		]
+	},
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Wood_Stud_STA_MLR.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Wood_Stud_Cone_MLR_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Wood_Stud_Cone_MLR_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Wood_Stud_Cone_MLR_75.html"
+			}
+		]
+	},
+	{
+		"test name": "heat release rate per unit area",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Wood_Stud_Cone_HRRPUA_25.html",
+				"table": "Cone/Wood_Stud_Cone_Analysis_HRRPUA_Table_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Wood_Stud_Cone_HRRPUA_50.html",
+				"table": "Cone/Wood_Stud_Cone_Analysis_HRRPUA_Table_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Wood_Stud_Cone_HRRPUA_75.html",
+				"table": "Cone/Wood_Stud_Cone_Analysis_HRRPUA_Table_75.html"
+			}
+		]
+	},
+	{
+		"test name": "carbon monoxide yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/Wood_Stud_Cone_Analysis_CO_Table.html"
+	},
+	{
+		"test name": "specific heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "MCC/Wood_Stud_MCC_HRR.html"
+	}],
+	"derived property": [
+	{
+		"test name": "effective heat of combustion",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Micro-scale Combustion Calorimeter",
+				"table": "MCC/Wood_Stud_MCC_Heats_of_Combustion.html"
+			}		]
+	},
+	{
+		"test name": "emissivity",
+		"test description": "",
+		"display name": "",
+		"table": "FTIR/IS/Wood_Stud_Emissivity.html",
+		"graph": "FTIR/IS/Wood_Stud_Emissivity.html"
+	}]
+}

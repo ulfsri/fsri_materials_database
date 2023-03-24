@@ -1,0 +1,22 @@
+{
+	"material": "Vinyl Tile",
+	"alternate names": [
+		""
+	],
+	"material_dir": "Vinyl_Tile",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"interior finish"
+	],
+	"image file": "Vinyl_Tile.JPG",
+	"image 600x400 file": "Vinyl_Tile600x400.jpg",
+	"video file": "",
+	"description": "Vinyl flooring is a synthetic flooring option made from polyvinyl chloride plastic.",
+	"short desc": "Vinyl flooring is a synthetic flooring option made from polyvinyl chloride plastic.",
+	"source":"Samples prepared from commercially available 2.5 mm thick tiles.",
+	"density":"2011 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

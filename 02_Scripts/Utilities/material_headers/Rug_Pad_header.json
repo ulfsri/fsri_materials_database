@@ -1,0 +1,23 @@
+{
+	"material": "Rug Pad",
+	"alternate names": [
+		"underlayment",
+		"gripper"
+	],
+	"material_dir": "Rug_Pad",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"interior finish"
+	],
+	"image file": "Rug_Pad.JPG",
+	"image 600x400 file": "Rug_Pad600x400.jpg",
+	"video file": "",
+	"description": "Rug Pad is a natural rubber foam substrate that rests under rugs to protect floors and rugs.",
+	"short desc": "Rug Pad is a natural rubber foam substrate that rests under rugs to protect floors and rugs.",
+	"source": "Cut from 0.47 cm thick roll.",
+	"density": "145 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

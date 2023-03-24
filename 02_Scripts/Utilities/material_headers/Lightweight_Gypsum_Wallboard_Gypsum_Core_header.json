@@ -1,0 +1,29 @@
+{
+	"material": "Lightweight Gypsum Wallboard - Gypsum Core",
+	"alternate names": [
+		"gypsum",
+		"drywall",
+		"sheet rock",
+		"gypboard",
+		"plasterboard",
+		"dry lining",
+		"buster board",
+		"slap board",
+		"custard board"		
+	],
+	"material_dir": "Lightweight_Gypsum_Wallboard_Gypsum_Core",
+	"parent material": "Lightweight Gypsum Wallboard",
+	"component material": [],
+	"material category": [
+		"interior finish"
+	],
+	"image file": "Lightweight_Gypsum_Wallboard_Gypsum_Core.JPG",
+	"image 600x400 file": "Lightweight_Gypsum_Wallboard_Gypsum_Core600x400.jpg",
+	"video file": "",
+	"description": "The gypsum core of a lightweight gypsum wallboard.",
+	"short desc": "The gypsum core of a lightweight gypsum wallboard.",
+	"source": "Samples ground from pieces cut from 1.28 cm thick, 1.2 m by 2.4 cm commercially available sheet.",
+	"density": "428 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram"
+	],

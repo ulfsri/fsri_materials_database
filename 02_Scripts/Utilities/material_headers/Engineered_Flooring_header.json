@@ -1,0 +1,24 @@
+{
+	"material": "Engineered Hardwood Flooring",
+	"alternate names": [
+		"engineered hardwood",
+		"engineered flooring"
+	],
+	"material_dir": "Engineered_Flooring",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"engineered wood",
+		"interior finish"
+	],
+	"image file": "Engineered_Flooring.JPG",
+	"image 600x400 file": "Engineered_Flooring600x400.jpg",
+	"video file": "",
+	"description": "Engineered hardwood flooring consists of a thin layer of hardwood on top of premium plywood.",
+	"short desc": "Engineered hardwood flooring consists of a thin layer of hardwood on top of premium plywood.",
+	"source": "Samples cut from 0.32 cm thick, 0.2 m x 1.8 m boards.",
+	"density": "760 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

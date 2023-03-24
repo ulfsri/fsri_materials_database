@@ -7,9 +7,9 @@
 	],
 	"material_dir": "Bamboo_Rug",
 	"parent material": "",
-	"component material": 	["Bamboo Rug Bamboo",
-				 "Bamboo Rug Fabric"
-				],
+	"component material": 	["Bamboo Rug - Bamboo",
+				 "Bamboo Rug - Fabric"
+	],
 	"material category": [
 		"interior finish"
 	],
@@ -32,9 +32,14 @@
 				"display name": "Unconditioned",
 				"graph": "HFM/Bamboo_Rug_HFM_Wet_conductivity.html",
 				"table": "HFM/Bamboo_Rug_HFM_Wet_conductivity.html"
-			}
-		]
-
-	}],	
-	"derived property": []
+			}		]
+	}],
+	"derived property": [
+	{
+		"test name": "emissivity",
+		"test description": "",
+		"display name": "",
+		"table": "FTIR/IS/Bamboo_Rug_Emissivity.html",
+		"graph": "FTIR/IS/Bamboo_Rug_Emissivity.html"
+	}]
 }

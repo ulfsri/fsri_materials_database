@@ -7,9 +7,10 @@
 	],
 	"material_dir": "Plastic_Laminate_Countertop",
 	"parent material": "",
-	"component material": 	["Plastic Laminate Countertop Laminate",
-				 "Plastic Laminate Countertop Paticle Board"
-				],
+	"component material": [
+		"Plastic Laminate Countertop - Laminate",
+		"Plastic Laminate Countertop - Particle Board"
+	],
 	"material category": [
 		"interior finish"
 	],
@@ -24,6 +25,24 @@
 		"bench scale"
 	],
 	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Plastic_Laminate_Countertop_Cone_MLR_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Plastic_Laminate_Countertop_Cone_MLR_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Plastic_Laminate_Countertop_Cone_MLR_75.html"
+			}
+		]
+	},
 	{
 		"test name": "heat release rate per unit area",
 		"test description": "",
@@ -46,28 +65,11 @@
 		]
 	},
 	{
-		"test name": "mass loss rate",
-		"test description": "",
-		"display name": "",
-		"nested tests": [{
-				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
-				"graph": "Cone/Plastic_Laminate_Countertop_Cone_MLR_25.html"
-			},
-			{
-				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
-				"graph": "Cone/Plastic_Laminate_Countertop_Cone_MLR_50.html"
-			},
-			{
-				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
-				"graph": "Cone/Plastic_Laminate_Countertop_Cone_MLR_75.html"
-			}
-		]
-	},
-	{
 		"test name": "carbon monoxide yield",
 		"test description": "",
 		"display name": "",
 		"table": "Cone/Plastic_Laminate_Countertop_Cone_Analysis_CO_Table.html"
 	}],
-	"derived property": []
+	"derived property": [
+]
 }

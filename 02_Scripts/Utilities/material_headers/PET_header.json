@@ -1,0 +1,27 @@
+{
+	"material": "Polyethylene terephthalate (PET)",
+	"alternate names": [
+		"polyester",
+		"PETE",
+		"PETP",
+		"PET-P",
+		"terylene",
+		"dacron"
+	],
+	"material_dir": "PET",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"general polymer"
+	],
+	"image file": "PET.JPG",
+	"image 600x400 file": "PET600x400.jpg",
+	"video file": "",
+	"description": "Polyethylene terephthalate (PET) is a thermoplastic polyester often used in textiles and packaging.",
+	"short desc": "PET is a thermoplastic polyester often used in textiles and packaging.",
+	"source": "Samples cut from 0.69 cm thick, 30 cm by 30 cm commercially available cast sheet.",
+	"density": "1401 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

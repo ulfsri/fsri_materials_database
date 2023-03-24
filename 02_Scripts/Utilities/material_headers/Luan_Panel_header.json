@@ -1,0 +1,29 @@
+{
+	"material": "Luan Panel",
+	"alternate names": [
+		"luan",
+		"lauan",
+		"luan plywood underlayment",
+		"lauan plywood underlayment",
+		"plywood",
+		"plywood panel",
+		"hardwood plywood underlayment"
+	],
+	"material_dir": "Luan_Panel",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"engineered wood",
+		"interior finish"
+	],
+	"image file": "Luan_Panel.JPG",
+	"image 600x400 file": "Luan_Panel600x400.jpg",
+	"video file": "",
+	"description": "Luan is a thin (typically 0.3 to 0.7 cm thick) hardwood plywood.",
+	"short desc": "Luan is a thin (typically 0.3 to 0.7 cm thick) hardwood plywood.",
+	"source": "Samples cut from 0.51 cm thick, 1.2 m x 2.4 m boards.",
+	"density": "343 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

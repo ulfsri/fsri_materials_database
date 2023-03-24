@@ -1,0 +1,26 @@
+{
+	"material": "Low Density Polyethylene (LDPE)",
+	"alternate names": [
+		"venelene",
+		"vickylen",
+		"dowlex",
+		"flexomer",
+		"PE"		
+	],
+	"material_dir": "LDPE",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"general polymer"
+	],
+	"image file": "LDPE.JPG",
+	"image 600x400 file": "LDPE600x400.jpg",
+	"video file": "",
+	"description": "Low Density Polyethylene (LDPE) is a polyolefin thermoplastic often used when molding manufactured parts.",
+	"short desc": "LDPE is a polyolefin thermoplastic often used when molding manufactured parts.",
+	"source": "Samples cut from 0.33 cm thick, 30 cm by 30 cm commercially available sheet.",
+	"density": "927 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

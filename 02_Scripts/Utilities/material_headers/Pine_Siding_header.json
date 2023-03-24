@@ -1,0 +1,25 @@
+{
+	"material": "Pine Siding",
+	"alternate names": [
+		"T1-11",
+		"drop siding",
+		"wood cladding"
+	],
+	"material_dir": "Pine_Siding",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"structural",
+		"exterior finish"
+	],
+	"image file": "Pine_Siding.JPG",
+	"image 600x400 file": "Pine_Siding600x400.jpg",
+	"video file": "",
+	"description": "Pine Siding is a building material made from pine wood used on exterior facades.",
+	"short desc": "Pine Siding is a building material made from pine wood used on exterior facades.",
+	"source": "Samples cut from 1.9 cm thick boards.",
+	"density": "310 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

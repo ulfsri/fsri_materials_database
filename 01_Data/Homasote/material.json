@@ -1,0 +1,90 @@
+{
+	"material": "Homasote",
+	"alternate names": [
+		"sound board",
+		"cellulose board",
+		"fiber wallboard"
+	],
+	"material_dir": "Homasote",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"engineered wood"
+	],
+	"image file": "Homasote.JPG",
+	"image 600x400 file": "Homasote600x400.jpg",
+	"video file": "",
+	"description": "Homasote is a cellulose fiber board that is used for sound control and insulation.",
+	"short desc": "Homasote is a cellulose fiber board that is used for sound control and insulation.",
+	"source": "Samples cut from 1.16 cm thick, 122 cm x 244 cm sheet.",
+	"density": "409 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
+	"measured property": [
+	{
+		"test name": "specific heat",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Homasote_HFM_Wet_specific_heat.html",
+				"table": "HFM/Homasote_HFM_Wet_specific_heat.html"
+			},
+			{
+				"display name": "Dried",
+				"graph": "HFM/Homasote_HFM_Dry_specific_heat.html",
+				"table": "HFM/Homasote_HFM_Dry_specific_heat.html"
+			}
+		]
+	},
+	{
+		"test name": "thermal conductivity",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Homasote_HFM_Wet_conductivity.html",
+				"table": "HFM/Homasote_HFM_Wet_conductivity.html"
+			},
+			{
+				"display name": "Dried",
+				"graph": "HFM/Homasote_HFM_Dry_conductivity.html",
+				"table": "HFM/Homasote_HFM_Dry_conductivity.html"
+			}
+		]
+	},
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Homasote_STA_MLR.html"
+			}		]
+	},
+	{
+		"test name": "specific heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "MCC/Homasote_MCC_HRR.html"
+	}],
+	"derived property": [
+	{
+		"test name": "effective heat of combustion",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Micro-scale Combustion Calorimeter",
+				"table": "MCC/Homasote_MCC_Heats_of_Combustion.html"
+			}		]
+	},
+	{
+		"test name": "emissivity",
+		"test description": "",
+		"display name": "",
+		"table": "FTIR/IS/Homasote_Emissivity.html",
+		"graph": "FTIR/IS/Homasote_Emissivity.html"
+	}]
+}

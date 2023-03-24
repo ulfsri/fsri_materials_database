@@ -1,0 +1,22 @@
+{
+	"material": "Oriented Strand Board",
+	"alternate names": [
+		"OSB"
+	],
+	"material_dir": "OSB",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"engineered wood"
+	],
+	"image file": "OSB.JPG",
+	"image 600x400 file": "OSB600x400.jpg",
+	"video file": "",
+	"description": "Oriented strand board is formed by adding adhesives and then compressing layers of wood strands in specific orientation.",
+	"short desc": "Oriented strand board is created by combining wood strands with an adhesives.",
+	"source": "Samples cut from 1.59 cm thick, 122 cm x 244 cm sheet.",
+	"density": "585 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

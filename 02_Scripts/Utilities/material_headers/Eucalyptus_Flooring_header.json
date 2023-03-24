@@ -1,0 +1,24 @@
+{
+	"material": "Eucalyptus Flooring",
+	"alternate names": [
+		"eucalyptus hardwood",
+		"hardwood flooring"
+	],
+	"material_dir": "Eucalyptus_Flooring",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"engineered wood",
+		"interior finish"
+	],
+	"image file": "Eucalyptus_Flooring.JPG",
+	"image 600x400 file": "Eucalyptus_Flooring600x400.jpg",
+	"video file": "",
+	"description": "Eucalyptus hardwood flooring is a floor covering made from Eucalyptus wood.",
+	"short desc": "Floor covering made from Eucalyptus wood.",
+	"source": "Samples cut from 14.2 mm thick boards.",
+	"density": "947 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

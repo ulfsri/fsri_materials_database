@@ -1,0 +1,25 @@
+{
+	"material": "Overstuffed Chair - Polyester Fabric",
+	"alternate names": [
+		"PET fabric",
+		"polyester upholstery",
+		"polyethylene terephthalate fabric",
+		"upholstery fabric"
+	],
+	"material_dir": "Overstuffed_Chair_Polyester_Fabric",
+	"parent material": "Overstuffed Chair Assembly",
+	"component material": [],
+	"material category": [
+		"upholstered furniture"
+	],
+	"image file": "Overstuffed_Chair_Polyester_Fabric.JPG",
+	"image 600x400 file": "Overstuffed_Chair_Polyester_Fabric600x400.jpg",
+	"video file": "",
+	"description": "Polyester fabric is a fabric woven from synthetic polyethylene terephthalate fibers.",
+	"short desc": "Polyester fabric is a fabric woven from synthetic polyethylene terephthalate fibers.",
+	"source": "Samples cut from a cushion covering taken from an overstuffed chair.",
+	"density": "410.5 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

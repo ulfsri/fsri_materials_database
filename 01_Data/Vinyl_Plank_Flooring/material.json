@@ -22,6 +22,56 @@
 	],
 	"measured property": [
 	{
+		"test name": "specific heat",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Vinyl_Plank_Flooring_HFM_Wet_specific_heat.html",
+				"table": "HFM/Vinyl_Plank_Flooring_HFM_Wet_specific_heat.html"
+			},
+			{
+				"display name": "Dried",
+				"graph": "HFM/Vinyl_Plank_Flooring_HFM_Dry_specific_heat.html",
+				"table": "HFM/Vinyl_Plank_Flooring_HFM_Dry_specific_heat.html"
+			}
+		]
+	},
+	{
+		"test name": "thermal conductivity",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Vinyl_Plank_Flooring_HFM_Wet_conductivity.html",
+				"table": "HFM/Vinyl_Plank_Flooring_HFM_Wet_conductivity.html"
+			},
+			{
+				"display name": "Dried",
+				"graph": "HFM/Vinyl_Plank_Flooring_HFM_Dry_conductivity.html",
+				"table": "HFM/Vinyl_Plank_Flooring_HFM_Dry_conductivity.html"
+			}
+		]
+	},
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Vinyl_Plank_Flooring_Cone_MLR_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Vinyl_Plank_Flooring_Cone_MLR_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Vinyl_Plank_Flooring_Cone_MLR_75.html"
+			}
+		]
+	},
+	{
 		"test name": "heat release rate per unit area",
 		"test description": "",
 		"display name": "",
@@ -43,69 +93,17 @@
 		]
 	},
 	{
-		"test name": "mass loss rate",
-		"test description": "",
-		"display name": "",
-		"nested tests": [{
-				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
-				"graph": "Cone/Vinyl_Plank_Flooring_Cone_MLR_25.html"
-			},
-			{
-				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
-				"graph": "Cone/Vinyl_Plank_Flooring_Cone_MLR_50.html"
-			},
-			{
-				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
-				"graph": "Cone/Vinyl_Plank_Flooring_Cone_MLR_75.html"
-			}
-		]
-
-	},
-	{
 		"test name": "carbon monoxide yield",
 		"test description": "",
 		"display name": "",
 		"table": "Cone/Vinyl_Plank_Flooring_Cone_Analysis_CO_Table.html"
 	},
 	{
-		"test name": "specific heat",
-		"test description": "Experiments for specific heat [cp], or heat capacity, were conducted using a heat flow meter on unconditioned and dried samples at 10 &#176;C, 20 &#176;C, 30 &#176;C and 40 &#176;C.",
-		"display name": "",
-		"nested tests": [{
-				"display name": "Unconditioned",
-				"graph": "HFM/Vinyl_Plank_Flooring_HFM_Wet_specific_heat.html",
-				"table": "HFM/Vinyl_Plank_Flooring_HFM_Wet_specific_heat.html"
-			},
-			{
-				"display name": "Dried",
-				"graph": "HFM/Vinyl_Plank_Flooring_HFM_Dry_specific_heat.html",
-				"table": "HFM/Vinyl_Plank_Flooring_HFM_Dry_specific_heat.html"
-			}
-		]
-
-	},
-	{
-		"test name": "thermal conductivity",
-		"test description": "Experiments for thermal conductivity [k] were conducted using a heat flow meter on unconditioned and dried samples at 15 &#176;C and 45 &#176;C.",
-		"display name": "",
-		"nested tests": [{
-				"display name": "Unconditioned",
-				"graph": "HFM/Vinyl_Plank_Flooring_HFM_Wet_conductivity.html",
-				"table": "HFM/Vinyl_Plank_Flooring_HFM_Wet_conductivity.html"
-			},
-			{
-				"display name": "Dried",
-				"graph": "HFM/Vinyl_Plank_Flooring_HFM_Dry_conductivity.html",
-				"table": "HFM/Vinyl_Plank_Flooring_HFM_Dry_conductivity.html"
-			}
-		]
-	},
-	{
 		"test name": "specific heat release rate",
 		"test description": "",
 		"display name": "",
 		"graph": "MCC/Vinyl_Plank_Flooring_MCC_HRR.html"
-	}],	
+	}],
 	"derived property": [
 	{
 		"test name": "soot yield",
@@ -115,11 +113,18 @@
 	},
 	{
 		"test name": "effective heat of combustion",
-		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
+		"test description": "",
 		"display name": "",
 		"nested tests": [{
-			"display name": "Micro-Scale Combustion Calorimeter",
-			"table": "MCC/Vinyl_Plank_Flooring_MCC_Heats_of_Combustion.html"
-		}]
+				"display name": "Micro-scale Combustion Calorimeter",
+				"table": "MCC/Vinyl_Plank_Flooring_MCC_Heats_of_Combustion.html"
+			}		]
+	},
+	{
+		"test name": "emissivity",
+		"test description": "",
+		"display name": "",
+		"table": "FTIR/IS/Vinyl_Plank_Flooring_Emissivity.html",
+		"graph": "FTIR/IS/Vinyl_Plank_Flooring_Emissivity.html"
 	}]
 }

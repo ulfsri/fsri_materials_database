@@ -1,0 +1,26 @@
+{
+	"material": "Low Pile Polyolefin Carpet",
+	"alternate names": [
+		"olefin",
+		"polypropylene carpet",
+		"PP carpet",
+		"synthetic wool carpet",
+		"looped berber"
+	],
+	"material_dir": "Polyolefin_Carpet_Low_Pile",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"interior finish"
+	],
+	"image file": "Polyolefin_Carpet_Low_Pile.JPG",
+	"image 600x400 file": "Polyolefin_Carpet_Low_Pile600x400.jpg",
+	"video file": "",
+	"description": "Low pile polyolefin carpet is a low looped berber style carpet woven from polypropylene fibers.",
+	"short desc": "Low pile polyolefin carpet is a low looped berber style carpet woven from polypropylene fibers.",
+	"source": "Samples cut from 0.64 cm thick roll",
+	"density": "214 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

@@ -1,0 +1,24 @@
+{
+	"material": "Composite Deck Board",
+	"alternate names": [
+		"trex",
+		"decking"
+	],
+	"material_dir": "Composite_Deck_Board",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"engineered wood",
+		"exterior finish"
+	],
+	"image file": "Composite_Deck_Board.JPG",
+	"image 600x400 file": "Composite_Deck_Board600x400.jpg",
+	"video file": "",
+	"description": "Composite Deck Boards are extruded boards composed of wood waste and a polymer matrix.",
+	"short desc": "Composite Deck Boards are extruded boards composed of wood waste and a polymer matrix.",
+	"source": "Samples cut from 1.3 cm thick boards.",
+	"density": "1076 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

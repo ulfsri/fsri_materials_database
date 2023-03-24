@@ -1,0 +1,24 @@
+{
+	"material": "Nylon",
+	"alternate names": [
+		"polyamide",
+		"PA 66",
+		"caprolactum"
+	],
+	"material_dir": "Nylon",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"general polymer"
+	],
+	"image file": "Nylon.JPG",
+	"image 600x400 file": "Nylon600x400.jpg",
+	"video file": "",
+	"description": "Nylon (Polyamide 66) is a durable thermoplastic used in a variety of applications.",
+	"short desc": "Nylon is a durable thermoplastic used in a variety of applications.",
+	"source": "Samples cut from 0.35 cm thick, 30 cm by 30 cm commercially available cast sheet.",
+	"density": "1070 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
