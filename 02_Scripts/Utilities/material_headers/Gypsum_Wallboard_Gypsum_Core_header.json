@@ -1,5 +1,5 @@
 {
-	"material": "Gypsum Wallboard Gypsum Core",
+	"material": "Gypsum Wallboard - Gypsum Core",
 	"alternate names": [
 		"gypsum",
 		"drywall",
@@ -12,7 +12,7 @@
 		"custard board"		
 	],
 	"material_dir": "Gypsum_Wallboard_Gypsum_Core",
-	"parent material": "Gypsum_Wallboard",
+	"parent material": "Gypsum Wallboard",
 	"component material": [],
 	"material category": [
 		"interior finish"

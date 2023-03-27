@@ -14,9 +14,9 @@
 	"material_dir": "Lightweight_Gypsum_Wallboard",
 	"parent material": "",
 	"component material": [
-		"Lightweight_Gypsum_Wallboard_Gypsum_Core",
-		"Lightweight_Gypsum_Wallboard_Painted_Paper",
-		"Lightweight_Gypsum_Wallboard_Unpainted_Paper"
+		"Lightweight Gypsum Wallboard - Gypsum Core",
+		"Lightweight Gypsum Wallboard - Painted Paper",
+		"Lightweight Gypsum Wallboard - Unpainted Paper"
 	],
 	"material category": [
 		"interior finish"

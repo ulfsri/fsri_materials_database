@@ -7,7 +7,8 @@
 	"parent material": "",
 	"component material": [],
 	"material category": [
-		"insulation"
+		"insulation",
+		"plumbing"
 	],
 	"image file": "PE_Foam_Pipe_Insulation.JPG",
 	"image 600x400 file": "PE_Foam_Pipe_Insulation600x400.jpg",

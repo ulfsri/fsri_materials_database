@@ -7,9 +7,9 @@
 	],
 	"material_dir": "Bamboo_Rug",
 	"parent material": "",
-	"component material": 	["Bamboo Rug Bamboo",
-				 "Bamboo Rug Fabric"
-				],
+	"component material": 	["Bamboo Rug - Bamboo",
+				 "Bamboo Rug - Fabric"
+	],
 	"material category": [
 		"interior finish"
 	],

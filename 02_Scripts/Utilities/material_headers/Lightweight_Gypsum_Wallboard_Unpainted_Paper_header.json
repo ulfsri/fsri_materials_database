@@ -1,5 +1,5 @@
 {
-	"material": "Lightweight Gypsum Wallboard Unpainted Paper",
+	"material": "Lightweight Gypsum Wallboard - Unpainted Paper",
 	"alternate names": [
 		"gypsum",
 		"drywall",
@@ -12,13 +12,13 @@
 		"custard board"		
 	],
 	"material_dir": "Lightweight_Gypsum_Wallboard_Unpainted_Paper",
-	"parent material": "Lightweight_Gypsum_Wallboard",
+	"parent material": "Lightweight Gypsum Wallboard",
 	"component material": [],
 	"material category": [
 		"interior finish"
 	],
-	"image file": "Lightweight_Gypsum_Wallboard.JPG",
-	"image 600x400 file": "Lightweight_Gypsum_Wallboard600x400.jpg",
+	"image file": "Lightweight_Gypsum_Wallboard_Unpainted_Paper.JPG",
+	"image 600x400 file": "Lightweight_Gypsum_Wallboard_Unpainted_Paper600x400.jpg",
 	"video file": "",
 	"description": "The kraft paper backing from lightweight gypsum wallboard.",
 	"short desc": "The kraft paper backing from lightweight gypsum wallboard.",

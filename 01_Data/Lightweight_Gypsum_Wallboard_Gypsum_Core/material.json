@@ -1,5 +1,5 @@
 {
-	"material": "Lightweight Gypsum Wallboard Gypsum Core",
+	"material": "Lightweight Gypsum Wallboard - Gypsum Core",
 	"alternate names": [
 		"gypsum",
 		"drywall",
@@ -12,13 +12,13 @@
 		"custard board"		
 	],
 	"material_dir": "Lightweight_Gypsum_Wallboard_Gypsum_Core",
-	"parent material": "Lightweight_Gypsum_Wallboard",
+	"parent material": "Lightweight Gypsum Wallboard",
 	"component material": [],
 	"material category": [
 		"interior finish"
 	],
-	"image file": "Lightweight_Gypsum_Wallboard.JPG",
-	"image 600x400 file": "Lightweight_Gypsum_Wallboard600x400.jpg",
+	"image file": "Lightweight_Gypsum_Wallboard_Gypsum_Core.JPG",
+	"image 600x400 file": "Lightweight_Gypsum_Wallboard_Gypsum_Core600x400.jpg",
 	"video file": "",
 	"description": "The gypsum core of a lightweight gypsum wallboard.",
 	"short desc": "The gypsum core of a lightweight gypsum wallboard.",
