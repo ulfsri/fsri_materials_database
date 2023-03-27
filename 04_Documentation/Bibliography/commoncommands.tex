@@ -1,0 +1,169 @@
+%------------------------------------------------
+% Font/Symbol Options
+%------------------------------------------------
+\usepackage{mathptmx} % sets times fronts and mathsymbols
+\usepackage{amssymb} % additional symbols not in mathptmx
+\usepackage{mathtools} % package for improving math fonts
+\usepackage[T1]{fontenc} % allows the use of glpys and special characters
+\usepackage{relsize} % package for changing font size
+\usepackage{xcolor} % foreground and background color management
+\usepackage{soul} % package for hyphens, underlines, strike out, etc
+\usepackage{enumerate} % allows numbered lists building on itemize
+\usepackage{upquote} % sets quote style
+\usepackage{moreverb} % allows the use of verbatim
+\usepackage{gensymb} % provides gen symbols for math like \degree
+\usepackage{ragged2e} % helps space words and hyphenate word wrap
+\usepackage[titles]{tocloft} % control over the typography of the Table of Contents, List of Figures and List of Tables
+
+% Colors used for cross references and table colors
+\definecolor{linknavy}{rgb}{0,0,0.50196}
+\definecolor{linkred}{rgb}{1,0,0}
+\definecolor{linkblue}{rgb}{0,0,1}
+
+%------------------------------------------------
+% Float Options
+%------------------------------------------------
+\usepackage[pdftex]{graphicx} % improves includegraphics
+\usepackage{caption} % customise the captions in floating environments like figure and table
+\usepackage{subcaption}
+\usepackage{xltabular} % keeps tabularx which helps with column management and but adds longtable
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\usepackage{booktabs} % high quality tables - allows toprule, midrule, etc
+\usepackage{array} % extended implementation of the array and tabular environments which extends the options for column formats
+\usepackage{float} % Improves the interface for defining floating objects such as figures and tables
+\usepackage{placeins} % provides use of FloatBarrier for managing floats
+% \usepackage{subfig} % provides ability to use subfigures
+\usepackage{threeparttable} % allows for tablenotes
+\usepackage{multirow} % allows split rows
+
+% \usepackage{colortbl} % allows rows and cols of tables to be colored
+% \definecolor{lbcolor}{rgb}{0.96,0.96,0.96}
+
+%------------------------------------------------
+% Crossref and Bibliography Options
+%------------------------------------------------
+\newcommand{\nopart}{\expandafter\def\csname Parent-1\endcsname{}} % To fix table of contents in pdf.
+
+\usepackage{cite} %bibliography management
+\usepackage{notoccite} % prevents references counting in figures/TOCs superceeding true numbering
+\newcommand\notype[1]{\unskip} % allows skip of type for citing research reports
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography and index in the ToC
+\usepackage[toc,page]{appendix} %defines appendix
+
+%------------------------------------------------
+% Output and Page Options
+%------------------------------------------------
+
+\renewcommand{\chaptername}{} % drops the word chapter
+\renewcommand{\bibname}{References} % renames bibliography to references
+
+\usepackage[pdftex,
+        colorlinks=true,
+        urlcolor=linkblue,     % \href{...}{...} external (URL)
+        citecolor=linkred,     % citation number colors
+        linkcolor=linknavy,    % \ref{...} and \pageref{...}
+        pdfproducer={pdflatex},
+        pdfpagemode=UseNone,
+        bookmarksopen=true,
+        plainpages=false,
+        verbose]{hyperref} %handles cross references
+
+\usepackage{geometry} % user interface to customize page layout
+
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{9.0in}
+\setlength{\topmargin}{0.in}
+\setlength{\headheight}{0.pt}
+\setlength{\headsep}{0.in}
+\setlength{\parindent}{0.0in}
+\setlength{\itemindent}{0.25in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+% \setlength{\leftmargini}{\parindent} % Controls the indenting of the "bullets" in a list
+\setlength{\cftsecnumwidth}{0.45in}
+\setlength{\cftsubsecnumwidth}{0.5in}
+\setlength{\cftfignumwidth}{0.45in}
+\setlength{\cfttabnumwidth}{0.45in}
+\setlength{\parskip}{1em}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{}
+\rhead{}
+\chead{}
+\renewcommand{\headrulewidth}{0pt}
+
+\usepackage{titlesec} % sets title stying
+\titleformat{\chapter}[hang]{\normalfont\huge\bfseries}{\chaptertitlename\thechapter}{1em}{}
+\titlespacing*{\chapter}{0pt}{-30pt}{20pt}
+
+%------------------------------------------------
+% Misc Optional Packages
+%------------------------------------------------
+\usepackage{setspace}
+\usepackage{scrextend}
+% \usepackage{calc} % simple arithmetic commands -- \setcounter,\setlength
+% \usepackage{makeidx} % Create index at end of document
+% \usepackage{lastpage} % Automatic last page number reference.
+% \usepackage{xfrac} % Improves quality of fractions inline mathmode and in equations
+% \usepackage{paralist} % inline lists
+% \usepackage{varwidth} % variable width minipage
+% \usepackage{listings} % allows user to typeset code inline
+% \usepackage{tikz} % drawing package
+\usepackage[version=4]{mhchem} % typesetting chemical molecular formulae and equations
+% \usepackage{rotating} % rotated boxes (or floats, which are themselves boxes), and boxes always stay on one page.
+% \usepackage{lscape} % continuous text (i.e., more than one page) set in landscape mode
+% \usepackage{longtable} % allows tables to flow across pages
+
+\usepackage{siunitx} %typsetting units
+\sisetup{
+    detect-all = true,
+    input-decimal-markers = {.},
+    input-ignore = {,},
+    inter-unit-product = \ensuremath{{}\cdot{}},
+    multi-part-units = repeat,
+    number-unit-product = \text{~},
+    per-mode = fraction,
+    separate-uncertainty = true,
+}
+
+% \floatstyle{boxed}
+% \newfloat{notebox}{H}{lon}
+% \newfloat{warning}{H}{low}
+
+% \newenvironment{conditions}
+%   {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+%   {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+%------------------------------------------------
+% Title page definitions
+%------------------------------------------------
+
+\newcommand{\titlesigs}{\medskip
+	\large \flushleft{UL Research Institutes} \\
+	{Terrence R. Brady, President} \\
+	{Christopher J. Cramer, Chief Research Officer} \\ \medskip
+	\flushleft{Fire Safety Research Institute \\
+		{Steve Kerber, Vice President and Executive Director} \\
+		\hspace{1in} \\}}
+
+
+\newcommand{\titleA}{\flushleft{\huge\bf{\vartitle}}}
+\newcommand{\titleB}{\vspace{.5in}\flushleft{\large\flushleft{\varauthors\vspace{0.2in}\varaddress\vspace{0.2in}\vardate}}}
+\newcommand{\titleC}{\vspace{.3in}\flushleft{\large\flushleft{This publication is available free of charge from:\\ \vardoi}}}
+\newcommand{\titleD}{
+	\begin{minipage}{0.35\textwidth}
+		\begin{flushleft}
+			\includegraphics[width=1\textwidth]{../Bibliography/UL_RI}
+		\end{flushleft}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.5\textwidth}
+		\begin{flushright}
+			\includegraphics[width=1.25in]{../Bibliography/FSRI_Logo_white}
+		\end{flushright}
+	\end{minipage}
+}
+\newcommand{\titleE}{\scriptsize\flushleft{\textcopyright \the\year{}. UL Research Institutes. All rights reserved.}}
