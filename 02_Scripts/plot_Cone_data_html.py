@@ -126,6 +126,7 @@ y_inc_dict = {'HRRPUA':100, 'MLR':0.2, 'SPR':1, 'Extinction Coefficient':0.5} #'
 for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
     df_dict = {}
     material = d
+    summary_df = pd.DataFrame()
     output_df = pd.DataFrame()
     co_df = pd.DataFrame()
     soot_df = pd.DataFrame()
@@ -277,9 +278,36 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                 co_prod = (trapezoid(data_temp_df.loc[ml_10_ind:ml_90_ind,'CO Mass Flow'], x = x))*1000 # g
                 co_df.at['CO Yield (g/g)', label] = co_prod/(0.8*mass_lost)
 
-                output_df.at['Time to Sustained Ignition (s)', label] = ign_time
-                output_df.at['Time to Peak HRRPUA (s)', label] = data_temp_df.loc[data_temp_df['HRRPUA'].idxmax(), 'Time'] - float(scalar_data_series.at['TIME TO IGN'])
-                output_df.at['Peak HRRPUA (kW/m\u00b2)', label] = float("{:.2f}".format(max(data_temp_df['HRRPUA'])))
+                summary_df.at['Time to Sustained Ignition (s)', label] = scalar_data_series.at['TIME TO IGN']
+                summary_df.at['Peak HRRPUA (kW/m2)', label] = float("{:.2f}".format(max(data_temp_df['HRRPUA'])))
+                summary_df.at['Time to Peak HRRPUA (s)', label] = data_temp_df.loc[data_temp_df['HRRPUA'].idxmax(), 'Time'] - float(scalar_data_series.at['TIME TO IGN'])
+
+                ign_index = data_temp_df.index[data_temp_df['Time'] == float(scalar_data_series.at['TIME TO IGN'])][0]
+                t60 = str(int(ign_index) + 240)
+                t180 = str(int(ign_index) + 720)
+                t300 = str(int(ign_index) + 1200)
+
+                try: summary_df.at['Average HRRPUA over 60 seconds (kW/m2)', label] = float("{:.2f}".format(np.mean(data_temp_df.loc[ign_index:t60,'HRRPUA'])))
+                except: summary_df.at['Average HRRPUA over 60 seconds (kW/m2)', label] = math.nan
+
+                try: summary_df.at['Average HRRPUA over 180 seconds (kW/m2)', label] = float("{:.2f}".format(np.mean(data_temp_df.loc[ign_index:t180,'HRRPUA'])))
+                except: summary_df.at['Average HRRPUA over 180 seconds (kW/m2)', label] = math.nan
+
+                try: summary_df.at['Average HRRPUA over 300 seconds (kW/m2)', label] = float("{:.2f}".format(np.mean(data_temp_df.loc[ign_index:t300,'HRRPUA'])))
+                except: summary_df.at['Average HRRPUA over 300 seconds (kW/m2)', label] = math.nan
+
+                summary_df.at['Total Heat Released (MJ/m2)', label] = float("{:.2f}".format(data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'THR']))
+                total_mass_lost = data_temp_df.at['1','Sample Mass'] - data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'Sample Mass']
+                holder_mass = data_temp_df.at['1','Sample Mass'] - float(scalar_data_series.at['SPECIMEN MASS'])
+                summary_df.at['Avg. Effective Heat of Combustion (MJ/kg)', label] = float("{:.2f}".format(((data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'THR'])*surf_area_m2)/(total_mass_lost/1000)))
+                summary_df.at['Initial Mass (g)', label] = scalar_data_series.at['SPECIMEN MASS']
+                summary_df.at['Final Mass (g)', label] = float("{:.2f}".format(data_temp_df.at[scalar_data_series.at['END OF TEST SCAN'],'Sample Mass'] - holder_mass))
+                summary_df.at['Mass at Ignition (g)', label] = float("{:.2f}".format(data_temp_df.at[ign_index,'Sample Mass'] - holder_mass))
+
+                t10 = data_temp_df['Sample Mass'].sub(data_temp_df.at['1','Sample Mass'] - 0.1*total_mass_lost).abs().idxmin()
+                t90 = data_temp_df['Sample Mass'].sub(data_temp_df.at['1','Sample Mass'] - 0.9*total_mass_lost).abs().idxmin()
+
+                summary_df.at['Avg. Mass Loss Rate [10% to 90%] (g/m2s)', label] = float("{:.2f}".format(np.mean(data_temp_df.loc[t10:t90,'MLR']/surf_area_m2)))
 
         for n in quant_list:
             for m in hf_list:
@@ -302,8 +330,13 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
     else:
         continue
 
+    summary_df = summary_df.round(1)
+    summary_df.sort_index(axis=1, inplace=True)
+    summary_df.to_csv(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_Data.csv', float_format='%.1f')
+
     co_html_df = pd.DataFrame(index = hf_list, columns = ['Mean CO Yield [g/g]', 'CO Yield Std. Dev. [g/g]'])
     soot_html_df = pd.DataFrame(index = hf_list, columns = ['Mean Soot Yield [g/g]', 'Soot Yield Std. Dev. [g/g]'])
+    hoc_html_df = pd.DataFrame(index = hf_list, columns = ['Mean Effective Heat of Combustion [kJ/kg]', 'Effective Heat of Combustion Std. Dev. [kJ/kg]'])
 
     for hf in hf_list:
         html_df = output_df.filter(like=hf)
@@ -321,6 +354,12 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
         soot_html_df.loc[hf, 'Soot Yield Std. Dev. [g/g]'] = np.around(soot_hf_df.std(axis=1).to_numpy()[0], decimals=3)
         soot_html_df.index.names = ['Incident Heat Flux [kW/m\u00b2]']
 
+        hoc_df = summary_df.filter(like=hf)
+        hoc_df = hoc_df.filter(regex = 'Heat of Combustion', axis = 'index')
+        hoc_html_df.loc[hf, 'Mean Effective Heat of Combustion [kJ/kg]'] = np.around(hoc_df.mean(axis=1).to_numpy()[0], decimals=1)
+        hoc_html_df.loc[hf, 'Effective Heat of Combustion Std. Dev. [kJ/kg]'] = np.around(hoc_df.std(axis=1).to_numpy()[0], decimals=1)
+        hoc_html_df.index.names = ['Incident Heat Flux [kW/m\u00b2]']
+
     co_html_df = co_html_df.reset_index()
     co_html_df.to_html(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_CO_Table.html',index=False, encoding='UTF-8', border=0)
 
@@ -329,3 +368,6 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
     else:
         soot_html_df = soot_html_df.reset_index()
         soot_html_df.to_html(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_Soot_Table.html',index=False, encoding='UTF-8', border=0)
+
+    hoc_html_df = hoc_html_df.reset_index()
+    hoc_html_df.to_html(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_EHC_Table.html',index=False, encoding='UTF-8', border=0)
