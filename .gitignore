@@ -15,6 +15,7 @@
 02_Scripts/Utilities/Material_Status.csv
 03_Charts/*
 04_Documentation/Technical_Reference_Guide/FSRI_MaP_Tech_Guide.pdf
+04_Documentation/User_Guide/FSRI_MaP_User_Guide.pdf
 
 # Files produced from python scripts
 *_Analysis_Data.csv
