@@ -88,5 +88,15 @@
 		"test description": "",
 		"display name": "",
 		"table": "Cone/Overstuffed_Chair_Assembly_Cone_Analysis_Soot_Table.html"
+	},
+	{
+		"test name": "effective heat of combustion",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter",
+				"table": "Cone/Overstuffed_Chair_Assembly_Cone_Analysis_EHC_Table.html"
+			}
+		]
 	}]
 }

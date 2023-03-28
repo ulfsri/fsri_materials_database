@@ -104,6 +104,11 @@
 		"nested tests": [{
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/FRP_Panel_MCC_Heats_of_Combustion.html"
-			}		]
+			},
+			{
+				"display name": "Cone Calorimeter",
+				"table": "Cone/FRP_Panel_Cone_Analysis_EHC_Table.html"
+			}
+		]
 	}]
 }

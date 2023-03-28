@@ -112,6 +112,11 @@
 		"nested tests": [{
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/MDF_MCC_Heats_of_Combustion.html"
-			}		]
+			},
+			{
+				"display name": "Cone Calorimeter",
+				"table": "Cone/MDF_Cone_Analysis_EHC_Table.html"
+			}
+		]
 	}]
 }

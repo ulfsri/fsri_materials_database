@@ -119,7 +119,12 @@
 		"nested tests": [{
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Pine_Siding_MCC_Heats_of_Combustion.html"
-			}		]
+			},
+			{
+				"display name": "Cone Calorimeter",
+				"table": "Cone/Pine_Siding_Cone_Analysis_EHC_Table.html"
+			}
+		]
 	},
 	{
 		"test name": "emissivity",

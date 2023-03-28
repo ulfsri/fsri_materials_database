@@ -71,5 +71,14 @@
 		"table": "Cone/Plastic_Laminate_Countertop_Cone_Analysis_CO_Table.html"
 	}],
 	"derived property": [
-]
+	{
+		"test name": "effective heat of combustion",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter",
+				"table": "Cone/Plastic_Laminate_Countertop_Cone_Analysis_EHC_Table.html"
+			}
+		]
+	}]
 }
