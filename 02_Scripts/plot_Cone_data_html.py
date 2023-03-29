@@ -336,7 +336,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
 
     co_html_df = pd.DataFrame(index = hf_list, columns = ['Mean CO Yield [g/g]', 'CO Yield Std. Dev. [g/g]'])
     soot_html_df = pd.DataFrame(index = hf_list, columns = ['Mean Soot Yield [g/g]', 'Soot Yield Std. Dev. [g/g]'])
-    hoc_html_df = pd.DataFrame(index = hf_list, columns = ['Mean Effective Heat of Combustion [kJ/kg]', 'Effective Heat of Combustion Std. Dev. [kJ/kg]'])
+    hoc_html_df = pd.DataFrame(index = hf_list, columns = ['Mean Effective Heat of Combustion [MJ/kg]', 'Effective Heat of Combustion Std. Dev. [MJ/kg]'])
 
     for hf in hf_list:
         html_df = output_df.filter(like=hf)
@@ -356,8 +356,8 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
 
         hoc_df = summary_df.filter(like=hf)
         hoc_df = hoc_df.filter(regex = 'Heat of Combustion', axis = 'index')
-        hoc_html_df.loc[hf, 'Mean Effective Heat of Combustion [kJ/kg]'] = np.around(hoc_df.mean(axis=1).to_numpy()[0], decimals=1)
-        hoc_html_df.loc[hf, 'Effective Heat of Combustion Std. Dev. [kJ/kg]'] = np.around(hoc_df.std(axis=1).to_numpy()[0], decimals=1)
+        hoc_html_df.loc[hf, 'Mean Effective Heat of Combustion [MJ/kg]'] = np.around(hoc_df.mean(axis=1).to_numpy()[0], decimals=1)
+        hoc_html_df.loc[hf, 'Effective Heat of Combustion Std. Dev. [MJ/kg]'] = np.around(hoc_df.std(axis=1).to_numpy()[0], decimals=1)
         hoc_html_df.index.names = ['Incident Heat Flux [kW/m\u00b2]']
 
     co_html_df = co_html_df.reset_index()
