@@ -102,8 +102,7 @@
 %------------------------------------------------
 % Misc Optional Packages
 %------------------------------------------------
-\usepackage{setspace}
-\usepackage{scrextend}
+\usepackage{setspace} % support for setting the spacing between lines in a document
 % \usepackage{calc} % simple arithmetic commands -- \setcounter,\setlength
 % \usepackage{makeidx} % Create index at end of document
 % \usepackage{lastpage} % Automatic last page number reference.
@@ -138,6 +137,25 @@
 %   {\end{tabular}\par\vspace{\belowdisplayskip}}
 
 %------------------------------------------------
+% Create Git Hash 
+%------------------------------------------------
+
+\usepackage{xstring} % provides macros for manipulating strings
+\usepackage{catchfile} % package catches the contents of a file and puts it in a macro
+% Set user input
+\newcommand{\gitfolder}{../../.git}             % Relative path to .git folder from .tex file
+\newcommand{\reponame}{ulfsri/fsri_materials_database} 
+
+\CatchFileDef{\headfull}{\gitfolder/HEAD}{}              % Get path to head file for checked out branch
+\StrGobbleRight{\headfull}{1}[\head]                     % Remove end of line character
+\StrBehind[2]{\head}{/}[\branch]                         % Parse out the path only
+\CatchFileDef{\commit}{\gitfolder/refs/heads/\branch}{}  % Get the content of the branch head
+\StrGobbleRight{\commit}{1}[\commithash]                 % Remove end of line character
+\newcommand{\gitrevision}{\StrLeft{\commithash}{7}}
+% Build the URL to this commit based on the information we now have
+\newcommand{\commiturl}{\href{https://github.com/\reponame/commit/\commithash}{\gitrevision}}
+
+%------------------------------------------------
 % Title page definitions
 %------------------------------------------------
 
@@ -151,7 +169,7 @@
 
 
 \newcommand{\titleA}{\flushleft{\huge\bf{\vartitle}}}
-\newcommand{\titleB}{\vspace{.5in}\flushleft{\large\flushleft{\varauthors\vspace{0.2in}\varaddress\vspace{0.2in}\vardate}}}
+\newcommand{\titleB}{\vspace{.5in}\flushleft{\large\flushleft{\varauthors\vspace{0.2in}\varaddress\vspace{0.2in}\vardate Compiled from commit \commiturl~on branch \branch.}}}
 \newcommand{\titleC}{\vspace{.3in}\flushleft{\large\flushleft{This publication is available free of charge from:\\ \vardoi}}}
 \newcommand{\titleD}{
 	\begin{minipage}{0.35\textwidth}
