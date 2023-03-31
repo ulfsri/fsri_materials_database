@@ -8,8 +8,7 @@
 \newcommand{\vartitle}{Materials and Products Database - User Guide\\}
 \newcommand{\vardate}{\today \\}
 \newcommand{\varauthors}{Mark McKinnon \\
-						Craig Weinschenk \\
-						Daniel Madrzykowski \\}
+						Craig Weinschenk \\}
 \newcommand{\varaddress}{Fire Safety Research Institute \\
 	UL Research Institutes\\
 	Columbia, MD 21045 \\}
@@ -129,7 +128,6 @@
 \begin{tabbing}
 \hspace{1.5in} \= \\
 DSC 	\> Differential scanning calorimetry \\
-FDS	    \> Fire Dynamics Simulator \\
 FSRI    \> Fire Safety Research Institute \\
 FTIR 	\> Fourier transform infrared spectrometer \\
 HFM 	\> Heat flow meter \\
@@ -137,8 +135,6 @@ IS 		\> Integrating sphere \\
 MCC 	\> Microscale combustion calorimetry \\
 NIJ 	\> National Institute of Justice \\
 NIST    \> National Institute of Standards and Technology \\
-NLLS    \> Nonlinear least squares \\
-SRM 	\> Standard reference material \\
 STA 	\> Simultaneous thermal analyzer \\
 TGA 	\> Thermogravimetric analysis \\
 \end{tabbing}
@@ -155,16 +151,32 @@ TGA 	\> Thermogravimetric analysis \\
 \chapter{Introduction}
 \label{sec:introduction}
 
-For the past several years, the NIJ Technology Working Group's Operational Requirements (TWG ORs) for Fire and Arson Investigation have included several scientific research needs that require improved knowledge of properties of materials that are common in the built environment, and therefore likely to be involved in a fire scene. The specific areas of research include: adequate materials data inputs for accurate computer models, understanding the effect of materials properties on the development and interpretation of fire patterns, and evaluation of incident heat flux profiles to walls and neighboring items in support of fire model validation. Each of the three aforementioned research topics rely, in part, on accurate knowledge of the physical conditions of a material prior to the fire, how the material will respond to the exposure of heat, and how it will perform once it has ignited. The project described herein has made advancements in terms of collecting experimental data and property information on a multitude of materials commonly encountered in the built environment for the purpose of making the data publicly available and easily accessible to fire investigators, fire protection engineers, and fire researchers.
+For the past several years, the NIJ Technology Working Group's Operational Requirements for Fire and Arson Investigation have included several scientific research needs that require improved knowledge of properties of materials that are common in the built environment, and therefore likely to be involved in a fire scene. The specific areas of research include: adequate materials data inputs for accurate computer models, understanding the effect of materials properties on the development and interpretation of fire patterns, and evaluation of incident heat flux profiles to walls and neighboring items in support of fire model validation. Each of the three aforementioned research topics rely, in part, on accurate knowledge of the physical conditions of a material prior to the fire, how the material will respond to the exposure of heat, and how it will perform once it has ignited. The project described herein has made advancements in terms of collecting experimental data and property information on a multitude of materials commonly encountered in the built environment for the purpose of making the data publicly available and easily accessible to fire investigators, fire protection engineers, and fire researchers.
 
-The database described in this document, Materials and Products Database, is an interactive, web-based repository populated with data from rigorous testing of the contemporary products and materials commonly found in the modern built environment -- \href{https://materials.fsri.org}{Materials and Products Database}. The backend of the database is open-access via public Github repository -- \href{https://github.com/ulfsri/fsri_materials_database}{fsri\_materials\_database}.
+The database described in this document, Materials and Products Database, is an interactive, web-based repository populated with data from rigorous testing of the contemporary products and materials commonly found in the modern built environment -- \href{https://materials.fsri.org}{Materials and Products Database}. The backend of the database is open-access via public Github repository -- \href{https://github.com/ulfsri/fsri_materials_database}{fsri\_materials\_database}. The goal of this document is to provide information regarding the structure of the repository and corresponding front end website.
 
-\chapter{Data}
+\chapter{Github Repository}
 \label{sec:data}
 
-Raw data generated from each apparatus are included in {\bf 01\_Data} in plain-text format in the Github repository. The data is organized first by material, next by the short name of test apparatus used, and where applicable additional filtering by test settings. The following sections describe the naming convention used for each of the test apparatus used to generate the data.
+\section{Experimental Data}
 
-\section{Test Data}
+Raw data generated from each apparatus are included in {\bf 01\_Data} in plain-text format in the Github repository. 
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.95\columnwidth]{Figures/partial_materials_github}
+\caption[Partial List of Materials from Github Repository]{Partial list of materials from {\bf 01\_Data} in \href{https://github.com/ulfsri/fsri_materials_database}{fsri\_materials\_database} Github repository.}
+\label{fig:mat_list}
+\end{figure}
+
+The data is organized first by material, next by the short name of test apparatus used, and where applicable additional filtering by test settings. The following sections describe the naming convention used for each of the test apparatus used to generate the data.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.95\columnwidth]{Figures/engineered_flooring_example}
+\caption[Engineered Flooring Material Directory Example]{Example directory structure from engineered flooring.}
+\label{fig:mat_list}
+\end{figure}
 
 \subsection{Cone Calorimeter (Cone)}
 Data file structure includes the material, the short name for the apparatus, heat flux setting and scan/scalar, date of test, and replicate number. Scan is for the raw output data and scalar is for the initial conditions and high-level test parameters.
@@ -196,16 +208,16 @@ Data file structure is the material, the abbreviated name for the apparatus, the
 Data file structure is the material, the abbreviated name for the apparatus, the atmosphere tested in, the heating rate in Kelvin per minute and data/meta, date of test, and replicate number. Data is for the raw output data and meta is for the initial conditions and high-level test parameters.
 Example: Polyester\_Batting\_STA\_N2\_3KData\_210215\_R1.csv stands for the first replicate of the data generated from a polyester batting board test in the simultaneous thermal analyzer tested in nitrogen with a heating rate of 3 Kelvin per minute on March 15, 2021.
 
-\section{Additional Data Files}
+\subsection{Additional Data Files}
 
-\subsection{material.json}
+\subsubsection{material.json}
 Each material has a json file that links the data stored in the repository and data and graphs produced by the accompanying scripts to the respective landing page for the material on the front-end website. The file also contains a brief description of the material and alternate names of the material to facilitate search.
 
-\subsection{Photos}
+\subsubsection{Photos}
 A full-size and thumbnail photo are included of materials for visualization on front-end website.
 
 
-\chapter{Scripts}
+\section{Processing Scripts}
 \label{sec:scripts}
 
 Python processing scripts exist for analyzing the experimental data to generate derived quantities and to plot the experimental data. The scripts are apparatus specific and cycle through all materials upon execution. Each apparatus has a pair of scripts: data.py and data\_html.py.
@@ -232,8 +244,10 @@ pip install GitPython           #used for add repo hash to plots
 pip install pybaselines         #used for melting analysis in STA
 \end{verbatim}
 
-\chapter{Charts}
+\section{Charts and Tables}
 \label{sec:charts}
+
+\chapter{MaP Website}
 
 
 % \bibliography{../Bibliography/MaP_Database_Bibliography}
