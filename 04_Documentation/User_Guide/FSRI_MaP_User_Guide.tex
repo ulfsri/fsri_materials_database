@@ -156,64 +156,67 @@ For the past several years, the NIJ Technology Working Group's Operational Requi
 The database described in this document, Materials and Products Database, is an interactive, web-based repository populated with data from rigorous testing of the contemporary products and materials commonly found in the modern built environment -- \href{https://materials.fsri.org}{Materials and Products Database}. The backend of the database is open-access via public Github repository -- \href{https://github.com/ulfsri/fsri_materials_database}{fsri\_materials\_database}. The goal of this document is to provide information regarding the structure of the repository and corresponding front end website.
 
 \chapter{Github Repository}
-\label{sec:data}
+\label{sec:repo}
+
+The public Github repository can be accessed here: \href{https://github.com/ulfsri/fsri_materials_database}{fsri\_materials\_database}. The repository contains the experimental data ({\bf 01\_Data}) and analysis scripts ({\bf 02\_Scripts}) for all of the materials tested. 
 
 \section{Experimental Data}
 
-Raw data generated from each apparatus are included in {\bf 01\_Data} in plain-text format in the Github repository. 
+Raw data generated from each apparatus are included in their respective folders for each material in plain-text format. Figure~\ref{fig:mat_list} is a partial list of the materials in the repository as displayed in Github.
 
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=.95\columnwidth]{Figures/partial_materials_github}
-\caption[Partial List of Materials from Github Repository]{Partial list of materials from {\bf 01\_Data} in \href{https://github.com/ulfsri/fsri_materials_database}{fsri\_materials\_database} Github repository.}
+\caption[Partial List of Materials from Github Repository]{Partial list of materials from {\bf 01\_Data} in the \href{https://github.com/ulfsri/fsri_materials_database}{fsri\_materials\_database} Github repository.}
 \label{fig:mat_list}
 \end{figure}
 
-The data is organized first by material, next by the short name of test apparatus used, and where applicable additional filtering by test settings. The following sections describe the naming convention used for each of the test apparatus used to generate the data.
+Within each material directory, the data is organized by the short name of test apparatus used (e.g, Cone, HFM, etc.) and where applicable additional filtering by test settings (e.g., 3K\_min, 10\_min for the STA). An example of a material directory is included in Figure~\ref{fig:mat_example}. The following sections describe the data organization for each of the test apparatus used to generate the data.
 
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=.95\columnwidth]{Figures/engineered_flooring_example}
 \caption[Engineered Flooring Material Directory Example]{Example directory structure from engineered flooring.}
-\label{fig:mat_list}
+\label{fig:mat_example}
 \end{figure}
 
-\subsection{Cone Calorimeter (Cone)}
-Data file structure includes the material, the short name for the apparatus, heat flux setting and scan/scalar, date of test, and replicate number. Scan is for the raw output data and scalar is for the initial conditions and high-level test parameters.
+\subsection{material.json}
+Each material that is included on the front-end website has a material.json file. The file contains the text description of the material, where the material was procured from, material density, the length scale at which the material was tested (milligram, bench scale, full scale, large scale), and the applicable material category or categories. Materials fit into at least one of eleven categories: cord and cable, engineered wood, exterior finish, general polymer, insulation, interior finish, plumbing,roofing,sleeping product,structural, upholstered furniture. To broaden search capabilities, alternate names for materials (e.g., trade names, common names, etc.) are also included in the json file.
 
-{\bf Example:} MDF\_Cone\_HF25scalar\_210323\_R1 stands for the first replicate of scalar data generated from a medium density fiber board test in cone calorimeter exposed to 25 kW/m$^2$ on March 23, 2021.
-A Cone\_Notes.csv is generated for each material from the plot\_Cone\_data.py script. For materials whose experiments deviated from typical behavior relevant pictures are included in the respective material directory.
+The core function of each json file is to link the graphs and tables produced by the included \_html.py scripts to the respective landing page for the respective material on the front-end website. At the top level of the repository is the {\em global.json} file. This file sets the overall structure of how the data is linked between the Github repository and the front end website.
+
+
+
+\subsection{Cone Calorimeter (Cone)}
+The data file structure includes the material, the short name for the apparatus (cone), heat flux setting, scan/scalar, date of test, and replicate number. Scan is for the raw output data and scalar is for the initial conditions and high-level test parameters. For materials whose experiments deviated from typical behavior relevant pictures are included in the respective material directory. Any anomaly behaviors are included in the post test comment in the scalar data. This information is aggregated into a cone notes file that is produced by the {\em plot\_Cone\_data.py} script.
+
+{\bf Data File Example:} MDF\_Cone\_HF25scalar\_210323\_R1 stands for the first replicate of scalar data generated from a medium density fiber board test in cone calorimeter exposed to 25 kW/m$^2$ on March 23, 2021.
 
 \subsection{Fourier Transform Infrared Spectrometer (FTIR)}
-The FTIR directory contains subdirectories for the Attenuated Total Reflectance method (ATR) and the Integrating Sphere (IS)
-Data file structure for the ATR experiment files includes the material, the abbreviated name for the apparatus, date of test, and replicate number.
+The FTIR directory contains subdirectories for the Attenuated Total Reflectance method (ATR) and the Integrating Sphere (IS). Data file structure for the ATR experiment files includes the material, the abbreviated name for the apparatus, date of test, and replicate number.
 
-{\bf Example:} MDF\_ATR\_210323\_R5 stands for the fifth replicate of data collected with the ATR accessory conducted on June 8, 2021.
+{\bf Data File Example:} MDF\_ATR\_210323\_R5 stands for the fifth replicate of data collected with the ATR accessory conducted on June 8, 2021.
 
 Data file structure for the IS experiment files includes the material, the abbreviated name for the apparatus, the measurand, whether the test is a sample measurement or standard reference, date of test, and replicate number.
 
-{\bf Example:} OSB\_IS\_REFLECT\_MEAS\_210623\_R2 stands for the second replicate conducted on oriented strand board to measure spectral reflection in the integrating sphere on June 23, 2021.
+{\bf Data File Example:} OSB\_IS\_REFLECT\_MEAS\_210623\_R2 stands for the second replicate conducted on oriented strand board to measure spectral reflection in the integrating sphere on June 23, 2021.
 
 \subsection{Heat Flow Meter (HFM)}
 Data file structure is the material, the abbreviated name for the apparatus, whether test was dry or wet, whether test was for thermal conductivity or heat capacity, date of test, and replicate number. Scan is for the raw output data and scalar is for the initial conditions and high-level test parameters.
 
-{\bf Example:} OSB\_HFM\_Dry\_Conductivity\_210315\_R3.tst stands for the third replicate of the data generated from an oriented strand board test in the heat flow meter tested dry for thermal conductivity on March 15, 2021.
+{\bf Date File Example:} OSB\_HFM\_Dry\_Conductivity\_210315\_R3.tst stands for the third replicate of the data generated from an oriented strand board test in the heat flow meter tested dry for thermal conductivity on March 15, 2021.
 
 \subsection{Micro-scale Combustion Calorimeter (MCC)}
 Data file structure is the material, the abbreviated name for the apparatus, the heating rate in Kelvin per minute, date of test, and replicate number. Additionally, the final mass of the sample after the test is included in a separate text file named with the appendix 'FINAL\_MASS'.
 
-{\bf Example:} Polyester\_Fabric\_MCC\_30K\_min\_210308\_R1.csv stands for the first replicate of the data generated from a test on polyester fabric in the micro-scale combustion calorimeter tested with a heating rate of 30 Kelvin per minute on March 8, 2021.
+{\bf Data File Example:} Polyester\_Fabric\_MCC\_30K\_min\_210308\_R1.csv stands for the first replicate of the data generated from a test on polyester fabric in the micro-scale combustion calorimeter tested with a heating rate of 30 Kelvin per minute on March 8, 2021.
 
 \subsection{Simultaneous Thermal Analyzer (STA)}
 Data file structure is the material, the abbreviated name for the apparatus, the atmosphere tested in, the heating rate in Kelvin per minute and data/meta, date of test, and replicate number. Data is for the raw output data and meta is for the initial conditions and high-level test parameters.
-Example: Polyester\_Batting\_STA\_N2\_3KData\_210215\_R1.csv stands for the first replicate of the data generated from a polyester batting board test in the simultaneous thermal analyzer tested in nitrogen with a heating rate of 3 Kelvin per minute on March 15, 2021.
 
-\subsection{Additional Data Files}
+{\bf Data File Example:} Polyester\_Batting\_STA\_N2\_3KData\_210215\_R1.csv stands for the first replicate of the data generated from a polyester batting board test in the simultaneous thermal analyzer tested in nitrogen with a heating rate of 3 Kelvin per minute on March 15, 2021.
 
-\subsubsection{material.json}
-Each material has a json file that links the data stored in the repository and data and graphs produced by the accompanying scripts to the respective landing page for the material on the front-end website. The file also contains a brief description of the material and alternate names of the material to facilitate search.
-
-\subsubsection{Photos}
+\subsection{Photos}
 A full-size and thumbnail photo are included of materials for visualization on front-end website.
 
 
@@ -232,6 +235,7 @@ run\_all.bat and .sh files exist for both the set of data.py scripts and the dat
 If there are issues executing the script, in particular the .sh script, a change mode may be needed. In a command prompt type:
 chmod +x run\_all\_data.sh OR chmod +x run\_all\_data\_html.sh
 When the scripts, either data.py or data\_html.py, are run, the current version of the repository (i.e., Github hash) is appended to the figure.
+
 To successfully execute the Python scripts in this repository, several additional packages (outside of base Python) will need to be installed. One way to do this is through pip with following commands:
 
 \begin{verbatim}
