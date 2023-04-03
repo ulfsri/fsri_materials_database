@@ -90,10 +90,10 @@
 \addcontentsline{toc}{chapter}{List of Figures}
 \listoffigures
 
-\cleardoublepage
-\phantomsection
-\addcontentsline{toc}{chapter}{List of Tables}
-\listoftables
+% \cleardoublepage
+% \phantomsection
+% \addcontentsline{toc}{chapter}{List of Tables}
+% \listoftables
 
 \chapter*{\centering Acknowledgments}
 
@@ -181,11 +181,9 @@ Within each material directory, the data is organized by the short name of test 
 \end{figure}
 
 \subsection{material.json}
-Each material that is included on the front-end website has a material.json file. The file contains the text description of the material, where the material was procured from, material density, the length scale at which the material was tested (milligram, bench scale, full scale, large scale), and the applicable material category or categories. Materials fit into at least one of eleven categories: cord and cable, engineered wood, exterior finish, general polymer, insulation, interior finish, plumbing,roofing,sleeping product,structural, upholstered furniture. To broaden search capabilities, alternate names for materials (e.g., trade names, common names, etc.) are also included in the json file.
+Each material that is included on the website has a material.json file. The file contains the text description of the material, where the material was procured from, material density, the length scale at which the material was tested (milligram, bench scale, full scale, large scale), and the applicable material category or categories. Materials fit into at least one of eleven categories: cord and cable, engineered wood, exterior finish, general polymer, insulation, interior finish, plumbing,roofing,sleeping product,structural, upholstered furniture. To broaden search capabilities, alternate names for materials (e.g., trade names, common names, etc.) are also included in the json file.
 
-The core function of each json file is to link the graphs and tables produced by the included \_html.py scripts to the respective landing page for the respective material on the front-end website. At the top level of the repository is the {\em global.json} file. This file sets the overall structure of how the data is linked between the Github repository and the front end website.
-
-
+The core function of each json file is to link the graphs and tables produced by the included *\_html.py scripts to the respective landing page for each material on the website. At the top level of the repository exists {\em global.json} file. This file sets the overall structure of how the data is linked between the Github repository and the  website. The global json file establishes each of the measured and derived quantities that can appear on the website. Within each property a high level description of the tests are included as well as flags that set whether the a table, graph, or both are included. At the local material level, the test description can be overwritten if the experiments for the specific material deviated from baseline. Based on the graph/table flags set at the global level, the material file points to file path for required graphs and tables for the respective quantities. Note, only those quantities defined in the material file appear on the website. Further, materials in the repository that do not have a material.json file, will not appear on the website.
 
 \subsection{Cone Calorimeter (Cone)}
 The data file structure includes the material, the short name for the apparatus (cone), heat flux setting, scan/scalar, date of test, and replicate number. Scan is for the raw output data and scalar is for the initial conditions and high-level test parameters. For materials whose experiments deviated from typical behavior relevant pictures are included in the respective material directory. Any anomaly behaviors are included in the post test comment in the scalar data. This information is aggregated into a cone notes file that is produced by the {\em plot\_Cone\_data.py} script.
@@ -217,24 +215,12 @@ Data file structure is the material, the abbreviated name for the apparatus, the
 {\bf Data File Example:} Polyester\_Batting\_STA\_N2\_3KData\_210215\_R1.csv stands for the first replicate of the data generated from a polyester batting board test in the simultaneous thermal analyzer tested in nitrogen with a heating rate of 3 Kelvin per minute on March 15, 2021.
 
 \subsection{Photos}
-A full-size and thumbnail photo are included of materials for visualization on front-end website.
-
+A full-size and thumbnail (600 x 400) photo are included for visualization on website. When applicable, additional photos are included to help describe anomalies that occurred during testing, in particular from cone calorimeter experiments.
 
 \section{Processing Scripts}
 \label{sec:scripts}
 
-Python processing scripts exist for analyzing the experimental data to generate derived quantities and to plot the experimental data. The scripts are apparatus specific and cycle through all materials upon execution. Each apparatus has a pair of scripts: data.py and data\_html.py.
-
-The data.py script computes derived quantities, produces reduced data .csv files, and produces .pdf graphs in 03\_Charts/Material/Apparatus.
-
-Derived quantities and/or reduced data files will get dropped into 01\_Data/Material/Apparatus. These files get updated each time the script gets executed.
-The data\_html.py script produces interactive .html files that allow interactions such as hover, zoom, and pan and .html tables of relevant processed data. Similar to the data.py script, .html graphs are output to 03\_Charts/Material/Apparatus and can be opened in a web browser.
-
-run\_all.bat and .sh files exist for both the set of data.py scripts and the data\_html.py scripts. These files will execute the respective python scripts for all data in the repository.
-
-If there are issues executing the script, in particular the .sh script, a change mode may be needed. In a command prompt type:
-chmod +x run\_all\_data.sh OR chmod +x run\_all\_data\_html.sh
-When the scripts, either data.py or data\_html.py, are run, the current version of the repository (i.e., Github hash) is appended to the figure.
+Python processing scripts exist for analyzing the experimental data to generate output quantities and to plot the experimental data. The scripts are apparatus specific and cycle through all materials upon execution. Each apparatus has a pair of scripts: data.py and data\_html.py.
 
 To successfully execute the Python scripts in this repository, several additional packages (outside of base Python) will need to be installed. One way to do this is through pip with following commands:
 
@@ -248,10 +234,40 @@ pip install GitPython           #used for add repo hash to plots
 pip install pybaselines         #used for melting analysis in STA
 \end{verbatim}
 
-\section{Charts and Tables}
-\label{sec:charts}
+The data.py script computes output quantities, produces reduced data .csv files, and produces .pdf graphs in 03\_Charts/Material/Apparatus. The output quantities and/or reduced data files are created in 01\_Data/Material/Apparatus. These files get updated each time the script gets executed.
 
-\chapter{MaP Website}
+The data\_html.py script produces interactive html files that allow interactions such as hover, zoom, and pan and html tables of relevant processed data. Similar to the data.py script, html graphs are output to 03\_Charts/Material/Apparatus and can be opened in a web browser.
+
+To batch execute the scripts, run\_all.bat and run\_all.sh files exist for both the set of data.py scripts and the data\_html.py scripts. These files will execute the respective python scripts for each apparatus for all data in the repository.
+
+If there are issues executing any script, in particular the .sh script, a change mode may be needed. In a command prompt type: chmod +x run\_all\_data.sh OR chmod +x run\_all\_data\_html.sh
+
+When the scripts, either data.py or data\_html.py, are run, the current version of the repository (i.e., Github hash) is appended to the figure.
+
+\section{Graphs and Tables}
+\label{sec:graphs}
+
+None of the graphs or tables on the website are files under version control within the Github repository. Since these files can change as additional data (e.g., replicate experiments) gets added or new analysis approaches are included, committing them to the repository is intractable over the life of this database. Therefore, all graphs are tables on the website are produced by the included *\_html python scripts as discussed in Section~\ref{sec:scripts}. Tables are output in the respective apparatus directory for each material within {\bf 01\_Data}. All graphs get added to respective apparatus directory for each material (i.e., 03\_Charts/Material/Apparatus).
+
+
+\chapter{How to Contribute}
+\label{sec:contribute}
+
+Open source development of a materials and products database can provide great value to the larger fire modeling, fire protection, and fire investigation communities. The concept of researchers conducting experiments to gather property data across length scales is a larger goal of this project. A challenge is that not every researcher has access to the any/all of apparatus used to generate the data presented in this database. Therefore, it is easy to wonder how one can contribute to this project. The follow sections provide examples of some of those pathways.
+
+\section{Issue Tracker/Bug Reporting/Feature Request}
+The FSRI team followed best practices in conducting the experiments included in the database and writing the scripts for data analysis. Despite the rigor that went into these processes, there may still be issues with a particular replicate or missed error trapping within the python scripts. To help maximize the value of the project, as issues are found, additional information is needed, or new features or materials are requested, please use the built in \href{https://github.com/ulfsri/fsri_materials_database/issues}{Issue Tracker} within Github. These issues can be resolved through pull requests submitted by those who open the issue or by FSRI staff.
+
+\section{Documentation}
+Just as the database will continue to grow as new materials get added, new experiments get conducted, and new analysis methodologies get applied, the documentation will adapt accordingly. If sections of the User Guide or Technical Reference are unclear, have errors, or have typos, these can be resolved either through opening an issue via the (\href{https://github.com/ulfsri/fsri_materials_database/issues}{Issue Tracker}) or through submitting a pull-request to the code-base.
+
+\section{Add Experimental Data}
+Do you have experimental data to be added to an existing material or to a material not in the data base? Please contact us or open an issue (\href{https://github.com/ulfsri/fsri_materials_database/issues}{Issue Tracker}) with the {\bf add new data} tag. We will want to verify that your planned contribution is suitable for the database. 
+
+\section{Add Validation Examples}
+If you are using data from this data base to validate computational models, we want to hear from you. An on-going area of development for this database project is to create a suite of cases where this data has been used in fire models. These example cases can then be used to help provide guidance to the larger fire modeling, fire protection, and fire investigation communities.
+
+% \chapter{MaP Website}
 
 
 % \bibliography{../Bibliography/MaP_Database_Bibliography}
