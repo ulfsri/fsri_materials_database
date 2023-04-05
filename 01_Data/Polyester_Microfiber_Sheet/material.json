@@ -111,7 +111,12 @@
 		"nested tests": [{
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Polyester_Microfiber_Sheet_MCC_Heats_of_Combustion.html"
-			}		]
+			},
+			{
+				"display name": "Cone Calorimeter",
+				"table": "Cone/Polyester_Microfiber_Sheet_Cone_Analysis_EHC_Table.html"
+			}
+		]
 	},
 	{
 		"test name": "melting temperature and enthalpy of melting",

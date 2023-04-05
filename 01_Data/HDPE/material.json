@@ -117,7 +117,12 @@
 		"nested tests": [{
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/HDPE_MCC_Heats_of_Combustion.html"
-			}		]
+			},
+			{
+				"display name": "Cone Calorimeter",
+				"table": "Cone/HDPE_Cone_Analysis_EHC_Table.html"
+			}
+		]
 	},
 	{
 		"test name": "melting temperature and enthalpy of melting",

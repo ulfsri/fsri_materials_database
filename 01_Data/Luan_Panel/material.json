@@ -117,7 +117,12 @@
 		"nested tests": [{
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Luan_Panel_MCC_Heats_of_Combustion.html"
-			}		]
+			},
+			{
+				"display name": "Cone Calorimeter",
+				"table": "Cone/Luan_Panel_Cone_Analysis_EHC_Table.html"
+			}
+		]
 	},
 	{
 		"test name": "emissivity",

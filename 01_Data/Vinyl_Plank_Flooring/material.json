@@ -118,7 +118,12 @@
 		"nested tests": [{
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Vinyl_Plank_Flooring_MCC_Heats_of_Combustion.html"
-			}		]
+			},
+			{
+				"display name": "Cone Calorimeter",
+				"table": "Cone/Vinyl_Plank_Flooring_Cone_Analysis_EHC_Table.html"
+			}
+		]
 	},
 	{
 		"test name": "emissivity",

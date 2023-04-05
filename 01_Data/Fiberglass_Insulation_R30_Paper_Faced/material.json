@@ -77,5 +77,15 @@
 		"test description": "",
 		"display name": "",
 		"table": "Cone/Fiberglass_Insulation_R30_Paper_Faced_Cone_Analysis_Soot_Table.html"
+	},
+	{
+		"test name": "effective heat of combustion",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter",
+				"table": "Cone/Fiberglass_Insulation_R30_Paper_Faced_Cone_Analysis_EHC_Table.html"
+			}
+		]
 	}]
 }

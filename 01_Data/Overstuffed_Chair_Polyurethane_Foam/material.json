@@ -107,6 +107,11 @@
 		"nested tests": [{
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Overstuffed_Chair_Polyurethane_Foam_MCC_Heats_of_Combustion.html"
-			}		]
+			},
+			{
+				"display name": "Cone Calorimeter",
+				"table": "Cone/Overstuffed_Chair_Polyurethane_Foam_Cone_Analysis_EHC_Table.html"
+			}
+		]
 	}]
 }

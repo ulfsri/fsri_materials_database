@@ -118,7 +118,12 @@
 		"nested tests": [{
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Eucalyptus_Flooring_MCC_Heats_of_Combustion.html"
-			}		]
+			},
+			{
+				"display name": "Cone Calorimeter",
+				"table": "Cone/Eucalyptus_Flooring_Cone_Analysis_EHC_Table.html"
+			}
+		]
 	},
 	{
 		"test name": "emissivity",

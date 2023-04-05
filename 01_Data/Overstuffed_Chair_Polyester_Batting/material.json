@@ -105,7 +105,12 @@
 		"nested tests": [{
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Overstuffed_Chair_Polyester_Batting_MCC_Heats_of_Combustion.html"
-			}		]
+			},
+			{
+				"display name": "Cone Calorimeter",
+				"table": "Cone/Overstuffed_Chair_Polyester_Batting_Cone_Analysis_EHC_Table.html"
+			}
+		]
 	},
 	{
 		"test name": "melting temperature and enthalpy of melting",

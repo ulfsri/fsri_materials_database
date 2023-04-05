@@ -85,6 +85,11 @@
 		"nested tests": [{
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Polyisocyanurate_Foam_Board_MCC_Heats_of_Combustion.html"
-			}		]
+			},
+			{
+				"display name": "Cone Calorimeter",
+				"table": "Cone/Polyisocyanurate_Foam_Board_Cone_Analysis_EHC_Table.html"
+			}
+		]
 	}]
 }

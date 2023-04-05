@@ -90,6 +90,11 @@
 		"nested tests": [{
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Vinyl_Tile_MCC_Heats_of_Combustion.html"
-			}		]
+			},
+			{
+				"display name": "Cone Calorimeter",
+				"table": "Cone/Vinyl_Tile_Cone_Analysis_EHC_Table.html"
+			}
+		]
 	}]
 }

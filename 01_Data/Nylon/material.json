@@ -112,7 +112,12 @@
 		"nested tests": [{
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Nylon_MCC_Heats_of_Combustion.html"
-			}		]
+			},
+			{
+				"display name": "Cone Calorimeter",
+				"table": "Cone/Nylon_Cone_Analysis_EHC_Table.html"
+			}
+		]
 	},
 	{
 		"test name": "melting temperature and enthalpy of melting",
