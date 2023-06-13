@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Homasote_HF75_R2
+OPERATOR,Marino
+MATERIAL,Homasote
+ORIENTATION,Horizontal
+HEAT FLUX,75
+SURF AREA,0.009999999776482582
+C FACTOR,0.04058745130896568
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,59.66999816894531
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,2481
+TIME TO IGN,3.5
+END OF TEST SCAN,2001
+END OF TEST TIME,500.25
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 102.10 x 102.01 x 12.59 mm
+POST TEST CMT,"Sample swelled as it entered the decay stage, reference experiment photos. The sample shrank horizontally, reducing exposed surface area, see post test picture. Sample corner lifted off of insulation, referance photos."

@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Masonite_HF15_R2
+OPERATOR,Marino
+MATERIAL,Masonite
+ORIENTATION,Horizontal
+HEAT FLUX,15
+SURF AREA,0.009999999776482582
+C FACTOR,0.04114474728703499
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,34.119998931884766
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,2835
+TIME TO IGN,430.75
+END OF TEST SCAN,2355
+END OF TEST TIME,588.75
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 100.87 x 101.53 x 3.04 mm; with calcium silicate substrate; with tie wires
+POST TEST CMT,"After ignition the sample warped, charred, and fractured. Bumped weight scale around 20 seconds. Flames intermittenly extended radially outside of cone."
