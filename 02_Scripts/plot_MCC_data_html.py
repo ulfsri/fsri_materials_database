@@ -24,6 +24,10 @@ import plotly.graph_objects as go
 import git
 from scipy import integrate
 
+plot_all = False
+if not plot_all: 
+    print('plot_all is set to False, so any materials with existing html output files will be skipped')
+
 def clean_file(file_name):
     fin = open(file_name, 'rt', encoding = 'UTF-16')
     fout = open(f'{file_name}_TEMP.tst', 'wt', encoding = 'UTF-16')
@@ -95,8 +99,32 @@ def format_and_save_plot(file_loc):
 data_dir = '../01_Data/'
 save_dir = '../03_Charts/'
 
-for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
+# initialize material status dataframe
+if os.path.isfile('Utilities/material_status.csv'):
+    mat_status_df = pd.read_csv('Utilities/material_status.csv', index_col = 'material')
+else:
+    mat_status_df = pd.DataFrame(columns = ['Wet_cp', 'Dry_cp', 'Wet_k', 'Dry_k', 'STA_MLR', 'CONE_MLR_25', 'CONE_MLR_50', 'CONE_MLR_75', 'CONE_HRRPUA_25', 'CONE_HRRPUA_50', 'CONE_HRRPUA_75', 'CO_Yield', 'MCC_HRR', 'Soot_Yield', 'MCC_HoC', 'Cone_HoC', 'HoR', 'HoG', 'MCC_Ign_Temp', 'Melting_Temp', 'Emissivity', 'Full_JSON', "Picture"])
+
+    for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
+        if os.path.isdir(f'{data_dir}/{d}'):
+            material = d
+
+            r = np.empty((23, ))
+            r[:] = np.nan
+            mat_status_df.loc[material, :] = r
+    mat_status_df.fillna(False, inplace=True)
+
+for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f != 'README.md'), key=str.lower):
     material = d
+
+    if not plot_all:
+        output_exists = False
+        for c in ['MCC_HRR', 'MCC_HoC', 'MCC_Ign_Temp']: 
+            if mat_status_df.loc[material, c]: output_exists = True
+    if output_exists: 
+        # print(f'Skipping {material} MCC --- plot_all is False and output charts exist')
+        continue
+
     if os.path.isdir(f'{data_dir}{d}/MCC/'):
         fig = go.Figure()
         data_df = pd.DataFrame()
@@ -166,6 +194,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
     hoc_df_html.index.rename('Value',inplace=True)
     hoc_df_html = hoc_df_html.reset_index()
     hoc_df_html.to_html(f'{data_dir}{material}/MCC/{material}_MCC_Heats_of_Combustion.html',index=False,border=0)
+    mat_status_df.loc[material, 'MCC_HoC'] = True
 
     plot_mean_data(plot_data_df)
 
@@ -175,3 +204,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
         os.makedirs(plot_dir)
 
     format_and_save_plot(f'{plot_dir}{material}_MCC_HRR.html')
+    mat_status_df.loc[material, 'MCC_HRR'] = True
+
+mat_status_df.to_csv('Utilities/material_status.csv', index_label = 'material')
+print()
