@@ -73,19 +73,19 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
             temp_df.rename(columns = {0:'wavenumber', 1: 'signal'}, inplace=True)
             temp_df['wavelength'] = 10000000/temp_df.iloc[:,0] # wavelength in nm
             data = pd.concat([data, temp_df], axis = 1)
-        else:
-            continue
+    else: 
+        continue
 
-        data_df.loc[:,'mean'] = data.groupby(by=data.columns, axis=1).mean().loc[:,'signal']
-        data_df.loc[:,'std'] = data.groupby(by=data.columns, axis=1).std().loc[:,'signal']
-        data_df.loc[:,'wavelength'] = data.groupby(by=data.columns, axis=1).mean().loc[:,'wavelength']
+    data_df.loc[:,'mean'] = data.groupby(by=data.columns, axis=1).mean().loc[:,'signal']
+    data_df.loc[:,'std'] = data.groupby(by=data.columns, axis=1).std(numeric_only=True).loc[:,'signal']
+    data_df.loc[:,'wavelength'] = data.groupby(by=data.columns, axis=1).mean().loc[:,'wavelength']
 
-        data_df.set_index('wavelength', inplace=True)
-        plot_mean_data(data_df)
+    data_df.set_index('wavelength', inplace=True)
+    plot_mean_data(data_df)
 
-        plot_dir = f'../03_Charts/{material}/FTIR/ATR/'
+    plot_dir = f'../03_Charts/{material}/FTIR/ATR/'
 
-        if not os.path.exists(plot_dir):
-            os.makedirs(plot_dir)
+    if not os.path.exists(plot_dir):
+        os.makedirs(plot_dir)
 
-        format_and_save_plot(f'{plot_dir}{material}_ATR.html')
+    format_and_save_plot(f'{plot_dir}{material}_ATR.html')
