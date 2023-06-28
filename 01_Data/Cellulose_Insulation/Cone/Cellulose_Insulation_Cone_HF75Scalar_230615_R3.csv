@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Cellulose_In_HF75_R3
+OPERATOR,Marino
+MATERIAL,Cellulose Insulation
+ORIENTATION,Horizontal
+HEAT FLUX,75
+SURF AREA,0.009999999776482582
+C FACTOR,0.040762994438409805
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,26.81999969482422
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,1939
+TIME TO IGN,1.5
+END OF TEST SCAN,1459
+END OF TEST TIME,364.75
+TEST STATUS,1
+PRE TEST CMT,5 cm depth tray filled without compression
+POST TEST CMT,"Test started manually using ""start test"" button. Ignition occured less than 1 second after the shutter opened. Sample's surface area and height reduced as it was consumed. Sample charred and smoldered."
