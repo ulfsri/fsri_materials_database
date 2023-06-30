@@ -156,9 +156,9 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
         output_exists = False
         for c in ['CONE_MLR_25', 'CONE_MLR_50', 'CONE_MLR_75', 'CONE_HRRPUA_25', 'CONE_HRRPUA_50', 'CONE_HRRPUA_75', 'CO_Yield', 'Cone_HoC', 'Soot_Yield']: 
             if mat_status_df.loc[material, c]: output_exists = True
-    if output_exists: 
-        # print(f'Skipping {material} Cone --- plot_all is False and output charts exist')
-        continue
+        if output_exists: 
+            # print(f'Skipping {material} Cone --- plot_all is False and output charts exist')
+            continue
 
     if os.path.isdir(f'{data_dir}{d}/Cone/'):
         print(material + ' Cone')
