@@ -154,7 +154,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
     # if material != 'EPDM_Membrane': continue
     if not plot_all:
         output_exists = False
-        for c in ['CONE_MLR_25', 'CONE_MLR_50', 'CONE_MLR_75', 'CONE_HRRPUA_25', 'CONE_HRRPUA_50', 'CONE_HRRPUA_75', 'CO_Yield', 'Cone_HoC']: 
+        for c in ['CONE_MLR_25', 'CONE_MLR_50', 'CONE_MLR_75', 'CONE_HRRPUA_25', 'CONE_HRRPUA_50', 'CONE_HRRPUA_75', 'CO_Yield', 'Cone_HoC', 'Soot_Yield']: 
             if mat_status_df.loc[material, c]: output_exists = True
     if output_exists: 
         # print(f'Skipping {material} Cone --- plot_all is False and output charts exist')
