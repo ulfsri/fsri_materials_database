@@ -99,7 +99,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
         if os.path.isfile(f'{data_dir}{material}/HFM/{material}_HFM_Wet_specific_heat.html') or os.path.isfile(f'{data_dir}{material}/HFM/{material}_HFM_Dry_conductivity.html'):
             try:
                 # desc = element_df[material, 'specific heat']
-                desc = test_notes[material, 'HFM_cp']
+                desc = f"\"{test_notes[material, 'HFM_cp']}\""
             except:
                 desc = '\"\"'
 
@@ -130,7 +130,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
         if os.path.isfile(f'{data_dir}{material}/HFM/{material}_HFM_Wet_conductivity.html') or os.path.isfile(f'{data_dir}{material}/HFM/{material}_HFM_Dry_conductivity.html'):
             try:
                 # desc = element_df[material, 'thermal conductivity']
-                test_notes[material]['HFM_k']
+                desc = f"\"{test_notes[material]['HFM_k']}\""
             except:
                 desc = '\"\"'
 
@@ -185,20 +185,20 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                         if '<global_intro>' in sta_notes or '<global_intro>' in cone_notes:
                             print(f'ERROR: Cannot note use global test description for {material}. Test notes exist for both STA and cone, which conflict with global test description for MLR. Remove <global_intro> from test notes and write standalone notes in full.')
                             exit()
-                        desc = f'{sta_notes}<br><br>{cone_notes}'
+                        desc = f'\"{sta_notes}<br><br>{cone_notes}\"'
                     elif sta_notes_bool:
                         # 'both exist and only notes for STA -- use notes, must be written as standalone. throw error if <global_intro>. concat hard coded variation of global description for cone notes'
                         if '<global_intro>' in sta_notes:
                             print(f'ERROR: Cannot use global test description for {material}. Test notes exist for STA but not for cone, which conflicts with global test description for MLR. Remove <global_intro> from STA test notes and write standalone notes in full (no mention of specific output). Default notes for the cone will be added automatically.')
                             exit()
-                        desc = f'{sta_notes}<br><br>Mass loss rate [kg/s] was measured in the cone calorimeter experiments at three heat fluxes: 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.'
+                        desc = f'\"{sta_notes}<br><br>Mass loss rate [kg/s] was measured in the cone calorimeter experiments at three heat fluxes: 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.\"'
                     elif cone_notes_bool:
                         # 'both exist but only notes for cone -- cone notes must begin with <global_intro>. throw error otherwise'
                         if '<global_intro>' not in cone_notes:
                                 print(f'ERROR: Need to include global test description for {material}. Test notes exist for the cone but not for STA, which overrides default STA test description for MLR. Either begin notes with <global_intro> or write independent test notes for the STA.')
                                 exit()
                         intro = global_json['measured property'][2]['test description']
-                        desc = f'{intro}<br><br>Cone Calorimeter Test Notes:<br>{cone_notes.split("<global_intro>")[1]}'
+                        desc = f'\"{intro}<br><br>Cone Calorimeter Test Notes:<br>{cone_notes.split("<global_intro>")[1]}\"'
                     else:
                         # 'both exist and no notes -- notes are empty, use global'
                         desc = '\"\"'
@@ -209,24 +209,24 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                         if '<global_intro>' in sta_notes:
                             print(f'ERROR: Cannot use global test description. Cone tests have not been run for {material}, which conflicts with global test description for MLR. STA notes much be written as standalone.')
                             exit()
-                        desc = sta_notes
+                        desc = f'\"{sta_notes}\"'
                     else: 
                         # 'only STA exists and no notes -- hard coded variation of global description'
-                        desc = 'Mass loss rate [kg/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.'
+                        desc = '\"Mass loss rate [kg/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.\"'
             # if only cone tests exists
             elif (os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_25.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_50.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_75.html')):
                 if cone_notes_bool: 
                     # only cone exists and has notes:
                     if '<global_intro>' in cone_notes:
                         #  use notes combined with hardcoded variation of global description
-                        desc = f'Mass loss rate [kg/s] was measured in cone calorimeter experiments at three heat fluxes: 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.<br><br>{cone_notes.split("<global_intro>")[1]}'
+                        desc = f'\"Mass loss rate [kg/s] was measured in cone calorimeter experiments at three heat fluxes: 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.<br><br>{cone_notes.split("<global_intro>")[1]}\"'
                     else:
                         print(f'WARNING: Cone notes for {material} are written without "global_intro". Be sure that notes begin with an introduction that fits for all measurements.')
                         print()
-                        desc = cone_notes
+                        desc = f'\"{cone_notes}\"'
                 else: 
                     # 'only cone exists and no notes -- hard coded variation of global description'
-                    desc = 'Mass loss rate [kg/s] was measured in cone calorimeter experiments at three heat fluxes: 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.'
+                    desc = '\"Mass loss rate [kg/s] was measured in cone calorimeter experiments at three heat fluxes: 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.\"'
 
 
             mlr_list.append('\t{\n')
@@ -268,10 +268,10 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
         if os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_HRRPUA_25.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_HRRPUA_50.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_HRRPUA_75.html'):
             try:
                 # desc = element_df[material, 'heat release rate per unit area']
-                desc = test_notes[material]['Cone']
+                desc = f"\"{test_notes[material]['Cone']}\""
                 if '<global_intro>' in desc:
                     intro = global_json['measured property'][3]['test description']
-                    desc = f'{intro}<br><br>{desc.split("<global_intro>")[1]}'
+                    desc = f'\"{intro}<br><br>{desc.split("<global_intro>")[1]}\"'
             except:
                 desc = '\"\"'        
 
@@ -311,10 +311,10 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
         if os.path.isfile(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_CO_Table.html'):
             try:
                 # desc = element_df[material, 'CO Yield']
-                desc = test_notes[material]['Cone']
+                desc = f"\"{test_notes[material]['Cone']}\""
                 if '<global_intro>' in desc:
                     intro = global_json['measured property'][4]['test description']
-                    desc = f'{intro}<br><br>{desc.split("<global_intro>")[1]}'
+                    desc = f'\"{intro}<br><br>{desc.split("<global_intro>")[1]}\"'
             except:
                 desc = '\"\"'   
 
@@ -332,7 +332,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
         if os.path.isfile(f'{charts_dir}{material}/MCC/{material}_MCC_HRR.html'):  
             try:
                 # desc = element_df[material, 'specific heat release rate']
-                desc = test_notes[material]['MCC']
+                desc = f"\"{test_notes[material]['MCC']}\""
             except:
                 desc = '\"\"'  
             shrr_list.append('\t{\n')
@@ -350,10 +350,10 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
         if os.path.isfile(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_Soot_Table.html'): 
             try:
                 # desc = element_df[material, 'soot yield']
-                desc = test_notes[material]['Cone']
+                desc = f"\"{test_notes[material]['Cone']}\""
                 if '<global_intro>' in desc:
                     intro = global_json['derived property'][0]['test description']
-                    desc = f'{intro}<br><br>{desc.split("<global_intro>")[1]}'
+                    desc = f'\"{intro}<br><br>{desc.split("<global_intro>")[1]}\"'
             except:
                 desc = '\"\"' 
             soot_list.append('\t{\n')
@@ -369,7 +369,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
         ehc_list = []
         if os.path.isfile(f'{data_dir}{material}/MCC/{material}_MCC_Heats_of_Combustion.html') or os.path.isfile(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_EHC_Table.html'):
             try:
-                desc = element_df[material, 'effective heat of combustion']
+                desc = f"\"{element_df[material, 'effective heat of combustion']}\""
             except:
                 desc = '\"\"'  
 
@@ -392,40 +392,40 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                         if '<global_intro>' in mcc_notes or '<global_intro>' in cone_notes:
                             print(f'ERROR: Cannot note use global test description for {material}. Test notes exist for both MCC and cone, which conflict with global test description for HoC. Remove <global_intro> from test notes and write standalone notes in full.')
                             exit()
-                        desc = f'{mcc_notes}<br><br>{cone_notes}'
+                        desc = f'\"{mcc_notes}<br><br>{cone_notes}\"'
                     elif mcc_notes_bool:
                         # 'both exist and only notes for MCC -- use notes, must be written as standalone. throw error if <global_intro>. concat hard coded variation of global description for cone notes'
                         if '<global_intro>' in sta_notes:
                             print(f'ERROR: Cannot use global test description for {material}. Test notes exist for MCC but not for cone, which conflicts with global test description for HoC. Remove <global_intro> from MCC test notes and write standalone notes in full (no mention of specific output). Default notes for the cone will be added automatically.')
                             exit()
-                        desc = f'{sta_notes}<br><br>Effective heat of combustion [MJ/kg] is calculated from data collected in cone calorimeter experiments at three heat fluxes: 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.'
+                        desc = f'\"{sta_notes}<br><br>Effective heat of combustion [MJ/kg] is calculated from data collected in cone calorimeter experiments at three heat fluxes: 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.\"'
                     elif cone_notes_bool:
                         # 'both exist but only notes for cone -- cone notes must begin with <global_intro>. throw error otherwise'
                         if '<global_intro>' not in cone_notes:
                                 print(f'ERROR: Need to include global test description for {material}. Test notes exist for the cone but not for MCC, which overrides default MCC test description for HoC. Either begin notes with <global_intro> or write independent test notes for the MCC.')
                                 exit()
                         intro = global_json['derived property'][1]['test description']
-                        desc = f'{intro}<br><br>Cone Calorimeter Test Notes:<br>{cone_notes.split("<global_intro>")[1]}'
+                        desc = f'\"{intro}<br><br>Cone Calorimeter Test Notes:<br>{cone_notes.split("<global_intro>")[1]}\"'
                     else:
                         # 'both exist and no notes -- notes are empty, use global'
                         desc = '\"\"'
                 # MCC exists but not cone
                 else: 
                     # 'only MCC exists and no notes -- hard coded variation of global description'
-                    desc = 'Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.'
+                    desc = '\"Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.\"'
             # if only cone tests exists
             elif os.path.isfile(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_EHC_Table.html'):
                 if cone_notes_bool: 
                     # 'only cone exists and has notes: -- use notes, must be written as standalone. throw error if  <global_intro>'
                     if '<global_intro>' in cone_notes:
                         #  use notes combined with hardcoded variation of global description
-                        desc = f'Effective heat of combustion [MJ/kg] is calculated from data collected in cone calorimeter experiments.<br><br>{cone_notes.split("<global_intro>")[1]}'
+                        desc = f'\"Effective heat of combustion [MJ/kg] is calculated from data collected in cone calorimeter experiments.<br><br>{cone_notes.split("<global_intro>")[1]}\"'
                     else:
                         print(f'WARNING (MCC): Cone notes for {material} are written without "global_intro". Be sure that notes begin with an introduction that fits for all measurements.')
-                        desc = cone_notes
+                        desc = f"\"{cone_notes}\""
                 else: 
                     # 'only cone exists and no notes -- hard coded variation of global description'
-                    desc = 'Effective heat of combustion [MJ/kg] is calculated from data collected in cone calorimeter experiments.'
+                    desc = '\"Effective heat of combustion [MJ/kg] is calculated from data collected in cone calorimeter experiments.\"'
 
             
             ehc_list.append('\t{\n')
@@ -453,7 +453,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
         if os.path.isfile(f'{data_dir}{material}/STA/{material}_STA_Heat_of_Reaction_Table.html'):
             try:
                 # desc = element_df[material, 'heat of reaction']
-                desc = test_notes[material]['STA']
+                desc = f"\"{test_notes[material]['STA']}\""
             except:
                 desc = '\"\"'  
             hr_list.append('\t{\n')
@@ -470,7 +470,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
         if os.path.isfile(f'{data_dir}{material}/STA/{material}_STA_Heat_of_Gasification_Table.html'):
             try:
                 # desc = element_df[material, 'heat of gasification']
-                desc = test_notes[material]['STA']
+                desc = f"\"{test_notes[material]['STA']}\""
             except:
                 desc = '\"\"'
             hg_list.append('\t{\n')
@@ -487,7 +487,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
         if os.path.isfile(f'{data_dir}{material}/MCC/{material}_MCC_Ignition_Temperature_Table.html'):
             try:
                 # desc = element_df[material, 'ignition temperature']
-                desc = test_notes[material]['MCC']
+                desc = f"\"{test_notes[material]['MCC']}\""
             except:
                 desc = '\"\"'  
             it_list.append('\t{\n')
@@ -504,7 +504,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
         if os.path.isfile(f'{data_dir}{material}/STA/{material}_STA_Analysis_Melting_Temp_Table.html'):
             try:
                 # desc = element_df[material, 'melting temperature and enthalpy of melting']
-                desc = test_notes[material]['STA']
+                desc = f"\"{test_notes[material]['STA']}\""
             except:
                 desc = '\"\"'  
             mt_list.append('\t{\n')
@@ -521,7 +521,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
         if os.path.isfile(f'{data_dir}{material}/FTIR/IS/{material}_Emissivity.html'):
             try:
                 # desc = element_df[material, 'emissivity']
-                desc = test_notes[material]['IS']
+                desc = f"\"{test_notes[material]['IS']}\""
             except:
                 desc = '\"\"'  
             em_list.append('\t{\n')

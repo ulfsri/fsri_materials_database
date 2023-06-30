@@ -56,7 +56,7 @@
 	"derived property": [
 	{
 		"test name": "effective heat of combustion",
-		"test description": Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.,
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Micro-scale Combustion Calorimeter",
