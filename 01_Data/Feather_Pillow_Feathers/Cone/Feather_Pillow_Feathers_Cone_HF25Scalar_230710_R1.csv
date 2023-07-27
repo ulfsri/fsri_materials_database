@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Fea_Pill_Fea_HF25_R1
+OPERATOR,Marino
+MATERIAL,Feather Pillow Feathers
+ORIENTATION,Horizontal
+HEAT FLUX,25
+SURF AREA,0.009999999776482582
+C FACTOR,0.03833641856908798
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,5.389999866485596
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,638
+TIME TO IGN,4
+END OF TEST SCAN,158
+END OF TEST TIME,39.5
+TEST STATUS,1
+PRE TEST CMT,5 cm depth tray filled without compression
+POST TEST CMT,Sample may be been ingited directly by spark ingiter contact. Unclear though due to rapid ignition. Sample shrank and charred. Charred mass left bubbled.

@@ -19,4 +19,4 @@ END OF TEST SCAN,15964
 END OF TEST TIME,3991
 TEST STATUS,1
 PRE TEST CMT,Dimensions: 100.68 x 100.22 x 46.47 mm; with tie wires
-POST TEST CMT,"Intermittant flashes of flame prior to sustained ignition. Some burning occurred between the sample edge and foil due to volume shrinking. Test was after the average mass loss rate over 1 minute was less than 150 g/m^2 despite ongoing flaming combustion, in accordance with ASTM 1354. Sample charred and partly delamainted, and continued to smolder after end of test."
+POST TEST CMT,"Intermittant flashes of flame prior to sustained ignition. Some burning occurred between the sample edge and foil due to volume shrinking. Test was ended after the average mass loss rate over 1 minute was less than 150 g/m^2 despite ongoing flaming combustion, in accordance with ASTM 1354. Sample charred and partly delamainted, and continued to smolder after end of test."
