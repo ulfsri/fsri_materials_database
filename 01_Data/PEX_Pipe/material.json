@@ -34,23 +34,8 @@
 				"display name": "Simultaneous Thermal Analyzer",
 				"graph": "STA/N2/PEX_Pipe_STA_MLR.html"
 			}		]
-	},
-	{
-		"test name": "specific heat release rate",
-		"test description": "",
-		"display name": "",
-		"graph": "MCC/PEX_Pipe_MCC_HRR.html"
 	}],
 	"derived property": [
-	{
-		"test name": "effective heat of combustion",
-		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
-		"display name": "",
-		"nested tests": [{
-				"display name": "Micro-scale Combustion Calorimeter",
-				"table": "MCC/PEX_Pipe_MCC_Heats_of_Combustion.html"
-			}		]
-	},
 	{
 		"test name": "melting temperature and enthalpy of melting",
 		"test description": "",

@@ -253,15 +253,15 @@ for material in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")
 			trap_df = trap_df.rename_axis('wavenumber')
 			sample_df['Mean'] = sample_df.mean(axis=1)
 			sample_df['Std'] = sample_df.std(axis=1)
-			trap_df['Mean'] = sample_df.mean(axis=1)
-			trap_df['Std'] = sample_df.std(axis=1)
+			trap_df['Mean'] = trap_df.mean(axis=1)
+			trap_df['Std'] = trap_df.std(axis=1)
 
 			mean_reflect = pd.DataFrame(index = sample_df.index)
 
 			mean_reflect['Sample'] = sample_df['Mean']
 			mean_reflect['Sample_std'] = sample_df['Std']
 			mean_reflect['LT'] = trap_df['Mean']
-			mean_reflect['LT_std'] = sample_df['Std']
+			mean_reflect['LT_std'] = trap_df['Std']
 
 			mean_reflect['wavelength'] = 10000000/mean_reflect.index # wavelength in nm
 			mean_reflect.set_index('wavelength', inplace=True)
