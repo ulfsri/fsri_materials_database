@@ -101,12 +101,6 @@
 		"test description": "",
 		"display name": "",
 		"table": "Cone/Rebond_Foam_Carpet_Pad_Cone_Analysis_CO_Table.html"
-	},
-	{
-		"test name": "specific heat release rate",
-		"test description": "",
-		"display name": "",
-		"graph": "MCC/Rebond_Foam_Carpet_Pad_MCC_HRR.html"
 	}],
 	"derived property": [
 	{
@@ -117,13 +111,9 @@
 	},
 	{
 		"test name": "effective heat of combustion",
-		"test description": "",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in cone calorimeter experiments.",
 		"display name": "",
 		"nested tests": [{
-				"display name": "Micro-scale Combustion Calorimeter",
-				"table": "MCC/Rebond_Foam_Carpet_Pad_MCC_Heats_of_Combustion.html"
-			},
-			{
 				"display name": "Cone Calorimeter",
 				"table": "Cone/Rebond_Foam_Carpet_Pad_Cone_Analysis_EHC_Table.html"
 			}

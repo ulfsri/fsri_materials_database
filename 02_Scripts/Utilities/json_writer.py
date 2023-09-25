@@ -353,7 +353,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                 desc = f"\"{test_notes[material]['Cone']}\""
                 if '<global_intro>' in desc:
                     intro = global_json['derived property'][0]['test description']
-                    desc = f'\"{intro}<br><br>{desc.split("<global_intro>")[1]}\"'
+                    desc = f'\"{intro}<br><br>{desc.split("<global_intro>")[1]}'
             except:
                 desc = '\"\"' 
             soot_list.append('\t{\n')
