@@ -25,7 +25,7 @@ import git
 from scipy import integrate
 from pybaselines import Baseline, utils
 
-plot_all = True
+plot_all = False
 if not plot_all: 
     print('plot_all is set to False, so any materials with existing html output files will be skipped')
 
@@ -207,7 +207,6 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
     else:
         continue
 
-    # hoc_df_html = pd.DataFrame(index = ['Heat of Combustion (MJ/kg)'], columns = ['Mean', 'Std. Dev.'])
     hoc_df_html = hoc_df_html.round(decimals=2)
     hoc_df_html['Mean'] = hoc_df_html.mean(axis=1).round(decimals=2)
     hoc_df_html['Std. Dev.'] = hoc_df_html.std(axis=1).round(decimals=2)
@@ -217,15 +216,9 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
     hoc_df_html.to_html(f'{data_dir}{material}/MCC/{material}_MCC_Heats_of_Combustion.html',index=False,border=0)
     mat_status_df.loc[material, 'MCC_HoC'] = True
 
-    plot_mean_data(plot_data_df)
-
-    plot_dir = f'../03_Charts/{material}/MCC/'
-
-    if not os.path.exists(plot_dir):
-        os.makedirs(plot_dir)
-
     format_and_save_plot(f'{plot_dir}{material}_MCC_HRR.html')
     mat_status_df.loc[material, 'MCC_HRR'] = True
 
+mat_status_df.to_csv('Utilities/material_status.csv', index_label = 'material')
 print()
 
