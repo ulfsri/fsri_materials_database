@@ -56,29 +56,14 @@
 	},
 	{
 		"test name": "mass loss rate",
-		"test description": "",
+		"test description": "Mass loss rate [kg/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Simultaneous Thermal Analyzer",
 				"graph": "STA/N2/Cedar_Shingle_STA_MLR.html"
 			}		]
-	},
-	{
-		"test name": "specific heat release rate",
-		"test description": "",
-		"display name": "",
-		"graph": "MCC/Cedar_Shingle_MCC_HRR.html"
 	}],
 	"derived property": [
-	{
-		"test name": "effective heat of combustion",
-		"test description": "",
-		"display name": "",
-		"nested tests": [{
-				"display name": "Micro-scale Combustion Calorimeter",
-				"table": "MCC/Cedar_Shingle_MCC_Heats_of_Combustion.html"
-			}		]
-	},
 	{
 		"test name": "emissivity",
 		"test description": "",

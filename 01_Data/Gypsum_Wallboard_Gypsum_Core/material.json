@@ -30,27 +30,13 @@
 	"measured property": [
 	{
 		"test name": "mass loss rate",
-		"test description": "",
+		"test description": "Mass loss rate [kg/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Simultaneous Thermal Analyzer",
 				"graph": "STA/N2/Gypsum_Wallboard_Gypsum_Core_STA_MLR.html"
 			}		]
-	},
-	{
-		"test name": "specific heat release rate",
-		"test description": "",
-		"display name": "",
-		"graph": "MCC/Gypsum_Wallboard_Gypsum_Core_MCC_HRR.html"
 	}],
 	"derived property": [
-	{
-		"test name": "effective heat of combustion",
-		"test description": "",
-		"display name": "",
-		"nested tests": [{
-				"display name": "Micro-scale Combustion Calorimeter",
-				"table": "MCC/Gypsum_Wallboard_Gypsum_Core_MCC_Heats_of_Combustion.html"
-			}		]
-	}]
+]
 }

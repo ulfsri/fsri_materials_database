@@ -46,23 +46,8 @@
 				"table": "HFM/Cotton_Batting_HFM_Dry_conductivity.html"
 			}
 		]
-	},
-	{
-		"test name": "specific heat release rate",
-		"test description": "",
-		"display name": "",
-		"graph": "MCC/Cotton_Batting_MCC_HRR.html"
 	}],
 	"derived property": [
-	{
-		"test name": "effective heat of combustion",
-		"test description": "",
-		"display name": "",
-		"nested tests": [{
-				"display name": "Micro-scale Combustion Calorimeter",
-				"table": "MCC/Cotton_Batting_MCC_Heats_of_Combustion.html"
-			}		]
-	},
 	{
 		"test name": "emissivity",
 		"test description": "",

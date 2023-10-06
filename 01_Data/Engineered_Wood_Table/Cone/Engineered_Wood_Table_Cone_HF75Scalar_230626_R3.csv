@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Eng_Wood_Tab_HF75_R3
+OPERATOR,Marino
+MATERIAL,Engineered Wood Table
+ORIENTATION,Horizontal
+HEAT FLUX,75
+SURF AREA,0.009999999776482582
+C FACTOR,0.041184112429618835
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,348.4200134277344
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,16444
+TIME TO IGN,8
+END OF TEST SCAN,15964
+END OF TEST TIME,3991
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 100.68 x 100.22 x 46.47 mm; with tie wires
+POST TEST CMT,"Intermittant flashes of flame prior to sustained ignition. Some burning occurred between the sample edge and foil due to volume shrinking. Test was ended after the average mass loss rate over 1 minute was less than 150 g/m^2 despite ongoing flaming combustion, in accordance with ASTM 1354. Sample charred and partly delamainted, and continued to smolder after end of test."

@@ -26,6 +26,10 @@ from scipy.integrate import trapezoid
 import plotly.graph_objects as go
 import git
 
+plot_all = True
+if not plot_all: 
+    print('plot_all is set to False, so any materials with existing html output files will be skipped')
+
 ### Fuel Properties ###
 e = 13100 # [kJ/kg O2] del_hc/r_0
 laser_wl = 632.8/10e9 # m
@@ -117,19 +121,45 @@ def format_and_save_plot(quantity, file_loc,m):
 data_dir = '../01_Data/'
 save_dir = '../03_Charts/'
 
+# initialize material status dataframe
+if os.path.isfile('Utilities/material_status.csv'):
+    mat_status_df = pd.read_csv('Utilities/material_status.csv', index_col = 'material')
+else:
+    mat_status_df = pd.DataFrame(columns = ['Wet_cp', 'Dry_cp', 'Wet_k', 'Dry_k', 'STA_MLR', 'CONE_MLR_25', 'CONE_MLR_50', 'CONE_MLR_75', 'CONE_HRRPUA_25', 'CONE_HRRPUA_50', 'CONE_HRRPUA_75', 'CO_Yield', 'MCC_HRR', 'Soot_Yield', 'MCC_HoC', 'Cone_HoC', 'HoR', 'HoG', 'MCC_Ign_Temp', 'Melting_Temp', 'Emissivity', 'Full_JSON', "Picture"])
+
+    for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
+        if os.path.isdir(f'{data_dir}/{d}'):
+            material = d
+
+            r = np.empty((23, ))
+            r[:] = np.nan
+            mat_status_df.loc[material, :] = r
+    mat_status_df.fillna(False, inplace=True)
+
+
 hf_list_default = ['25', '50', '75']
 quant_list = ['HRRPUA', 'MLR', 'SPR', 'Extinction Coefficient'] #'EHC', 'CO Yield', 'Soot Yield','SEA',
 
 y_max_dict = {'HRRPUA':500, 'MLR':1, 'SPR':5, 'Extinction Coefficient':2} #'EHC':50000, 'CO':0.1, 'Soot':0.1,'SEA':1000,
 y_inc_dict = {'HRRPUA':100, 'MLR':0.2, 'SPR':1, 'Extinction Coefficient':0.5} #'EHC':10000, 'CO':0.02, 'Soot':0.02,'SEA':200,
 
-for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
+for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f != 'README.md'), key=str.lower):
     df_dict = {}
     material = d
     summary_df = pd.DataFrame()
     output_df = pd.DataFrame()
     co_df = pd.DataFrame()
     soot_df = pd.DataFrame()
+    
+    # if material != 'EPDM_Membrane': continue
+    if not plot_all:
+        output_exists = False
+        for c in ['CONE_MLR_25', 'CONE_MLR_50', 'CONE_MLR_75', 'CONE_HRRPUA_25', 'CONE_HRRPUA_50', 'CONE_HRRPUA_75', 'CO_Yield', 'Cone_HoC', 'Soot_Yield']: 
+            if mat_status_df.loc[material, c]: output_exists = True
+        if output_exists: 
+            # print(f'Skipping {material} Cone --- plot_all is False and output charts exist')
+            continue
+
     if os.path.isdir(f'{data_dir}{d}/Cone/'):
         print(material + ' Cone')
         data_df = pd.DataFrame()
@@ -324,8 +354,9 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
 
                 if not os.path.exists(plot_dir):
                     os.makedirs(plot_dir)
-
+                
                 format_and_save_plot(n, f'{plot_dir}{material}_Cone_{n}_{m}.html',m)
+                if f'CONE_{n}_{m}' in list(mat_status_df.columns): mat_status_df.loc[material, f'CONE_{n}_{m}'] = True
 
     else:
         continue
@@ -362,12 +393,18 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
 
     co_html_df = co_html_df.reset_index()
     co_html_df.to_html(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_CO_Table.html',index=False, encoding='UTF-8', border=0)
+    mat_status_df.loc[material, 'CO_Yield'] = True
 
     if soot_html_df.isnull().values.any():
         pass
     else:
         soot_html_df = soot_html_df.reset_index()
         soot_html_df.to_html(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_Soot_Table.html',index=False, encoding='UTF-8', border=0)
+        mat_status_df.loc[material, 'Soot_Yield'] = True
 
     hoc_html_df = hoc_html_df.reset_index()
     hoc_html_df.to_html(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_EHC_Table.html',index=False, encoding='UTF-8', border=0)
+    mat_status_df.loc[material, 'Cone_HoC'] = True
+
+mat_status_df.to_csv('Utilities/material_status.csv', index_label = 'material')
+print()
