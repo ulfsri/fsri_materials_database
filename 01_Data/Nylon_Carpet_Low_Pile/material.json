@@ -24,7 +24,6 @@
 		"milligram",
 		"bench scale"
 	],
-],
 	"derived property": [
 	{
 		"test name": "emissivity",
