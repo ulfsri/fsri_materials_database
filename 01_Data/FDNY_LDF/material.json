@@ -1,0 +1,92 @@
+{
+	"material": "Low Density Fiberboard",
+	"alternate names": [
+		"LDF",
+		"Particle Board",
+		"Press Board"
+	],
+	"material_dir": "FDNY_LDF",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"engineered wood"
+	],
+	"image file": "FDNY_LDF.JPG",
+	"image 600x400 file": "FDNY_LDF600x400.jpg",
+	"video file": "",
+	"description": "Low Density Fiberboard is created by combining wood fibers with a binder (glue) and wax at high temperature and pressure.",
+	"short desc": "Low Density Fiberboard is created by combining wood fibers with a binder (glue) and wax.",
+	"source": "Samples cut from 1.59 cm thick, 122 cm x 244 cm sheet.",
+	"density": "230 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/FDNY_LDF_STA_MLR.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/FDNY_LDF_Cone_MLR_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/FDNY_LDF_Cone_MLR_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/FDNY_LDF_Cone_MLR_75.html"
+			}
+		]
+	},
+	{
+		"test name": "heat release rate per unit area",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/FDNY_LDF_Cone_HRRPUA_25.html",
+				"table": "Cone/FDNY_LDF_Cone_Analysis_HRRPUA_Table_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/FDNY_LDF_Cone_HRRPUA_50.html",
+				"table": "Cone/FDNY_LDF_Cone_Analysis_HRRPUA_Table_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/FDNY_LDF_Cone_HRRPUA_75.html",
+				"table": "Cone/FDNY_LDF_Cone_Analysis_HRRPUA_Table_75.html"
+			}
+		]
+	},
+	{
+		"test name": "carbon monoxide yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/FDNY_LDF_Cone_Analysis_CO_Table.html"
+	}],
+	"derived property": [
+	{
+		"test name": "soot yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/FDNY_LDF_Cone_Analysis_Soot_Table.html"
+	},
+	{
+		"test name": "effective heat of combustion",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in cone calorimeter experiments.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter",
+				"table": "Cone/FDNY_LDF_Cone_Analysis_EHC_Table.html"
+			}
+		]
+	}]
+}

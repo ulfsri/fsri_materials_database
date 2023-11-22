@@ -1,0 +1,24 @@
+{
+	"material": "Acrylic Countertop",
+	"alternate names": [
+		"corian",
+		"solid surface",
+		"counter"
+	],
+	"material_dir": "Corian_Countertop",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"interior finish"
+	],
+	"image file": "Corian_Countertop.JPG",
+	"image 600x400 file": "Corian_Countertop600x400.jpg",
+	"video file": "",
+	"description": "Acrylic Countertop is a solid surface material used primarily as countertops, benchtops, and washbasins. It is composed of acrylic and alumina trihydrate",
+	"short desc": "Acrylic Countertop is a solid surface material used primarily as countertops, benchtops, and washbasins.",
+	"source": "Samples procured from hardware store.",
+	"density": "1670 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
