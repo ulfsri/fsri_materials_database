@@ -1,0 +1,119 @@
+{
+	"material": "High Impact Polystyrene (HIPS)",
+	"alternate names": [
+		"polystyrene",
+		"PS",
+		"HIPS"	
+	],
+	"material_dir": "HIPS",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"general polymer"
+	],
+	"image file": "HIPS.JPG",
+	"image 600x400 file": "HIPS600x400.jpg",
+	"video file": "",
+	"description": "High Impact Polytyrene (HIPS) is a thermoplastic often used in graphics arts applications.",
+	"short desc": "High Impact Polytyrene (HIPS) is a thermoplastic often used in graphics arts applications.",
+	"source": "Samples cut from 0.29 cm thick, 30 cm by 30 cm commercially available sheet.",
+	"density": "1070 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
+	"measured property": [
+	{
+		"test name": "specific heat",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/HIPS_HFM_Wet_specific_heat.html",
+				"table": "HFM/HIPS_HFM_Wet_specific_heat.html"
+			}		]
+	},
+	{
+		"test name": "thermal conductivity",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/HIPS_HFM_Wet_conductivity.html",
+				"table": "HFM/HIPS_HFM_Wet_conductivity.html"
+			}		]
+	},
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/HIPS_STA_MLR.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/HIPS_Cone_MLR_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/HIPS_Cone_MLR_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/HIPS_Cone_MLR_75.html"
+			}
+		]
+	},
+	{
+		"test name": "heat release rate per unit area",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/HIPS_Cone_HRRPUA_25.html",
+				"table": "Cone/HIPS_Cone_Analysis_HRRPUA_Table_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/HIPS_Cone_HRRPUA_50.html",
+				"table": "Cone/HIPS_Cone_Analysis_HRRPUA_Table_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/HIPS_Cone_HRRPUA_75.html",
+				"table": "Cone/HIPS_Cone_Analysis_HRRPUA_Table_75.html"
+			}
+		]
+	},
+	{
+		"test name": "carbon monoxide yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/HIPS_Cone_Analysis_CO_Table.html"
+	}],
+	"derived property": [
+	{
+		"test name": "soot yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/HIPS_Cone_Analysis_Soot_Table.html"
+	},
+	{
+		"test name": "effective heat of combustion",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in cone calorimeter experiments.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter",
+				"table": "Cone/HIPS_Cone_Analysis_EHC_Table.html"
+			}
+		]
+	},
+	{
+		"test name": "emissivity",
+		"test description": "",
+		"display name": "",
+		"table": "FTIR/IS/HIPS_Emissivity.html",
+		"graph": "FTIR/IS/HIPS_Emissivity.html"
+	}]
+}

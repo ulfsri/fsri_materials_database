@@ -1,0 +1,24 @@
+{
+	"material": "Low Density Fiberboard",
+	"alternate names": [
+		"LDF",
+		"Particle Board",
+		"Press Board"
+	],
+	"material_dir": "FDNY_LDF",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"engineered wood"
+	],
+	"image file": "FDNY_LDF.JPG",
+	"image 600x400 file": "FDNY_LDF600x400.jpg",
+	"video file": "",
+	"description": "Low Density Fiberboard is created by combining wood fibers with a binder (glue) and wax at high temperature and pressure.",
+	"short desc": "Low Density Fiberboard is created by combining wood fibers with a binder (glue) and wax.",
+	"source": "Samples cut from 1.59 cm thick, 122 cm x 244 cm sheet.",
+	"density": "230 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

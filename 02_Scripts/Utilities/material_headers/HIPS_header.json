@@ -1,0 +1,24 @@
+{
+	"material": "High Impact Polystyrene (HIPS)",
+	"alternate names": [
+		"polystyrene",
+		"PS",
+		"HIPS"	
+	],
+	"material_dir": "HIPS",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"general polymer"
+	],
+	"image file": "HIPS.JPG",
+	"image 600x400 file": "HIPS600x400.jpg",
+	"video file": "",
+	"description": "High Impact Polytyrene (HIPS) is a thermoplastic often used in graphics arts applications.",
+	"short desc": "High Impact Polytyrene (HIPS) is a thermoplastic often used in graphics arts applications.",
+	"source": "Samples cut from 0.29 cm thick, 30 cm by 30 cm commercially available sheet.",
+	"density": "1070 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
