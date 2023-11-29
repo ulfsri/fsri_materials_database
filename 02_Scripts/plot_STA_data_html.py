@@ -27,7 +27,7 @@ import plotly.graph_objects as go
 import git
 from pybaselines import Baseline, utils
 
-plot_all = False
+plot_all = True
 if not plot_all: 
     print('plot_all is set to False, so any materials with existing html output files will be skipped')
 
@@ -124,14 +124,13 @@ else:
 for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f != 'README.md'), key=str.lower):
     material = d
 
-    # if material != 'Masonite_Board': continue
-    if not plot_all:
-        output_exists = False
-        for c in ['STA_MLR', 'HoR', 'HoG', 'Melting_Temp']: 
-            if mat_status_df.loc[material, c]: output_exists = True
-    if output_exists: 
-        # print(f'Skipping {material} STA --- plot_all is False and output charts exist')
-        continue
+    # if not plot_all:
+    #     output_exists = False
+    #     for c in ['STA_MLR', 'HoR', 'HoG', 'Melting_Temp']: 
+    #         if mat_status_df.loc[material, c]: output_exists = True
+    # if output_exists: 
+    #     # print(f'Skipping {material} STA --- plot_all is False and output charts exist')
+    #     continue
 
     melt_temp = []
     melt_onset = []
