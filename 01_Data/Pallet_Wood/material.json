@@ -1,0 +1,53 @@
+{
+	"material": "Pallet Wood",
+	"alternate names": [
+		"pine",
+		"oak"
+	],
+	"material_dir": "Pallet_Wood",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"engineered wood",
+		"cellulosic materials"
+	],
+	"image file": "Pallet_Wood.JPG",
+	"image 600x400 file": "Pallet_Wood600x400.jpg",
+	"video file": "",
+	"description": "Pallet wood is typically pine or oak that is used to build pallets for storage and shipping applications.",
+	"short desc": "Pallet wood is typically pine or oak that is used to build pallets for storage and shipping applications.",
+	"source": "Samples cut from pallets used for fire training ground.",
+	"density": "480 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
+	"measured property": [
+	{
+		"test name": "thermal conductivity",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Pallet_Wood_HFM_Wet_conductivity.html",
+				"table": "HFM/Pallet_Wood_HFM_Wet_conductivity.html"
+			},
+			{
+				"display name": "Dried",
+				"graph": "HFM/Pallet_Wood_HFM_Dry_conductivity.html",
+				"table": "HFM/Pallet_Wood_HFM_Dry_conductivity.html"
+			}
+		]
+	},
+	{
+		"test name": "mass loss rate",
+		"test description": "Mass loss rate [kg/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Pallet_Wood_STA_MLR.html"
+			}		]
+	}],
+	"derived property": [
+]
+}
