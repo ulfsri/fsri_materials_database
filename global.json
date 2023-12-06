@@ -10,7 +10,8 @@
 		"roofing",
 		"sleeping product",
 		"structural",
-		"upholstered furniture"
+		"upholstered furniture",
+		"cellulosic materials"
 	],
 	"repository": "https://github.com/ulfsri/fsri_materials_database",
 	"branch": "main",

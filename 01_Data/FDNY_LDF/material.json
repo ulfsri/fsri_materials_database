@@ -9,7 +9,8 @@
 	"parent material": "",
 	"component material": [],
 	"material category": [
-		"engineered wood"
+		"engineered wood",
+		"cellulosic materials"
 	],
 	"image file": "FDNY_LDF.JPG",
 	"image 600x400 file": "FDNY_LDF600x400.jpg",
@@ -71,6 +72,12 @@
 		"test description": "",
 		"display name": "",
 		"table": "Cone/FDNY_LDF_Cone_Analysis_CO_Table.html"
+	},
+	{
+		"test name": "specific heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "MCC/FDNY_LDF_MCC_HRR.html"
 	}],
 	"derived property": [
 	{
@@ -81,9 +88,13 @@
 	},
 	{
 		"test name": "effective heat of combustion",
-		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in cone calorimeter experiments.",
+		"test description": "",
 		"display name": "",
 		"nested tests": [{
+				"display name": "Micro-scale Combustion Calorimeter",
+				"table": "MCC/FDNY_LDF_MCC_Heats_of_Combustion.html"
+			},
+			{
 				"display name": "Cone Calorimeter",
 				"table": "Cone/FDNY_LDF_Cone_Analysis_EHC_Table.html"
 			}

@@ -9,7 +9,8 @@
 	"parent material": "",
 	"component material": [],
 	"material category": [
-		"engineered wood"
+		"engineered wood",
+		"cellulosic materials"
 	],
 	"image file": "FDNY_LDF.JPG",
 	"image 600x400 file": "FDNY_LDF600x400.jpg",
