@@ -1,24 +1,26 @@
 {
-	"material": "Straw",
+	"material": "Excelsior",
 	"alternate names": [
-		"grass",
-		"wheat",
-		"barley",
-		"switchgrass"
+		"wood wool",
+		"packaging",
+		"shavings",
+		"animal bedding",
+		"wadding",
+		"packing"
 	],
-	"material_dir": "Straw",
+	"material_dir": "Excelsior",
 	"parent material": "",
 	"component material": [],
 	"material category": [
-		"cellulosic materials"
+		"engineered wood"
 	],
-	"image file": "Straw.JPG",
-	"image 600x400 file": "Straw600x400.jpg",
+	"image file": "Excelsior.JPG",
+	"image 600x400 file": "Excelsior600x400.jpg",
 	"video file": "",
-	"description": "Straw is dried stalks of grain often used for thatching, packing, weaving, and in fire training scenarios.",
-	"short desc": "Straw is dried stalks of grain.",
-	"source": "Collected from a fire service training ground.",
-	"density": "43 kg/m<sup>3</sup>",
+	"description": "Excelsior is thin aspen wood shavings used in insulation, packaging, firefirghter training, and several other applications.",
+	"short desc": "Excelsior is thin aspen wood shavings.",
+	"source": "Material procured in a bulk bale from company specializing in excelsior.",
+	"density": "50 kg/m<sup>3</sup>",
 	"property scales": [
 		"milligram",
 		"bench scale"
@@ -30,11 +32,11 @@
 		"display name": "",
 		"nested tests": [{
 				"display name": "Simultaneous Thermal Analyzer",
-				"graph": "STA/N2/Straw_STA_MLR.html"
+				"graph": "STA/N2/Excelsior_STA_MLR.html"
 			},
 			{
 				"display name": "Cone Calorimeter: 35 kW/m<sup>2</sup>",
-				"graph": "Cone/Straw_Cone_MLR_35.html"
+				"graph": "Cone/Excelsior_Cone_MLR_35.html"
 			}
 		]
 	},
@@ -44,8 +46,8 @@
 		"display name": "",
 		"nested tests": [{
 				"display name": "Cone Calorimeter: 35 kW/m<sup>2</sup>",
-				"graph": "Cone/Straw_Cone_HRRPUA_35.html",
-				"table": "Cone/Straw_Cone_Analysis_HRRPUA_Table_35.html"
+				"graph": "Cone/Excelsior_Cone_HRRPUA_35.html",
+				"table": "Cone/Excelsior_Cone_Analysis_HRRPUA_Table_35.html"
 			}
 		]
 	},
@@ -53,26 +55,32 @@
 		"test name": "carbon monoxide yield",
 		"test description": "",
 		"display name": "",
-		"table": "Cone/Straw_Cone_Analysis_CO_Table.html"
+		"table": "Cone/Excelsior_Cone_Analysis_CO_Table.html"
 	},
 	{
 		"test name": "specific heat release rate",
 		"test description": "",
 		"display name": "",
-		"graph": "MCC/Straw_MCC_HRR.html"
+		"graph": "MCC/Excelsior_MCC_HRR.html"
 	}],
 	"derived property": [
+	{
+		"test name": "soot yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/Excelsior_Cone_Analysis_Soot_Table.html"
+	},
 	{
 		"test name": "effective heat of combustion",
 		"test description": "",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Micro-scale Combustion Calorimeter",
-				"table": "MCC/Straw_MCC_Heats_of_Combustion.html"
+				"table": "MCC/Excelsior_MCC_Heats_of_Combustion.html"
 			},
 			{
 				"display name": "Cone Calorimeter",
-				"table": "Cone/Straw_Cone_Analysis_EHC_Table.html"
+				"table": "Cone/Excelsior_Cone_Analysis_EHC_Table.html"
 			}
 		]
 	},
@@ -80,7 +88,7 @@
 		"test name": "emissivity",
 		"test description": "",
 		"display name": "",
-		"table": "FTIR/IS/Straw_Emissivity.html",
-		"graph": "FTIR/IS/Straw_Emissivity.html"
+		"table": "FTIR/IS/Excelsior_Emissivity.html",
+		"graph": "FTIR/IS/Excelsior_Emissivity.html"
 	}]
 }
