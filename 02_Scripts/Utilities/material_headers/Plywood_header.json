@@ -1,0 +1,24 @@
+{
+	"material": "Plywood",
+	"alternate names": [
+		"veneer board",
+		"engineered wood board",
+		"laminated board"
+	],
+	"material_dir": "Plywood",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"engineered wood"
+	],
+	"image file": "Plywood.JPG",
+	"image 600x400 file": "Plywood600x400.jpg",
+	"video file": "",
+	"description": "Plywood is layers of softwood veneer bonded together with a phenolic resin with an interior grade finish.",
+	"short desc": "Plywood is layers of softwood glued together with a phenolic resin",
+	"source": "Samples cut from 1.59 cm cm thick, 122 cm x 244 cm sheet.",
+	"density": "500 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

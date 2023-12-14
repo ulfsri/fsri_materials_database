@@ -69,6 +69,12 @@
 		"test description": "",
 		"display name": "",
 		"table": "Cone/ABS_Cone_Analysis_CO_Table.html"
+	},
+	{
+		"test name": "specific heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "MCC/ABS_MCC_HRR.html"
 	}],
 	"derived property": [
 	{
