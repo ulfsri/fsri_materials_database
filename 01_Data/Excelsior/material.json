@@ -1,0 +1,94 @@
+{
+	"material": "Excelsior",
+	"alternate names": [
+		"wood wool",
+		"packaging",
+		"shavings",
+		"animal bedding",
+		"wadding",
+		"packing"
+	],
+	"material_dir": "Excelsior",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"engineered wood"
+	],
+	"image file": "Excelsior.JPG",
+	"image 600x400 file": "Excelsior600x400.jpg",
+	"video file": "",
+	"description": "Excelsior is thin aspen wood shavings used in insulation, packaging, firefirghter training, and several other applications.",
+	"short desc": "Excelsior is thin aspen wood shavings.",
+	"source": "Material procured in a bulk bale from company specializing in excelsior.",
+	"density": "50 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "Mass loss rate [kg/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min and in the cone calorimeter at a heat flux of 35 kW/m<sup>2</sup>.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Excelsior_STA_MLR.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 35 kW/m<sup>2</sup>",
+				"graph": "Cone/Excelsior_Cone_MLR_35.html"
+			}
+		]
+	},
+	{
+		"test name": "heat release rate per unit area",
+		"test description": "Heat release rate per unit area [kW/m<sup>2</sup>] was measured with the cone calorimeter at a heat flux of 35 kW/m<sup>2</sup>.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 35 kW/m<sup>2</sup>",
+				"graph": "Cone/Excelsior_Cone_HRRPUA_35.html",
+				"table": "Cone/Excelsior_Cone_Analysis_HRRPUA_Table_35.html"
+			}
+		]
+	},
+	{
+		"test name": "carbon monoxide yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/Excelsior_Cone_Analysis_CO_Table.html"
+	},
+	{
+		"test name": "specific heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "MCC/Excelsior_MCC_HRR.html"
+	}],
+	"derived property": [
+	{
+		"test name": "soot yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/Excelsior_Cone_Analysis_Soot_Table.html"
+	},
+	{
+		"test name": "effective heat of combustion",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Micro-scale Combustion Calorimeter",
+				"table": "MCC/Excelsior_MCC_Heats_of_Combustion.html"
+			},
+			{
+				"display name": "Cone Calorimeter",
+				"table": "Cone/Excelsior_Cone_Analysis_EHC_Table.html"
+			}
+		]
+	},
+	{
+		"test name": "emissivity",
+		"test description": "",
+		"display name": "",
+		"table": "FTIR/IS/Excelsior_Emissivity.html",
+		"graph": "FTIR/IS/Excelsior_Emissivity.html"
+	}]
+}

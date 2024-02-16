@@ -25,7 +25,8 @@ import git
 from scipy import integrate
 from pybaselines import Baseline, utils
 
-plot_all = False
+plot_all = True
+
 if not plot_all: 
     print('plot_all is set to False, so any materials with existing html output files will be skipped')
 
@@ -204,6 +205,8 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
         plot_data_df.loc[:,'HRR_mean'] = corrected_data.mean(axis = 1)
         plot_data_df.loc[:,'HRR_std'] = corrected_data.std(axis = 1)
 
+        plot_mean_data(plot_data_df)
+
     else:
         continue
 
@@ -215,6 +218,8 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
     hoc_df_html = hoc_df_html.reset_index()
     hoc_df_html.to_html(f'{data_dir}{material}/MCC/{material}_MCC_Heats_of_Combustion.html',index=False,border=0)
     mat_status_df.loc[material, 'MCC_HoC'] = True
+
+    plot_dir = f'{save_dir}{material}/MCC/'
 
     format_and_save_plot(f'{plot_dir}{material}_MCC_HRR.html')
     mat_status_df.loc[material, 'MCC_HRR'] = True

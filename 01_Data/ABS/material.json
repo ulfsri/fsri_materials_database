@@ -1,0 +1,107 @@
+{
+	"material": "Acrylonitrile Butadiene Styrene (ABS)",
+	"alternate names": [
+		"ABS"	
+	],
+	"material_dir": "ABS",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"general polymer"
+	],
+	"image file": "ABS.JPG",
+	"image 600x400 file": "ABS600x400.jpg",
+	"video file": "",
+	"description": "Acrylonitrile Butadiene Styrene (ABS) is a durable thermoplastic often used for injection molding and 3D printing.",
+	"short desc": "Acrylonitrile Butadiene Styrene (ABS) is a durable thermoplastic often used when molding manufactured parts.",
+	"source": "Samples cut from 0.31 cm thick, 30 cm by 30 cm commercially available sheet.",
+	"density": "1060 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/ABS_STA_MLR.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/ABS_Cone_MLR_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/ABS_Cone_MLR_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/ABS_Cone_MLR_75.html"
+			}
+		]
+	},
+	{
+		"test name": "heat release rate per unit area",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/ABS_Cone_HRRPUA_25.html",
+				"table": "Cone/ABS_Cone_Analysis_HRRPUA_Table_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/ABS_Cone_HRRPUA_50.html",
+				"table": "Cone/ABS_Cone_Analysis_HRRPUA_Table_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/ABS_Cone_HRRPUA_75.html",
+				"table": "Cone/ABS_Cone_Analysis_HRRPUA_Table_75.html"
+			}
+		]
+	},
+	{
+		"test name": "carbon monoxide yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/ABS_Cone_Analysis_CO_Table.html"
+	},
+	{
+		"test name": "specific heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "MCC/ABS_MCC_HRR.html"
+	}],
+	"derived property": [
+	{
+		"test name": "soot yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/ABS_Cone_Analysis_Soot_Table.html"
+	},
+	{
+		"test name": "effective heat of combustion",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Micro-scale Combustion Calorimeter",
+				"table": "MCC/ABS_MCC_Heats_of_Combustion.html"
+			},
+			{
+				"display name": "Cone Calorimeter",
+				"table": "Cone/ABS_Cone_Analysis_EHC_Table.html"
+			}
+		]
+	},
+	{
+		"test name": "emissivity",
+		"test description": "",
+		"display name": "",
+		"table": "FTIR/IS/ABS_Emissivity.html",
+		"graph": "FTIR/IS/ABS_Emissivity.html"
+	}]
+}

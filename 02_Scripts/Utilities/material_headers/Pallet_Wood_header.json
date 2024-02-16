@@ -1,0 +1,24 @@
+{
+	"material": "Pallet Wood",
+	"alternate names": [
+		"pine",
+		"oak"
+	],
+	"material_dir": "Pallet_Wood",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"engineered wood",
+		"cellulosic materials"
+	],
+	"image file": "Pallet_Wood.JPG",
+	"image 600x400 file": "Pallet_Wood600x400.jpg",
+	"video file": "",
+	"description": "Pallet wood is typically pine or oak that is used to build pallets for storage and shipping applications.",
+	"short desc": "Pallet wood is typically pine or oak that is used to build pallets for storage and shipping applications.",
+	"source": "Samples cut from pallets used for fire training ground.",
+	"density": "480 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

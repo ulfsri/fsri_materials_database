@@ -23,7 +23,8 @@ import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import git
 
-plot_all = False
+plot_all = True
+
 if not plot_all: 
     print('plot_all is set to False, so any materials with existing html output files will be skipped')
 

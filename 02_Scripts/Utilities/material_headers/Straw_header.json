@@ -1,0 +1,25 @@
+{
+	"material": "Straw",
+	"alternate names": [
+		"grass",
+		"wheat",
+		"barley",
+		"switchgrass"
+	],
+	"material_dir": "Straw",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"cellulosic materials"
+	],
+	"image file": "Straw.JPG",
+	"image 600x400 file": "Straw600x400.jpg",
+	"video file": "",
+	"description": "Straw is dried stalks of grain often used for thatching, packing, weaving, and in fire training scenarios.",
+	"short desc": "Straw is dried stalks of grain.",
+	"source": "Procured from a local farm in Southeast Pennsylvania.",
+	"density": "43 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

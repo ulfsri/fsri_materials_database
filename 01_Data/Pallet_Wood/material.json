@@ -1,0 +1,100 @@
+{
+	"material": "Pallet Wood",
+	"alternate names": [
+		"pine",
+		"oak"
+	],
+	"material_dir": "Pallet_Wood",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"engineered wood",
+		"cellulosic materials"
+	],
+	"image file": "Pallet_Wood.JPG",
+	"image 600x400 file": "Pallet_Wood600x400.jpg",
+	"video file": "",
+	"description": "Pallet wood is typically pine or oak that is used to build pallets for storage and shipping applications.",
+	"short desc": "Pallet wood is typically pine or oak that is used to build pallets for storage and shipping applications.",
+	"source": "Samples cut from pallets used for fire training ground.",
+	"density": "480 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
+	"measured property": [
+	{
+		"test name": "specific heat",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Pallet_Wood_HFM_Wet_specific_heat.html",
+				"table": "HFM/Pallet_Wood_HFM_Wet_specific_heat.html"
+			},
+			{
+				"display name": "Dried",
+				"graph": "HFM/Pallet_Wood_HFM_Dry_specific_heat.html",
+				"table": "HFM/Pallet_Wood_HFM_Dry_specific_heat.html"
+			}
+		]
+	},
+	{
+		"test name": "thermal conductivity",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Pallet_Wood_HFM_Wet_conductivity.html",
+				"table": "HFM/Pallet_Wood_HFM_Wet_conductivity.html"
+			},
+			{
+				"display name": "Dried",
+				"graph": "HFM/Pallet_Wood_HFM_Dry_conductivity.html",
+				"table": "HFM/Pallet_Wood_HFM_Dry_conductivity.html"
+			}
+		]
+	},
+	{
+		"test name": "mass loss rate",
+		"test description": "Mass loss rate [kg/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Pallet_Wood_STA_MLR.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 35 kW/m<sup>2</sup>",
+				"graph": "Cone/Pallet_Wood_Cone_MLR_35.html"
+			}
+		]
+	},
+	{
+		"test name": "heat release rate per unit area",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 35 kW/m<sup>2</sup>",
+				"graph": "Cone/Pallet_Wood_Cone_HRRPUA_35.html",
+				"table": "Cone/Pallet_Wood_Cone_Analysis_HRRPUA_Table_35.html"
+			}
+		]
+	},
+	{
+		"test name": "carbon monoxide yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/Pallet_Wood_Cone_Analysis_CO_Table.html"
+	}],
+	"derived property": [
+	{
+		"test name": "effective heat of combustion",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in cone calorimeter experiments.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter",
+				"table": "Cone/Pallet_Wood_Cone_Analysis_EHC_Table.html"
+			}
+		]
+	}]
+}

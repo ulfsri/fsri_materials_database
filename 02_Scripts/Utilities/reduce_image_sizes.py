@@ -11,7 +11,7 @@ import cv2
 import numpy as np
 
 # Define figure dir location
-img_dir = '../../01_Data/Exterior_Plywood/'
+img_dir = '../../01_Data/Straw/'
 
 #Define new image size
 width = 2000
