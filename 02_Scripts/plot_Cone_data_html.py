@@ -150,7 +150,6 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
     output_df = pd.DataFrame()
     co_df = pd.DataFrame()
     soot_df = pd.DataFrame()
-
     # if material != 'EPDM_Membrane': continue
     if not plot_all:
         output_exists = False

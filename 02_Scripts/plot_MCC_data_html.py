@@ -26,6 +26,7 @@ from scipy import integrate
 from pybaselines import Baseline, utils
 
 plot_all = True
+
 if not plot_all: 
     print('plot_all is set to False, so any materials with existing html output files will be skipped')
 
@@ -219,9 +220,6 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
     mat_status_df.loc[material, 'MCC_HoC'] = True
 
     plot_dir = f'{save_dir}{material}/MCC/'
-
-    if not os.path.exists(plot_dir):
-        os.makedirs(plot_dir)
 
     format_and_save_plot(f'{plot_dir}{material}_MCC_HRR.html')
     mat_status_df.loc[material, 'MCC_HRR'] = True
