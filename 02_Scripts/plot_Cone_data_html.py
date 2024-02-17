@@ -145,6 +145,7 @@ y_inc_dict = {'HRRPUA':100, 'MLR':0.2, 'SPR':1, 'Extinction Coefficient':0.5} #'
 
 for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f != 'README.md'), key=str.lower):
     df_dict = {}
+    hrrpua_dict = {}
     material = d
     summary_df = pd.DataFrame()
     output_df = pd.DataFrame()
@@ -256,22 +257,38 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
                 except:
                     df_dict[label] = data_temp_df[['Time', 'HRRPUA', 'MLR', 'EHC', 'CO Yield']].copy()
 
-                df_dict[label].set_index(df_dict[label].loc[:,'Time'], inplace = True)
-                df_dict[label] = df_dict[label][df_dict[label].index.notnull()]
-                df_dict[label].drop('Time', axis = 1, inplace = True)
-                end_time = float(scalar_data_series.at['END OF TEST TIME'])
-                num_intervals = (max(df_dict[label].index)-end_time)/0.25
-                drop_list = list(np.linspace(end_time, max(df_dict[label].index), int(num_intervals+1)))
-                df_dict[label].drop(labels = drop_list, axis = 0, inplace = True)
-
-                # Determine intervals for yield integrals
-
                 ign_time = float(scalar_data_series.at['TIME TO IGN'])
                 end_time = float(scalar_data_series.at['END OF TEST TIME'])
                 ign_ind = str(int(4 * ign_time + 1))
                 end_ind = str(int(4 * end_time + 1))
                 ign_mass = float(data_temp_df.loc[ign_ind,'Sample Mass'])
                 end_mass = float(data_temp_df.loc[str(end_ind),'Sample Mass'])
+
+                # data_temp_df['TTI'] = data_temp_df['MLR'] - 0.0032            # Alternative time to ignition (critical MLR)
+                # data_temp_df['test'] = data_temp_df['TTI']>0                  # Alternative time to ignition (critical MLR)
+                # data_temp_df = data_temp_df.loc[data_temp_df['test'], :]      # Alternative time to ignition (critical MLR)
+                # tti = data_temp_df['TTI'].idxmin()                            # Alternative time to ignition (critical MLR)
+
+                data_temp_hrr_df = pd.DataFrame()
+
+                if ign_time != 0 and not math.isnan(ign_time):
+                    data_temp_hrr_df['HRRPUA after Ignition'] = data_temp_df.loc[ign_ind:end_ind, 'HRRPUA'].copy()
+                    data_temp_hrr_df.dropna(inplace = True)
+                    data_temp_hrr_df['Time after Ignition'] = data_temp_df['Time'].dropna() - ign_time
+                    data_temp_hrr_df.set_index('Time after Ignition', inplace=True)
+
+                    hrrpua_dict[label] = data_temp_hrr_df['HRRPUA after Ignition']
+                else:
+                    pass
+
+                df_dict[label].set_index(df_dict[label].loc[:,'Time'], inplace = True)
+                df_dict[label] = df_dict[label][df_dict[label].index.notnull()]
+                df_dict[label].drop('Time', axis = 1, inplace = True)
+                num_intervals = (max(df_dict[label].index)-end_time)/0.25
+                drop_list = list(np.linspace(end_time, max(df_dict[label].index), int(num_intervals+1)))
+                df_dict[label].drop(labels = drop_list, axis = 0, inplace = True)
+
+                # Determine intervals for yield integrals
 
                 if float(data_temp_df.loc[str(1),'Sample Mass']) - float(data_temp_df.loc[end_ind,'Sample Mass']) > float(scalar_data_series['SPECIMEN MASS']):
                     try:
@@ -356,6 +373,25 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
                 
                 format_and_save_plot(n, f'{plot_dir}{material}_Cone_{n}_{m}.html',m)
                 if f'CONE_{n}_{m}' in list(mat_status_df.columns): mat_status_df.loc[material, f'CONE_{n}_{m}'] = True
+
+        for m in hf_list:
+            hrrpua_df = pd.DataFrame()
+            hrr_out_df = pd.DataFrame()
+            for key, value in hrrpua_dict.items():
+                rep_str = key.split('_')[-1]
+                if m in key:
+                    if hrrpua_dict[key].empty:
+                        continue
+                    else:
+                        hrrpua_df[rep_str] = hrrpua_dict[key]
+                        hrr_out_df[f'{material}_{rep_str}'] = hrrpua_df[rep_str]
+
+            if hrr_out_df.empty:
+                continue
+            else:
+                hrr_out_df['Mean'] = hrrpua_df.mean(axis=1)
+                hrr_out_df['Std. Dev.'] = hrrpua_df.std(axis=1) 
+                hrr_out_df.to_csv(f'{data_dir}{material}/Cone/{material}_HRRPUA_{m}.csv')       
 
     else:
         continue
