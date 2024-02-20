@@ -8,7 +8,11 @@
 		"synthetic batting"
 	],
 	"material_dir": "Overstuffed_Chair_Polyester_Batting",
-	"parent material": "Overstuffed Chair Assembly",
+	"parent material": [
+		"Overstuffed Chair Assembly",
+		"Overstuffed Chair",
+		"Overstuffed Sofa"
+	],
 	"component material": [],
 	"material category": [
 		"general polymer",

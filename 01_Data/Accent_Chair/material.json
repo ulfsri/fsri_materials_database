@@ -1,0 +1,47 @@
+{
+	"material": "Accent Chair",
+	"alternate names": [
+		"armchair",
+		"lawson"
+	],
+	"material_dir": "Accent_Chair",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"upholstered furniture"
+	],
+	"image file": "Accent_Chair.jpg",
+	"image 600x400 file": "Accent_Chair600x400.jpg",
+	"video file": "",
+	"description": "The accent chair is a common furniture item upholstered with polyester (PET) fabric over polyester (PET) batting wrapped around a flexible polyurethane foam cushion over a wood frame with wood legs.",
+	"short desc": "The accent chair is a common furniture item upholstered with polyester (PET) fabric over polyester (PET) batting wrapped around a flexible polyurethane foam cushion over a wood frame with wood legs.",
+	"source": "Chairs were purchased from a national furniture manufacturer and distributor.",
+	"property scales": [
+		"full scale"
+	],
+	"measured property": [
+	{
+		"test name": "heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "Furniture_Calorimeter/Accent_Chair_Heat_Release_Rate.html"
+	},
+	{
+		"test name": "heat flux",
+		"test description": "",
+		"display name": "",
+		"graph": "Furniture_Calorimeter/Accent_Chair_HF.html"
+	},
+	{
+		"test name": "plume temperature",
+		"test description": "",
+		"display name": "",
+		"graph": "Furniture_Calorimeter/Accent_Chair_TCPlume.html"
+	},
+	{
+		"test name": "plume velocity",
+		"test description": "",
+		"display name": "",
+		"graph": "Furniture_Calorimeter/Accent_Chair_Plume_Vel.html"
+	}]
+}
