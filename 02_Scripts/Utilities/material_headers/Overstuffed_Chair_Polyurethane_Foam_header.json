@@ -10,7 +10,11 @@
 		"low density polyurethane"
 	],
 	"material_dir": "Overstuffed_Chair_Polyurethane_Foam",	
-	"parent material": "Overstuffed Chair Assembly",
+	"parent material": [
+		"Overstuffed Chair Assembly",
+		"Overstuffed Chair",
+		"Overstuffed Sofa"
+	],
 	"component material": [],
 	"material category": [
 		"general polymer",

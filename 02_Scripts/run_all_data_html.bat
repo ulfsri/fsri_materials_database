@@ -17,3 +17,6 @@ Python.exe plot_MCC_data_html.py
 
 echo "***** plot_STA_data_html.py"
 Python.exe plot_STA_data_html.py
+
+echo "***** plot Furniture_Cal_data_html.py"
+Python.exe plot_Furniture_Cal_data_html.py

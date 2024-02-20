@@ -7,7 +7,10 @@
 		"accent chair"
 	],
 	"material_dir": "Overstuffed_Chair_Assembly",
-	"parent material": "",
+	"parent material": [
+		"Overstuffed Chair",
+		"Overstuffed Sofa"
+	],
 	"component material": [
 		"Overstuffed Chair - Polyurethane Foam",
 		"Overstuffed Chair - Polyester Batting",

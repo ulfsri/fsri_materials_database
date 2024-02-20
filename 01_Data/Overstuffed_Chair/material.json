@@ -1,0 +1,54 @@
+{
+	"material": "Overstuffed Chair",
+	"alternate names": [
+		"lounge chair",
+		"easy chair",
+		"armchair",
+		"darcy chair"
+	],
+	"material_dir": "Overstuffed_Chair",
+	"parent material": "",
+	"component material": [
+		"Overstuffed Chair Assembly",
+		"Overstuffed Chair - Polyurethane Foam",
+		"Overstuffed Chair - Polyester Batting",
+		"Overstuffed Chair - Polyester Fabric"
+	],
+	"material category": [
+		"upholstered furniture"
+	],
+	"image file": "Overstuffed_Chair.jpg",
+	"image 600x400 file": "Overstuffed_Chair600x400.jpg",
+	"video file": "",
+	"description": "The overstuffed chair is a common furniture item upholstered with polyester (PET) fabric over polyester (PET) batting and and flexible polyurethane foam over a frame made from oriented strand board (OSB).",
+	"short desc": "The overstuffed chair is a common furniture item upholstered with polyester (PET) fabric over polyester (PET) batting and and flexible polyurethane foam over a frame made from oriented strand board (OSB).",
+	"source": "Chairs were purchased from a national furniture manufacturer and distributor.",
+	"property scales": [
+		"full scale"
+	],
+	"measured property": [
+	{
+		"test name": "heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "Furniture_Calorimeter/Overstuffed_Chair_Heat_Release_Rate.html"
+	},
+	{
+		"test name": "heat flux",
+		"test description": "",
+		"display name": "",
+		"graph": "Furniture_Calorimeter/Overstuffed_Chair_HF.html"
+	},
+	{
+		"test name": "plume temperature",
+		"test description": "",
+		"display name": "",
+		"graph": "Furniture_Calorimeter/Overstuffed_Chair_TCPlume.html"
+	},
+	{
+		"test name": "plume velocity",
+		"test description": "",
+		"display name": "",
+		"graph": "Furniture_Calorimeter/Overstuffed_Chair_Plume_Vel.html"
+	}]
+}

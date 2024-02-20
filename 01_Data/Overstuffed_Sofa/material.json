@@ -1,0 +1,55 @@
+{
+	"material": "Overstuffed Sofa",
+	"alternate names": [
+		"chesterfield",
+		"couch",
+		"loveseat",
+		"darcy sofa",
+		"grand sofa"
+	],
+	"material_dir": "Overstuffed_Sofa",
+	"parent material": "",
+	"component material": [
+		"Overstuffed Chair Assembly",
+		"Overstuffed Chair - Polyurethane Foam",
+		"Overstuffed Chair - Polyester Batting",
+		"Overstuffed Chair - Polyester Fabric"
+	],
+	"material category": [
+		"upholstered furniture"
+	],
+	"image file": "Overstuffed_Sofa.jpg",
+	"image 600x400 file": "Overstuffed_Sofa600x400.jpg",
+	"video file": "",
+	"description": "The overstuffed sofa is a common furniture item upholstered with polyester (PET) fabric over polyester (PET) batting and and flexible polyurethane foam over a frame made from oriented strand board (OSB).",
+	"short desc": "The overstuffed sofa is a common furniture item upholstered with polyester (PET) fabric over polyester (PET) batting and and flexible polyurethane foam over a frame made from oriented strand board (OSB).",
+	"source": "Sofas were purchased from a national furniture manufacturer and distributor.",
+	"property scales": [
+		"full scale"
+	],
+	"measured property": [
+	{
+		"test name": "heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "Furniture_Calorimeter/Overstuffed_Sofa_Heat_Release_Rate.html"
+	},
+	{
+		"test name": "heat flux",
+		"test description": "",
+		"display name": "",
+		"graph": "Furniture_Calorimeter/Overstuffed_Sofa_HF.html"
+	},
+	{
+		"test name": "plume temperature",
+		"test description": "",
+		"display name": "",
+		"graph": "Furniture_Calorimeter/Overstuffed_Sofa_TCPlume.html"
+	},
+	{
+		"test name": "plume velocity",
+		"test description": "",
+		"display name": "",
+		"graph": "Furniture_Calorimeter/Overstuffed_Sofa_Plume_Vel.html"
+	}]
+}
