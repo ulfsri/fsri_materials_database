@@ -275,7 +275,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
                     data_temp_hrr_df['HRRPUA after Ignition'] = data_temp_df.loc[ign_ind:end_ind, 'HRRPUA'].copy()
                     data_temp_hrr_df.dropna(inplace = True)
                     data_temp_hrr_df['Time after Ignition'] = data_temp_df['Time'].dropna() - ign_time
-                    data_temp_hrr_df.set_index('Time after Ignition', inplace=True)
+                    # data_temp_hrr_df.set_index('Time after Ignition', inplace=True)
 
                     hrrpua_dict[label] = data_temp_hrr_df['HRRPUA after Ignition']
                 else:
@@ -374,24 +374,26 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
                 format_and_save_plot(n, f'{plot_dir}{material}_Cone_{n}_{m}.html',m)
                 if f'CONE_{n}_{m}' in list(mat_status_df.columns): mat_status_df.loc[material, f'CONE_{n}_{m}'] = True
 
-        for m in hf_list:
-            hrrpua_df = pd.DataFrame()
-            hrr_out_df = pd.DataFrame()
-            for key, value in hrrpua_dict.items():
-                rep_str = key.split('_')[-1]
-                if m in key:
-                    if hrrpua_dict[key].empty:
-                        continue
-                    else:
-                        hrrpua_df[rep_str] = hrrpua_dict[key]
-                        hrr_out_df[f'{material}_{rep_str}'] = hrrpua_df[rep_str]
+        # save HRRPUA csv files for each tested incident heat flux
 
-            if hrr_out_df.empty:
-                continue
-            else:
-                hrr_out_df['Mean'] = hrrpua_df.mean(axis=1)
-                hrr_out_df['Std. Dev.'] = hrrpua_df.std(axis=1) 
-                hrr_out_df.to_csv(f'{data_dir}{material}/Cone/{material}_HRRPUA_{m}.csv')       
+        # for m in hf_list:
+        #     hrrpua_df = pd.DataFrame()
+        #     hrr_out_df = pd.DataFrame()
+        #     for key, value in hrrpua_dict.items():
+        #         rep_str = key.split('_')[-1]
+        #         if m in key:
+        #             if hrrpua_dict[key].empty:
+        #                 continue
+        #             else:
+        #                 hrrpua_df[rep_str] = hrrpua_dict[key]
+        #                 hrr_out_df[f'{material}_{rep_str}'] = hrrpua_df[rep_str].round(1)
+
+        #     if hrr_out_df.empty:
+        #         continue
+        #     else:
+        #         hrr_out_df['Mean'] = hrrpua_df.mean(axis=1).round(1)
+        #         hrr_out_df['Std. Dev.'] = hrrpua_df.std(axis=1).round(1)
+        #         hrr_out_df.to_csv(f'{data_dir}{material}/Cone/{material}_HRRPUA_{m}.csv')       
 
     else:
         continue
