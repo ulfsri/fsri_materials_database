@@ -18,6 +18,7 @@
 	"description": "The armchair is a common furniture item upholstered with polyester (PET) fabric over polyester (PET) batting and flexible polyurethane foam. The frame of the chair was composed of wood.",
 	"short desc": "The armchair is a common furniture item upholstered with polyester (PET) fabric over polyester (PET) batting and flexible polyurethane foam. The frame of the chair was composed of wood.",
 	"source": "Chairs were purchased from a national furniture manufacturer and distributor.",
+	"density": "",
 	"property scales": [
 		"full scale"
 	],

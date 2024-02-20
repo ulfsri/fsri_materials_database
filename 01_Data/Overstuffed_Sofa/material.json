@@ -24,6 +24,7 @@
 	"description": "The overstuffed sofa is a common furniture item upholstered with polyester (PET) fabric over polyester (PET) batting and and flexible polyurethane foam over a frame made from oriented strand board (OSB).",
 	"short desc": "The overstuffed sofa is a common furniture item upholstered with polyester (PET) fabric over polyester (PET) batting and and flexible polyurethane foam over a frame made from oriented strand board (OSB).",
 	"source": "Sofas were purchased from a national furniture manufacturer and distributor.",
+	"density": "",
 	"property scales": [
 		"full scale"
 	],

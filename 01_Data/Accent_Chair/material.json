@@ -16,6 +16,7 @@
 	"description": "The accent chair is a common furniture item upholstered with polyester (PET) fabric over polyester (PET) batting wrapped around a flexible polyurethane foam cushion over a wood frame with wood legs.",
 	"short desc": "The accent chair is a common furniture item upholstered with polyester (PET) fabric over polyester (PET) batting wrapped around a flexible polyurethane foam cushion over a wood frame with wood legs.",
 	"source": "Chairs were purchased from a national furniture manufacturer and distributor.",
+	"density": "",
 	"property scales": [
 		"full scale"
 	],
