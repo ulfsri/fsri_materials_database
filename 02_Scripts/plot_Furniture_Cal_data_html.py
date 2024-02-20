@@ -256,7 +256,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
         if not os.path.exists(plot_dir):
             os.makedirs(plot_dir)
 
-        format_and_save_plot(n, f'{plot_dir}{material}_HF.html')
+        format_and_save_plot('HF', f'{plot_dir}{material}_HF.html')
 
         # Plot plume temperature data
 
@@ -278,7 +278,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
         if not os.path.exists(plot_dir):
             os.makedirs(plot_dir)
 
-        format_and_save_plot(n, f'{plot_dir}{material}_TCPlume.html')
+        format_and_save_plot('Temp', f'{plot_dir}{material}_TCPlume.html')
 
         # Plot plume velocity data
 
@@ -300,7 +300,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
         if not os.path.exists(plot_dir):
             os.makedirs(plot_dir)
 
-        format_and_save_plot(n, f'{plot_dir}{material}_Plume_Vel.html')
+        format_and_save_plot('Vel', f'{plot_dir}{material}_Plume_Vel.html')
 
     else:
         continue
