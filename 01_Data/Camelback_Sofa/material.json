@@ -19,7 +19,7 @@
 	"description": "The camelback sofa is a common furniture item with a wood frame and a cushion composed of polyurethane foam wrapped in polyester batting and covered with polyester fabric. The design also included cotton batting between the seat back cushion and the fabric as well as structural cardboard wrapped in polyurethane foam in the sofa arms.",
 	"short desc": "The camelback sofa is a common furniture item with a wood frame and a cushion composed of polyurethane foam wrapped in polyester batting and covered with polyester fabric. The design also included cotton batting and structural cardboard.",
 	"source": "Sofas were purchased from a national furniture manufacturer and distributor.",
-	"density": "",
+	"density": "--",
 	"property scales": [
 		"full scale"
 	],
@@ -32,19 +32,19 @@
 	},
 	{
 		"test name": "heat flux",
-		"test description": "",
+		"test description": "Schmidt-Boelter heat flux gauges were oriented to face the centerline of the furniture item at distances of 0.5 m, 1.0 m, 1.5 m, and 2.0 m from the face of the furniture item.",
 		"display name": "",
 		"graph": "Furniture_Calorimeter/Camelback_Sofa_HF.html"
 	},
 	{
 		"test name": "plume temperature",
-		"test description": "",
+		"test description": "The temperature at the centerline of the furniture item was measured with type K thermocouples at elevations of 2.47 m, 3.47 m, and 4.47 m above the floor.",
 		"display name": "",
 		"graph": "Furniture_Calorimeter/Camelback_Sofa_TCPlume.html"
 	},
 	{
 		"test name": "plume velocity",
-		"test description": "",
+		"test description": "The vertical velocity at the centerline of the furniture item was measured with bi-directional probes at elevations of 2.47 m, 3.47 m, and 4.47 m above the floor.",
 		"display name": "",
 		"graph": "Furniture_Calorimeter/Camelback_Sofa_Plume_Vel.html"
 	}]
