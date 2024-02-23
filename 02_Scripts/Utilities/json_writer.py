@@ -23,10 +23,17 @@ import math
 import git
 import re
 import json
+import re
 
 data_dir = '../../01_Data/'
 charts_dir = '../../03_Charts/'
 header_dir = 'material_headers/'
+
+
+def natural_sort(l): 
+    convert = lambda text: int(text) if text.isdigit() else text.lower()
+    alphanum_key = lambda key: [convert(c) for c in re.split('([0-9]+)', key)]
+    return sorted(l, key=alphanum_key)
 
 # # *** Extract test descriptions from existing material.json files ***
 
@@ -124,6 +131,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                 # df.loc[material, 'Dry_cp'] = 'TRUE'
             cp_list.append('\t\t]\n\t}')
 
+
         # *** Thermal Conductivity ***
 
         k_list = []
@@ -155,10 +163,22 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                 # df.loc[material, 'Dry_k'] = 'TRUE'
             k_list.append('\t\t]\n\t}')
 
+
         # *** Mass Loss Rate ***
+        try: 
+            cone_file_ls = [f'{charts_dir}{material}/Cone/{ff}' 
+                            for ff in os.listdir(f'{charts_dir}{material}/Cone/') 
+                            if ff.startswith(f'{material}_Cone_MLR_') and ff.endswith('.html')]
+            cone_file_ls = natural_sort(cone_file_ls)
+        except: cone_file_ls = []
+
+        if os.path.isfile(f'{charts_dir}{material}/STA/N2/{material}_STA_MLR.html'):
+            sta_file_ls = f'{charts_dir}{material}/STA/N2/{material}_STA_MLR.html'
+        else: sta_file_ls = []
 
         mlr_list = []
-        if os.path.isfile(f'{charts_dir}{material}/STA/N2/{material}_STA_MLR.html') or (os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_25.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_50.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_75.html')):
+        if cone_file_ls or sta_file_ls:
+        # if os.path.isfile(f'{charts_dir}{material}/STA/N2/{material}_STA_MLR.html') or (os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_25.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_50.html' or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_75.html')) or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_35.html')):
             
             # if os.path.isfile(f'{charts_dir}{material}/STA/N2/{material}_STA_MLR.html'):
             #     try:
@@ -177,9 +197,11 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
             except: sta_notes_bool = False
 
             # if STA exists
-            if os.path.isfile(f'{charts_dir}{material}/STA/N2/{material}_STA_MLR.html'):
+            if sta_file_ls:
+            # if os.path.isfile(f'{charts_dir}{material}/STA/N2/{material}_STA_MLR.html'):
                 # if Cone exists
-                if (os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_25.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_50.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_75.html')):
+                if cone_file_ls:
+                # if (os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_25.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_50.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_75.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_35.html')):
                     if sta_notes_bool and cone_notes_bool:
                     # 'both exist and notes for both -- use notes and concat. store notes in same json to make flow obvious. throw error if <global_intro>'
                         if '<global_intro>' in sta_notes or '<global_intro>' in cone_notes:
@@ -197,7 +219,9 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                         if '<global_intro>' not in cone_notes:
                                 print(f'ERROR: Need to include global test description for {material}. Test notes exist for the cone but not for STA, which overrides default STA test description for MLR. Either begin notes with <global_intro> or write independent test notes for the STA.')
                                 exit()
-                        intro = global_json['measured property'][2]['test description']
+
+                        intro = [global_json['measured property'][i]['test description'] for i in range(0,len(global_json['measured property'])) if global_json['measured property'][i]['test name'] == 'mass loss rate'][0]
+
                         desc = f'\"{intro}<br><br>Cone Calorimeter Test Notes:<br>{cone_notes.split("<global_intro>")[1]}\"'
                     else:
                         # 'both exist and no notes -- notes are empty, use global'
@@ -214,7 +238,8 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                         # 'only STA exists and no notes -- hard coded variation of global description'
                         desc = '\"Mass loss rate [kg/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.\"'
             # if only cone tests exists
-            elif (os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_25.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_50.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_75.html')):
+            elif cone_file_ls:
+            # elif (os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_25.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_50.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_75.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_35.html')):
                 if cone_notes_bool: 
                     # only cone exists and has notes:
                     if '<global_intro>' in cone_notes:
@@ -234,75 +259,115 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
             mlr_list.append(f'\t\t"test description": {desc},\n')
             mlr_list.append('\t\t"display name": "",\n')
             mlr_list.append('\t\t"nested tests": [{\n')
-            if os.path.isfile(f'{charts_dir}{material}/STA/N2/{material}_STA_MLR.html'):
+            if sta_file_ls:
+            # if os.path.isfile(f'{charts_dir}{material}/STA/N2/{material}_STA_MLR.html'):
                 mlr_list.append('\t\t\t\t"display name": "Simultaneous Thermal Analyzer",\n')
                 mlr_list.append(f'\t\t\t\t"graph": "STA/N2/{material}_STA_MLR.html"\n')
                 mlr_list.append('\t\t\t}')
                 # df.loc[material, 'STA_MLR'] = 'TRUE'
-            if os.path.isfile(f'{charts_dir}{material}/STA/N2/{material}_STA_MLR.html') and (os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_25.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_50.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_75.html')):
-                mlr_list.append(',\n\t\t\t{\n')
-            if os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_25.html'):
-                mlr_list.append('\t\t\t\t"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",\n')
-                mlr_list.append(f'\t\t\t\t"graph": "Cone/{material}_Cone_MLR_25.html"\n')
-                mlr_list.append('\t\t\t}')
-                # df.loc[material, 'CONE_MLR_25'] = 'TRUE'
-            if (os.path.isfile(f'{charts_dir}{material}/STA/N2/{material}_STA_MLR.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_25.html')) and os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_50.html'):
-                mlr_list.append(',\n\t\t\t{\n')
-            if os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_50.html'):
-                mlr_list.append('\t\t\t\t"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",\n')
-                mlr_list.append(f'\t\t\t\t"graph": "Cone/{material}_Cone_MLR_50.html"\n')
-                mlr_list.append('\t\t\t}')
-                # df.loc[material, 'CONE_MLR_50'] = 'TRUE'
-            if (os.path.isfile(f'{charts_dir}{material}/STA/N2/{material}_STA_MLR.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_25.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_50.html')) and os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_75.html'):
-                mlr_list.append(',\n\t\t\t{\n')
-            if os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_75.html'):
-                mlr_list.append('\t\t\t\t"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",\n')
-                mlr_list.append(f'\t\t\t\t"graph": "Cone/{material}_Cone_MLR_75.html"\n')
-                mlr_list.append('\t\t\t}\n')
-                # df.loc[material, 'CONE_MLR_75'] = 'TRUE'
+            for ff in cone_file_ls:
+                if cone_file_ls.index(ff) != 0 or sta_file_ls:  
+                    mlr_list.append(',\n\t\t\t{\n')
+                hf = ff[:-5].split('_')[-1]
+                mlr_list.append(f'\t\t\t\t"display name": "Cone Calorimeter: {hf} kW/m<sup>2</sup>",\n')
+                mlr_list.append(f'\t\t\t\t"graph": "Cone/{material}_Cone_MLR_{hf}.html"\n')
+                if cone_file_ls.index(ff) == len(cone_file_ls)-1:
+                    mlr_list.append('\t\t\t}\n')
+                else:
+                    mlr_list.append('\t\t\t}')  
             mlr_list.append('\t\t]\n\t}')
 
-        # *** HRRPUA ***
+            # if os.path.isfile(f'{charts_dir}{material}/STA/N2/{material}_STA_MLR.html') and (os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_25.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_50.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_75.html')):
+            #     mlr_list.append(',\n\t\t\t{\n')
+            # if os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_25.html'):
+            #     mlr_list.append('\t\t\t\t"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",\n')
+            #     mlr_list.append(f'\t\t\t\t"graph": "Cone/{material}_Cone_MLR_25.html"\n')
+            #     mlr_list.append('\t\t\t}')
+            #     # df.loc[material, 'CONE_MLR_25'] = 'TRUE'
+            # if (os.path.isfile(f'{charts_dir}{material}/STA/N2/{material}_STA_MLR.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_25.html')) and os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_50.html'):
+            #     mlr_list.append(',\n\t\t\t{\n')
+            # if os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_50.html'):
+            #     mlr_list.append('\t\t\t\t"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",\n')
+            #     mlr_list.append(f'\t\t\t\t"graph": "Cone/{material}_Cone_MLR_50.html"\n')
+            #     mlr_list.append('\t\t\t}')
+            #     # df.loc[material, 'CONE_MLR_50'] = 'TRUE'
+            # if (os.path.isfile(f'{charts_dir}{material}/STA/N2/{material}_STA_MLR.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_25.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_50.html')) and os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_75.html'):
+            #     mlr_list.append(',\n\t\t\t{\n')
+            # if os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_75.html'):
+            #     mlr_list.append('\t\t\t\t"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",\n')
+            #     mlr_list.append(f'\t\t\t\t"graph": "Cone/{material}_Cone_MLR_75.html"\n')
+            #     mlr_list.append('\t\t\t}\n')
+            #     # df.loc[material, 'CONE_MLR_75'] = 'TRUE'
+            # if (os.path.isfile(f'{charts_dir}{material}/STA/N2/{material}_STA_MLR.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_25.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_50.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_75.html')) and os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_35.html'):
+            #     mlr_list.append(',\n\t\t\t{\n')
+            # if os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_35.html'):
+            #     mlr_list.append('\t\t\t\t"display name": "Cone Calorimeter: 35 kW/m<sup>2</sup>",\n')
+            #     mlr_list.append(f'\t\t\t\t"graph": "Cone/{material}_Cone_MLR_35.html"\n')
+            #     mlr_list.append('\t\t\t}\n')
+            #     # df.loc[material, 'CONE_MLR_35'] = 'TRUE'
+            # mlr_list.append('\t\t]\n\t}')
 
+        # *** HRRPUA ***
+        try: 
+            cone_file_ls = [f'{charts_dir}{material}/Cone/{ff}' 
+                            for ff in os.listdir(f'{charts_dir}{material}/Cone/') 
+                            if ff.startswith(f'{material}_Cone_HRRPUA_') and ff.endswith('.html')]
+            cone_file_ls = natural_sort(cone_file_ls)
+        except: cone_file_ls = []
+        
         hrrpua_list = []
-        if os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_HRRPUA_25.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_HRRPUA_50.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_HRRPUA_75.html'):
+        if cone_file_ls:        
+        # if os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_HRRPUA_25.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_HRRPUA_50.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_HRRPUA_75.html'):
             try:
                 # desc = element_df[material, 'heat release rate per unit area']
                 desc = f"\"{test_notes[material]['Cone']}\""
                 if '<global_intro>' in desc:
-                    intro = global_json['measured property'][3]['test description']
+                    intro = [global_json['measured property'][i]['test description'] for i in range(0,len(global_json['measured property'])) if global_json['measured property'][i]['test name'] == 'heat release rate per unit area'][0]
                     desc = f'\"{intro}<br><br>{desc.split("<global_intro>")[1]}'
             except:
                 desc = '\"\"'        
-
             hrrpua_list.append('\t{\n')
             hrrpua_list.append('\t\t"test name": "heat release rate per unit area",\n')
             hrrpua_list.append(f'\t\t"test description": {desc},\n')
             hrrpua_list.append('\t\t"display name": "",\n')
             hrrpua_list.append('\t\t"nested tests": [{\n')
-            if os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_HRRPUA_25.html'):
-                hrrpua_list.append('\t\t\t\t"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",\n')
-                hrrpua_list.append(f'\t\t\t\t"graph": "Cone/{material}_Cone_HRRPUA_25.html",\n')
-                hrrpua_list.append(f'\t\t\t\t"table": "Cone/{material}_Cone_Analysis_HRRPUA_Table_25.html"\n')
-                hrrpua_list.append('\t\t\t}')
-                # df.loc[material, 'CONE_HRRPUA_25'] = 'TRUE'
-            if os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_HRRPUA_25.html') and os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_HRRPUA_50.html'):
-                hrrpua_list.append(',\n\t\t\t{\n')
-            if os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_HRRPUA_50.html'):
-                hrrpua_list.append('\t\t\t\t"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",\n')
-                hrrpua_list.append(f'\t\t\t\t"graph": "Cone/{material}_Cone_HRRPUA_50.html",\n')
-                hrrpua_list.append(f'\t\t\t\t"table": "Cone/{material}_Cone_Analysis_HRRPUA_Table_50.html"\n')
-                hrrpua_list.append('\t\t\t}')
-                # df.loc[material, 'CONE_HRRPUA_50'] = 'TRUE'
-            if (os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_HRRPUA_25.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_HRRPUA_50.html')) and os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_HRRPUA_75.html'):
-                hrrpua_list.append(',\n\t\t\t{\n')
-            if os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_HRRPUA_75.html'):
-                hrrpua_list.append('\t\t\t\t"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",\n')
-                hrrpua_list.append(f'\t\t\t\t"graph": "Cone/{material}_Cone_HRRPUA_75.html",\n')
-                hrrpua_list.append(f'\t\t\t\t"table": "Cone/{material}_Cone_Analysis_HRRPUA_Table_75.html"\n')
-                hrrpua_list.append('\t\t\t}\n')
-                # df.loc[material, 'CONE_HRRPUA_75'] = 'TRUE'
+
+            for ff in cone_file_ls:
+                if cone_file_ls.index(ff) != 0:  
+                    hrrpua_list.append(',\n\t\t\t{\n')
+                hf = ff[:-5].split('_')[-1]
+                hrrpua_list.append(f'\t\t\t\t"display name": "Cone Calorimeter: {hf} kW/m<sup>2</sup>",\n')
+                hrrpua_list.append(f'\t\t\t\t"graph": "Cone/{material}_Cone_HRRPUA_{hf}.html",\n')
+                hrrpua_list.append(f'\t\t\t\t"table": "Cone/{material}_Cone_Analysis_HRRPUA_Table_{hf}.html"\n') 
+                if cone_file_ls.index(ff) == len(cone_file_ls)-1:
+                    hrrpua_list.append('\t\t\t}\n')
+                else:
+                    hrrpua_list.append('\t\t\t}')  
             hrrpua_list.append('\t\t]\n\t}')
+
+            # if os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_HRRPUA_25.html'):
+            #     hrrpua_list.append('\t\t\t\t"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",\n')
+            #     hrrpua_list.append(f'\t\t\t\t"graph": "Cone/{material}_Cone_HRRPUA_25.html",\n')
+            #     hrrpua_list.append(f'\t\t\t\t"table": "Cone/{material}_Cone_Analysis_HRRPUA_Table_25.html"\n')
+            #     hrrpua_list.append('\t\t\t}')
+            #     # df.loc[material, 'CONE_HRRPUA_25'] = 'TRUE'
+            # if os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_HRRPUA_25.html') and os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_HRRPUA_50.html'):
+            #     hrrpua_list.append(',\n\t\t\t{\n')
+            # if os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_HRRPUA_50.html'):
+            #     hrrpua_list.append('\t\t\t\t"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",\n')
+            #     hrrpua_list.append(f'\t\t\t\t"graph": "Cone/{material}_Cone_HRRPUA_50.html",\n')
+            #     hrrpua_list.append(f'\t\t\t\t"table": "Cone/{material}_Cone_Analysis_HRRPUA_Table_50.html"\n')
+            #     hrrpua_list.append('\t\t\t}')
+            #     # df.loc[material, 'CONE_HRRPUA_50'] = 'TRUE'
+            # if (os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_HRRPUA_25.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_HRRPUA_50.html')) and os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_HRRPUA_75.html'):
+            #     hrrpua_list.append(',\n\t\t\t{\n')
+            # if os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_HRRPUA_75.html'):
+            #     hrrpua_list.append('\t\t\t\t"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",\n')
+            #     hrrpua_list.append(f'\t\t\t\t"graph": "Cone/{material}_Cone_HRRPUA_75.html",\n')
+            #     hrrpua_list.append(f'\t\t\t\t"table": "Cone/{material}_Cone_Analysis_HRRPUA_Table_75.html"\n')
+            #     hrrpua_list.append('\t\t\t}\n')
+            #     # df.loc[material, 'CONE_HRRPUA_75'] = 'TRUE'
+            # hrrpua_list.append('\t\t]\n\t}')
 
 
         # *** CO Yield ***
@@ -313,7 +378,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                 # desc = element_df[material, 'CO Yield']
                 desc = f"\"{test_notes[material]['Cone']}\""
                 if '<global_intro>' in desc:
-                    intro = global_json['measured property'][4]['test description']
+                    intro = [global_json['measured property'][i]['test description'] for i in range(0,len(global_json['measured property'])) if global_json['measured property'][i]['test name'] == 'carbon monoxide yield'][0]
                     desc = f'\"{intro}<br><br>{desc.split("<global_intro>")[1]}'
             except:
                 desc = '\"\"'   
@@ -352,7 +417,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                 # desc = element_df[material, 'soot yield']
                 desc = f"\"{test_notes[material]['Cone']}\""
                 if '<global_intro>' in desc:
-                    intro = global_json['derived property'][0]['test description']
+                    intro = [global_json['derived property'][i]['test description'] for i in range(0,len(global_json['derived property'])) if global_json['derived property'][i]['test name'] == 'soot yield'][0]
                     desc = f'\"{intro}<br><br>{desc.split("<global_intro>")[1]}'
             except:
                 desc = '\"\"' 
@@ -404,7 +469,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                         if '<global_intro>' not in cone_notes:
                                 print(f'ERROR: Need to include global test description for {material}. Test notes exist for the cone but not for MCC, which overrides default MCC test description for HoC. Either begin notes with <global_intro> or write independent test notes for the MCC.')
                                 exit()
-                        intro = global_json['derived property'][1]['test description']
+                        intro = [global_json['derived property'][i]['test description'] for i in range(0,len(global_json['derived property'])) if global_json['derived property'][i]['test name'] == 'effective heat of combustion'][0]
                         desc = f'\"{intro}<br><br>Cone Calorimeter Test Notes:<br>{cone_notes.split("<global_intro>")[1]}\"'
                     else:
                         # 'both exist and no notes -- notes are empty, use global'

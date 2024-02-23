@@ -97,5 +97,28 @@
     },
     "Feather_Pillow_Feathers": {
         "Cone": "<global_intro>Samples were tested without compression of the material. The sample preparation consisted of filling a pre-formed, 5 cm deep aluminum foil tray with feathers, and attempting to achieve homogenous packing density. At the 25 kW/m<sup>2</sup> exposure the sample did not ignite in 3 out of 4 replicates. Typical burning behavior included both charring and melting/bubbling of the material."
+    },
+    "Overstuffed_Chair_Polyester_Fabric": {
+        "Cone": "<global_intro>This material shrivels and melts under thermal exposure which reduces the exposed surface area during cone calorimeter tests. Prior to ignition, shrivelling of the sample caused contact with the spark ignitor, creating spikes in the mass time history data and likely affecting time to ignition. Additional replicates with alternative sample preparation (i.e. with frame, grid, and calcium silicate substrate; and using 5 layers of material per sample) may be necessary to supplement this data set."
+    },
+
+    "Excelsior": {
+        "Cone": "Cone calorimeter tests were conducted at a heat flux of 35 kW/m<sup>2</sup> on samples conditioned at 20&#176;C and 50% relative humidity.",
+        "STA": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
+        "MCC": "Micro-scale combustion calorimeter tests were conducted at a heating rate of 30 K/min."
+    },
+    "Plywood": {
+        "Cone": "Cone calorimeter tests were conducted at a heat flux of 35 kW/m<sup>2</sup> on samples conditioned at 20&#176;C and 50% relative humidity.",
+        "STA": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
+        "MCC": "Micro-scale combustion calorimeter tests were conducted at a heating rate of 30 K/min."
+    },
+    "Pallet_Wood": {
+        "Cone": "Cone calorimeter tests were conducted at a heat flux of 35 kW/m<sup>2</sup> on samples conditioned at 20&#176;C and 50% relative humidity.",
+        "STA": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min."
+    },
+    "Straw": {
+        "Cone": "Cone calorimeter tests were conducted at a heat flux of 35 kW/m<sup>2</sup> on samples conditioned at 20&#176;C and 50% relative humidity.",
+        "STA": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
+        "MCC": "Micro-scale combustion calorimeter tests were conducted at a heating rate of 30 K/min."
     }
 }
