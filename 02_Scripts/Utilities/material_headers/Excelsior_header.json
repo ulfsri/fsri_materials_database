@@ -17,9 +17,9 @@
 	"image file": "Excelsior.JPG",
 	"image 600x400 file": "Excelsior600x400.jpg",
 	"video file": "",
-	"description": "Excelsior is aspen wood shavings used in insulation, packaging, firefirghter training, and several other applications.",
-	"short desc": "Excelsior is aspen wood shavings used in several applications.",
-	"source": "Material procured in bulk from pet supply store.",
+	"description": "Excelsior is thin aspen wood shavings used in insulation, packaging, firefighter training, and several other applications.",
+	"short desc": "Excelsior is thin aspen wood shavings.",
+	"source": "Material procured in a bulk bale from company specializing in excelsior.",
 	"density": "50 kg/m<sup>3</sup>",
 	"property scales": [
 		"milligram",
