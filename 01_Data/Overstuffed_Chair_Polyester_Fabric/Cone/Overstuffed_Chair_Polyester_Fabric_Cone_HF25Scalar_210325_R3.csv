@@ -18,5 +18,5 @@ TIME TO IGN,586.75
 END OF TEST SCAN,2567
 END OF TEST TIME,641.75
 TEST STATUS,1
-PRE TEST CMT,Test w/o retainer frame or grid
-POST TEST CMT,Sample folded up. Consistent with other tests. Spark did not ignite sample upon contact. Sample melted-> bubbled-> then ignited.
+PRE TEST CMT,
+POST TEST CMT,"Prior to ignition, the sample shrivelled towards the center and impacted the spark ignitor, causing a spike in the mass data. The sample melted away from the ignitor before igniting."

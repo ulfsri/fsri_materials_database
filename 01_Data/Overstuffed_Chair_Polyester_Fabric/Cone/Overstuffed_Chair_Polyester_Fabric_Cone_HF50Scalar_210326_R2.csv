@@ -18,5 +18,5 @@ TIME TO IGN,22
 END OF TEST SCAN,219
 END OF TEST TIME,54.75
 TEST STATUS,1
-PRE TEST CMT,without frame or grid
-POST TEST CMT,sample shriveled toward center at start of exposure; foil folded slightly inwards at end of test
+PRE TEST CMT,
+POST TEST CMT,"Prior to ignition, the sample shrivelled towards the center and impacted the spark ignitor, causing a spike in the mass data. The sample melted away from the ignitor before igniting."
