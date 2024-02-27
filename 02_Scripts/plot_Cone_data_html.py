@@ -194,18 +194,21 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
                     surf_area_mm2 = 10000
                     dims = 'not specified'
                     frame = False
-                    for notes in pretest_notes.split(';'):
-                        if 'Dimensions' in notes:
-                            dims = []
-                            for i in notes.split(' '):
-                                try:
-                                    dims.append(float(i))
-                                except: continue
-                            surf_area_mm2 = dims[0] * dims[1]
-                        elif 'frame' in notes:
-                            frame = True
+                    if isinstance(pretest_notes, float):
+                        pass
+                    elif ';' in pretest_notes:
+                        for notes in pretest_notes.split(';'):
+                            if 'Dimensions' in notes:
+                                dims = []
+                                for i in notes.split(' '):
+                                    try:
+                                        dims.append(float(i))
+                                    except: continue
+                                surf_area_mm2 = dims[0] * dims[1]
+                            elif 'frame' in notes:
+                                frame = True
                     if frame or '-Frame' in f:
-                            surf_area_mm2 = 8836
+                        surf_area_mm2 = 8836
 
                 surf_area_m2 = surf_area_mm2 / 1000000.0
 
