@@ -53,7 +53,7 @@
 			"test name": "test video",
 			"display name": "Full-Scale Experiment Video",
 			"test description": "Videos were recorded for full-scale open calorimetry experiments.",
-			"table": false,
+			"table": true,
 			"graph": false,
 			"nested": true
 		},
@@ -67,7 +67,7 @@
 		},
 		{
 			"test name": "heat flux",
-			"display name": "Heat Emission",
+			"display name": "Heat Flux to Target",
 			"test description": "Total heat flux [kW/m<sup>2</sup>] from burning test articles was measured with several Schmidt-Boelter heat flux gauges.",
 			"table": false,
 			"graph": true,

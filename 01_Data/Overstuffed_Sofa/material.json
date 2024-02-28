@@ -30,6 +30,24 @@
 	],
 	"measured property": [
 	{
+		"test name": "test video",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Replicate Test 1",
+				"table": "Furniture_Calorimeter/Overstuffed_Sofa_Video_R1.html"
+			},
+			{
+				"display name": "Replicate Test 2",
+				"table": "Furniture_Calorimeter/Overstuffed_Sofa_Video_R2.html"
+			},
+			{
+				"display name": "Replicate Test 3",
+				"table": "Furniture_Calorimeter/Overstuffed_Sofa_Video_R3.html"
+			}
+		]
+	},
+	{
 		"test name": "heat release rate",
 		"test description": "",
 		"display name": "",
