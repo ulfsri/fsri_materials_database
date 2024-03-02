@@ -52,7 +52,7 @@
 		{
 			"test name": "test video",
 			"display name": "Full-Scale Experiment Video",
-			"test description": "Videos were recorded for full-scale open calorimetry experiments.",
+			"test description": "High definition and IR videos were recorded for full-scale open calorimetry experiments. Click the links to view the videos in a new tab.",
 			"table": true,
 			"graph": false,
 			"nested": true
