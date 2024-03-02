@@ -283,8 +283,8 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
             html_df.at['Temperature at Onset of Melting (C)', 'Mean'] = np.mean(np.array(melt_onset)).round(1)
             html_df.at['Temperature at Onset of Melting (C)', 'Std. Dev.'] = np.std(np.array(melt_onset)).round(1)
 
-            html_df.at['Enthalpy of Melting (J/g-K)', 'Mean'] = np.mean(np.array(melt_enth)).round(1)
-            html_df.at['Enthalpy of Melting (J/g-K)', 'Std. Dev.'] = np.std(np.array(melt_enth)).round(1)
+            html_df.at['Enthalpy of Melting (J/g)', 'Mean'] = np.mean(np.array(melt_enth)).round(1)
+            html_df.at['Enthalpy of Melting (J/g)', 'Std. Dev.'] = np.std(np.array(melt_enth)).round(1)
 
             html_df.index.rename('Value',inplace=True)
             html_df = html_df.reset_index()
