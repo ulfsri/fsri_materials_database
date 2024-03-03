@@ -1,30 +1,121 @@
 {
 	"material": "Overstuffed Chair - Polyester Fabric",
 	"alternate names": [
-		"PET fabric",
-		"polyester upholstery",
-		"polyethylene terephthalate fabric",
-		"upholstery fabric"
+		"polyester foam",
+		"cushion batting",
+		"pet batting",
+		"polyester wadding",
+		"synthetic batting"
 	],
-	"material_dir": "Overstuffed_Chair_Polyester_Fabric",
-	"parent material": [
-		"Overstuffed Chair Assembly"
-	],
+	"material_dir": "Overstuffed_Chair_Polyester_Batting",
+	"parent material": "Overstuffed Chair Assembly",
 	"component material": [],
 	"material category": [
+		"general polymer",
 		"upholstered furniture"
 	],
-	"image file": "Overstuffed_Chair_Polyester_Fabric.JPG",
-	"image 600x400 file": "Overstuffed_Chair_Polyester_Fabric600x400.jpg",
+	"image file": "Overstuffed_Chair_Polyester_Batting.JPG",
+	"image 600x400 file": "Overstuffed_Chair_Polyester_Batting600x400.jpg",
 	"video file": "",
-	"description": "Polyester fabric is a fabric woven from synthetic polyethylene terephthalate fibers.",
-	"short desc": "Polyester fabric is a fabric woven from synthetic polyethylene terephthalate fibers.",
-	"source": "Samples cut from a cushion covering taken from an overstuffed chair.",
-	"density": "410.5 kg/m<sup>3</sup>",
+	"description": "Polyester batting is a sheet of loosely matted fibers used for padding in cushions and blankets.",
+	"short desc": "Polyester batting is a sheet of loosely matted fibers used for padding in cushions and blankets.",
+	"source": "Samples cut from 0.75 m x 1.7 m x 0.044 m thick sheet wrapped around a polyurethane foam cushion taken from an overstuffed chair.",
+	"density": "18.0 kg/m<sup>3</sup>",
 	"property scales": [
 		"milligram",
 		"bench scale"
 	],
-	"measured property": [],
-	"derived property": []
+	"measured property": [
+	{
+		"test name": "thermal conductivity",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Unconditioned",
+				"graph": "HFM/Overstuffed_Chair_Polyester_Batting_HFM_Wet_conductivity.html",
+				"table": "HFM/Overstuffed_Chair_Polyester_Batting_HFM_Wet_conductivity.html"
+			}		]
+	},
+	{
+		"test name": "mass loss rate",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min and mass loss rate [g/s] in the cone calorimeter at three heat fluxes: 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.<br><br>Cone Calorimeter Test Notes:<br>This material shrivels and melts under thermal exposure. Near the end of each cone calorimeter test the opposing corners of the foil pan would lift upwards causing the foil pan to partially fold along the diagonal. Since this behavior generally occurred so near the end of the tests, no preventative sample preparation was used. However, additional replicates using some form of restraints (i.e. tie wires) may be necessary to supplement this data set. Representative test pictures are available at the link above to Download raw data.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Overstuffed_Chair_Polyester_Batting_STA_MLR.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Overstuffed_Chair_Polyester_Batting_Cone_MLR_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Overstuffed_Chair_Polyester_Batting_Cone_MLR_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Overstuffed_Chair_Polyester_Batting_Cone_MLR_75.html"
+			}
+		]
+	},
+	{
+		"test name": "heat release rate per unit area",
+		"test description": "Experiments for heat release per unit area [kW/m<sup>2</sup>] were conducted on samples conditioned at 20&#176;C and 50% relative humidity using a cone calorimeter at three different heat fluxes: 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.<br><br>This material shrivels and melts under thermal exposure. Near the end of each cone calorimeter test the opposing corners of the foil pan would lift upwards causing the foil pan to partially fold along the diagonal. Since this behavior generally occurred so near the end of the tests, no preventative sample preparation was used. However, additional replicates using some form of restraints (i.e. tie wires) may be necessary to supplement this data set. Representative test pictures are available at the link above to Download raw data.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Overstuffed_Chair_Polyester_Batting_Cone_HRRPUA_25.html",
+				"table": "Cone/Overstuffed_Chair_Polyester_Batting_Cone_Analysis_HRRPUA_Table_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Overstuffed_Chair_Polyester_Batting_Cone_HRRPUA_50.html",
+				"table": "Cone/Overstuffed_Chair_Polyester_Batting_Cone_Analysis_HRRPUA_Table_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Overstuffed_Chair_Polyester_Batting_Cone_HRRPUA_75.html",
+				"table": "Cone/Overstuffed_Chair_Polyester_Batting_Cone_Analysis_HRRPUA_Table_75.html"
+			}
+		]
+	},
+	{
+		"test name": "carbon monoxide yield",
+		"test description": "Carbon monoxide yield was measured during cone calorimeter experiments conducted at heat fluxes of 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.<br><br>This material shrivels and melts under thermal exposure. Near the end of each cone calorimeter test the opposing corners of the foil pan would lift upwards causing the foil pan to partially fold along the diagonal. Since this behavior generally occurred so near the end of the tests, no preventative sample preparation was used. However, additional replicates using some form of restraints (i.e. tie wires) may be necessary to supplement this data set. Representative test pictures are available at the link above to Download raw data.",
+		"display name": "",
+		"table": "Cone/Overstuffed_Chair_Polyester_Batting_Cone_Analysis_CO_Table.html"
+	},
+	{
+		"test name": "specific heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "MCC/Overstuffed_Chair_Polyester_Batting_MCC_HRR.html"
+	}],
+	"derived property": [
+	{
+		"test name": "soot yield",
+		"test description": "Soot yield [g/g] was calculated from smoke obscuration data collected in cone calorimeter experiments conducted at heat fluxes of 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.<br><br>This material shrivels and melts under thermal exposure. Near the end of each cone calorimeter test the opposing corners of the foil pan would lift upwards causing the foil pan to partially fold along the diagonal. Since this behavior generally occurred so near the end of the tests, no preventative sample preparation was used. However, additional replicates using some form of restraints (i.e. tie wires) may be necessary to supplement this data set. Representative test pictures are available at the link above to Download raw data.",
+		"display name": "",
+		"table": "Cone/Overstuffed_Chair_Polyester_Batting_Cone_Analysis_Soot_Table.html"
+	},
+	{
+		"test name": "effective heat of combustion",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in both micro-scale combustion calorimeter experiments and cone calorimeter experiments.<br><br>Cone Calorimeter Test Notes:<br>This material shrivels and melts under thermal exposure. Near the end of each cone calorimeter test the opposing corners of the foil pan would lift upwards causing the foil pan to partially fold along the diagonal. Since this behavior generally occurred so near the end of the tests, no preventative sample preparation was used. However, additional replicates using some form of restraints (i.e. tie wires) may be necessary to supplement this data set. Representative test pictures are available at the link above to Download raw data.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Micro-scale Combustion Calorimeter",
+				"table": "MCC/Overstuffed_Chair_Polyester_Batting_MCC_Heats_of_Combustion.html"
+			},
+			{
+				"display name": "Cone Calorimeter",
+				"table": "Cone/Overstuffed_Chair_Polyester_Batting_Cone_Analysis_EHC_Table.html"
+			}
+		]
+	},
+	{
+		"test name": "melting temperature and enthalpy of melting",
+		"test description": "",
+		"display name": "",
+		"table": "STA/Overstuffed_Chair_Polyester_Batting_STA_Analysis_Melting_Temp_Table.html"
+	}]
 }
