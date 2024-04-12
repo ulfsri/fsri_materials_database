@@ -57,7 +57,7 @@
 	},
 	{
 		"test name": "mass loss rate",
-		"test description": "Mass loss rate [kg/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.<br><br>Cone calorimeter tests were conducted at a heat flux of 35 kW/m<sup>2</sup> on samples conditioned at 20&#176;C and 50% relative humidity.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Simultaneous Thermal Analyzer",
@@ -71,7 +71,7 @@
 	},
 	{
 		"test name": "heat release rate per unit area",
-		"test description": "",
+		"test description": "Cone calorimeter tests were conducted at a heat flux of 35 kW/m<sup>2</sup> on samples conditioned at 20&#176;C and 50% relative humidity.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Cone Calorimeter: 35 kW/m<sup>2</sup>",
@@ -82,14 +82,14 @@
 	},
 	{
 		"test name": "carbon monoxide yield",
-		"test description": "",
+		"test description": "Cone calorimeter tests were conducted at a heat flux of 35 kW/m<sup>2</sup> on samples conditioned at 20&#176;C and 50% relative humidity.",
 		"display name": "",
 		"table": "Cone/Pallet_Wood_Cone_Analysis_CO_Table.html"
 	}],
 	"derived property": [
 	{
 		"test name": "effective heat of combustion",
-		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in cone calorimeter experiments.",
+		"test description": "Cone calorimeter tests were conducted at a heat flux of 35 kW/m<sup>2</sup> on samples conditioned at 20&#176;C and 50% relative humidity.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Cone Calorimeter",

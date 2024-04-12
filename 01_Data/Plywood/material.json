@@ -16,7 +16,7 @@
 	"video file": "",
 	"description": "Plywood is layers of softwood veneer bonded together with a phenolic resin with an interior grade finish.",
 	"short desc": "Plywood is layers of softwood glued together with a phenolic resin",
-	"source": "Samples cut from 1.59 cm cm thick, 122 cm x 244 cm sheet.",
+	"source": "Samples cut from 1.59 cm thick, 122 cm x 244 cm sheet.",
 	"density": "500 kg/m<sup>3</sup>",
 	"property scales": [
 		"milligram",
@@ -57,7 +57,7 @@
 	},
 	{
 		"test name": "mass loss rate",
-		"test description": "Mass loss rate [kg/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min and in the cone calorimeter at a heat flux of 35 kW/m<sup>2</sup>.",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.<br><br>Cone calorimeter tests were conducted at a heat flux of 35 kW/m<sup>2</sup> on samples conditioned at 20&#176;C and 50% relative humidity.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Simultaneous Thermal Analyzer",
@@ -71,7 +71,7 @@
 	},
 	{
 		"test name": "heat release rate per unit area",
-		"test description": "Heat release rate per unit area [kW/m<sup>2</sup>] was measured with the cone calorimeter at a heat flux of 35 kW/m<sup>2</sup>.",
+		"test description": "Cone calorimeter tests were conducted at a heat flux of 35 kW/m<sup>2</sup> on samples conditioned at 20&#176;C and 50% relative humidity.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Cone Calorimeter: 35 kW/m<sup>2</sup>",
@@ -82,20 +82,20 @@
 	},
 	{
 		"test name": "carbon monoxide yield",
-		"test description": "",
+		"test description": "Cone calorimeter tests were conducted at a heat flux of 35 kW/m<sup>2</sup> on samples conditioned at 20&#176;C and 50% relative humidity.",
 		"display name": "",
 		"table": "Cone/Plywood_Cone_Analysis_CO_Table.html"
 	},
 	{
 		"test name": "specific heat release rate",
-		"test description": "",
+		"test description": "Micro-scale combustion calorimeter tests were conducted at a heating rate of 30 K/min.",
 		"display name": "",
 		"graph": "MCC/Plywood_MCC_HRR.html"
 	}],
 	"derived property": [
 	{
 		"test name": "effective heat of combustion",
-		"test description": "",
+		"test description": "Micro-scale combustion calorimeter tests were conducted at a heating rate of 30 K/min.<br><br>Cone calorimeter tests were conducted at a heat flux of 35 kW/m<sup>2</sup> on samples conditioned at 20&#176;C and 50% relative humidity.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Micro-scale Combustion Calorimeter",

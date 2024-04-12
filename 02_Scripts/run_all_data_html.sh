@@ -17,3 +17,6 @@ python plot_MCC_data_html.py
 echo " "
 echo "***** plot_STA_data_html.py"
 python plot_STA_data_html.py
+echo " "
+echo "***** plot Furniture_Cal_data_html.py"
+python plot_Furniture_Cal_data_html.py

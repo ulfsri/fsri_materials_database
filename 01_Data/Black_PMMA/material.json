@@ -102,6 +102,12 @@
 		"test description": "",
 		"display name": "",
 		"table": "Cone/Black_PMMA_Cone_Analysis_CO_Table.html"
+	},
+	{
+		"test name": "specific heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "MCC/Black_PMMA_MCC_HRR.html"
 	}],
 	"derived property": [
 	{
@@ -112,9 +118,13 @@
 	},
 	{
 		"test name": "effective heat of combustion",
-		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in cone calorimeter experiments.",
+		"test description": "",
 		"display name": "",
 		"nested tests": [{
+				"display name": "Micro-scale Combustion Calorimeter",
+				"table": "MCC/Black_PMMA_MCC_Heats_of_Combustion.html"
+			},
+			{
 				"display name": "Cone Calorimeter",
 				"table": "Cone/Black_PMMA_Cone_Analysis_EHC_Table.html"
 			}
