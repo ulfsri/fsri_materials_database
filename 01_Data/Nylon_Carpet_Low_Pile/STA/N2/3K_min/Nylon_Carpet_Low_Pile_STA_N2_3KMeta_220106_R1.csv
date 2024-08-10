@@ -1,0 +1,39 @@
+0,1
+#EXPORTTYPE:                 ,DATA COMPARE                           
+#FILE:                       ,Nylon_Carpet_LP_N2_3K_220106_R1.ngb-ss3
+#FORMAT:                     ,NETZSCH5                               
+#FTYPE:                      ,ANSI                                   
+#IDENTITY:                   ,Nylon_Carpet_3K_1                      
+#DECIMAL:                    ,POINT                                  
+#SEPARATOR:                  ,COMMA                                  
+#MTYPE:                      ,DSC                                    
+#INSTRUMENT:                 ,NETZSCH STA 449F3                      
+#PROJECT:                    ,NIJ 2019                               
+#DATE/TIME:                  ,1/6/2022 18:09:45 (UTC-5)              
+#CORR. FILE:                 ,                                       
+#TEMPCAL:                    ,07-12-2021 13:16                       
+#SENSITIVITY:                ,08-12-2021 11:25                       
+#LABORATORY:                 ,UL FSRI                                
+#OPERATOR:                   ,Conor                                  
+#REMARK:                     ,Nylon_Carpet_3K                        
+#SAMPLE:                     ,Nylon_Carpet_3K_1                      
+#SAMPLE MASS /mg:            ,4.05                                   
+#MATERIAL:                   ,Nylon Carpet                           
+#REFERENCE:                  ,                                       
+#REFERENCE MASS /mg:         ,0                                      
+#TYPE OF CRUCIBLE:           ,PtRh20 85 µl
+#SAMPLE CRUCIBLE MASS /mg:   ,0                                      
+#REFERENCE CRUCIBLE MASS /mg:,0                                      
+#PURGE 1 MFC:                ,NITROGEN
+#PURGE 2 MFC:                ,OXYGEN
+#PROTECTIVE MFC:             ,NITROGEN
+#DSC RANGE /µV:              ,5000                                   
+#TG RANGE /mg:               ,35000                                  
+#TAU-R:                      ,---                                    
+#CORR. CODE:                 ,000                                    
+#EXO:                        ,-1                                     
+#RANGE:                      ,50°C....800°C/0.0....3.0K/min          
+#SEGMENT:                    ,S1-3/3                                 
+#SEG. 1:                     ,50°C/00:10/50°C                        
+#SEG. 2:                     ,50°C/3.0(K/min)/800°C                  
+#SEG. 3:                     ,800°C/00:05/800°C                      
