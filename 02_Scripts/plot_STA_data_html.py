@@ -154,7 +154,11 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
 
                     data_temp_df = pd.read_csv(f, header = 0)
                     meta_temp_df = pd.read_csv(f_meta).squeeze()
-                    meta_col_df = meta_temp_df.filter(regex='EXPORT').squeeze()
+                    
+                    # try:
+                    #     meta_col_df = meta_temp_df.filter(regex='EXPORT').squeeze()
+                    # except:
+                    meta_col_df = meta_temp_df.iloc[:,0].squeeze()
 
                     mass_ind = meta_col_df.str.find('SAMPLE MASS', start = 0).idxmax()
                     m0 = float(meta_temp_df.iloc[mass_ind, 1])
