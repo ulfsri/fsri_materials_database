@@ -1,0 +1,40 @@
+0,1
+#EXPORTTYPE:                 ,DATA COMPARE                          
+#FILE:                       ,EIFS_Mesh_STA_N2_30K_230908_R3.ngb-ss3
+#FORMAT:                     ,NETZSCH5                              
+#FTYPE:                      ,ANSI                                  
+#IDENTITY:                   ,EIFS_Mesh_30K_3                       
+#DECIMAL:                    ,POINT                                 
+#SEPARATOR:                  ,COMMA                                 
+#MTYPE:                      ,DSC                                   
+#INSTRUMENT:                 ,NETZSCH STA 449F3                     
+#PROJECT:                    ,NIJ 2019                              
+#DATE/TIME:                  ,9/8/2023 10:53:41 (UTC-4)             
+#CORR. FILE:                 ,                                      
+#TEMPCAL:                    ,28-07-2023 12:55                      
+#SENSITIVITY:                ,28-07-2023 15:24                      
+#LABORATORY:                 ,UL FSRI                               
+#OPERATOR:                   ,Mark                                  
+#REMARK:                     ,EIFS_Mesh_30K_3                       
+#SAMPLE:                     ,EIFS_Mesh_30K_3                       
+#SAMPLE MASS /mg:            ,3.98                                  
+#MATERIAL:                   ,EIFS_Mesh                             
+#REFERENCE:                  ,                                      
+#REFERENCE MASS /mg:         ,0                                     
+#TYPE OF CRUCIBLE:           ,PtRh20 85 µl
+#SAMPLE CRUCIBLE MASS /mg:   ,238.65                                
+#REFERENCE CRUCIBLE MASS /mg:,246.46                                
+#PURGE 1 MFC:                ,NITROGEN
+#PURGE 2 MFC:                ,OXYGEN
+#PROTECTIVE MFC:             ,NITROGEN
+#DSC RANGE /µV:              ,5000                                  
+#TG RANGE /mg:               ,35000                                 
+#TAU-R:                      ,---                                   
+#CORR. CODE:                 ,000                                   
+#EXO:                        ,-1                                    
+#RANGE:                      ,40°C....750°C/0.0....30.0K/min        
+#SEGMENT:                    ,S1-4/4                                
+#SEG. 1:                     ,40°C/00:10/40°C                       
+#SEG. 2:                     ,40°C/30.0(K/min)/750°C                
+#SEG. 3:                     ,750°C/00:05/750°C                     
+#SEG. 4:                     ,750°C/00:10/750°C                     
