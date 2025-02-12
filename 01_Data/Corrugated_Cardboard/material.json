@@ -1,0 +1,105 @@
+{
+	"material": "Corrugated Cardboard",
+	"alternate names": [
+		"cardboard",
+		"cb",
+		"paperboard",
+		"containerboard",
+		"packing",
+		"packaging"
+	],
+	"material_dir": "Corrugated_Cardboard",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"cellulosic materials"
+	],
+	"image file": "Corrugated_Cardboard.JPG",
+	"image 600x400 file": "Corrugated_Cardboard600x400.jpg",
+	"video file": "",
+	"description": "Corrugated cardboard is a paperboard material with alternating layers of planar and fluted patterns used in shipping and packaging.",
+	"short desc": "Corrugated cardboard is alternating layers of planar and fluted paperboard often used in packaging.",
+	"source": "Samples cut from a single 9.5 mm thick shingle.",
+	"density": "320 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Corrugated_Cardboard_STA_MLR.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Corrugated_Cardboard_Cone_MLR_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Corrugated_Cardboard_Cone_MLR_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Corrugated_Cardboard_Cone_MLR_75.html"
+			}
+		]
+	},
+	{
+		"test name": "heat release rate per unit area",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Corrugated_Cardboard_Cone_HRRPUA_25.html",
+				"table": "Cone/Corrugated_Cardboard_Cone_Analysis_HRRPUA_Table_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Corrugated_Cardboard_Cone_HRRPUA_50.html",
+				"table": "Cone/Corrugated_Cardboard_Cone_Analysis_HRRPUA_Table_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Corrugated_Cardboard_Cone_HRRPUA_75.html",
+				"table": "Cone/Corrugated_Cardboard_Cone_Analysis_HRRPUA_Table_75.html"
+			}
+		]
+	},
+	{
+		"test name": "carbon monoxide yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/Corrugated_Cardboard_Cone_Analysis_CO_Table.html"
+	},
+	{
+		"test name": "specific heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "MCC/Corrugated_Cardboard_MCC_HRR.html"
+	}],
+	"derived property": [
+	{
+		"test name": "soot yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/Corrugated_Cardboard_Cone_Analysis_Soot_Table.html"
+	},
+	{
+		"test name": "effective heat of combustion",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Micro-scale Combustion Calorimeter",
+				"table": "MCC/Corrugated_Cardboard_MCC_Heats_of_Combustion.html"
+			},
+			{
+				"display name": "Cone Calorimeter",
+				"table": "Cone/Corrugated_Cardboard_Cone_Analysis_EHC_Table.html"
+			}
+		]
+	}]
+}
