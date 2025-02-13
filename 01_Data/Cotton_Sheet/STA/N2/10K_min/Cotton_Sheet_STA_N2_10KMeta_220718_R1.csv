@@ -1,0 +1,39 @@
+0,1
+#EXPORTTYPE:                 ,DATA COMPARE                             
+#FILE:                       ,Cotton_Sheet_STA_N2_10K_220718_R1.ngb-ss3
+#FORMAT:                     ,NETZSCH5                                 
+#FTYPE:                      ,ANSI                                     
+#IDENTITY:                   ,Cotton_Sheet_10K_1                       
+#DECIMAL:                    ,POINT                                    
+#SEPARATOR:                  ,COMMA                                    
+#MTYPE:                      ,DSC                                      
+#INSTRUMENT:                 ,NETZSCH STA 449F3                        
+#PROJECT:                    ,NIJ 2019                                 
+#DATE/TIME:                  ,7/18/2022 20:52:00 (UTC-4)               
+#CORR. FILE:                 ,                                         
+#TEMPCAL:                    ,10-05-2022 19:58                         
+#SENSITIVITY:                ,10-05-2022 20:02                         
+#LABORATORY:                 ,UL FSRI                                  
+#OPERATOR:                   ,Malhar                                   
+#REMARK:                     ,Cotton Sheet                             
+#SAMPLE:                     ,Cotton_Sheet_10K_1                       
+#SAMPLE MASS /mg:            ,3.96                                     
+#MATERIAL:                   ,Coaxial Cable                            
+#REFERENCE:                  ,                                         
+#REFERENCE MASS /mg:         ,0                                        
+#TYPE OF CRUCIBLE:           ,PtRh20 85 µl
+#SAMPLE CRUCIBLE MASS /mg:   ,0                                        
+#REFERENCE CRUCIBLE MASS /mg:,0                                        
+#PURGE 1 MFC:                ,NITROGEN
+#PURGE 2 MFC:                ,OXYGEN
+#PROTECTIVE MFC:             ,NITROGEN
+#DSC RANGE /µV:              ,5000                                     
+#TG RANGE /mg:               ,35000                                    
+#TAU-R:                      ,---                                      
+#CORR. CODE:                 ,000                                      
+#EXO:                        ,-1                                       
+#RANGE:                      ,50°C....750°C/0.0....10.0K/min           
+#SEGMENT:                    ,S1-3/3                                   
+#SEG. 1:                     ,50°C/00:10/50°C                          
+#SEG. 2:                     ,50°C/10.0(K/min)/750°C                   
+#SEG. 3:                     ,750°C/00:10/750°C                        

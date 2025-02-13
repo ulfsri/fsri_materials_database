@@ -1,0 +1,39 @@
+0,1
+#EXPORTTYPE:                 ,DATA COMPARE                             
+#FILE:                       ,Bamboo_Rug_B_STA_N2_30K_220126_R2.ngb-ss3
+#FORMAT:                     ,NETZSCH5                                 
+#FTYPE:                      ,ANSI                                     
+#IDENTITY:                   ,Bambool_Rug_B_30_1                       
+#DECIMAL:                    ,POINT                                    
+#SEPARATOR:                  ,COMMA                                    
+#MTYPE:                      ,DSC                                      
+#INSTRUMENT:                 ,NETZSCH STA 449F3                        
+#PROJECT:                    ,NIJ 2019                                 
+#DATE/TIME:                  ,1/26/2022 07:12:08 (UTC-5)               
+#CORR. FILE:                 ,                                         
+#TEMPCAL:                    ,07-12-2021 13:10                         
+#SENSITIVITY:                ,07-12-2021 13:25                         
+#LABORATORY:                 ,UL FSRI                                  
+#OPERATOR:                   ,Mark                                     
+#REMARK:                     ,                                         
+#SAMPLE:                     ,Bamboo_Rug_B_30_1                        
+#SAMPLE MASS /mg:            ,3.96                                     
+#MATERIAL:                   ,Bamboo Rug B                             
+#REFERENCE:                  ,                                         
+#REFERENCE MASS /mg:         ,0                                        
+#TYPE OF CRUCIBLE:           ,PtRh20 85 µl
+#SAMPLE CRUCIBLE MASS /mg:   ,0                                        
+#REFERENCE CRUCIBLE MASS /mg:,0                                        
+#PURGE 1 MFC:                ,NITROGEN
+#PURGE 2 MFC:                ,OXYGEN
+#PROTECTIVE MFC:             ,NITROGEN
+#DSC RANGE /µV:              ,5000                                     
+#TG RANGE /mg:               ,35000                                    
+#TAU-R:                      ,---                                      
+#CORR. CODE:                 ,000                                      
+#EXO:                        ,-1                                       
+#RANGE:                      ,50°C....800°C/0.0....30.0K/min           
+#SEGMENT:                    ,S1-3/3                                   
+#SEG. 1:                     ,50°C/00:10/50°C                          
+#SEG. 2:                     ,50°C/30.0(K/min)/800°C                   
+#SEG. 3:                     ,800°C/00:05/800°C                        

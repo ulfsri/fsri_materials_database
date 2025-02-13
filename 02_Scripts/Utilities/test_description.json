@@ -120,5 +120,8 @@
         "Cone": "Cone calorimeter tests were conducted at a heat flux of 35 kW/m<sup>2</sup> on samples conditioned at 20&#176;C and 50% relative humidity.",
         "STA": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
         "MCC": "Micro-scale combustion calorimeter tests were conducted at a heating rate of 30 K/min."
+    },
+    "PEVA": {
+        "Cone": "<global_intro>This material tends to warp while burning. Samples were secured to a calcium silicate substrate by a staple in each corner to limit this behavior. A representative pre-test picture is available at the link above to Download raw data."
     }
 }

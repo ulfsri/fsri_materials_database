@@ -1,0 +1,23 @@
+LABORATORY,FSRI 
+TEST IDENT,Polyisocy_HF75_R2
+OPERATOR,Marino
+MATERIAL,Polyisocyanurate Foam Board Greene County
+ORIENTATION,Horizontal
+HEAT FLUX,75
+SURF AREA,0.009999999776482582
+C FACTOR,0.03985478729009628
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,12.420000076293945
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,662
+TIME TO IGN,1.25
+END OF TEST SCAN,182
+END OF TEST TIME,45.5
+TEST STATUS,1
+PRE TEST CMT,"Dimensions: 101.56 x 101.83 x 26.14 mm;  sample composed of 2 pieces with seam on the right
+"
+POST TEST CMT,"Sample ignited instantly as shutter opened. Sample popped and shot off flaming pieces of foam. Sample became embrittled. Remains of sample resemble a lattice structure, refer to post test photos"
