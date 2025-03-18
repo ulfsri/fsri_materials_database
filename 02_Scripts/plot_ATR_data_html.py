@@ -63,6 +63,7 @@ save_dir = '../03_Charts/'
 
 for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
     if os.path.isdir(f'{data_dir}{d}/FTIR/ATR'):
+        if not any(filename.endswith('.tst') for filename in os.listdir(f'{data_dir}{d}/FTIR/ATR')): continue
         data = pd.DataFrame()
         data_df = pd.DataFrame()
         material = d
