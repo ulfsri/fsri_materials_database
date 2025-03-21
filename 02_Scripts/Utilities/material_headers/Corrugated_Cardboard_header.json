@@ -1,0 +1,27 @@
+{
+	"material": "Corrugated Cardboard",
+	"alternate names": [
+		"cardboard",
+		"cb",
+		"paperboard",
+		"containerboard",
+		"packing",
+		"packaging"
+	],
+	"material_dir": "Corrugated_Cardboard",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"cellulosic materials"
+	],
+	"image file": "Corrugated_Cardboard.JPG",
+	"image 600x400 file": "Corrugated_Cardboard600x400.jpg",
+	"video file": "",
+	"description": "Corrugated cardboard is a paperboard material with alternating layers of planar and fluted patterns used in shipping and packaging.",
+	"short desc": "Corrugated cardboard is alternating layers of planar and fluted paperboard often used in packaging.",
+	"source": "Samples cut from a single 9.5 mm thick shingle.",
+	"density": "320 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

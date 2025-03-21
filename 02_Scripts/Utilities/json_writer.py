@@ -35,6 +35,8 @@ def natural_sort(l):
     alphanum_key = lambda key: [convert(c) for c in re.split('([0-9]+)', key)]
     return sorted(l, key=alphanum_key)
 
+
+
 # # *** Extract test descriptions from existing material.json files ***
 
 # element_df = pd.DataFrame(columns = ["specific heat", "thermal conductivity", "mass loss rate", "heat release rate per unit area", "carbon monoxide yield", "specific heat release rate", "soot yield", "effective heat of combustion", "heat of reaction", "heat of gasification", "ignition temperature", "melting temperature and enthalpy of melting", "emissivity"])
@@ -83,6 +85,7 @@ else:
     print('ERROR: material_status.csv does not exist. Run \"run_all_data_html\" to generate html output files and material_status.csv then rerun json_writer.py')
     exit()
 # df = pd.DataFrame(columns = ['Wet_cp', 'Dry_cp', 'Wet_k', 'Dry_k', 'STA_MLR', 'CONE_MLR_25', 'CONE_MLR_50', 'CONE_MLR_75', 'CONE_HRRPUA_25', 'CONE_HRRPUA_50', 'CONE_HRRPUA_75', 'CO_Yield', 'MCC_HRR', 'Soot_Yield', 'MCC_HoC', 'Cone_HoC', 'HoR', 'HoG', 'MCC_Ign_Temp', 'Melting_Temp', 'Emissivity', 'Full_JSON', "Picture"])
+mat_status_df['JSON_Header'] = np.nan
 element_df = pd.read_csv('test_description.csv', index_col = 'materials')
 test_notes = json.load(open('test_description.json'))
 global_json = json.load(open('../../global.json'))
@@ -619,8 +622,13 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
         else:
             derived.append(']\n}')
 
+        # write to JSON file and update JSON status in material_status_df
         if os.path.isfile(f'{header_dir}/{material}_header.json'):
+            mat_status_df.loc[material, 'JSON_Header'] = True
+
+
             mat_status_df.loc[material, 'Full_JSON'] = True
+
             with open(f'{header_dir}/{material}_header.json', "r") as rf, open(f'{data_dir}{material}/material.json', "w") as wf:
                 for line in rf:
                     wf.write(line)
@@ -630,8 +638,31 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                     for line in l:
                         fid.write(line)
 
+        else:
+            mat_status_df.loc[material, 'JSON_Header'] = False
+
+            if os.path.isfile(f'{data_dir}{material}/material.json'):
+                mat_status_df.loc[material, 'Full_JSON'] = 'Existing json without header file'
+                # print('Existing json without header file')
+            else:
+                mat_status_df.loc[material, 'Full_JSON'] = False
+                # print('No json')
+            
+
         if os.path.isfile(f'{data_dir}{material}/{material}.jpg'):
             mat_status_df.loc[material, 'Picture'] = True
 
 # df.fillna('FALSE', inplace=True)
+
 mat_status_df.to_csv('Material_Status.csv', index_label = 'material')
+
+
+full_json = (mat_status_df['Full_JSON'] == True).sum()
+existing = (mat_status_df['Full_JSON'] == 'Existing json without header file').sum()
+no_json = (mat_status_df['Full_JSON'] == False).sum()
+
+print()
+print('Full json: ', full_json)
+print('No json: ', no_json)
+print('Existing json without header file: ', existing)
+print('\t', mat_status_df[mat_status_df['Full_JSON'] == 'Existing json without header file'].index.values)

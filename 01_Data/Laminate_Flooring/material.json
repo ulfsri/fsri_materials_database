@@ -42,6 +42,15 @@
 			}		]
 	},
 	{
+		"test name": "mass loss rate",
+		"test description": "Mass loss rate [kg/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Laminate_Flooring_STA_MLR.html"
+			}		]
+	},
+	{
 		"test name": "specific heat release rate",
 		"test description": "",
 		"display name": "",

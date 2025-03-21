@@ -54,9 +54,13 @@
 	},
 	{
 		"test name": "mass loss rate",
-		"test description": "Mass loss rate [kg/s] was measured in cone calorimeter experiments at three heat fluxes: 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.<br><br>This material shrivels under thermal exposure causing the corners and edges of the sample to curl upwards and towards the center during cone calorimeter tests. The use of an edge frame was successful in limiting this behavior. Test HF25_R1 was an exception, however, where an edge of the sample lifted free from the edge frame and impacted the spark ignitor, causing a spike in the mass time history data. A calcium silicate substrate was included beneath the samples.",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min and mass loss rate [g/s] in the cone calorimeter at three heat fluxes: 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.<br><br>Cone Calorimeter Test Notes:<br>This material shrivels under thermal exposure causing the corners and edges of the sample to curl upwards and towards the center during cone calorimeter tests. The use of an edge frame was successful in limiting this behavior. Test HF25_R1 was an exception, however, where an edge of the sample lifted free from the edge frame and impacted the spark ignitor, causing a spike in the mass time history data. A calcium silicate substrate was included beneath the samples.",
 		"display name": "",
 		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Cotton_Rug_STA_MLR.html"
+			},
+			{
 				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
 				"graph": "Cone/Cotton_Rug_Cone_MLR_25.html"
 			},
@@ -123,6 +127,12 @@
 				"table": "Cone/Cotton_Rug_Cone_Analysis_EHC_Table.html"
 			}
 		]
+	},
+	{
+		"test name": "melting temperature and enthalpy of melting",
+		"test description": "",
+		"display name": "",
+		"table": "STA/Cotton_Rug_STA_Analysis_Melting_Temp_Table.html"
 	},
 	{
 		"test name": "emissivity",
