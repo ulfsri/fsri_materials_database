@@ -3,13 +3,15 @@
 #   Questions? Submit them here: https://github.com/ulfsri/fsri_materials_database/issues
 
 # ***************************** Usage Notes *************************** #
-# - Script outputs as a function of heat flux                           #
-#   -  HTML Graphs dir: /03_Charts/{Material}/Cone                      #
-#      Graphs: Extinction_Coefficient, Heat Release Rate Per Unit Area, #
-#      Mass Loss Rate, Specific Extinction Area, Smoke Production Rate  #
+# - Script writes material.json file for materials in 01_Data           #
+# - material.json file stores necessary information for front end       #
+#   website to display data.                                            #
+#   - this includes introductory information from *_header.json         #
+#   - also includes file paths to any data to be displayed              #
 #                                                                       #
-#      HTML Tables dir: /01_Data/{Material}/Cone                        #
-#      Tables: Heat Release Per Unit Area, CO Table, Soot Table         #
+# - 02_Scripts/run_all_data_html.* should be run prior to this script   #
+# - json files only generated for materials with matching header files  #
+#   in 02_Scripts/Utilities/material_headers/                           #
 # ********************************************************************* #
 
 # --------------- #
@@ -35,7 +37,19 @@ def natural_sort(l):
     alphanum_key = lambda key: [convert(c) for c in re.split('([0-9]+)', key)]
     return sorted(l, key=alphanum_key)
 
-
+def json_linter_from_file(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            # Try to load the JSON from the file
+            json.load(file)
+    except json.JSONDecodeError as e:
+        # If a JSON decoding error occurs, return the error message
+        return f"Invalid JSON: {e}"
+    except FileNotFoundError:
+        return f"File not found: {file_path}"
+    except Exception as e:
+        # Catch any other errors
+        return f"An error occurred: {e}"
 
 # # *** Extract test descriptions from existing material.json files ***
 
@@ -86,6 +100,7 @@ else:
     exit()
 # df = pd.DataFrame(columns = ['Wet_cp', 'Dry_cp', 'Wet_k', 'Dry_k', 'STA_MLR', 'CONE_MLR_25', 'CONE_MLR_50', 'CONE_MLR_75', 'CONE_HRRPUA_25', 'CONE_HRRPUA_50', 'CONE_HRRPUA_75', 'CO_Yield', 'MCC_HRR', 'Soot_Yield', 'MCC_HoC', 'Cone_HoC', 'HoR', 'HoG', 'MCC_Ign_Temp', 'Melting_Temp', 'Emissivity', 'Full_JSON', "Picture"])
 mat_status_df['JSON_Header'] = np.nan
+mat_status_df['test_description'] = np.nan
 element_df = pd.read_csv('test_description.csv', index_col = 'materials')
 test_notes = json.load(open('test_description.json'))
 global_json = json.load(open('../../global.json'))
@@ -637,6 +652,11 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                 for l in [measured, derived]:
                     for line in l:
                         fid.write(line)
+            
+            error = json_linter_from_file(f'{data_dir}{material}/material.json')
+            if error:
+                print(error)
+                exit()
 
         else:
             mat_status_df.loc[material, 'JSON_Header'] = False
@@ -644,6 +664,10 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
             if os.path.isfile(f'{data_dir}{material}/material.json'):
                 mat_status_df.loc[material, 'Full_JSON'] = 'Existing json without header file'
                 # print('Existing json without header file')
+                error = json_linter_from_file(f'{data_dir}{material}/material.json')
+                if error:
+                    print(error)
+                    exit()
             else:
                 mat_status_df.loc[material, 'Full_JSON'] = False
                 # print('No json')
@@ -652,9 +676,42 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
         if os.path.isfile(f'{data_dir}{material}/{material}.jpg'):
             mat_status_df.loc[material, 'Picture'] = True
 
+
+        # check which materials need to be added to test_description
+        # if cone data exists, it needs to be in test_description
+        # even if no cone specific notes, add empty entry for material to record that no cone notes are necessary
+
+        # loop through columns of mat_status_df
+        # if 'CONE' in column name - else, I don't care
+        # if any cone column is TRUE for this material - else, I don't care
+        # if material is in test_description.json
+
+        # if True, we're good
+        # if False, need to add material to test_description.json
+        cone_test = False
+        for col in mat_status_df:
+            if 'CONE' in col:
+                if mat_status_df.loc[material, col]: 
+                    cone_test = True
+                    # print(col)
+                    break
+        
+        if cone_test: 
+            try:
+                if test_notes[material]:
+                    mat_status_df.loc[material, 'test_description'] = True
+                    print('True')
+            except:
+                mat_status_df.loc[material, 'test_description'] = False
+                print('False')
+
 # df.fillna('FALSE', inplace=True)
 
 mat_status_df.to_csv('Material_Status.csv', index_label = 'material')
+
+test_notes = {key: test_notes[key] for key in sorted(test_notes)}
+with open('test_description.json',  'w') as file:
+    json.dump(test_notes, file, indent=4)
 
 
 full_json = (mat_status_df['Full_JSON'] == True).sum()
@@ -665,4 +722,13 @@ print()
 print('Full json: ', full_json)
 print('No json: ', no_json)
 print('Existing json without header file: ', existing)
-print('\t', mat_status_df[mat_status_df['Full_JSON'] == 'Existing json without header file'].index.values)
+print(mat_status_df[mat_status_df['Full_JSON'] == 'Existing json without header file'].index.values)
+
+# 
+print()
+no_notes = (mat_status_df['test_description'] == False).sum()
+print('Has cone data but no notes in test_description.json: ', no_notes)
+print(mat_status_df[mat_status_df['test_description'] == False].index.values)
+# print('In test_description: ', (mat_status_df['test_description'] == True).sum())
+# print('Total materials: ', len(mat_status_df))
+
