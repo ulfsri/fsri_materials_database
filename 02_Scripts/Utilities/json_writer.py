@@ -680,14 +680,6 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
         # check which materials need to be added to test_description
         # if cone data exists, it needs to be in test_description
         # even if no cone specific notes, add empty entry for material to record that no cone notes are necessary
-
-        # loop through columns of mat_status_df
-        # if 'CONE' in column name - else, I don't care
-        # if any cone column is TRUE for this material - else, I don't care
-        # if material is in test_description.json
-
-        # if True, we're good
-        # if False, need to add material to test_description.json
         cone_test = False
         for col in mat_status_df:
             if 'CONE' in col:
@@ -700,10 +692,10 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
             try:
                 if test_notes[material]:
                     mat_status_df.loc[material, 'test_description'] = True
-                    print('True')
+                    # print('True')
             except:
                 mat_status_df.loc[material, 'test_description'] = False
-                print('False')
+                # print('False')
 
 # df.fillna('FALSE', inplace=True)
 

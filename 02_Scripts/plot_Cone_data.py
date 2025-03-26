@@ -182,6 +182,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
 					pretest_notes = scalar_data_series.at['PRE TEST CMT']
 					pretest_notes_ls = pretest_notes.split(';')
 				except:
+					pretest_notes = ' '
 					pretest_notes_ls = []
 				surf_area_mm2 = 10000
 				dims = 'not specified'
