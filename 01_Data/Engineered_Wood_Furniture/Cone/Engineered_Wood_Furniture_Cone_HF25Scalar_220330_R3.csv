@@ -19,4 +19,4 @@ END OF TEST SCAN,4882
 END OF TEST TIME,1220.5
 TEST STATUS,1
 PRE TEST CMT,Dimensions: 99.98 x 101.01 x 13.72 mm
-POST TEST CMT,"Sample warped during the test forming a bridge shape, elevating the surface near the center by about 1 cm. See post test pictures"
+POST TEST CMT,"The sample formed cracks while burning and warped into an arched shape during the fire decay phase. Warping was less pronounced than shown in the representative test picture."
