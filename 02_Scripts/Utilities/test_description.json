@@ -10,7 +10,7 @@
         "global.json": "Use '<global_intro>' at the start of test notes to have json_writer.py copy the generic test description from global.json. Any notes written after <global_intro> will be concatenated with the generic test description. Extra care must be taken for MLR and HoC since multiple apparatus generate these outputs. json_writer.py will attempt to combine test notes from each apparatus in a sensible way, but it is worth double checking these outputs."
     },
     "ABS": {
-        "Cone": "<global_intro>This material expands slightly under thermal exposure, which in two tests, HF50_R2 and HF75_R1, impacted the spark ignitor and caused spikes in the mass time history data. "
+        "Cone": "<global_intro>This material expands slightly under thermal exposure, which in two tests, HF50_R2 and HF75_R1, impacted the spark ignitor and caused spikes in the mass time history data."
     },
     "Asphalt_Shingle": "",
     "Basswood_Panel": {
@@ -53,20 +53,38 @@
     },
     "Excelsior": {
         "Cone": "Cone calorimeter tests were conducted at a heat flux of 35 kW/m<sup>2</sup> on samples conditioned at 20&#176;C and 50% relative humidity.",
-        "STA": "Simultaneous thermal analyzer experiments were conducted at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
+        "STA": "Simultaneous thermal analyzer experiments were conducted at a heating rate of 10 K/min.",
         "MCC": "Micro-scale combustion calorimeter tests were conducted at a heating rate of 30 K/min."
     },
     "FDNY_LDF": {
         "Cone": "<global_intro>This material warps into an arched shape during the fire's decay phase. This was observed in the first test (HF25_R1) and prevented in all subsequent tests by the use of tie wires."
     },
+    "FRP_Panel": {
+        "Cone": "<global_intro>Test HF50_R1 was conducted with a calcium silicate substrate."
+    },
     "Feather_Pillow_Feathers": {
         "Cone": "<global_intro>Samples were tested without compression of the material. The sample preparation consisted of filling a pre-formed, 5 cm deep aluminum foil tray with feathers, and attempting to achieve homogenous packing density. At the 25 kW/m<sup>2</sup> exposure the sample did not ignite in 3 out of 4 replicates. Typical burning behavior included both charring and melting/bubbling of the material."
+    },
+    "Fiberglass_Insulation_R13_Paper_Faced": {
+        "Cone": "<global_intro>This material did not ignite. One test per heat flux level was conducted for a duration of 30 minutes. The other replicates were conducted for only 10 minutes based on the observation that no significant mass loss occurred after this time in the first replicates."
+    },
+    "Fiberglass_Insulation_R30": {
+        "Cone": "<global_intro>This material did not ignite. One test per heat flux level was conducted for a duration of 30 minutes. The other replicates were conducted for only 10 minutes based on the observation that no significant mass loss occurred after this time in the first replicates."
     },
     "Fiberglass_Insulation_R30_Paper_Faced": {
         "Cone": "<global_intro>Tests were conducted with an edge frame set to compress the sample to a height of 40 mm."
     },
+    "Gypsum_Wallboard": {
+        "Cone": "<global_intro>At the 25 kW/m<sup>2</sup> exposure the sample did not ignite."
+    },
     "HDPE": {
         "Cone": "<global_intro>This material initially warps and shrivels under thermal exposure, then melts after ignition into a pool fire that is uniformly distributed across the foil pan. A common result of this behavior was melted sample dripping from the foil pan during some tests. Dripping was limited in some tests by manually adjusting the foil pan during the test, which caused spikes in the mass time history data. At the 25 kW/m<sup>2</sup> exposure, warping of the sample prior to ignition sometimes impacted the spark ignitor. This caused a spike in the mass time history data and likely affected the time to ignition. Other tests were conducted at the 60 mm spacing from the cone heater to prevent this: HF25_R5, HF25_R6, HF50_R2, HF50_R4. For individual test notes and select test pictures, follow the link above to Download raw data. Additional replicates or alternative sample preparation (i.e. tie wire method) may be necessary to supplement this data set."
+    },
+    "HIPS": {
+        "Cone": "<global_intro>This material expands slightly under thermal exposure, which in three tests, HF25_R2, HF25_R3, and HF50_R1, impacted the spark ignitor and caused spikes in the mass time history data."
+    },
+    "Hemp_Sheet": {
+        "Cone": "<global_intro>This material was tested with and edge frame and calcium silicate substrate."
     },
     "Latex_Pillow_Foam": {
         "Cone": "<global_intro>This material typically melts and shrinks under thermal exposure. In tests HF75_R1 and HF75_R3 the Flame Verification was delayed, and actual time to ignition was less than 2 seconds. In one test, HF50_R2, the spark ignitor did not activate, however the sample auto-ignited without the presence of the spark ignitor."
@@ -80,7 +98,7 @@
     },
     "Medium_Density_Fiberboard": "",
     "Mineral_Wool_Insulation": {
-        "Cone": "<global_intro>This material is not combustible. One test per heat flux level was conducted for a duration of 30 minutes. The other replicates were conducted for only 10 minutes based on the observation that no significant mass loss occurred after this time in the first replicates.",
+        "Cone": "<global_intro>This material did not ignite. One test per heat flux level was conducted for a duration of 30 minutes. The other replicates were conducted for only 10 minutes based on the observation that no significant mass loss occurred after this time in the first replicates.",
         "HFM_k": "Experiments for thermal conductivity [k] were conducted using a heat flow meter on unconditioned samples at 15 &#176;C and 45 &#176;C."
     },
     "Oak_Flooring": {
