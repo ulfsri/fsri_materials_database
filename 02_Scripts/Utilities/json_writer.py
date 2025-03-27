@@ -231,7 +231,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                         if '<global_intro>' in sta_notes:
                             print(f'ERROR: Cannot use global test description for {material}. Test notes exist for STA but not for cone, which conflicts with global test description for MLR. Remove <global_intro> from STA test notes and write standalone notes in full (no mention of specific output). Default notes for the cone will be added automatically.')
                             exit()
-                        desc = f'\"{sta_notes}<br><br>Mass loss rate [kg/s] was measured in the cone calorimeter experiments at three heat fluxes: 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.\"'
+                        desc = f'\"{sta_notes}<br><br>Mass loss rate [g/s] was measured in the cone calorimeter experiments at three heat fluxes: 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.\"'
                     elif cone_notes_bool:
                         # 'both exist but only notes for cone -- cone notes must begin with <global_intro>. throw error otherwise'
                         if '<global_intro>' not in cone_notes:
@@ -254,7 +254,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                         desc = f'\"{sta_notes}\"'
                     else: 
                         # 'only STA exists and no notes -- hard coded variation of global description'
-                        desc = '\"Mass loss rate [kg/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.\"'
+                        desc = '\"Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.\"'
             # if only cone tests exists
             elif cone_file_ls:
             # elif (os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_25.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_50.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_75.html') or os.path.isfile(f'{charts_dir}{material}/Cone/{material}_Cone_MLR_35.html')):
@@ -262,14 +262,14 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                     # only cone exists and has notes:
                     if '<global_intro>' in cone_notes:
                         #  use notes combined with hardcoded variation of global description
-                        desc = f'\"Mass loss rate [kg/s] was measured in cone calorimeter experiments at three heat fluxes: 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.<br><br>{cone_notes.split("<global_intro>")[1]}\"'
+                        desc = f'\"Mass loss rate [g/s] was measured in cone calorimeter experiments at three heat fluxes: 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.<br><br>{cone_notes.split("<global_intro>")[1]}\"'
                     else:
                         print(f'WARNING: Cone notes for {material} are written without "global_intro". Be sure that notes begin with an introduction that fits for all measurements.')
                         print()
                         desc = f'\"{cone_notes}\"'
                 else: 
                     # 'only cone exists and no notes -- hard coded variation of global description'
-                    desc = '\"Mass loss rate [kg/s] was measured in cone calorimeter experiments at three heat fluxes: 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.\"'
+                    desc = '\"Mass loss rate [g/s] was measured in cone calorimeter experiments at three heat fluxes: 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.\"'
 
 
             mlr_list.append('\t{\n')
