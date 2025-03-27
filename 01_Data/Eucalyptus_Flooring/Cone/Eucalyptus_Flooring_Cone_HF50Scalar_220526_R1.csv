@@ -18,5 +18,5 @@ TIME TO IGN,35
 END OF TEST SCAN,9961
 END OF TEST TIME,2490.25
 TEST STATUS,1
-PRE TEST CMT,Dimensions: 100.28 x 99.95 x 14.08; with tie wires
+PRE TEST CMT,Dimensions: 100.28 x 99.95 x 14.08 mm; with tie wires
 POST TEST CMT,Test ended according to average mass loss rate less than 150 g/m^2 over one minute. Very small flames remained at end of test.
