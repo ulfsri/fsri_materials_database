@@ -37,7 +37,7 @@
 	},
 	{
 		"test name": "mass loss rate",
-		"test description": "",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min and mass loss rate [g/s] in the cone calorimeter at three heat fluxes: 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.<br><br>Cone Calorimeter Test Notes:<br>Test HF50_R1 was conducted with a calcium silicate substrate.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Simultaneous Thermal Analyzer",
@@ -59,7 +59,7 @@
 	},
 	{
 		"test name": "heat release rate per unit area",
-		"test description": "",
+		"test description": "Experiments for heat release per unit area [kW/m<sup>2</sup>] were conducted on samples conditioned at 20&#176;C and 50% relative humidity using a cone calorimeter at three different heat fluxes: 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.<br><br>Test HF50_R1 was conducted with a calcium silicate substrate.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
@@ -80,7 +80,7 @@
 	},
 	{
 		"test name": "carbon monoxide yield",
-		"test description": "",
+		"test description": "Carbon monoxide yield was measured during cone calorimeter experiments conducted at heat fluxes of 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.<br><br>Test HF50_R1 was conducted with a calcium silicate substrate.",
 		"display name": "",
 		"table": "Cone/FRP_Panel_Cone_Analysis_CO_Table.html"
 	},
@@ -93,13 +93,13 @@
 	"derived property": [
 	{
 		"test name": "soot yield",
-		"test description": "",
+		"test description": "Soot yield [g/g] was calculated from smoke obscuration data collected in cone calorimeter experiments conducted at heat fluxes of 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.<br><br>Test HF50_R1 was conducted with a calcium silicate substrate.",
 		"display name": "",
 		"table": "Cone/FRP_Panel_Cone_Analysis_Soot_Table.html"
 	},
 	{
 		"test name": "effective heat of combustion",
-		"test description": "",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in both micro-scale combustion calorimeter experiments and cone calorimeter experiments.<br><br>Cone Calorimeter Test Notes:<br>Test HF50_R1 was conducted with a calcium silicate substrate.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Micro-scale Combustion Calorimeter",
