@@ -28,7 +28,7 @@ Raw data generated from each apparatus are included here in plain-text format. T
 - __Fourier Transform Infrared Spectrometer__ (FTIR)
     + The FTIR directory contains subdirectories for the Attenuated Total Reflectance method (ATR) and the Integrating Sphere (IS)
     + Data file structure for the ATR experiment files includes the material, the abbreviated name for the apparatus, date of test, and replicate number. 
-        * Example: __MDF_ATR_210323_R5__ stands for the fifth replicate of data collected with the ATR accessory conducted on June 8, 2021.
+        * Example: __MDF_ATR_210323_R5__ stands for the fifth replicate of data collected with the ATR accessory conducted on March 23, 2021.
     + Data file structure for the IS experiment files includes the material, the abbreviated name for the apparatus, the measurand, whether the test is a sample measurement or standard reference, date of test, and replicate number.
         * Example: __OSB_IS_REFLECT_MEAS_210623_R2__ stands for the second replicate conducted on oriented strand board to measure spectral reflection in the integrating sphere on June 23, 2021.
 - __Heat Flow Meter__ (HFM)
