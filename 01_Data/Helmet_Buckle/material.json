@@ -1,0 +1,47 @@
+{
+	"material": "Helmet Buckle",
+	"alternate names": [
+		"strap",
+		"chinstrap",
+		"clasp",
+		"phenix",
+		"new yorker",
+		"cairns",
+		"ppe",
+		"firefighter",
+		"structural"
+	],
+	"material_dir": "Helmet_Buckle",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"ppe"
+	],
+	"image file": "Helmet_Buckle.JPG",
+	"image 600x400 file": "Helmet_Buckle600x400.jpg",
+	"video file": "",
+	"description": "Helmet Buckle is the plastic clasp that fastens the strap on a structural firefighter helmet.",
+	"short desc": "Helmet Buckle is is a plastic fastener for a helmet strap.",
+	"source": "Sampled from a structural firefighter helmet.",
+	"density": "1000 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Helmet_Buckle_STA_MLR.html"
+			}		]
+	}],
+	"derived property": [
+	{
+		"test name": "melting temperature and enthalpy of melting",
+		"test description": "",
+		"display name": "",
+		"table": "STA/Helmet_Buckle_STA_Analysis_Melting_Temp_Table.html"
+	}]
+}

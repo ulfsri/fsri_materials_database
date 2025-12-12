@@ -1,0 +1,36 @@
+#EXPORTTYPE,NGB PARSER
+#FILE,Phenix_Helmet_Buckle_STA_N2_30K_250307_R1.ngb-ss3
+#FORMAT,NGB PARSER
+#FTYPE,NGB PARSER
+#IDENTITY,Phenix_Helmet_Buckle_30K
+#DECIMAL,POINT
+#SEPARATOR,COMMA
+#MTYPE,TG
+#INSTRUMENT,STA449F3A-0157-M
+#PROJECT,NIJ 2019
+#DATE/TIME,2025-03-07T17:19:37+00:00
+#CORR. FILE, 
+#TEMPCAL, 
+#SENSITIVITY, 
+#LABORATORY,UL FSRI
+#OPERATOR,John
+#REMARK,"Buckle from the Phenix helmet
+Sample vial label: ""123C_Phenix_Helmet_Buckle March 06, 2025""
+Coarse dark gray to black powder.
+CRUCIBLE MOVED and rotated during correction run - double check data quality."
+#SAMPLE,Phenix_Helmet_Buckle_30K
+#SAMPLE MASS/mg,3.97
+#MATERIAL,Phenix_Helmet_Buckle
+#REFERENCE, 
+#REFERENCE MASS/mg,0
+#TYPE OF CRUCIBLE,"PtRh20 85 l, with lid"
+#SAMPLE CRUCIBLE MASS/mg,250.95
+#REFERENCE CRUCIBLE MASS/mg,0
+#PURGE 1 MFC,NITROGEN250.0 ml/min
+#PURGE 2 MFC,OXYGEN252.5 ml/min
+#PROTECTIVE MFC,NITROGEN250.0 ml/min
+#DSC RANGE/uV,5000
+#TG RANGE/mg,35000
+#TAU-R,---
+#CORR. CODE,0
+#EXO,-1

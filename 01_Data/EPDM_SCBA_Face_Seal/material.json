@@ -1,0 +1,43 @@
+{
+	"material": "EPDM SCBA Face Seal",
+	"alternate names": [
+		"rubber",
+		"SCBA",
+		"skirt",
+		"silicone",
+		"mask",
+		"drager",
+		"facepiece",
+		"ppe",
+		"firefighter",
+		"structural"
+	],
+	"material_dir": "EPDM_SCBA_Face_Seal",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"ppe"
+	],
+	"image file": "EPDM_SCBA_Face_Seal.JPG",
+	"image 600x400 file": "EPDM_SCBA_Face_Seal600x400.jpg",
+	"video file": "",
+	"description": "EPDM SCBA Face Seal is the portion of an SCBA facepiece made from EPDM rubber that seals the mask against the face of a firefighter.",
+	"short desc": "EPDM SCBA Face Seal is the portion of an SCBA facepiece that seals the mask against the face.",
+	"source": "Sampled from a structural firefighter helmet.",
+	"density": "950 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/EPDM_SCBA_Face_Seal_STA_MLR.html"
+			}		]
+	}],
+	"derived property": [
+]
+}

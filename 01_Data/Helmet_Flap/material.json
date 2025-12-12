@@ -1,0 +1,50 @@
+{
+	"material": "Helmet Earflap",
+	"alternate names": [
+		"earflap",
+		"nape protector",
+		"neck protector",
+		"shroud",
+		"ear lap",
+		"ear cover",
+		"honeywell",
+		"new yorker",
+		"ppe",
+		"firefighter",
+		"structural",
+		"melting"
+	],
+	"material_dir": "Helmet_Earflap",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"ppe"
+	],
+	"image file": "Helmet_Earflap.JPG",
+	"image 600x400 file": "Helmet_Earflap600x400.jpg",
+	"video file": "",
+	"description": "Helmet earflap is the protective material that shrouds the ears and neck from a structural firefighter helmet.",
+	"short desc": "Helmet earflap is the protective material that shrouds the ears and neck from a firefighter helmet.",
+	"source": "Sampled from a structural firefighter helmet.",
+	"density": "1000 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Helmet_Flap_STA_MLR.html"
+			}		]
+	}],
+	"derived property": [
+	{
+		"test name": "melting temperature and enthalpy of melting",
+		"test description": "",
+		"display name": "",
+		"table": "STA/Helmet_Flap_STA_Analysis_Melting_Temp_Table.html"
+	}]
+}

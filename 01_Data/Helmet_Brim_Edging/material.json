@@ -1,0 +1,48 @@
+{
+	"material": "Helmet_Brim_Edging",
+	"alternate names": [
+		"honeywell",
+		"bullard",
+		"cairns",
+		"px",
+		"ben",
+		"ppe",
+		"helmet",
+		"firefighter",
+		"structural",
+		"melting"
+	],
+	"material_dir": "Helmet_Brim_Edging",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"ppe"
+	],
+	"image file": "Helmet_Brim_Edging.JPG",
+	"image 600x400 file": "Helmet_Brim_Edging600x400.jpg",
+	"video file": "",
+	"description": "Helmet brim edging is the polymeric material that trims the edge of structural firefighter helmet brims.",
+	"short desc": "Helmet brim edging is the material on the edge of structural firefighter helmets.",
+	"source": "Sampled from the brim of a structural firefighter helmet.",
+	"density": "1390 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Helmet_Brim_Edging_STA_MLR.html"
+			}		]
+	}],
+	"derived property": [
+	{
+		"test name": "melting temperature and enthalpy of melting",
+		"test description": "",
+		"display name": "",
+		"table": "STA/Helmet_Brim_Edging_STA_Analysis_Melting_Temp_Table.html"
+	}]
+}
