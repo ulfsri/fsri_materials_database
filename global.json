@@ -10,7 +10,8 @@
 		"roofing",
 		"sleeping product",
 		"structural",
-		"upholstered furniture"
+		"upholstered furniture",
+		"ppe"
 	],
 	"repository": "https://github.com/ulfsri/fsri_materials_database",
 	"branch": "main",
