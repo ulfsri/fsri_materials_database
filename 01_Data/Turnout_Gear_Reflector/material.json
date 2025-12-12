@@ -1,0 +1,44 @@
+{
+	"material": "Turnout Gear Reflector",
+	"alternate names": [
+		"trim",
+		"stripes",
+		"retroreflective material"
+		"msa",
+		"globe",
+		"lion"
+		"viking",
+		"honeywell",
+		"ppe",
+		"firefighter",
+		"structural"
+	],
+	"material_dir": "Turnout_Gear_Reflector",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"ppe"
+	],
+	"image file": "Turnout_Gear_Reflector.JPG",
+	"image 600x400 file": "Turnout_Gear_Reflector600x400.jpg",
+	"video file": "",
+	"description": "Turnout gear reflector is the reflective trim on firefighter gear.",
+	"short desc": "Turnout gear reflector is the reflective trim on firefighter gear.",
+	"source": "Sampled from a structural firefighter turnout gear.",
+	"density": "1000 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Turnout_Gear_Reflector_STA_MLR.html"
+			}		]
+	}],
+	"derived property": [
+]
+}

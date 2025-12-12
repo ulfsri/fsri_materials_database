@@ -1,0 +1,36 @@
+#EXPORTTYPE,NGB PARSER
+#FILE,Bmore_Jacket_CSTM_Stripe_STA_N2_10K_240515_R1.ngb-ss3
+#FORMAT,NGB PARSER
+#FTYPE,NGB PARSER
+#IDENTITY,Bmore_Jacket_CSTM_Strip
+#DECIMAL,POINT
+#SEPARATOR,COMMA
+#MTYPE,TG
+#INSTRUMENT,STA449F3A-0157-M
+#PROJECT,NIJ 2019
+#DATE/TIME,2024-05-15T18:36:30+00:00
+#CORR. FILE, 
+#TEMPCAL, 
+#SENSITIVITY, 
+#LABORATORY,UL FSRI
+#OPERATOR,John
+#REMARK,"Reflective/ High vis stripe Bmore Fire turnout gear jacket, Model CSTM
+Sample vial label: ""Bmore_Jacket_CSTM_Stripe May 14, 2024""
+Green-ish granluar looking material; pasty texture.
+Could not quite cover bottom of crucible; small spots left bare"
+#SAMPLE,Bmore_Jacket_CSTM_Strip
+#SAMPLE MASS/mg,4.0
+#MATERIAL,Jacket_CSTM_Stripe
+#REFERENCE, 
+#REFERENCE MASS/mg,0
+#TYPE OF CRUCIBLE,"PtRh20 85 l, with lid"
+#SAMPLE CRUCIBLE MASS/mg,254.0399932861328
+#REFERENCE CRUCIBLE MASS/mg,0
+#PURGE 1 MFC,NITROGEN250.0 ml/min
+#PURGE 2 MFC,OXYGEN252.5 ml/min
+#PROTECTIVE MFC,NITROGEN250.0 ml/min
+#DSC RANGE/uV,5000
+#TG RANGE/mg,35000
+#TAU-R,---
+#CORR. CODE,0
+#EXO,-1

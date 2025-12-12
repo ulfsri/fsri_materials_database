@@ -1,0 +1,46 @@
+{
+	"material": "SCBA Bracket",
+	"alternate names": [
+		"SCBA",
+		"plastic",
+		"nylon",
+		"nylon",
+		"drager",
+		"ppe",
+		"firefighter",
+		"structural"
+	],
+	"material_dir": "SCBA_Bracket",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"ppe"
+	],
+	"image file": "SCBA_Bracket.JPG",
+	"image 600x400 file": "SCBA_Bracketp600x400.jpg",
+	"video file": "",
+	"description": "SCBA Bracket is structural frame which supports the SCBA breathing air tank on the back of a firefighter.",
+	"short desc": "SCBA Bracket is the frame which supports the SCBA air tank.",
+	"source": "Sampled from a structural firefighter SCBA system.",
+	"density": "1060 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/SCBA_Bracket_STA_MLR.html"
+			}		]
+	}],
+	"derived property": [
+	{
+		"test name": "melting temperature and enthalpy of melting",
+		"test description": "",
+		"display name": "",
+		"table": "STA/SCBA_Bracket_STA_Analysis_Melting_Temp_Table.html"
+	}]
+}

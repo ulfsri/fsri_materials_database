@@ -1,0 +1,36 @@
+#EXPORTTYPE,NGB PARSER
+#FILE,Drager_Buddy_Hose_STA_N2_10K_240405_R1.ngb-ss3
+#FORMAT,NGB PARSER
+#FTYPE,NGB PARSER
+#IDENTITY,Drager_Buddy_Hose
+#DECIMAL,POINT
+#SEPARATOR,COMMA
+#MTYPE,TG
+#INSTRUMENT,STA449F3A-0157-M
+#PROJECT,NIJ 2019
+#DATE/TIME,2024-04-05T20:58:52+00:00
+#CORR. FILE, 
+#TEMPCAL, 
+#SENSITIVITY, 
+#LABORATORY,UL FSRI
+#OPERATOR,John
+#REMARK,"Drager buddy Hose, part of Bmore Fire project (RAFS/Dan's project)
+Sample vial label: ""Bmore Fire: Drager Buddy Hose March 18, 2024 Vial 1 of 2""
+Black/ dark Grey powder with small fibers mixed in (hose reinforcement layer)
+mass is +/- 0.01 mG"
+#SAMPLE,Drager_Buddy_Hose
+#SAMPLE MASS/mg,4.0
+#MATERIAL,Drager_Buddy_Hose
+#REFERENCE, 
+#REFERENCE MASS/mg,0
+#TYPE OF CRUCIBLE,"PtRh20 85 l, with lid"
+#SAMPLE CRUCIBLE MASS/mg,254.0399932861328
+#REFERENCE CRUCIBLE MASS/mg,0
+#PURGE 1 MFC,NITROGEN250.0 ml/min
+#PURGE 2 MFC,OXYGEN252.5 ml/min
+#PROTECTIVE MFC,NITROGEN250.0 ml/min
+#DSC RANGE/uV,5000
+#TG RANGE/mg,35000
+#TAU-R,---
+#CORR. CODE,0
+#EXO,-1

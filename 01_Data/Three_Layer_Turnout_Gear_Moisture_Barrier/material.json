@@ -1,0 +1,51 @@
+{
+	"material": "Three Layer Turnout Gear Moisture Barrier",
+	"alternate names": [
+		"moisture",
+		"waterproof",
+		"aramid",
+		"kevlar",
+		"nomex",
+		"twaron",
+		"msa",
+		"globe",
+		"lion"
+		"viking",
+		"honeywell",
+		"ppe",
+		"firefighter",
+		"structural",
+		"LAFD",
+		"stedair",
+		"PTFE",
+		"ePTFE"
+	],
+	"material_dir": "Three_Layer_Turnout_Gear_Moisture_Barrier",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"ppe"
+	],
+	"image file": "Three_Layer_Turnout_Gear_Moisture_Barrier.JPG",
+	"image 600x400 file": "Three_Layer_Turnout_Gear_Moisture_Barrier600x400.jpg",
+	"video file": "",
+	"description": "Three layer turnout gear moisture barrier is the layer of firefighter turnout gear comprised of an aramid matrix with a moisture-resistance substrate with a facing layer on each face",
+	"short desc": "Three layert turnout gear moisture barrier is the middle layer of firefighter turnout gear.",
+	"source": "Sampled from a structural firefighter turnout gear.",
+	"density": "420 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Three_Layer_Turnout_Gear_Moisture_Barrier_STA_MLR.html"
+			}		]
+	}],
+	"derived property": [
+]
+}
