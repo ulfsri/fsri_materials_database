@@ -1,0 +1,25 @@
+{
+	"material": "Eucalyptus Hardboard",
+	"alternate names": [
+		"masonite",
+		"quartrboard",
+		"pressboard",
+		"HDF"
+	],
+	"material_dir": "Masonite_Board",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"engineered wood"
+	],
+	"image file": "Masonite_Board.JPG",
+	"image 600x400 file": "Masonite_Board600x400.jpg",
+	"video file": "",
+	"description": "Eucalyptus hardboard is created by applying high pressure and steam to eucalyptus wood chips.",
+	"short desc": "Eucalyptus hardboard is created by applying high pressure and steam to eucalyptus wood chips.",
+	"source": "Samples cut from 0.3 cm thick, 122 cm x 244 cm sheet.",
+	"density": "1060 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

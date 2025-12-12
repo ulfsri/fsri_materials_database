@@ -1,0 +1,86 @@
+{
+	"material": "Straw",
+	"alternate names": [
+		"grass",
+		"wheat",
+		"barley",
+		"switchgrass"
+	],
+	"material_dir": "Straw",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"cellulosic materials"
+	],
+	"image file": "Straw.JPG",
+	"image 600x400 file": "Straw600x400.jpg",
+	"video file": "",
+	"description": "Straw is dried stalks of grain often used for thatching, packing, weaving, and in fire training scenarios.",
+	"short desc": "Straw is dried stalks of grain.",
+	"source": "Collected from a fire service training ground.",
+	"density": "43 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "Simultaneous thermal analyzer experiments were conducted at three heating rates: 3 K/min, 10 K/min, and 30 K/min.<br><br>Cone calorimeter tests were conducted at a heat flux of 35 kW/m<sup>2</sup> on samples conditioned at 20&#176;C and 50% relative humidity.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Straw_STA_MLR.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 35 kW/m<sup>2</sup>",
+				"graph": "Cone/Straw_Cone_MLR_35.html"
+			}
+		]
+	},
+	{
+		"test name": "heat release rate per unit area",
+		"test description": "Cone calorimeter tests were conducted at a heat flux of 35 kW/m<sup>2</sup> on samples conditioned at 20&#176;C and 50% relative humidity.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 35 kW/m<sup>2</sup>",
+				"graph": "Cone/Straw_Cone_HRRPUA_35.html",
+				"table": "Cone/Straw_Cone_Analysis_HRRPUA_Table_35.html"
+			}
+		]
+	},
+	{
+		"test name": "carbon monoxide yield",
+		"test description": "Cone calorimeter tests were conducted at a heat flux of 35 kW/m<sup>2</sup> on samples conditioned at 20&#176;C and 50% relative humidity.",
+		"display name": "",
+		"table": "Cone/Straw_Cone_Analysis_CO_Table.html"
+	},
+	{
+		"test name": "specific heat release rate",
+		"test description": "Micro-scale combustion calorimeter tests were conducted at a heating rate of 30 K/min.",
+		"display name": "",
+		"graph": "MCC/Straw_MCC_HRR.html"
+	}],
+	"derived property": [
+	{
+		"test name": "effective heat of combustion",
+		"test description": "Micro-scale combustion calorimeter tests were conducted at a heating rate of 30 K/min.<br><br>Cone calorimeter tests were conducted at a heat flux of 35 kW/m<sup>2</sup> on samples conditioned at 20&#176;C and 50% relative humidity.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Micro-scale Combustion Calorimeter",
+				"table": "MCC/Straw_MCC_Heats_of_Combustion.html"
+			},
+			{
+				"display name": "Cone Calorimeter",
+				"table": "Cone/Straw_Cone_Analysis_EHC_Table.html"
+			}
+		]
+	},
+	{
+		"test name": "emissivity",
+		"test description": "",
+		"display name": "",
+		"table": "FTIR/IS/Straw_Emissivity.html",
+		"graph": "FTIR/IS/Straw_Emissivity.html"
+	}]
+}

@@ -26,6 +26,10 @@ from scipy.integrate import trapezoid
 import plotly.graph_objects as go
 import git
 
+plot_all = True
+if not plot_all: 
+    print('plot_all is set to False, so any materials with existing html output files will be skipped')
+
 ### Fuel Properties ###
 e = 13100 # [kJ/kg O2] del_hc/r_0
 laser_wl = 632.8/10e9 # m
@@ -117,19 +121,45 @@ def format_and_save_plot(quantity, file_loc,m):
 data_dir = '../01_Data/'
 save_dir = '../03_Charts/'
 
+# initialize material status dataframe
+if os.path.isfile('Utilities/material_status.csv'):
+    mat_status_df = pd.read_csv('Utilities/material_status.csv', index_col = 'material')
+else:
+    mat_status_df = pd.DataFrame(columns = ['Wet_cp', 'Dry_cp', 'Wet_k', 'Dry_k', 'STA_MLR', 'CONE_MLR_25', 'CONE_MLR_50', 'CONE_MLR_75', 'CONE_HRRPUA_25', 'CONE_HRRPUA_50', 'CONE_HRRPUA_75', 'CO_Yield', 'MCC_HRR', 'Soot_Yield', 'MCC_HoC', 'Cone_HoC', 'HoR', 'HoG', 'MCC_Ign_Temp', 'Melting_Temp', 'Emissivity', 'Full_JSON', "Picture"])
+
+    for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
+        if os.path.isdir(f'{data_dir}/{d}'):
+            material = d
+
+            r = np.empty((23, ))
+            r[:] = np.nan
+            mat_status_df.loc[material, :] = r
+    mat_status_df.fillna(False, inplace=True)
+
+
 hf_list_default = ['25', '50', '75']
 quant_list = ['HRRPUA', 'MLR', 'SPR', 'Extinction Coefficient'] #'EHC', 'CO Yield', 'Soot Yield','SEA',
 
 y_max_dict = {'HRRPUA':500, 'MLR':1, 'SPR':5, 'Extinction Coefficient':2} #'EHC':50000, 'CO':0.1, 'Soot':0.1,'SEA':1000,
 y_inc_dict = {'HRRPUA':100, 'MLR':0.2, 'SPR':1, 'Extinction Coefficient':0.5} #'EHC':10000, 'CO':0.02, 'Soot':0.02,'SEA':200,
 
-for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
+for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f != 'README.md'), key=str.lower):
     df_dict = {}
+    hrrpua_dict = {}
     material = d
     summary_df = pd.DataFrame()
     output_df = pd.DataFrame()
     co_df = pd.DataFrame()
     soot_df = pd.DataFrame()
+    # if material != 'EPDM_Membrane': continue
+    if not plot_all:
+        output_exists = False
+        for c in ['CONE_MLR_25', 'CONE_MLR_50', 'CONE_MLR_75', 'CONE_HRRPUA_25', 'CONE_HRRPUA_50', 'CONE_HRRPUA_75', 'CO_Yield', 'Cone_HoC', 'Soot_Yield']: 
+            if mat_status_df.loc[material, c]: output_exists = True
+        if output_exists: 
+            # print(f'Skipping {material} Cone --- plot_all is False and output charts exist')
+            continue
+
     if os.path.isdir(f'{data_dir}{d}/Cone/'):
         print(material + ' Cone')
         data_df = pd.DataFrame()
@@ -164,18 +194,21 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                     surf_area_mm2 = 10000
                     dims = 'not specified'
                     frame = False
-                    for notes in pretest_notes.split(';'):
-                        if 'Dimensions' in notes:
-                            dims = []
-                            for i in notes.split(' '):
-                                try:
-                                    dims.append(float(i))
-                                except: continue
-                            surf_area_mm2 = dims[0] * dims[1]
-                        elif 'frame' in notes:
-                            frame = True
+                    if isinstance(pretest_notes, float):
+                        pass
+                    elif ';' in pretest_notes:
+                        for notes in pretest_notes.split(';'):
+                            if 'Dimensions' in notes:
+                                dims = []
+                                for i in notes.split(' '):
+                                    try:
+                                        dims.append(float(i))
+                                    except: continue
+                                surf_area_mm2 = dims[0] * dims[1]
+                            elif 'frame' in notes:
+                                frame = True
                     if frame or '-Frame' in f:
-                            surf_area_mm2 = 8836
+                        surf_area_mm2 = 8836
 
                 surf_area_m2 = surf_area_mm2 / 1000000.0
 
@@ -227,22 +260,38 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                 except:
                     df_dict[label] = data_temp_df[['Time', 'HRRPUA', 'MLR', 'EHC', 'CO Yield']].copy()
 
-                df_dict[label].set_index(df_dict[label].loc[:,'Time'], inplace = True)
-                df_dict[label] = df_dict[label][df_dict[label].index.notnull()]
-                df_dict[label].drop('Time', axis = 1, inplace = True)
-                end_time = float(scalar_data_series.at['END OF TEST TIME'])
-                num_intervals = (max(df_dict[label].index)-end_time)/0.25
-                drop_list = list(np.linspace(end_time, max(df_dict[label].index), int(num_intervals+1)))
-                df_dict[label].drop(labels = drop_list, axis = 0, inplace = True)
-
-                # Determine intervals for yield integrals
-
                 ign_time = float(scalar_data_series.at['TIME TO IGN'])
                 end_time = float(scalar_data_series.at['END OF TEST TIME'])
                 ign_ind = str(int(4 * ign_time + 1))
                 end_ind = str(int(4 * end_time + 1))
                 ign_mass = float(data_temp_df.loc[ign_ind,'Sample Mass'])
                 end_mass = float(data_temp_df.loc[str(end_ind),'Sample Mass'])
+
+                # data_temp_df['TTI'] = data_temp_df['MLR'] - 0.0032            # Alternative time to ignition (critical MLR)
+                # data_temp_df['test'] = data_temp_df['TTI']>0                  # Alternative time to ignition (critical MLR)
+                # data_temp_df = data_temp_df.loc[data_temp_df['test'], :]      # Alternative time to ignition (critical MLR)
+                # tti = data_temp_df['TTI'].idxmin()                            # Alternative time to ignition (critical MLR)
+
+                data_temp_hrr_df = pd.DataFrame()
+
+                if ign_time != 0 and not math.isnan(ign_time):
+                    data_temp_hrr_df['HRRPUA after Ignition'] = data_temp_df.loc[ign_ind:end_ind, 'HRRPUA'].copy()
+                    data_temp_hrr_df.dropna(inplace = True)
+                    data_temp_hrr_df['Time after Ignition'] = data_temp_df['Time'].dropna() - ign_time
+                    data_temp_hrr_df.set_index('Time after Ignition', inplace=True)
+
+                    hrrpua_dict[label] = data_temp_hrr_df['HRRPUA after Ignition']
+                else:
+                    pass
+
+                df_dict[label].set_index(df_dict[label].loc[:,'Time'], inplace = True)
+                df_dict[label] = df_dict[label][df_dict[label].index.notnull()]
+                df_dict[label].drop('Time', axis = 1, inplace = True)
+                num_intervals = (max(df_dict[label].index)-end_time)/0.25
+                drop_list = list(np.linspace(end_time, max(df_dict[label].index), int(num_intervals+1)))
+                df_dict[label].drop(labels = drop_list, axis = 0, inplace = True)
+
+                # Determine intervals for yield integrals
 
                 if float(data_temp_df.loc[str(1),'Sample Mass']) - float(data_temp_df.loc[end_ind,'Sample Mass']) > float(scalar_data_series['SPECIMEN MASS']):
                     try:
@@ -324,8 +373,30 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
 
                 if not os.path.exists(plot_dir):
                     os.makedirs(plot_dir)
-
+                
                 format_and_save_plot(n, f'{plot_dir}{material}_Cone_{n}_{m}.html',m)
+                if f'CONE_{n}_{m}' in list(mat_status_df.columns): mat_status_df.loc[material, f'CONE_{n}_{m}'] = True
+
+        # save HRRPUA csv files for each tested incident heat flux
+
+        for m in hf_list:
+            hrrpua_df = pd.DataFrame()
+            hrr_out_df = pd.DataFrame()
+            for key, value in hrrpua_dict.items():
+                rep_str = key.split('_')[-1]
+                if m in key:
+                    if hrrpua_dict[key].empty:
+                        continue
+                    else:
+                        hrrpua_df[rep_str] = hrrpua_dict[key]
+                        hrr_out_df[f'{material}_{rep_str}'] = hrrpua_df[rep_str].round(1)
+
+            if hrr_out_df.empty:
+                continue
+            else:
+                hrr_out_df['Mean'] = hrrpua_df.mean(axis=1).round(1)
+                hrr_out_df['Std. Dev.'] = hrrpua_df.std(axis=1).round(1)
+                hrr_out_df.to_csv(f'{data_dir}{material}/Cone/{material}_HRRPUA_{m}.csv')       
 
     else:
         continue
@@ -362,12 +433,18 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
 
     co_html_df = co_html_df.reset_index()
     co_html_df.to_html(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_CO_Table.html',index=False, encoding='UTF-8', border=0)
+    mat_status_df.loc[material, 'CO_Yield'] = True
 
     if soot_html_df.isnull().values.any():
         pass
     else:
         soot_html_df = soot_html_df.reset_index()
         soot_html_df.to_html(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_Soot_Table.html',index=False, encoding='UTF-8', border=0)
+        mat_status_df.loc[material, 'Soot_Yield'] = True
 
     hoc_html_df = hoc_html_df.reset_index()
     hoc_html_df.to_html(f'{data_dir}{material}/Cone/{material}_Cone_Analysis_EHC_Table.html',index=False, encoding='UTF-8', border=0)
+    mat_status_df.loc[material, 'Cone_HoC'] = True
+
+mat_status_df.to_csv('Utilities/material_status.csv', index_label = 'material')
+print()

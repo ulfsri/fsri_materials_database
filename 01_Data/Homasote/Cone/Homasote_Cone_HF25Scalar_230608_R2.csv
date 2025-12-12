@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Homasote_HF25_R2
+OPERATOR,Marino
+MATERIAL,Homasote
+ORIENTATION,Horizontal
+HEAT FLUX,25
+SURF AREA,0.009999999776482582
+C FACTOR,0.04058745130896568
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,58.5
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,3212
+TIME TO IGN,53.75
+END OF TEST SCAN,2732
+END OF TEST TIME,683
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 101.88 x 101.75 x 12.21 mm
+POST TEST CMT,"Sample corner lifter slightly during test then settled later, see test pictures. Sample arched slightly during decay stage. After the sample self extinguished and the test ended, it reignited (reference test pictures)."

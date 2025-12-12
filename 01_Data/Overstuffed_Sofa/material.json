@@ -1,0 +1,74 @@
+{
+	"material": "Overstuffed Sofa",
+	"alternate names": [
+		"chesterfield",
+		"couch",
+		"loveseat",
+		"darcy sofa",
+		"grand sofa"
+	],
+	"material_dir": "Overstuffed_Sofa",
+	"parent material": "",
+	"component material": [
+		"Overstuffed Chair Assembly",
+		"Overstuffed Chair - Polyurethane Foam",
+		"Overstuffed Chair - Polyester Batting",
+		"Overstuffed Chair - Polyester Fabric"
+	],
+	"material category": [
+		"upholstered furniture"
+	],
+	"image file": "Overstuffed_Sofa.jpg",
+	"image 600x400 file": "Overstuffed_Sofa600x400.jpg",
+	"video file": "",
+	"description": "The overstuffed sofa is a common furniture item upholstered with polyester (PET) fabric over polyester (PET) batting and and flexible polyurethane foam over a frame made from oriented strand board (OSB).",
+	"short desc": "The overstuffed sofa is a common furniture item upholstered with polyester (PET) fabric over polyester (PET) batting and and flexible polyurethane foam over a frame made from oriented strand board (OSB).",
+	"source": "Sofas were purchased from a national furniture manufacturer and distributor.",
+	"density": "--",
+	"property scales": [
+		"full scale"
+	],
+	"measured property": [
+	{
+		"test name": "test video",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Replicate Test 1",
+				"table": "Furniture_Calorimeter/Overstuffed_Sofa_Video_R1.html"
+			},
+			{
+				"display name": "Replicate Test 2",
+				"table": "Furniture_Calorimeter/Overstuffed_Sofa_Video_R2.html"
+			},
+			{
+				"display name": "Replicate Test 3",
+				"table": "Furniture_Calorimeter/Overstuffed_Sofa_Video_R3.html"
+			}
+		]
+	},
+	{
+		"test name": "heat release rate",
+		"test description": "",
+		"display name": "",
+		"graph": "Furniture_Calorimeter/Overstuffed_Sofa_Heat_Release_Rate.html"
+	},
+	{
+		"test name": "heat flux",
+		"test description": "Schmidt-Boelter heat flux gauges were oriented to face the centerline of the furniture item at distances of 0.5 m, 1.0 m, 1.5 m, and 2.0 m from the face of the furniture item.",
+		"display name": "",
+		"graph": "Furniture_Calorimeter/Overstuffed_Sofa_HF.html"
+	},
+	{
+		"test name": "plume temperature",
+		"test description": "The temperature at the centerline of the furniture item was measured with type K thermocouples at elevations of 2.47 m, 3.47 m, and 4.47 m above the floor.",
+		"display name": "",
+		"graph": "Furniture_Calorimeter/Overstuffed_Sofa_TCPlume.html"
+	},
+	{
+		"test name": "plume velocity",
+		"test description": "The vertical velocity at the centerline of the furniture item was measured with bi-directional probes at elevations of 2.47 m, 3.47 m, and 4.47 m above the floor.",
+		"display name": "",
+		"graph": "Furniture_Calorimeter/Overstuffed_Sofa_Plume_Vel.html"
+	}]
+}

@@ -27,6 +27,11 @@ import plotly.graph_objects as go
 import git
 from pybaselines import Baseline, utils
 
+plot_all = True
+
+if not plot_all: 
+    print('plot_all is set to False, so any materials with existing html output files will be skipped')
+
 def apply_savgol_filter(raw_data, deriv=0):
 
     window_raw = int((raw_data.count())/40)
@@ -128,8 +133,33 @@ save_dir = '../03_Charts/'
 
 plot_dict = {'Normalized Mass':'Mass', 'Normalized MLR':'MLR', 'Heat Flow Rate':'Heat_Flow', 'Apparent Heat Capacity':'Cp', 'DSC_deriv':'d'}
 
-for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
+# initialize material status dataframe
+if os.path.isfile('Utilities/material_status.csv'):
+    mat_status_df = pd.read_csv('Utilities/material_status.csv', index_col = 'material')
+else:
+    mat_status_df = pd.DataFrame(columns = ['Wet_cp', 'Dry_cp', 'Wet_k', 'Dry_k', 'STA_MLR', 'CONE_MLR_25', 'CONE_MLR_50', 'CONE_MLR_75', 'CONE_HRRPUA_25', 'CONE_HRRPUA_50', 'CONE_HRRPUA_75', 'CO_Yield', 'MCC_HRR', 'Soot_Yield', 'MCC_HoC', 'Cone_HoC', 'HoR', 'HoG', 'MCC_Ign_Temp', 'Melting_Temp', 'Emissivity', 'Full_JSON', "Picture"])
+
+    for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
+        if os.path.isdir(f'{data_dir}/{d}'):
+            material = d
+
+            r = np.empty((23, ))
+            r[:] = np.nan
+            mat_status_df.loc[material, :] = r
+    mat_status_df.fillna(False, inplace=True)
+
+
+for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f != 'README.md'), key=str.lower):
     material = d
+
+    # if not plot_all:
+    #     output_exists = False
+    #     for c in ['STA_MLR', 'HoR', 'HoG', 'Melting_Temp']: 
+    #         if mat_status_df.loc[material, c]: output_exists = True
+    # if output_exists: 
+    #     # print(f'Skipping {material} STA --- plot_all is False and output charts exist')
+    #     continue
+
     melt_temp = []
     melt_onset = []
     melt_enth = []
@@ -151,7 +181,11 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
 
                     data_temp_df = pd.read_csv(f, header = 0)
                     meta_temp_df = pd.read_csv(f_meta).squeeze()
-                    meta_col_df = meta_temp_df.filter(regex='EXPORT').squeeze()
+                    
+                    # try:
+                    #     meta_col_df = meta_temp_df.filter(regex='EXPORT').squeeze()
+                    # except:
+                    meta_col_df = meta_temp_df.iloc[:,0].squeeze()
 
                     mass_ind = meta_col_df.str.find('SAMPLE MASS', start = 0).idxmax()
                     m0 = float(meta_temp_df.iloc[mass_ind, 1])
@@ -283,6 +317,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
             html_df.index.rename('Value',inplace=True)
             html_df = html_df.reset_index()
             html_df.to_html(f'{data_dir}{material}/STA/{material}_STA_Analysis_Melting_Temp_Table.html',index=False,border=0)
+            mat_status_df.loc[material, 'Melting_Temp'] = True
 
         plot_dir = f'../03_Charts/{material}/STA/N2/'
 
@@ -307,6 +342,11 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
 
             suffix = plot_dict[m]
             format_and_save_plot(inc, f'{plot_dir}{material}_STA_{suffix}.html')
+            if suffix == 'MLR': mat_status_df.loc[material, f'STA_{suffix}'] = True
+            elif suffix in list(mat_status_df.columns): mat_status_df.loc[material, suffix] = True
 
     else:
         continue
+
+mat_status_df.to_csv('Utilities/material_status.csv', index_label = 'material')
+print()

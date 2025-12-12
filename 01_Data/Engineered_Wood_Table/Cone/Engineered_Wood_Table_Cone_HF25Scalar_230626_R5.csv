@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Eng_Wood_Tab_HF25_R5
+OPERATOR,Marino
+MATERIAL,Engineered Wood Table
+ORIENTATION,Horizontal
+HEAT FLUX,25
+SURF AREA,0.009999999776482582
+C FACTOR,0.0414825901389122
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,345.2200012207031
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,3514
+TIME TO IGN,116.5
+END OF TEST SCAN,3034
+END OF TEST TIME,758.5
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 100.85 x 100.10 x 46.63 mm; with tie wires
+POST TEST CMT,"Intermittant flashes of flame prior to sustained ignition. Sample self-extinguished with unburned mass remaining and did not reignite after the spark ignitor was re-inserted at ~10:29."

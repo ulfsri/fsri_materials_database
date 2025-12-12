@@ -53,6 +53,10 @@
 		"test description": "",
 		"display name": "",
 		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/PE_Foam_Pipe_Insulation_STA_MLR.html"
+			},
+			{
 				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
 				"graph": "Cone/PE_Foam_Pipe_Insulation_Cone_MLR_25.html"
 			},
@@ -119,5 +123,11 @@
 				"table": "Cone/PE_Foam_Pipe_Insulation_Cone_Analysis_EHC_Table.html"
 			}
 		]
+	},
+	{
+		"test name": "melting temperature and enthalpy of melting",
+		"test description": "",
+		"display name": "",
+		"table": "STA/PE_Foam_Pipe_Insulation_STA_Analysis_Melting_Temp_Table.html"
 	}]
 }

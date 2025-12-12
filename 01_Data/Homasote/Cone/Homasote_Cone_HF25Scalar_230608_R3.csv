@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Homasote_HF25_R3
+OPERATOR,Marino
+MATERIAL,Homasote
+ORIENTATION,Horizontal
+HEAT FLUX,25
+SURF AREA,0.009999999776482582
+C FACTOR,0.04058745130896568
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,57.84000015258789
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,1361
+TIME TO IGN,51.25
+END OF TEST SCAN,881
+END OF TEST TIME,220.25
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 102.05 x 101.92 x 12.67 mm
+POST TEST CMT,"Sample corner lifted off insulation during test, reference test picture. Sample self extinguished while there was still fuel left and the test was ended prematurely rather than reinsert the spark ignitor. "

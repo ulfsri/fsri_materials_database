@@ -1,0 +1,33 @@
+#EXPORTTYPE:                 ,DATA ALL                                                       
+#FILE:                       ,Refrigerated_Truck_Insulation_Foam_STA_N2_10K_241030_R3.ngb-ss3
+#FORMAT:                     ,NETZSCH5                                                       
+#FTYPE:                      ,UNICODE                                                        
+#IDENTITY:                   ,120                                                            
+#DECIMAL:                    ,POINT                                                          
+#SEPARATOR:                  ,COMMA                                                          
+#MTYPE:                      ,TG                                                             
+#INSTRUMENT:                 ,NETZSCH STA 449F3                                              
+#PROJECT:                    ,Oxidative Pyrolysis                                            
+#DATE/TIME:                  ,10/30/2024 09:59:45 (UTC-4)                                    
+#CORR. FILE:                 ,                                                               
+#TEMPCAL:                    ,26-10-2024 17:31                                               
+#SENSITIVITY:                ,26-10-2024 17:30                                               
+#LABORATORY:                 ,UL FSRI                                                        
+#OPERATOR:                   ,Grayson                                                        
+#REMARK:                     ,120 Refrigerated Truck Insulation Foam                         
+#SAMPLE:                     ,Refrigerated Truck Foam                                        
+#SAMPLE MASS /mg:            ,4.08                                                           
+#MATERIAL:                   ,Refrigerated Truck Insu                                        
+#REFERENCE:                  ,                                                               
+#REFERENCE MASS /mg:         ,0                                                              
+#TYPE OF CRUCIBLE:           ,PtRh20 85 Âµl
+#SAMPLE CRUCIBLE MASS /mg:   ,250.54                                                         
+#REFERENCE CRUCIBLE MASS /mg:,258.74                                                         
+#PURGE 1 MFC:                ,NITROGEN
+#PURGE 2 MFC:                ,OXYGEN
+#PROTECTIVE MFC:             ,NITROGEN
+#DSC RANGE /ÂµV:              ,5000                                                           
+#TG RANGE /mg:               ,35000                                                          
+#TAU-R:                      ,---                                                            
+#CORR. CODE:                 ,000                                                            
+#EXO:                        ,+1                                                             

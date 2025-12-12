@@ -1,33 +1,39 @@
-#EXPORTTYPE,                 DATA ALL                                  
-#FILE,                       Coaxial_Cable_STA_N2_10K_220714_R1.ngb-ss3
-#FORMAT,                     NETZSCH5                                  
-#FTYPE,                      ANSI                                      
-#IDENTITY,                   Coaxial_Cable_10K_1                       
-#DECIMAL,                    POINT                                     
-#SEPARATOR,                  COMMA                                     
-#MTYPE,                      TG                                        
-#INSTRUMENT,                 NETZSCH STA 449F3                         
-#PROJECT,                    NIJ 2019                                  
-#DATE/TIME,                  14/07/2022 18
-#CORR. FILE,                                                           
-#TEMPCAL,                    10-05-2022 19
-#SENSITIVITY,                10-05-2022 20
-#LABORATORY,                 UL FSRI                                   
-#OPERATOR,                   Mark                                      
-#REMARK,                     Coaxial cable                             
-#SAMPLE,                     Coaxial_Cable_10K_1                       
-#SAMPLE MASS /mg,            4.06                                      
-#MATERIAL,                   PVC_Pipe                                  
-#REFERENCE,                                                            
-#REFERENCE MASS /mg,         0                                         
-#TYPE OF CRUCIBLE,           PtRh20 85 µl with lid                    
-#SAMPLE CRUCIBLE MASS /mg,   0                                         
-#REFERENCE CRUCIBLE MASS /mg,0                                         
-#PURGE 1 MFC,                NITROGEN250.0 ml/min                     
-#PURGE 2 MFC,                OXYGEN252.5 ml/min                       
-#PROTECTIVE MFC,             NITROGEN250.0 ml/min                     
-#DSC RANGE /µV,              5000                                      
-#TG RANGE /mg,               35000                                     
-#TAU-R,                      ---                                       
-#CORR. CODE,                 000                                       
-#EXO,                        -1                                        
+0,1
+#EXPORTTYPE:                 ,DATA COMPARE                              
+#FILE:                       ,Coaxial_Cable_STA_N2_10K_220714_R1.ngb-ss3
+#FORMAT:                     ,NETZSCH5                                  
+#FTYPE:                      ,ANSI                                      
+#IDENTITY:                   ,Coaxial_Cable_10K_1                       
+#DECIMAL:                    ,POINT                                     
+#SEPARATOR:                  ,COMMA                                     
+#MTYPE:                      ,DSC                                       
+#INSTRUMENT:                 ,NETZSCH STA 449F3                         
+#PROJECT:                    ,NIJ 2019                                  
+#DATE/TIME:                  ,7/14/2022 18:26:04 (UTC-4)                
+#CORR. FILE:                 ,                                          
+#TEMPCAL:                    ,10-05-2022 19:58                          
+#SENSITIVITY:                ,10-05-2022 20:02                          
+#LABORATORY:                 ,UL FSRI                                   
+#OPERATOR:                   ,Mark                                      
+#REMARK:                     ,Coaxial cable                             
+#SAMPLE:                     ,Coaxial_Cable_10K_1                       
+#SAMPLE MASS /mg:            ,4.06                                      
+#MATERIAL:                   ,PVC_Pipe                                  
+#REFERENCE:                  ,                                          
+#REFERENCE MASS /mg:         ,0                                         
+#TYPE OF CRUCIBLE:           ,PtRh20 85 µl
+#SAMPLE CRUCIBLE MASS /mg:   ,0                                         
+#REFERENCE CRUCIBLE MASS /mg:,0                                         
+#PURGE 1 MFC:                ,NITROGEN
+#PURGE 2 MFC:                ,OXYGEN
+#PROTECTIVE MFC:             ,NITROGEN
+#DSC RANGE /µV:              ,5000                                      
+#TG RANGE /mg:               ,35000                                     
+#TAU-R:                      ,---                                       
+#CORR. CODE:                 ,000                                       
+#EXO:                        ,-1                                        
+#RANGE:                      ,50°C....650°C/0.0....10.0K/min            
+#SEGMENT:                    ,S1-3/3                                    
+#SEG. 1:                     ,50°C/00:10/50°C                           
+#SEG. 2:                     ,50°C/10.0(K/min)/650°C                    
+#SEG. 3:                     ,650°C/00:10/650°C                         

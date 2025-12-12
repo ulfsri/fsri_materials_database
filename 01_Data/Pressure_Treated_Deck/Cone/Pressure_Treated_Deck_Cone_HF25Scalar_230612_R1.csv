@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,PTDB_HF25_R1
+OPERATOR,Marino
+MATERIAL,Pressure Treated Deck Board
+ORIENTATION,Horizontal
+HEAT FLUX,25
+SURF AREA,0.009999999776482582
+C FACTOR,0.039956048130989075
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,125.36000061035156
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,5855
+TIME TO IGN,173
+END OF TEST SCAN,5375
+END OF TEST TIME,1343.75
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 102.26 x 101.56 x 19.02 mm
+POST TEST CMT,"Sample corner lifted off of insulation, see reference photo. Sample fractured, charred, and reduced in surface area. Sample continued to smolder after being removed from the cone."

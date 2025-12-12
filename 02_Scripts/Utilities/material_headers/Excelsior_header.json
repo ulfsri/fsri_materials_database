@@ -1,0 +1,27 @@
+{
+	"material": "Excelsior",
+	"alternate names": [
+		"wood wool",
+		"packaging",
+		"shavings",
+		"animal bedding",
+		"wadding",
+		"packing"
+	],
+	"material_dir": "Excelsior",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"engineered wood"
+	],
+	"image file": "Excelsior.JPG",
+	"image 600x400 file": "Excelsior600x400.jpg",
+	"video file": "",
+	"description": "Excelsior is thin aspen wood shavings used in insulation, packaging, firefighter training, and several other applications.",
+	"short desc": "Excelsior is thin aspen wood shavings.",
+	"source": "Material procured in a bulk bale from company specializing in excelsior.",
+	"density": "50 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

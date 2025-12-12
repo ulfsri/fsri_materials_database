@@ -1,0 +1,30 @@
+{
+	"material": "Polyisocyanurate Spray Foam Insulation",
+	"alternate names": [
+		"pir",
+		"pir foam",
+		"spray foam",
+		"refrigerated truck insulation",
+		"thermoset foam",
+		"iso",
+		"polyiso",
+		"foam insulation",
+		"rigid foam"
+	],
+	"material_dir": "Polyisocyanurate_Spray_Foam_Insulation",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"insulation"
+	],
+	"image file": "Polyisocyanurate_Spray_Foam_Insulation.JPG",
+	"image 600x400 file": "Polyisocyanurate_Spray_Foam_Insulation600x400.jpg",
+	"video file": "",
+	"description": "Polyisocyanurate Spray Foam Insulation is comprised of a thermoset closed-cell foam spray-applied in insulation applications.",
+	"short desc": "Polyisocyanurate Insulation is a thermoset closed-cell foam spray-applied for insulation.",
+	"source": "Samples harvested from refrigerated truck.",
+	"density": "48 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],

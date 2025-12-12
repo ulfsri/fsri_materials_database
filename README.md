@@ -8,6 +8,10 @@ This project was supported in part by Award No. 2019-DU-BX-0018, awarded by the 
 
 __Cite this database:__ "McKinnon, M., Weinschenk, C., Dow, N., DiDomizio, M., and Madrzykowski, D. Materials and Products Database (Version 1.0.0), Fire Safety Research Institute, UL Research Institutes. Columbia, MD 21045, 2023."
 
+__Cite the Technical Reference Guide:__ "McKinnon, M., Weinschenk, C., and Madrzykowski, D. Materials and Products Database - Technical Reference Guide, Fire Safety Research Institute, UL Research Institutes. Columbia, MD 21045, 2023."
+
+__Cite the User Guide:__ "McKinnon, M., and Weinschenk, C. Materials and Products Database - User Guide, Fire Safety Research Institute, UL Research Institutes. Columbia, MD 21045, 2023."
+
 ***
 ***
 

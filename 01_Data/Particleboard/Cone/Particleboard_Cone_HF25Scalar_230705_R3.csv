@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Part_Board_HF25_R3
+OPERATOR,Marino
+MATERIAL,Particle Board
+ORIENTATION,Horizontal
+HEAT FLUX,25
+SURF AREA,0.009999999776482582
+C FACTOR,0.0396592803299427
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,136.1199951171875
+SCAN TIME,0.25
+O2 DELAY TIME,11
+CO DELAY TIME,11
+CO2 DELAY TIME,8
+FLOW FACTOR,1
+SCAN COUNT,7396
+TIME TO IGN,147.5
+END OF TEST SCAN,6916
+END OF TEST TIME,1729
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 101.83 x 101.83 x 19.37 mm; with tie wires
+POST TEST CMT,"Momentary ignition occured ~2 seconds before sustained ignition. Sample charred and reduced in surface area. Sample self-extinguished ~10 minutes after ignition. Spark ignitor was re-inserted 30-60 seconds later and sample reignited at ~16:20, see reference photos (6602 and 6603)."

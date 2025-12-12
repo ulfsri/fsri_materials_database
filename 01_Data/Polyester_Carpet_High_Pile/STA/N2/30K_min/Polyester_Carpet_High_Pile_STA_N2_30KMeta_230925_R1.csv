@@ -1,0 +1,39 @@
+0,1
+#EXPORTTYPE:                 ,DATA COMPARE                                                                                          
+#FILE:                       ,Polyester_Carpet_High_Pile_N2_30K_230925_R1.ngb-ss3                                                   
+#FORMAT:                     ,NETZSCH5                                                                                              
+#FTYPE:                      ,ANSI                                                                                                  
+#IDENTITY:                   ,Poly_Carpet_30K_1                                                                                     
+#DECIMAL:                    ,POINT                                                                                                 
+#SEPARATOR:                  ,COMMA                                                                                                 
+#MTYPE:                      ,DSC                                                                                                   
+#INSTRUMENT:                 ,NETZSCH STA 449F3                                                                                     
+#PROJECT:                    ,NIJ 2019                                                                                              
+#DATE/TIME:                  ,9/25/2023 10:01:44 (UTC-4)                                                                            
+#CORR. FILE:                 ,                                                                                                      
+#TEMPCAL:                    ,28-07-2023 12:55                                                                                      
+#SENSITIVITY:                ,28-07-2023 15:24                                                                                      
+#LABORATORY:                 ,UL FSRI                                                                                               
+#OPERATOR:                   ,John                                                                                                  
+#REMARK:                     ,Poly_Carpet_30K_1 (High Pile)  Crucible mass is average of 3 measurements withj spread of +/- 0.01 mg.
+#SAMPLE:                     ,Poly_Carpet_30K_1                                                                                     
+#SAMPLE MASS /mg:            ,4.04                                                                                                  
+#MATERIAL:                   ,Polyester Carpet                                                                                      
+#REFERENCE:                  ,                                                                                                      
+#REFERENCE MASS /mg:         ,0                                                                                                     
+#TYPE OF CRUCIBLE:           ,PtRh20 85 µl
+#SAMPLE CRUCIBLE MASS /mg:   ,238.96                                                                                                
+#REFERENCE CRUCIBLE MASS /mg:,246.46                                                                                                
+#PURGE 1 MFC:                ,NITROGEN
+#PURGE 2 MFC:                ,OXYGEN
+#PROTECTIVE MFC:             ,NITROGEN
+#DSC RANGE /µV:              ,5000                                                                                                  
+#TG RANGE /mg:               ,35000                                                                                                 
+#TAU-R:                      ,---                                                                                                   
+#CORR. CODE:                 ,000                                                                                                   
+#EXO:                        ,-1                                                                                                    
+#RANGE:                      ,50°C....800°C/0.0....30.0K/min                                                                        
+#SEGMENT:                    ,S1-3/3                                                                                                
+#SEG. 1:                     ,50°C/00:10/50°C                                                                                       
+#SEG. 2:                     ,50°C/30.0(K/min)/800°C                                                                                
+#SEG. 3:                     ,800°C/00:05/800°C                                                                                     

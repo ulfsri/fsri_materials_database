@@ -1,33 +1,39 @@
-#EXPORTTYPE:                 ,DATA ALL                                   
-#FILE:                       ,Poly_Carpet_MP_STA_N2_10K_211216_R3.ngb-ss3
-#FORMAT:                     ,NETZSCH5                                   
-#FTYPE:                      ,ANSI                                       
-#IDENTITY:                   ,Poly_Carpet_10K_3                          
-#DECIMAL:                    ,POINT                                      
-#SEPARATOR:                  ,COMMA                                      
-#MTYPE:                      ,TG                                         
-#INSTRUMENT:                 ,NETZSCH STA 449F3                          
-#PROJECT:                    ,NIJ 2019                                   
-#DATE/TIME:                  ,12/16/2021 6:26:25 PM (UTC-5)              
-#CORR. FILE:                 ,                                           
-#TEMPCAL:                    ,07-12-2021 13:13                           
-#SENSITIVITY:                ,07-12-2021 13:27                           
-#LABORATORY:                 ,UL FSRI                                    
-#OPERATOR:                   ,Conor                                      
-#REMARK:                     ,Medium Pile  237.96 g crucible             
-#SAMPLE:                     ,Poly_Carpet_10K_3                          
-#SAMPLE MASS /mg:            ,3.90                                       
-#MATERIAL:                   ,Polyester Carpet                           
-#REFERENCE:                  ,                                           
-#REFERENCE MASS /mg:         ,0                                          
+0,1
+#EXPORTTYPE:                 ,DATA COMPARE                             
+#FILE:                       ,Polyester_MP_STA_N2_10K_211216_R3.ngb-ss3
+#FORMAT:                     ,NETZSCH5                                 
+#FTYPE:                      ,ANSI                                     
+#IDENTITY:                   ,Poly_Carpet_10K_3                        
+#DECIMAL:                    ,POINT                                    
+#SEPARATOR:                  ,COMMA                                    
+#MTYPE:                      ,DSC                                      
+#INSTRUMENT:                 ,NETZSCH STA 449F3                        
+#PROJECT:                    ,NIJ 2019                                 
+#DATE/TIME:                  ,12/16/2021 18:26:25 (UTC-5)              
+#CORR. FILE:                 ,                                         
+#TEMPCAL:                    ,07-12-2021 13:13                         
+#SENSITIVITY:                ,07-12-2021 13:27                         
+#LABORATORY:                 ,UL FSRI                                  
+#OPERATOR:                   ,Conor                                    
+#REMARK:                     ,Medium Pile  237.96 g crucible           
+#SAMPLE:                     ,Poly_Carpet_10K_3                        
+#SAMPLE MASS /mg:            ,3.90                                     
+#MATERIAL:                   ,Polyester Carpet                         
+#REFERENCE:                  ,                                         
+#REFERENCE MASS /mg:         ,0                                        
 #TYPE OF CRUCIBLE:           ,PtRh20 85 µl
-#SAMPLE CRUCIBLE MASS /mg:   ,0                                          
-#REFERENCE CRUCIBLE MASS /mg:,0                                          
+#SAMPLE CRUCIBLE MASS /mg:   ,0                                        
+#REFERENCE CRUCIBLE MASS /mg:,0                                        
 #PURGE 1 MFC:                ,NITROGEN
 #PURGE 2 MFC:                ,OXYGEN
 #PROTECTIVE MFC:             ,NITROGEN
-#DSC RANGE /µV:              ,5000                                       
-#TG RANGE /mg:               ,35000                                      
-#TAU-R:                      ,---                                        
-#CORR. CODE:                 ,000                                        
-#EXO:                        ,-1                                         
+#DSC RANGE /µV:              ,5000                                     
+#TG RANGE /mg:               ,35000                                    
+#TAU-R:                      ,---                                      
+#CORR. CODE:                 ,000                                      
+#EXO:                        ,-1                                       
+#RANGE:                      ,50°C....750°C/0.0....10.0K/min           
+#SEGMENT:                    ,S1-3/3                                   
+#SEG. 1:                     ,50°C/00:10/50°C                          
+#SEG. 2:                     ,50°C/10.0(K/min)/750°C                   
+#SEG. 3:                     ,750°C/00:05/750°C                        

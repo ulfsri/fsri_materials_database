@@ -23,6 +23,11 @@ from scipy import integrate
 import plotly.graph_objects as go
 import git
 
+plot_all = True
+
+if not plot_all: 
+    print('plot_all is set to False, so any materials with existing html output files will be skipped')
+
 h = 6.62607015e-34 # J-s (Planck's Constant)
 c = 299702547 # m/s (speed of light in air)
 kB = 1.380649e-23 # J/K (Boltzmann constant)
@@ -30,6 +35,21 @@ sig = 5.67e-8 # W/m2K4
 
 data_dir = '../01_Data/'
 save_dir = '../03_Charts/'
+
+# initialize material status dataframe
+if os.path.isfile('Utilities/material_status.csv'):
+    mat_status_df = pd.read_csv('Utilities/material_status.csv', index_col = 'material')
+else:
+    mat_status_df = pd.DataFrame(columns = ['Wet_cp', 'Dry_cp', 'Wet_k', 'Dry_k', 'STA_MLR', 'CONE_MLR_25', 'CONE_MLR_50', 'CONE_MLR_75', 'CONE_HRRPUA_25', 'CONE_HRRPUA_50', 'CONE_HRRPUA_75', 'CO_Yield', 'MCC_HRR', 'Soot_Yield', 'MCC_HoC', 'Cone_HoC', 'HoR', 'HoG', 'MCC_Ign_Temp', 'Melting_Temp', 'Emissivity', 'Full_JSON', "Picture"])
+
+    for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
+        if os.path.isdir(f'{data_dir}/{d}'):
+            material = d
+
+            r = np.empty((23, ))
+            r[:] = np.nan
+            mat_status_df.loc[material, :] = r
+    mat_status_df.fillna(False, inplace=True)
 
 def plot_mean_data(df):
 	fig.add_trace(go.Scatter(x=df.index, y=df['Emissivity'],error_y=dict(type='data', array=2*df['Std. Dev.']),mode='markers',name='Mean', marker=dict(color='blue', size=8)))
@@ -140,6 +160,12 @@ for material in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")
 	sample_df = pd.DataFrame()
 	trap_df = pd.DataFrame()
 	if os.path.isdir(f'{data_dir}{material}/FTIR/IS'):
+		# if material != 'MDF': continue
+		if not plot_all:
+			if mat_status_df.loc[material, 'Emissivity']: 
+				# print(f'Skipping {material} Cone --- plot_all is False and output charts exist')
+				continue
+
 		print(material + ' FTIR IS')
 		fid_list = list(glob.iglob(f'{data_dir}{material}/FTIR/IS/*.dpt')) 
 		fid_list_trans = [i for i in fid_list if 'Trans' in i]
@@ -221,6 +247,7 @@ for material in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")
 				continue
 
 		if sample_df.empty or trap_df.empty:
+			print('\t-- skipping: empty data file')
 			continue
 		else:
 			sample_df = sample_df.rename_axis('wavenumber')
@@ -298,7 +325,7 @@ for material in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")
 			ref_data.index.rename('Source Temperature [K]', inplace=True)
 			ref_data = ref_data.reset_index()
 			ref_data.to_html(f'{data_dir}{material}/FTIR/IS/{material}_Emissivity.html', index=False,border=0)
-
+			
 			fig = go.Figure()
 			ref_data.set_index('Source Temperature [K]', inplace=True)
 			plot_mean_data(ref_data)
@@ -310,3 +337,8 @@ for material in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")
 
 			# print('Plotting Chart')
 			format_and_save_plot(f'{plot_dir}{material}_Emissivity.html',material)
+			mat_status_df.loc[material, 'Emissivity'] = True
+			print(material, mat_status_df.loc[material, 'Emissivity'])
+
+mat_status_df.to_csv('Utilities/material_status.csv', index_label = 'material')
+print()

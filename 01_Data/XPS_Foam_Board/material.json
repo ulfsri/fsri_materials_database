@@ -50,6 +50,10 @@
 		"test description": "",
 		"display name": "",
 		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/XPS_Foam_Board_STA_MLR.html"
+			},
+			{
 				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
 				"graph": "Cone/XPS_Foam_Board_Cone_MLR_25.html"
 			},
