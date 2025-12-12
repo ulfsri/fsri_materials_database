@@ -1,0 +1,49 @@
+{
+	"material": "Kevlar/Nomex Turnout Gear Thermal Liner",
+	"alternate names": [
+		"aramid",
+		"kevlar",
+		"nomex",
+		"twaron",
+		"msa",
+		"globe",
+		"lion"
+		"viking",
+		"honeywell",
+		"ppe",
+		"firefighter",
+		"structural",
+		"FDNY",
+		"defender",
+		"protective",
+		"clothing"
+	],
+	"material_dir": "Kevlar_Nomex_Turnout_Gear_Thermal_Liner",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"ppe"
+	],
+	"image file": "Kevlar_Nomex_Turnout_Gear_Thermal_Liner.JPG",
+	"image 600x400 file": "Kevlar_Nomex_Turnout_Gear_Thermal_Liner600x400.jpg",
+	"video file": "",
+	"description": "Turnout gear thermal liner is the layer of firefighter turnout gear closest to the skin that provides thermal protection and comfort for the firefighter.",
+	"short desc": "Turnout gear thermal liner is the inner layer of firefighter turnout gear.",
+	"source": "Sampled from a structural firefighter turnout gear.",
+	"density": "700 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Kevlar_Nomex_Turnout_Gear_Thermal_Liner_STA_MLR.html"
+			}		]
+	}],
+	"derived property": [
+]
+}
