@@ -1,0 +1,38 @@
+#EXPORTTYPE,NGB PARSER
+#FILE,Bullard_R721_PX_Brim_STA_N2_10K_241009_R3.ngb-ss3
+#FORMAT,NGB PARSER
+#FTYPE,NGB PARSER
+#IDENTITY,Bullard_R721_PX_Brim_10K
+#DECIMAL,POINT
+#SEPARATOR,COMMA
+#MTYPE,TG
+#INSTRUMENT,STA449F3A-0157-M
+#PROJECT,NIJ 2019
+#DATE/TIME,2024-10-09T18:36:21+00:00
+#CORR. FILE, 
+#TEMPCAL, 
+#SENSITIVITY, 
+#LABORATORY,UL FSRI
+#OPERATOR,John
+#REMARK,",Fiberglass laminate portion of Bullard_R721_PX helmet.
+Sample vial label: ""Bullard_R721_PX Brim August 29, 2024""
+Dark gray to black powder.
+Temperature raised to 800 to curves beyond those in R1.
+Lid does not seal very well; used best of 2 options.
+Lid seal not perfect; selected best of 2 lids."
+#SAMPLE,Bullard_R721_PX_Brim_10K
+#SAMPLE MASS/mg,3.99
+#MATERIAL,Bullard_Helmet_Brim
+#REFERENCE, 
+#REFERENCE MASS/mg,0
+#TYPE OF CRUCIBLE,"PtRh20 85 l, with lid"
+#SAMPLE CRUCIBLE MASS/mg,258.739990234375
+#REFERENCE CRUCIBLE MASS/mg,0
+#PURGE 1 MFC,NITROGEN250.0 ml/min
+#PURGE 2 MFC,OXYGEN252.5 ml/min
+#PROTECTIVE MFC,NITROGEN250.0 ml/min
+#DSC RANGE/uV,5000
+#TG RANGE/mg,35000
+#TAU-R,---
+#CORR. CODE,0
+#EXO,-1

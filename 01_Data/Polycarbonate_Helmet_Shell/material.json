@@ -1,0 +1,42 @@
+{
+	"material": "Polycarbonate Helmet Shell",
+	"alternate names": [
+		"PC",
+		"bullard",
+		"r721",
+		"px"
+		"ppe",
+		"helmet",
+		"firefighter",
+		"structural",
+		"frp"
+	],
+	"material_dir": "Polycarbonate_Helmet_Shell",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"ppe"
+	],
+	"image file": "Polycarbonate_Helmet_Shell.JPG",
+	"image 600x400 file": "Polycarbonate_Helmet_Shell600x400.jpg",
+	"video file": "",
+	"description": "Polycarbonate helmet shell is the primary protective component of a helmet that is commonly used in structural firefighting operations.",
+	"short desc": "Polycarbonate helmet shell is the primary protective component of a helmet worn by firefighters.",
+	"source": "Sampled from the brim of a polycarbonate helmet worn by firefighters.",
+	"density": "1215 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Polycarbonate_Helmet_Shell_STA_MLR.html"
+			}		]
+	}],
+	"derived property": [
+]
+}
