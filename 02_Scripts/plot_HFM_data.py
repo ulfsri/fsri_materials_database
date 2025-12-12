@@ -162,6 +162,10 @@ save_dir = '../03_Charts/'
 
 for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=str.lower):
     material = d
+
+    if material != 'PC':
+        continue
+
     ylims = [0,0]
     xlims = [0,0]
     k_wet = []
@@ -187,6 +191,9 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                     start_line = search_string_in_file(f'{file_path}_TEMP.tst', 'Results Table -- SI Units')
                     header_line = start_line+1
                     temp_df = pd.read_csv(f'{file_path}_TEMP.tst', sep = '\t', header = header_line, usecols = [1,2,3,4], index_col = 'Mean Temp', engine='python', skip_blank_lines = False, encoding = 'UTF-16')
+                    
+                    print(temp_df)
+
                     os.remove(f'{file_path}_TEMP.tst')
                     temp_df.dropna(axis=0, inplace = True)
 

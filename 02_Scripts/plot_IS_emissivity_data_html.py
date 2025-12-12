@@ -184,8 +184,8 @@ for material in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")
 				for y in th_list:
 					mean_trans[f'{t_source}_measured_{y}'] = (2*h*c**2*mean_trans[y])/(mean_trans['wl_m']**5*(np.exp((h*c)/(mean_trans['wl_m']*kB*t_source))-1)) # Weighted spectral transmission
 					# mean_trans[str(t_source) +'_measured_std'] = (2*h*c**2*mean_trans[f'{x}_std'])/(mean_trans['wl_m']**5*(math.exp((h*c)/(mean_trans['wl_m']*kB*t_source))-1))
-					trans_data.at[t_source, y] = integrate.trapz(mean_trans[f'{t_source}_measured_{y}'], x=mean_trans.index)/integrate.trapz(mean_trans[f'{t_source}_spectrum'], x=mean_trans.index) # Mean total transmittance w.r.t. thickness Eq 6 in Linteris [10.1002/fam.1113]
-					# ref_data.loc[t_source, 'Std. Dev.'] = integrate.trapz(mean_reflect[str(t_source) +'_measured_std'], x=mean_reflect.index)/integrate.trapz(mean_reflect[str(t_source) +'_spectrum'], x=mean_reflect.index)
+					trans_data.at[t_source, y] = integrate.trapezoid(mean_trans[f'{t_source}_measured_{y}'], x=mean_trans.index)/integrate.trapezoid(mean_trans[f'{t_source}_spectrum'], x=mean_trans.index) # Mean total transmittance w.r.t. thickness Eq 6 in Linteris [10.1002/fam.1113]
+					# ref_data.loc[t_source, 'Std. Dev.'] = integrate.trapezoid(mean_reflect[str(t_source) +'_measured_std'], x=mean_reflect.index)/integrate.trapezoid(mean_reflect[str(t_source) +'_spectrum'], x=mean_reflect.index)
 			trans_data.loc['Mean', :] = trans_data.mean(axis='index')
 			log_trans_data = trans_data.copy()
 			for i in trans_data.columns:
@@ -227,15 +227,15 @@ for material in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")
 			trap_df = trap_df.rename_axis('wavenumber')
 			sample_df['Mean'] = sample_df.mean(axis=1)
 			sample_df['Std'] = sample_df.std(axis=1)
-			trap_df['Mean'] = sample_df.mean(axis=1)
-			trap_df['Std'] = sample_df.std(axis=1)
+			trap_df['Mean'] = trap_df.mean(axis=1)
+			trap_df['Std'] = trap_df.std(axis=1)
 
 			mean_reflect = pd.DataFrame(index = sample_df.index)
 
 			mean_reflect['Sample'] = sample_df['Mean']
 			mean_reflect['Sample_std'] = sample_df['Std']
 			mean_reflect['LT'] = trap_df['Mean']
-			mean_reflect['LT_std'] = sample_df['Std']
+			mean_reflect['LT_std'] = trap_df['Std']
 
 			mean_reflect['wavelength'] = 10000000/mean_reflect.index # wavelength in nm
 			mean_reflect.set_index('wavelength', inplace=True)
@@ -287,8 +287,8 @@ for material in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")
 			mean_reflect.dropna(axis='index', inplace=True)
 
 			for t_source in t_range:
-				ref_data.at[t_source, 'Emissivity'] = integrate.trapz(mean_reflect[str(t_source) +'_measured'], x=mean_reflect.index)/integrate.trapz(mean_reflect[str(t_source) +'_spectrum'], x=mean_reflect.index)
-				ref_data.loc[t_source, 'Std. Dev.'] = integrate.trapz(mean_reflect[str(t_source) +'_measured_std'], x=mean_reflect.index)/integrate.trapz(mean_reflect[str(t_source) +'_spectrum'], x=mean_reflect.index)	
+				ref_data.at[t_source, 'Emissivity'] = integrate.trapezoid(mean_reflect[str(t_source) +'_measured'], x=mean_reflect.index)/integrate.trapezoid(mean_reflect[str(t_source) +'_spectrum'], x=mean_reflect.index)
+				ref_data.loc[t_source, 'Std. Dev.'] = integrate.trapezoid(mean_reflect[str(t_source) +'_measured_std'], x=mean_reflect.index)/integrate.trapezoid(mean_reflect[str(t_source) +'_spectrum'], x=mean_reflect.index)	
 
 			# ref_data = pd.DataFrame(ref_data).reset_index()
 			ref_data = ref_data.astype('float64')

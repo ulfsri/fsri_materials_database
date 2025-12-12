@@ -23,6 +23,7 @@ import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import git
 from scipy import integrate
+from pybaselines import Baseline, utils
 
 def clean_file(file_name):
     fin = open(file_name, 'rt', encoding = 'UTF-16')
@@ -120,7 +121,10 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
 
                     all_col_names.append(col_name) # collect repetition numbers to account for botched tests (ex. R2, R3, R4, if R1 was bad)
                     reduced_df = data_temp_df.loc[:,['Temperature (C)', 'HRR (W/g)']]
-                    reduced_df[f'Time_copy_{col_name[-1]}'] = reduced_df.index  #col_name[-1] to have the repetition number as -1 (not -R1) to help Regex later
+                    reduced_df[f'time_{col_name}'] = reduced_df.index  #col_name[-1] to have the repetition number as -1 (not -R1) to help Regex later
+
+                    print(reduced_df)
+
 
                     # Correct from initial mass basis to mass lost basis
                     reduced_df['HRR (W/g)'] = reduced_df['HRR (W/g)']*(initial_mass/(initial_mass-final_mass))
@@ -150,28 +154,43 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                     time_array = data_df[f'Time_copy_{col_name[-1]}'].to_numpy() #col_name[-1] to have the repetition number of the time column as -1 (not -R1) to help Regex later
                     data_array = data_array[~np.isnan(data_array)]
                     time_array = time_array[~np.isnan(time_array)]
-                    hoc_df.at['Heat of Combustion (MJ/kg)', col_name] = (integrate.trapz(y=data_array, x=time_array)) / 1000
+                    hoc_df.at['Heat of Combustion (MJ/kg)', col_name] = (integrate.trapezoid(y=data_array, x=time_array)) / 1000
+
+                    # Alternative Baseline Correction
+                    x = reduced_df.index
+                    baseline_fitter = Baseline(x_data=x)
+                    f = reduced_df['HRR (W/g)']
+
+                    out = baseline_fitter.imodpoly(f, poly_order = 3, num_std = 1, max_iter = 1000, return_coef = True)
+                    g = out[0] # Baseline
+                    h = f-g
+                    reduced_df[f'{col_name}_alt'] = h
+                    reduced_df.dropna(inplace=True)
+                    data_df = pd.concat([data_df, reduced_df], axis = 1)
 
         corrected_data = data_df.filter(regex = 'R[0-9]')
-        plot_data_df.loc[:,'HRR_mean'] = corrected_data.mean(axis = 1)
-        plot_data_df.loc[:,'HRR_std'] = corrected_data.std(axis = 1)
+
+        # corrected_data.to_csv(f'{data_dir}{material}/{material}_MCC_corrected.csv')
+
+        # plot_data_df.loc[:,'HRR_mean'] = corrected_data.mean(axis = 1)
+        # plot_data_df.loc[:,'HRR_std'] = corrected_data.std(axis = 1)
 
     else:
         continue
 
-    hoc_df_html = pd.DataFrame(index = ['Heat of Combustion (MJ/kg)'], columns = ['Mean', 'Std. Dev.'])
-    hoc_df_html['Mean'] = hoc_df.mean(axis=1).round(decimals=2)
-    hoc_df_html['Std. Dev.'] = hoc_df.std(axis=1).round(decimals=2)
+    # hoc_df_html = pd.DataFrame(index = ['Heat of Combustion (MJ/kg)'], columns = ['Mean', 'Std. Dev.'])
+    # hoc_df_html['Mean'] = hoc_df.mean(axis=1).round(decimals=2)
+    # hoc_df_html['Std. Dev.'] = hoc_df.std(axis=1).round(decimals=2)
 
-    hoc_df_html.index.rename('Value',inplace=True)
-    hoc_df_html = hoc_df_html.reset_index()
-    hoc_df_html.to_html(f'{data_dir}{material}/MCC/{material}_MCC_Heats_of_Combustion.html',index=False,border=0)
+    # hoc_df_html.index.rename('Value',inplace=True)
+    # hoc_df_html = hoc_df_html.reset_index()
+    # hoc_df_html.to_html(f'{data_dir}{material}/MCC/{material}_MCC_Heats_of_Combustion.html',index=False,border=0)
 
-    plot_mean_data(plot_data_df)
+    # # plot_mean_data(plot_data_df)
 
-    plot_dir = f'../03_Charts/{material}/MCC/'
+    # plot_dir = f'../03_Charts/{material}/MCC/'
 
-    if not os.path.exists(plot_dir):
-        os.makedirs(plot_dir)
+    # if not os.path.exists(plot_dir):
+    #     os.makedirs(plot_dir)
 
-    format_and_save_plot(f'{plot_dir}{material}_MCC_HRR.html')
+    # # format_and_save_plot(f'{plot_dir}{material}_MCC_HRR.html')
