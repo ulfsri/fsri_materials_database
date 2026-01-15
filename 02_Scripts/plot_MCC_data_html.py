@@ -162,14 +162,8 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
 
                     all_col_names.append(col_name) #
                     reduced_df = data_temp_df.loc[:,['Temperature (C)', 'HRR (W/g)']]
-<<<<<<< HEAD
+
                     reduced_df[f'time_{col_name}'] = reduced_df.index  #col_name[-1] to have the repetition number as -1 (not -R1) to help Regex later
-
-                    print(reduced_df)
-
-=======
-                    reduced_df[f'time_{col_name}'] = reduced_df.index 
->>>>>>> 149f3682f34faf260a7a2851c9c2ceb477f65702
 
                     # Correct from initial mass basis to mass lost basis
                     reduced_df['HRR (W/g)'] = reduced_df['HRR (W/g)']*(initial_mass/(initial_mass-final_mass))
@@ -188,32 +182,25 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
                     time_array = reduced_df[f'time_{col_name}'].to_numpy()
                     data_array = data_array[~np.isnan(data_array)]
                     time_array = time_array[~np.isnan(time_array)]
-<<<<<<< HEAD
-                    hoc_df.at['Heat of Combustion (MJ/kg)', col_name] = (integrate.trapezoid(y=data_array, x=time_array)) / 1000
 
                     # Alternative Baseline Correction
-=======
-                    time_array = np.unique(time_array)
 
-                    hoc_df_html.at['Heat of Combustion (MJ/kg)', col_name] = (integrate.trapz(y=data_array, x=time_array)) / 1000
+                    # time_array = np.unique(time_array)
+
+                    hoc_df_html.at['Heat of Combustion (MJ/kg)', col_name] = (integrate.trapezoid(y=data_array, x=time_array)) / 1000
 
                     # Alternative Baseline Correction (NOT CURRENTLY IMPLEMENTED)
->>>>>>> 149f3682f34faf260a7a2851c9c2ceb477f65702
                     x = reduced_df.index
                     baseline_fitter = Baseline(x_data=x)
                     f = reduced_df['HRR (W/g)']
 
-<<<<<<< HEAD
-                    out = baseline_fitter.imodpoly(f, poly_order = 3, num_std = 1, max_iter = 1000, return_coef = True)
-=======
                     out = baseline_fitter.imodpoly(f, poly_order = 2, num_std = 1, max_iter = 1000, return_coef = True)
->>>>>>> 149f3682f34faf260a7a2851c9c2ceb477f65702
+
                     g = out[0] # Baseline
                     h = f-g
                     reduced_df[f'{col_name}_alt'] = h
                     reduced_df.dropna(inplace=True)
                     data_df = pd.concat([data_df, reduced_df], axis = 1)
-<<<<<<< HEAD
 
         corrected_data = data_df.filter(regex = 'R[0-9]')
 
@@ -221,41 +208,21 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
 
         # plot_data_df.loc[:,'HRR_mean'] = corrected_data.mean(axis = 1)
         # plot_data_df.loc[:,'HRR_std'] = corrected_data.std(axis = 1)
-=======
 
-                    data_array_alt = reduced_df[f'{col_name}_alt'].to_numpy()
+        # data_array_alt = reduced_df[f'{col_name}_alt'].to_numpy()
 
-                    # hoc_df_html.at['Heat of Combustion [ALT] (MJ/kg)', col_name] = (integrate.trapz(y=data_array_alt, x=time_array)) / 1000
+        # hoc_df_html.at['Heat of Combustion [ALT] (MJ/kg)', col_name] = (integrate.trapezoid(y=data_array_alt, x=time_array)) / 1000
 
         corrected_data = data_df.loc[:,all_col_names]
 
         plot_data_df.loc[:,'HRR_mean'] = corrected_data.mean(axis = 1)
         plot_data_df.loc[:,'HRR_std'] = corrected_data.std(axis = 1)
->>>>>>> 149f3682f34faf260a7a2851c9c2ceb477f65702
 
         plot_mean_data(plot_data_df)
 
     else:
         continue
 
-<<<<<<< HEAD
-    # hoc_df_html = pd.DataFrame(index = ['Heat of Combustion (MJ/kg)'], columns = ['Mean', 'Std. Dev.'])
-    # hoc_df_html['Mean'] = hoc_df.mean(axis=1).round(decimals=2)
-    # hoc_df_html['Std. Dev.'] = hoc_df.std(axis=1).round(decimals=2)
-
-    # hoc_df_html.index.rename('Value',inplace=True)
-    # hoc_df_html = hoc_df_html.reset_index()
-    # hoc_df_html.to_html(f'{data_dir}{material}/MCC/{material}_MCC_Heats_of_Combustion.html',index=False,border=0)
-
-    # # plot_mean_data(plot_data_df)
-
-    # plot_dir = f'../03_Charts/{material}/MCC/'
-
-    # if not os.path.exists(plot_dir):
-    #     os.makedirs(plot_dir)
-
-    # # format_and_save_plot(f'{plot_dir}{material}_MCC_HRR.html')
-=======
     hoc_df_html = hoc_df_html.round(decimals=2)
     hoc_df_html['Mean'] = hoc_df_html.mean(axis=1).round(decimals=2)
     hoc_df_html['Std. Dev.'] = hoc_df_html.std(axis=1).round(decimals=2)
@@ -274,5 +241,3 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
 
 mat_status_df.to_csv('Utilities/material_status.csv', index_label = 'material')
 print()
-
->>>>>>> 149f3682f34faf260a7a2851c9c2ceb477f65702
