@@ -121,5 +121,12 @@
 				"table": "Cone/PC_Cone_Analysis_EHC_Table.html"
 			}
 		]
+	},
+	{
+		"test name": "emissivity",
+		"test description": "",
+		"display name": "",
+		"table": "FTIR/IS/PC_Emissivity.html",
+		"graph": "FTIR/IS/PC_Emissivity.html"
 	}]
 }
