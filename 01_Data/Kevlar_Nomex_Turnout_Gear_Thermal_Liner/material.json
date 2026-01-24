@@ -7,7 +7,7 @@
 		"twaron",
 		"msa",
 		"globe",
-		"lion"
+		"lion",
 		"viking",
 		"honeywell",
 		"ppe",
@@ -24,7 +24,7 @@
 	"material category": [
 		"ppe"
 	],
-	"image file": "Kevlar_Nomex_Turnout_Gear_Thermal_Liner.jpg",
+	"image file": "Kevlar_Nomex_Turnout_Gear_Thermal_Liner.JPG",
 	"image 600x400 file": "Kevlar_Nomex_Turnout_Gear_Thermal_Liner600x400.jpg",
 	"video file": "",
 	"description": "Turnout gear thermal liner is the layer of firefighter turnout gear closest to the skin that provides thermal protection and comfort for the firefighter.",
@@ -37,7 +37,7 @@
 	"measured property": [
 	{
 		"test name": "mass loss rate",
-		"test description": "",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Simultaneous Thermal Analyzer",

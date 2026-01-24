@@ -19,7 +19,7 @@
 	"material category": [
 		"ppe"
 	],
-	"image file": "High_Temp_Nylon_SCBA_Nosecup.jpg",
+	"image file": "High_Temp_Nylon_SCBA_Nosecup.JPG",
 	"image 600x400 file": "High_Temp_Nylon_SCBA_Nosecup600x400.jpg",
 	"video file": "",
 	"description": "High Temperature Nylon SCBA Nosecup is structural frame of the SCBA facemask made from nylon 6,6.",
@@ -32,7 +32,7 @@
 	"measured property": [
 	{
 		"test name": "mass loss rate",
-		"test description": "",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Simultaneous Thermal Analyzer",

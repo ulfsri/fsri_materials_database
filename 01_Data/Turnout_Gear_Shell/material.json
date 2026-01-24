@@ -7,7 +7,7 @@
 		"pbi",
 		"msa",
 		"globe",
-		"lion"
+		"lion",
 		"viking",
 		"honeywell",
 		"ppe",
@@ -23,7 +23,7 @@
 	"material category": [
 		"ppe"
 	],
-	"image file": "Turnout_Gear_Shell.jpg",
+	"image file": "Turnout_Gear_Shell.JPG",
 	"image 600x400 file": "Turnout_Gear_Shell600x400.jpg",
 	"video file": "",
 	"description": "Turnout gear outer shell is the outer layer of firefighter turnout gear typically comprised of PBI fibers.",
@@ -36,7 +36,7 @@
 	"measured property": [
 	{
 		"test name": "mass loss rate",
-		"test description": "",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Simultaneous Thermal Analyzer",

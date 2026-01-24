@@ -7,7 +7,7 @@
 		"stripes",
 		"phenix",
 		"ben",
-		"bullard"
+		"bullard",
 		"new yorker",
 		"cairns",
 		"ppe",
@@ -20,7 +20,7 @@
 	"material category": [
 		"ppe"
 	],
-	"image file": "Helmet_Tetrahedron.jpg",
+	"image file": "Helmet_Tetrahedron.JPG",
 	"image 600x400 file": "Helmet_Tetrahedron600x400.jpg",
 	"video file": "",
 	"description": "Helmet Tetrahedrons are the adhesive reflectors on firefighter helmets.",
@@ -33,7 +33,7 @@
 	"measured property": [
 	{
 		"test name": "mass loss rate",
-		"test description": "",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Simultaneous Thermal Analyzer",

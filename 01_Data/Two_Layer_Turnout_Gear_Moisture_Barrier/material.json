@@ -9,7 +9,7 @@
 		"twaron",
 		"msa",
 		"globe",
-		"lion"
+		"lion",
 		"viking",
 		"honeywell",
 		"ppe",
@@ -28,7 +28,7 @@
 	"material category": [
 		"ppe"
 	],
-	"image file": "Two_Layer_Turnout_Gear_Moisture_Barrier.jpg",
+	"image file": "Two_Layer_Turnout_Gear_Moisture_Barrier.JPG",
 	"image 600x400 file": "Two_Layer_Turnout_Gear_Moisture_Barrier600x400.jpg",
 	"video file": "",
 	"description": "Two layer turnout gear moisture barrier is the layer of firefighter turnout gear comprised of an aramid matrix with a moisture-resistance substrate.",
@@ -41,7 +41,7 @@
 	"measured property": [
 	{
 		"test name": "mass loss rate",
-		"test description": "",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Simultaneous Thermal Analyzer",

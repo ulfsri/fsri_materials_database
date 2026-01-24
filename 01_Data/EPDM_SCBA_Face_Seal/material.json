@@ -18,7 +18,7 @@
 	"material category": [
 		"ppe"
 	],
-	"image file": "EPDM_SCBA_Face_Seal.jpg",
+	"image file": "EPDM_SCBA_Face_Seal.JPG",
 	"image 600x400 file": "EPDM_SCBA_Face_Seal600x400.jpg",
 	"video file": "",
 	"description": "EPDM SCBA Face Seal is the portion of an SCBA facepiece made from EPDM rubber that seals the mask against the face of a firefighter.",
@@ -31,7 +31,7 @@
 	"measured property": [
 	{
 		"test name": "mass loss rate",
-		"test description": "",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Simultaneous Thermal Analyzer",

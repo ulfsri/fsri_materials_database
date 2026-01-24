@@ -3,10 +3,10 @@
 	"alternate names": [
 		"trim",
 		"stripes",
-		"retroreflective material"
+		"retroreflective material",
 		"msa",
 		"globe",
-		"lion"
+		"lion",
 		"viking",
 		"honeywell",
 		"ppe",
@@ -19,7 +19,7 @@
 	"material category": [
 		"ppe"
 	],
-	"image file": "Turnout_Gear_Reflector.jpg",
+	"image file": "Turnout_Gear_Reflector.JPG",
 	"image 600x400 file": "Turnout_Gear_Reflector600x400.jpg",
 	"video file": "",
 	"description": "Turnout gear reflector is the reflective trim on firefighter gear.",
@@ -32,7 +32,7 @@
 	"measured property": [
 	{
 		"test name": "mass loss rate",
-		"test description": "",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Simultaneous Thermal Analyzer",
