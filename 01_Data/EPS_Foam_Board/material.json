@@ -1,23 +1,26 @@
 {
-	"material": "Expanded Polystyrene Board",
+	"material": "Extruded Polystyrene Board",
 	"alternate names": [
+		"eps",
+		"eps board",
+		"extruded ps",
 		"xps",
-		"xps board",
-		"expanded ps",
+		"poly",
+		"foam",
 		"foam board insulation",
 		"rigid foam"
 	],
-	"material_dir": "XPS_Foam_Board",
+	"material_dir": "EPS_Foam_Board",
 	"parent material": "",
 	"component material": [],
 	"material category": [
 		"insulation"
 	],
-	"image file": "XPS_Foam_Board.JPG",
-	"image 600x400 file": "XPS_Foam_Board600x400.jpg",
+	"image file": "EPS_Foam_Board.JPG",
+	"image 600x400 file": "EPS_Foam_Board600x400.jpg",
 	"video file": "",
-	"description": "Expanded polystyrene insulation is a closed-cell foam board used for interior and exterior building insulation.",
-	"short desc": "Expanded polystyrene insulation is a closed-cell foam board used for insulation.",
+	"description": "Extruded polystyrene insulation is a closed-cell foam board used for interior and exterior building insulation.",
+	"short desc": "Extruded polystyrene insulation is a closed-cell foam board used for insulation.",
 	"source": "Samples cut from 25.4 mm thick board.",
 	"density": "28 kg/m<sup>3</sup>",
 	"property scales": [
@@ -31,8 +34,8 @@
 		"display name": "",
 		"nested tests": [{
 				"display name": "Unconditioned",
-				"graph": "HFM/XPS_Foam_Board_HFM_Wet_specific_heat.html",
-				"table": "HFM/XPS_Foam_Board_HFM_Wet_specific_heat.html"
+				"graph": "HFM/EPS_Foam_Board_HFM_Wet_specific_heat.html",
+				"table": "HFM/EPS_Foam_Board_HFM_Wet_specific_heat.html"
 			}		]
 	},
 	{
@@ -41,8 +44,8 @@
 		"display name": "",
 		"nested tests": [{
 				"display name": "Unconditioned",
-				"graph": "HFM/XPS_Foam_Board_HFM_Wet_conductivity.html",
-				"table": "HFM/XPS_Foam_Board_HFM_Wet_conductivity.html"
+				"graph": "HFM/EPS_Foam_Board_HFM_Wet_conductivity.html",
+				"table": "HFM/EPS_Foam_Board_HFM_Wet_conductivity.html"
 			}		]
 	},
 	{
@@ -51,15 +54,15 @@
 		"display name": "",
 		"nested tests": [{
 				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
-				"graph": "Cone/XPS_Foam_Board_Cone_MLR_25.html"
+				"graph": "Cone/EPS_Foam_Board_Cone_MLR_25.html"
 			},
 			{
 				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
-				"graph": "Cone/XPS_Foam_Board_Cone_MLR_50.html"
+				"graph": "Cone/EPS_Foam_Board_Cone_MLR_50.html"
 			},
 			{
 				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
-				"graph": "Cone/XPS_Foam_Board_Cone_MLR_75.html"
+				"graph": "Cone/EPS_Foam_Board_Cone_MLR_75.html"
 			}
 		]
 	},
@@ -69,18 +72,18 @@
 		"display name": "",
 		"nested tests": [{
 				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
-				"graph": "Cone/XPS_Foam_Board_Cone_HRRPUA_25.html",
-				"table": "Cone/XPS_Foam_Board_Cone_Analysis_HRRPUA_Table_25.html"
+				"graph": "Cone/EPS_Foam_Board_Cone_HRRPUA_25.html",
+				"table": "Cone/EPS_Foam_Board_Cone_Analysis_HRRPUA_Table_25.html"
 			},
 			{
 				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
-				"graph": "Cone/XPS_Foam_Board_Cone_HRRPUA_50.html",
-				"table": "Cone/XPS_Foam_Board_Cone_Analysis_HRRPUA_Table_50.html"
+				"graph": "Cone/EPS_Foam_Board_Cone_HRRPUA_50.html",
+				"table": "Cone/EPS_Foam_Board_Cone_Analysis_HRRPUA_Table_50.html"
 			},
 			{
 				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
-				"graph": "Cone/XPS_Foam_Board_Cone_HRRPUA_75.html",
-				"table": "Cone/XPS_Foam_Board_Cone_Analysis_HRRPUA_Table_75.html"
+				"graph": "Cone/EPS_Foam_Board_Cone_HRRPUA_75.html",
+				"table": "Cone/EPS_Foam_Board_Cone_Analysis_HRRPUA_Table_75.html"
 			}
 		]
 	},
@@ -88,20 +91,20 @@
 		"test name": "carbon monoxide yield",
 		"test description": "",
 		"display name": "",
-		"table": "Cone/XPS_Foam_Board_Cone_Analysis_CO_Table.html"
+		"table": "Cone/EPS_Foam_Board_Cone_Analysis_CO_Table.html"
 	},
 	{
 		"test name": "specific heat release rate",
 		"test description": "",
 		"display name": "",
-		"graph": "MCC/XPS_Foam_Board_MCC_HRR.html"
+		"graph": "MCC/EPS_Foam_Board_MCC_HRR.html"
 	}],
 	"derived property": [
 	{
 		"test name": "soot yield",
 		"test description": "",
 		"display name": "",
-		"table": "Cone/XPS_Foam_Board_Cone_Analysis_Soot_Table.html"
+		"table": "Cone/EPS_Foam_Board_Cone_Analysis_Soot_Table.html"
 	},
 	{
 		"test name": "effective heat of combustion",
@@ -109,11 +112,11 @@
 		"display name": "",
 		"nested tests": [{
 				"display name": "Micro-scale Combustion Calorimeter",
-				"table": "MCC/XPS_Foam_Board_MCC_Heats_of_Combustion.html"
+				"table": "MCC/EPS_Foam_Board_MCC_Heats_of_Combustion.html"
 			},
 			{
 				"display name": "Cone Calorimeter",
-				"table": "Cone/XPS_Foam_Board_Cone_Analysis_EHC_Table.html"
+				"table": "Cone/EPS_Foam_Board_Cone_Analysis_EHC_Table.html"
 			}
 		]
 	},
@@ -121,7 +124,7 @@
 		"test name": "emissivity",
 		"test description": "",
 		"display name": "",
-		"table": "FTIR/IS/XPS_Foam_Board_Emissivity.html",
-		"graph": "FTIR/IS/XPS_Foam_Board_Emissivity.html"
+		"table": "FTIR/IS/EPS_Foam_Board_Emissivity.html",
+		"graph": "FTIR/IS/EPS_Foam_Board_Emissivity.html"
 	}]
 }
