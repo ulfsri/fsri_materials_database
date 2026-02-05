@@ -212,7 +212,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                     time_array = data_df[f'Time_copy_{col_name[-1]}'].to_numpy() #col_name[-1] to have the repetition number of the time column as -1 (not -R1) to help Regex later
                     data_array = data_array[~np.isnan(data_array)]
                     time_array = time_array[~np.isnan(time_array)]
-                    hoc_df.at['Heat of Combustion (MJ/kg)', col_name] = (integrate.trapz(y=data_array, x=time_array)) / 1000
+                    hoc_df.at['Heat of Combustion (MJ/kg)', col_name] = (integrate.trapezoid(y=data_array, x=time_array)) / 1000
                     hoc_df.at['Heat of Combustion (MJ/kg)', 'Mean'] = np.nan
                     hoc_df.at['Heat of Combustion (MJ/kg)','Std. Dev.'] = np.nan
 

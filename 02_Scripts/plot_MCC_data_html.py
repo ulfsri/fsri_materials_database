@@ -30,6 +30,7 @@ plot_all = True
 if not plot_all: 
     print('plot_all is set to False, so any materials with existing html output files will be skipped')
 
+
 def clean_file(file_name):
     fin = open(file_name, 'rt', encoding = 'UTF-16')
     fout = open(f'{file_name}_TEMP.tst', 'wt', encoding = 'UTF-16')
@@ -161,7 +162,8 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
 
                     all_col_names.append(col_name) #
                     reduced_df = data_temp_df.loc[:,['Temperature (C)', 'HRR (W/g)']]
-                    reduced_df[f'time_{col_name}'] = reduced_df.index 
+
+                    reduced_df[f'time_{col_name}'] = reduced_df.index  #col_name[-1] to have the repetition number as -1 (not -R1) to help Regex later
 
                     # Correct from initial mass basis to mass lost basis
                     reduced_df['HRR (W/g)'] = reduced_df['HRR (W/g)']*(initial_mass/(initial_mass-final_mass))
@@ -180,9 +182,12 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
                     time_array = reduced_df[f'time_{col_name}'].to_numpy()
                     data_array = data_array[~np.isnan(data_array)]
                     time_array = time_array[~np.isnan(time_array)]
-                    time_array = np.unique(time_array)
 
-                    hoc_df_html.at['Heat of Combustion (MJ/kg)', col_name] = (integrate.trapz(y=data_array, x=time_array)) / 1000
+                    # Alternative Baseline Correction
+
+                    # time_array = np.unique(time_array)
+
+                    hoc_df_html.at['Heat of Combustion (MJ/kg)', col_name] = (integrate.trapezoid(y=data_array, x=time_array)) / 1000
 
                     # Alternative Baseline Correction (NOT CURRENTLY IMPLEMENTED)
                     x = reduced_df.index
@@ -190,15 +195,23 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
                     f = reduced_df['HRR (W/g)']
 
                     out = baseline_fitter.imodpoly(f, poly_order = 2, num_std = 1, max_iter = 1000, return_coef = True)
+
                     g = out[0] # Baseline
                     h = f-g
                     reduced_df[f'{col_name}_alt'] = h
                     reduced_df.dropna(inplace=True)
                     data_df = pd.concat([data_df, reduced_df], axis = 1)
 
-                    data_array_alt = reduced_df[f'{col_name}_alt'].to_numpy()
+        corrected_data = data_df.filter(regex = 'R[0-9]')
 
-                    # hoc_df_html.at['Heat of Combustion [ALT] (MJ/kg)', col_name] = (integrate.trapz(y=data_array_alt, x=time_array)) / 1000
+        # corrected_data.to_csv(f'{data_dir}{material}/{material}_MCC_corrected.csv')
+
+        # plot_data_df.loc[:,'HRR_mean'] = corrected_data.mean(axis = 1)
+        # plot_data_df.loc[:,'HRR_std'] = corrected_data.std(axis = 1)
+
+        # data_array_alt = reduced_df[f'{col_name}_alt'].to_numpy()
+
+        # hoc_df_html.at['Heat of Combustion [ALT] (MJ/kg)', col_name] = (integrate.trapezoid(y=data_array_alt, x=time_array)) / 1000
 
         corrected_data = data_df.loc[:,all_col_names]
 
@@ -228,4 +241,3 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
 
 mat_status_df.to_csv('Utilities/material_status.csv', index_label = 'material')
 print()
-

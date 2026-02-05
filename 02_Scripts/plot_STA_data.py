@@ -280,7 +280,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                                 df_temp['DSC_corr'] = h
 
                                 melt_peak_df = df_temp.loc[onset_temp:melt_return]
-                                melting_enthalpy = integrate.trapz(melt_peak_df['DSC_corr'], melt_peak_df['time (s)'])
+                                melting_enthalpy = integrate.trapezoid(melt_peak_df['DSC_corr'], melt_peak_df['time (s)'])
                                 melt_enth.append(melting_enthalpy)
 
                     if data_df.empty:

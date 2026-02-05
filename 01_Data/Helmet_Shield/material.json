@@ -1,0 +1,41 @@
+{
+	"material": "Helmet Shield",
+	"alternate names": [
+		"patch",
+		"leather front",
+		"phenix",
+		"new yorker",
+		"cairns",
+		"ppe",
+		"firefighter",
+		"structural"
+	],
+	"material_dir": "Helmet_Shield",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"ppe"
+	],
+	"image file": "Helmet_Shield.jpg",
+	"image 600x400 file": "Helmet_Shield600x400.jpg",
+	"video file": "",
+	"description": "Helmet Shield is the leather front of a firefighter helmet.",
+	"short desc": "Helmet Shield is the front of a firefighter helmet.",
+	"source": "Sampled from a structural firefighter helmet.",
+	"density": "1350 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Helmet_Shield_STA_MLR.html"
+			}		]
+	}],
+	"derived property": [
+]
+}

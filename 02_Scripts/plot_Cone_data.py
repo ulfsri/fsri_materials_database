@@ -159,6 +159,8 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
 	soot_df = pd.DataFrame()
 	notes_df = pd.DataFrame()
 	if os.path.isdir(f'{data_dir}{d}/Cone/'):
+		# option to run one material for troubleshooting purposes. comment out if not being used.
+		# if material != 'Overstuffed_Chair_Polyester_Fabric': continue 
 		print(material + ' Cone')
 		data_df = pd.DataFrame()
 		reduced_df = pd.DataFrame()
@@ -178,12 +180,14 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
 				# Test Notes #
 				try:
 					pretest_notes = scalar_data_series.at['PRE TEST CMT']
+					pretest_notes_ls = pretest_notes.split(';')
 				except:
 					pretest_notes = ' '
+					pretest_notes_ls = []
 				surf_area_mm2 = 10000
 				dims = 'not specified'
 				frame = False
-				for notes in pretest_notes.split(';'):
+				for notes in pretest_notes_ls:
 					if 'Dimensions' in notes:
 						dims = []
 						for i in notes.split(' '):

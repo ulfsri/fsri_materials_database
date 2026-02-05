@@ -1,0 +1,45 @@
+{
+	"material": "NFPA 1981-2007 SCBA Lens",
+	"alternate names": [
+		"facepiece",
+		"eyeshield",
+		"face mask",
+		"visor",
+		"drager",
+		"scott",
+		"msa",
+		"ppe",
+		"firefighter",
+		"structural",
+		"polycarbonate",
+		"PC"
+	],
+	"material_dir": "NFPA_1981-2007_SCBA_Lens",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"ppe"
+	],
+	"image file": "NFPA_1981-2007_SCBA_Lens.jpg",
+	"image 600x400 file": "NFPA_1981-2007_SCBA_Lens600x400.jpg",
+	"video file": "",
+	"description": "NFPA 1981-2007 SCBA Lens is transparent protective shield on a structural firefighter self-contained breathing apparatus (SCBA) with a design compliant to the 2007 edition of the NFPA 1981 standard.",
+	"short desc": "NFPA 1981-2007 SCBA Lens is transparent protective shield on a structural firefighter SCBA.",
+	"source": "Sampled from a structural firefighter SCBA.",
+	"density": "1200 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/NFPA_1981-2007_SCBA_Lens_STA_MLR.html"
+			}		]
+	}],
+	"derived property": [
+]
+}

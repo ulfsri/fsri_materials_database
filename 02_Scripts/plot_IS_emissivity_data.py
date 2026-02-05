@@ -254,8 +254,8 @@ for material in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")
 				for y in th_list:
 					mean_trans[f'{t_source}_measured_{y}'] = (2*h*c**2*mean_trans[y])/(mean_trans['wl_m']**5*(np.exp((h*c)/(mean_trans['wl_m']*kB*t_source))-1)) # Weighted spectral transmission
 					# mean_trans[str(t_source) +'_measured_std'] = (2*h*c**2*mean_trans[f'{x}_std'])/(mean_trans['wl_m']**5*(math.exp((h*c)/(mean_trans['wl_m']*kB*t_source))-1))
-					trans_data.at[t_source, y] = integrate.trapz(mean_trans[f'{t_source}_measured_{y}'], x=mean_trans.index)/integrate.trapz(mean_trans[f'{t_source}_spectrum'], x=mean_trans.index) # Mean total transmittance w.r.t. thickness Eq 6 in Linteris [10.1002/fam.1113]
-					# ref_data.loc[t_source, 'Std. Dev.'] = integrate.trapz(mean_reflect[str(t_source) +'_measured_std'], x=mean_reflect.index)/integrate.trapz(mean_reflect[str(t_source) +'_spectrum'], x=mean_reflect.index)
+					trans_data.at[t_source, y] = integrate.trapezoid(mean_trans[f'{t_source}_measured_{y}'], x=mean_trans.index)/integrate.trapezoid(mean_trans[f'{t_source}_spectrum'], x=mean_trans.index) # Mean total transmittance w.r.t. thickness Eq 6 in Linteris [10.1002/fam.1113]
+					# ref_data.loc[t_source, 'Std. Dev.'] = integrate.trapezoid(mean_reflect[str(t_source) +'_measured_std'], x=mean_reflect.index)/integrate.trapezoid(mean_reflect[str(t_source) +'_spectrum'], x=mean_reflect.index)
 		trans_data.loc['Mean', :] = trans_data.mean(axis='index')
 		for i in trans_data.columns:
 			trans_data.at['lMean', i] = -np.log(trans_data.loc['Mean', i]) # -log of mean transmittance
@@ -338,9 +338,9 @@ for material in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")
 			mean_reflect.sort_index(inplace=True)
 
 			# for t_source in t_range:
-			# 	mean_reflect[str(t_source) +'_spectrum_norm'] = mean_reflect[str(t_source) +'_spectrum']/integrate.trapz(mean_reflect[str(t_source) +'_spectrum'], x=mean_reflect.index) # Planck's Law [W/m^3]
-			# 	ref_data.at[t_source, 'Emissivity'] = integrate.trapz(mean_reflect[str(t_source) +'_measured'], x=mean_reflect.index)/integrate.trapz(mean_reflect[str(t_source) +'_spectrum'], x=mean_reflect.index)
-			# 	ref_data.loc[t_source, 'Std. Dev.'] = integrate.trapz(mean_reflect[str(t_source) +'_measured_std'], x=mean_reflect.index)/integrate.trapz(mean_reflect[str(t_source) +'_spectrum'], x=mean_reflect.index)
+			# 	mean_reflect[str(t_source) +'_spectrum_norm'] = mean_reflect[str(t_source) +'_spectrum']/integrate.trapezoid(mean_reflect[str(t_source) +'_spectrum'], x=mean_reflect.index) # Planck's Law [W/m^3]
+			# 	ref_data.at[t_source, 'Emissivity'] = integrate.trapezoid(mean_reflect[str(t_source) +'_measured'], x=mean_reflect.index)/integrate.trapezoid(mean_reflect[str(t_source) +'_spectrum'], x=mean_reflect.index)
+			# 	ref_data.loc[t_source, 'Std. Dev.'] = integrate.trapezoid(mean_reflect[str(t_source) +'_measured_std'], x=mean_reflect.index)/integrate.trapezoid(mean_reflect[str(t_source) +'_spectrum'], x=mean_reflect.index)
 
 			# ref_data = pd.DataFrame(ref_data).reset_index()
 			ref_data = ref_data.astype('float64')

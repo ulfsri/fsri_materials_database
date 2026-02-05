@@ -1,0 +1,50 @@
+{
+	"material": "Helmet Tetrahedron",
+	"alternate names": [
+		"tet",
+		"reflector",
+		"sticker",
+		"stripes",
+		"phenix",
+		"ben",
+		"bullard",
+		"new yorker",
+		"cairns",
+		"ppe",
+		"firefighter",
+		"structural"
+	],
+	"material_dir": "Helmet_Tetrahedron",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"ppe"
+	],
+	"image file": "Helmet_Tetrahedron.jpg",
+	"image 600x400 file": "Helmet_Tetrahedron600x400.jpg",
+	"video file": "",
+	"description": "Helmet Tetrahedrons are the adhesive reflectors on firefighter helmets.",
+	"short desc": "Helmet Tetrahedrons are reflectors on firefighter helmets.",
+	"source": "Sampled from a structural firefighter helmet.",
+	"density": "1270 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Helmet_Tetrahedron_STA_MLR.html"
+			}		]
+	}],
+	"derived property": [
+	{
+		"test name": "melting temperature and enthalpy of melting",
+		"test description": "",
+		"display name": "",
+		"table": "STA/Helmet_Tetrahedron_STA_Analysis_Melting_Temp_Table.html"
+	}]
+}

@@ -7,11 +7,7 @@
 		"upholstery fabric"
 	],
 	"material_dir": "Overstuffed_Chair_Polyester_Fabric",
-	"parent material": [
-		"Overstuffed Chair Assembly",
-		"Overstuffed Chair",
-		"Overstuffed Sofa"
-	],
+	"parent material": "Overstuffed Chair Assembly",
 	"component material": [],
 	"material category": [
 		"upholstered furniture"

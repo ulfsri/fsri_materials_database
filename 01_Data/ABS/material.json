@@ -23,52 +23,12 @@
 	"measured property": [
 	{
 		"test name": "mass loss rate",
-		"test description": "",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Simultaneous Thermal Analyzer",
 				"graph": "STA/N2/ABS_STA_MLR.html"
-			},
-			{
-				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
-				"graph": "Cone/ABS_Cone_MLR_25.html"
-			},
-			{
-				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
-				"graph": "Cone/ABS_Cone_MLR_50.html"
-			},
-			{
-				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
-				"graph": "Cone/ABS_Cone_MLR_75.html"
-			}
-		]
-	},
-	{
-		"test name": "heat release rate per unit area",
-		"test description": "",
-		"display name": "",
-		"nested tests": [{
-				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
-				"graph": "Cone/ABS_Cone_HRRPUA_25.html",
-				"table": "Cone/ABS_Cone_Analysis_HRRPUA_Table_25.html"
-			},
-			{
-				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
-				"graph": "Cone/ABS_Cone_HRRPUA_50.html",
-				"table": "Cone/ABS_Cone_Analysis_HRRPUA_Table_50.html"
-			},
-			{
-				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
-				"graph": "Cone/ABS_Cone_HRRPUA_75.html",
-				"table": "Cone/ABS_Cone_Analysis_HRRPUA_Table_75.html"
-			}
-		]
-	},
-	{
-		"test name": "carbon monoxide yield",
-		"test description": "",
-		"display name": "",
-		"table": "Cone/ABS_Cone_Analysis_CO_Table.html"
+			}		]
 	},
 	{
 		"test name": "specific heat release rate",
@@ -78,30 +38,12 @@
 	}],
 	"derived property": [
 	{
-		"test name": "soot yield",
-		"test description": "",
-		"display name": "",
-		"table": "Cone/ABS_Cone_Analysis_Soot_Table.html"
-	},
-	{
 		"test name": "effective heat of combustion",
-		"test description": "",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/ABS_MCC_Heats_of_Combustion.html"
-			},
-			{
-				"display name": "Cone Calorimeter",
-				"table": "Cone/ABS_Cone_Analysis_EHC_Table.html"
-			}
-		]
-	},
-	{
-		"test name": "emissivity",
-		"test description": "",
-		"display name": "",
-		"table": "FTIR/IS/ABS_Emissivity.html",
-		"graph": "FTIR/IS/ABS_Emissivity.html"
+			}		]
 	}]
 }

@@ -1,0 +1,43 @@
+{
+	"material": "Fiber Reinforced Helmet Shell",
+	"alternate names": [
+		"cairns",
+		"ben",
+		"franklin",
+		"ppe",
+		"helmet",
+		"high-temperature",
+		"firefighter",
+		"structural",
+		"frp",
+		"thermoset"
+	],
+	"material_dir": "Fiber_Reinforced_Helmet_Shell",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"ppe"
+	],
+	"image file": "Fiber_Reinforced_Helmet_Shell.jpg",
+	"image 600x400 file": "Fiber_Reinforced_Helmet_Shell600x400.jpg",
+	"video file": "",
+	"description": "Fiber reinforced helmet shell is the primary protective component of a helmet that is commonly used in structural firefighting operations.",
+	"short desc": "Fiber reinforced helmet shell is the primary protective component of a helmet worn by firefighters.",
+	"source": "Sampled from the brim of a helmet worn by firefighters.",
+	"density": "1840 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Fiber_Reinforced_Helmet_Shell_STA_MLR.html"
+			}		]
+	}],
+	"derived property": [
+]
+}

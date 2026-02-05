@@ -1,0 +1,48 @@
+{
+	"material": "Thermoplastic Helmet Shell",
+	"alternate names": [
+		"phenix",
+		"first due",
+		"plastic",
+		"ppe",
+		"helmet",
+		"high-temperature",
+		"firefighter",
+		"wildland",
+		"wui",
+		"melting"
+	],
+	"material_dir": "Thermoplastic_Helmet_Shell",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"ppe"
+	],
+	"image file": "Thermoplastic_Helmet_Shell.jpg",
+	"image 600x400 file": "Thermoplastic_Helmet_Shell600x400.jpg",
+	"video file": "",
+	"description": "Thermoplastic helmet shell is the primary protective component of a helmet that is commonly used in wildfire firefighting operations.",
+	"short desc": "Thermoplastic helmet shell is the primary protective component of a helmet worn by firefighters.",
+	"source": "Sampled from the brim of a helmet worn by firefighters.",
+	"density": "1290 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Thermoplastic_Helmet_Shell_STA_MLR.html"
+			}		]
+	}],
+	"derived property": [
+	{
+		"test name": "melting temperature and enthalpy of melting",
+		"test description": "",
+		"display name": "",
+		"table": "STA/Thermoplastic_Helmet_Shell_STA_Analysis_Melting_Temp_Table.html"
+	}]
+}

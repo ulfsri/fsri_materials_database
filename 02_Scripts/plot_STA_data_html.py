@@ -42,10 +42,10 @@ def apply_savgol_filter(raw_data, deriv=0):
     else:
         poly_order = 5
 
-    raw_data = raw_data.dropna().loc[0:]
+    raw_data = raw_data.dropna()
     converted_data = savgol_filter(raw_data,window,poly_order, deriv=deriv)
     filtered_data = pd.Series(converted_data, index=raw_data.index.values)
-    return(filtered_data.loc[0:])
+    return filtered_data 
 
 def plot_mean_data(df):
 
@@ -100,6 +100,33 @@ def format_and_save_plot(inc, file_loc):
     fig.write_html(file_loc,include_plotlyjs="cdn")
     plt.close()
 
+def reindex_data(data, min_x = 51, max_x=650, dx=0.1):
+
+    data.set_index('Temp (C)', inplace = True)
+
+    min_x = float(min_x)
+    max_x = float(max_x)
+    dx = float(dx)
+
+    if math.isnan(min_x) or math.isnan(max_x):
+        data = data.dropna(axis = 'index')
+        min_x = min(data.index)
+        max_x = max(data.index)
+
+    data = data.loc[~data.index.duplicated(keep='first')]
+    data = data.reindex(data.index.union(np.arange(min_x, max_x+dx, dx)))
+    data = data.astype('float64')
+    data.index = data.index.astype('float64')
+
+    try:
+        data = data.interpolate(method='cubic')
+    except:
+        data = data.interpolate(method='linear')        
+
+    data = data.loc[np.arange(min_x, max_x+dx, dx)]
+    data = data.dropna(axis = 'index')
+
+    return data
 
 data_dir = '../01_Data/'
 save_dir = '../03_Charts/'
@@ -196,16 +223,13 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
 
                     # Re-index data
 
-                    reduced_df.set_index('Temp (C)', inplace = True)
-                    reduced_df = reduced_df.loc[51:]
-                    reduced_df = reduced_df[~reduced_df.index.duplicated(keep='first')]
+                    reduced_df = reindex_data(reduced_df, min_lim, max_lim, 0.1)
 
-                    reduced_df = reduced_df.reindex(reduced_df.index.union(np.arange(51, (max_lim+0.1), 0.1)))
-                    reduced_df = reduced_df.astype('float64')
-                    reduced_df.index = reduced_df.index.astype('float64')
-                    reduced_df = reduced_df.interpolate(method='cubic')
-
-                    reduced_df = reduced_df.loc[np.arange(51, (max_lim + 0.1), 0.1)]
+                    # try:
+                    #     reduced_df = reindex_data(reduced_df, min_lim, max_lim, 0.1)
+                    # except:
+                    #     print(f)
+                    #     print(reduced_df)
 
                     reduced_df['Normalized Mass'] = reduced_df.pop('nMass')
                     reduced_df['Heat Flow Rate (W/g)'] = reduced_df.pop('DSC/(mW/mg)')
@@ -232,7 +256,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
                         i = round(i, 1)
                         j = round(i-3, 1)
                         k = round(i+3, 1)
-                        if i < 60 or i > 400:
+                        if i < 90 or i > 400:
                             continue
                         elif reduced_df.abs().loc[j,'DSC_deriv'] > d_dsc_threshold and reduced_df.abs().loc[k,'DSC_deriv'] > d_dsc_threshold:
                             if reduced_df.abs().loc[i,'Normalized MLR (1/s)'] < mlr_threshold:
@@ -263,14 +287,14 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".") and f 
                                 df_temp['DSC_corr'] = h
 
                                 melt_peak_df = df_temp.loc[onset_temp:melt_return]
-                                melting_enthalpy = integrate.trapz(melt_peak_df['DSC_corr'], melt_peak_df['time (s)'])
+                                melting_enthalpy = integrate.trapezoid(melt_peak_df['DSC_corr'], melt_peak_df['time (s)'])
                                 melt_enth.append(melting_enthalpy)
-
                     if data_df.empty:
                         data_df = reduced_df
                     else:
                         data_df = pd.concat([data_df, reduced_df], axis = 1)
 
+            data_df.dropna(axis='index', how='any', inplace = True)
             for m in plot_dict.keys():
                 data_sub = data_df.filter(regex = m)
                 plot_data_df.loc[:,f'{m} {HR} mean'] = data_df.filter(regex = m).mean(axis = 1)

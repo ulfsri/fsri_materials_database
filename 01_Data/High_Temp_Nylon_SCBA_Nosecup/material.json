@@ -1,0 +1,49 @@
+{
+	"material": "High Temperature Nylon SCBA Nosecup",
+	"alternate names": [
+		"SCBA",
+		"plastic",
+		"nylon 6,6",
+		"nylon 6-6",
+		"msa",
+		"msa g1",
+		"ppe",
+		"firefighter",
+		"structural",
+		"mask",
+		"facepiece"
+	],
+	"material_dir": "High_Temp_Nylon_SCBA_Nosecup",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"ppe"
+	],
+	"image file": "High_Temp_Nylon_SCBA_Nosecup.jpg",
+	"image 600x400 file": "High_Temp_Nylon_SCBA_Nosecup600x400.jpg",
+	"video file": "",
+	"description": "High Temperature Nylon SCBA Nosecup is structural frame of the SCBA facemask made from nylon 6,6.",
+	"short desc": "High Temperature Nylon SCBA Nosecup is structural frame of the SCBA facemask.",
+	"source": "Sampled from a structural firefighter helmet.",
+	"density": "1140 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/High_Temp_Nylon_SCBA_Nosecup_STA_MLR.html"
+			}		]
+	}],
+	"derived property": [
+	{
+		"test name": "melting temperature and enthalpy of melting",
+		"test description": "",
+		"display name": "",
+		"table": "STA/High_Temp_Nylon_SCBA_Nosecup_STA_Analysis_Melting_Temp_Table.html"
+	}]
+}

@@ -1,0 +1,43 @@
+{
+	"material": "Helmet Strap",
+	"alternate names": [
+		"strap",
+		"chinstrap",
+		"belt",
+		"webbing",
+		"phenix",
+		"new yorker",
+		"cairns",
+		"ppe",
+		"firefighter",
+		"structural"
+	],
+	"material_dir": "Helmet_Strap",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"ppe"
+	],
+	"image file": "Helmet_Strap.jpg",
+	"image 600x400 file": "Helmet_Strap600x400.jpg",
+	"video file": "",
+	"description": "Helmet Strap is the belt that is buckled under the chin to keep a structural firefighter helmet on the head of a firefighter.",
+	"short desc": "Helmet Strap is buckled under the chin to keep a helmet on.",
+	"source": "Sampled from a structural firefighter helmet.",
+	"density": "1000 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Helmet_Strap_STA_MLR.html"
+			}		]
+	}],
+	"derived property": [
+]
+}

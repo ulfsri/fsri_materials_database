@@ -65,7 +65,7 @@
 	},
 	{
 		"test name": "mass loss rate",
-		"test description": "Mass loss rate [kg/s] was measured in cone calorimeter experiments at three heat fluxes: 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.",
+		"test description": "Mass loss rate [g/s] was measured in cone calorimeter experiments at three heat fluxes: 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.<br><br>At the 25 kW/m<sup>2</sup> exposure the sample did not ignite.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
@@ -83,7 +83,7 @@
 	},
 	{
 		"test name": "heat release rate per unit area",
-		"test description": "",
+		"test description": "Experiments for heat release per unit area [kW/m<sup>2</sup>] were conducted on samples conditioned at 20&#176;C and 50% relative humidity using a cone calorimeter at three different heat fluxes: 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.<br><br>At the 25 kW/m<sup>2</sup> exposure the sample did not ignite.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
@@ -104,14 +104,14 @@
 	},
 	{
 		"test name": "carbon monoxide yield",
-		"test description": "",
+		"test description": "Carbon monoxide yield was measured during cone calorimeter experiments conducted at heat fluxes of 25 kW/m<sup>2</sup>, 50 kW/m<sup>2</sup>, and 75 kW/m<sup>2</sup>.<br><br>At the 25 kW/m<sup>2</sup> exposure the sample did not ignite.",
 		"display name": "",
 		"table": "Cone/Gypsum_Wallboard_Cone_Analysis_CO_Table.html"
 	}],
 	"derived property": [
 	{
 		"test name": "effective heat of combustion",
-		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in cone calorimeter experiments.",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in cone calorimeter experiments.<br><br>At the 25 kW/m<sup>2</sup> exposure the sample did not ignite.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Cone Calorimeter",
