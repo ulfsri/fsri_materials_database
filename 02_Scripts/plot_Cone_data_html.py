@@ -131,7 +131,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
 
                 # Test Notes #
                 try:
-                    pretest_notes = scalar_data_series.at['PRE TEST CMT']
+                    pretest_notes = str(scalar_data_series.at['PRE TEST CMT'])
                 except:
                     pretest_notes = ' '
                 surf_area_mm2 = 10000
