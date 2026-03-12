@@ -1,0 +1,22 @@
+LABORATORY,FSRI 
+TEST IDENT,Dekalb_XPS_HF25_R1
+OPERATOR,Marino
+MATERIAL,Dekalb_XPS
+ORIENTATION,Horizontal
+HEAT FLUX,25
+SURF AREA,0.009999999776482582
+C FACTOR,0.03883075341582298
+SPEC HOLDER DIFF,-566
+SPECIMEN MASS,3.2799999713897705
+SCAN TIME,0.25
+O2 DELAY TIME,9
+CO DELAY TIME,8
+CO2 DELAY TIME,7
+FLOW FACTOR,1
+SCAN COUNT,1491
+TIME TO IGN,194.25
+END OF TEST SCAN,1011
+END OF TEST TIME,252.75
+TEST STATUS,1
+PRE TEST CMT,Dimensions: 100.60 x 100.30 x 20.67 mm;
+POST TEST CMT,"When heat was applied the sample shriveled and melted into a pool increasing distance between itself and the cone heater, and reducing its surface area. Sample ignited momentarily prior to achieving sustained combustion. The sample burned with a sooty flame."

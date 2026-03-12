@@ -1,0 +1,87 @@
+{
+	"material": "Expanded Polystyrene",
+	"alternate names": [
+		"eps",
+		"eps board",
+		"expanded ps",
+		"foam board insulation",
+		"rigid foam",
+		"polystyrene foam",
+		"polyfoam",
+		"styrofoam"
+	],
+	"material_dir": "XPS",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"insulation"
+	],
+	"image file": "XPS.jpg",
+	"image 600x400 file": "XPS600x400.jpg",
+	"video file": "",
+	"description": "Expanded polystyrene is a closed-cell foam used for general insulation, facades, furniture, and theatrical set design.",
+	"short desc": "Expanded polystyrene is a closed-cell foam used for general insulation and theatrical elements.",
+	"source": "Samples taken from fire incident.",
+	"density": "16 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/XPS_STA_MLR.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/XPS_Cone_MLR_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/XPS_Cone_MLR_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/XPS_Cone_MLR_75.html"
+			}
+		]
+	},
+	{
+		"test name": "heat release rate per unit area",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/XPS_Cone_HRRPUA_25.html",
+				"table": "Cone/XPS_Cone_Analysis_HRRPUA_Table_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/XPS_Cone_HRRPUA_50.html",
+				"table": "Cone/XPS_Cone_Analysis_HRRPUA_Table_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/XPS_Cone_HRRPUA_75.html",
+				"table": "Cone/XPS_Cone_Analysis_HRRPUA_Table_75.html"
+			}
+		]
+	},
+	{
+		"test name": "carbon monoxide yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/XPS_Cone_Analysis_CO_Table.html"
+	}],
+	"derived property": [
+	{
+		"test name": "soot yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/XPS_Cone_Analysis_Soot_Table.html"
+	}]
+}
