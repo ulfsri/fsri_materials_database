@@ -98,23 +98,24 @@
 	},
 	{
 		"test name": "effective heat of combustion",
-		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in both micro-scale combustion calorimeter experiments and cone calorimeter experiments.<br><br>Cone Calorimeter Test Notes:<br>This material shrivels and melts under thermal exposure which reduces the exposed surface area during cone calorimeter tests. Prior to ignition, shrivelling of the sample caused contact with the spark ignitor, creating spikes in the mass time history data and likely affecting time to ignition. Additional replicates with alternative sample preparation (i.e. with frame, grid, and calcium silicate substrate; and using 5 layers of material per sample) may be necessary to supplement this data set.",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Overstuffed_Chair_Polyester_Fabric_MCC_Heats_of_Combustion.html"
-			},
-			{
-				"display name": "Cone Calorimeter",
-				"table": "Cone/Overstuffed_Chair_Polyester_Fabric_Cone_Analysis_EHC_Table.html"
-			}
-		]
+			}		]
 	},
 	{
 		"test name": "melting temperature and enthalpy of melting",
 		"test description": "",
 		"display name": "",
 		"table": "STA/Overstuffed_Chair_Polyester_Fabric_STA_Analysis_Melting_Temp_Table.html"
+	},
+	{
+		"test name": "temperature at onset of decomposition",
+		"test description": "",
+		"display name": "",
+		"table": "STA/Overstuffed_Chair_Polyester_Fabric_STA_Decomposition_Onset_Temp_Table.html"
 	},
 	{
 		"test name": "emissivity",

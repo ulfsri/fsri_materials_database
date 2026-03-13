@@ -39,5 +39,10 @@
 			}		]
 	}],
 	"derived property": [
-]
+	{
+		"test name": "temperature at onset of decomposition",
+		"test description": "",
+		"display name": "",
+		"table": "STA/EPDM_SCBA_Face_Seal_STA_Decomposition_Onset_Temp_Table.html"
+	}]
 }

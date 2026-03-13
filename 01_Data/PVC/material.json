@@ -105,23 +105,24 @@
 	},
 	{
 		"test name": "effective heat of combustion",
-		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in both micro-scale combustion calorimeter experiments and cone calorimeter experiments.<br><br>Cone Calorimeter Test Notes:<br>This material shrivels horizontally prior to ignition, then warps and expands several centimeters vertically after ignition. An edge frame and wire grid are not effective at preventing this behavior and were not used. Samples were tested at the 60 mm distance from the cone heater to prevent contact with the cone heater. At the 25 kW/m<sup>2</sup> heat flux exposure the samples self-extinguished with unburned mass remaining, and did not reignite in the presence of the spark ignitor. Representative post test pictures are available at the link above to Download raw data.",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/PVC_MCC_Heats_of_Combustion.html"
-			},
-			{
-				"display name": "Cone Calorimeter",
-				"table": "Cone/PVC_Cone_Analysis_EHC_Table.html"
-			}
-		]
+			}		]
 	},
 	{
 		"test name": "melting temperature and enthalpy of melting",
 		"test description": "",
 		"display name": "",
 		"table": "STA/PVC_STA_Analysis_Melting_Temp_Table.html"
+	},
+	{
+		"test name": "temperature at onset of decomposition",
+		"test description": "",
+		"display name": "",
+		"table": "STA/PVC_STA_Decomposition_Onset_Temp_Table.html"
 	},
 	{
 		"test name": "emissivity",

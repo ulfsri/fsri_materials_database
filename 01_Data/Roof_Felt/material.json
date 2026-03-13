@@ -115,17 +115,12 @@
 	},
 	{
 		"test name": "effective heat of combustion",
-		"test description": "",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Roof_Felt_MCC_Heats_of_Combustion.html"
-			},
-			{
-				"display name": "Cone Calorimeter",
-				"table": "Cone/Roof_Felt_Cone_Analysis_EHC_Table.html"
-			}
-		]
+			}		]
 	},
 	{
 		"test name": "emissivity",
