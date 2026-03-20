@@ -109,14 +109,5 @@
 		"table": "Cone/Gypsum_Wallboard_Cone_Analysis_CO_Table.html"
 	}],
 	"derived property": [
-	{
-		"test name": "effective heat of combustion",
-		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in cone calorimeter experiments.<br><br>At the 25 kW/m<sup>2</sup> exposure the sample did not ignite.",
-		"display name": "",
-		"nested tests": [{
-				"display name": "Cone Calorimeter",
-				"table": "Cone/Gypsum_Wallboard_Cone_Analysis_EHC_Table.html"
-			}
-		]
-	}]
+]
 }

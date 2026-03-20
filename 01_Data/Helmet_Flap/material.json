@@ -21,7 +21,7 @@
 		"ppe"
 	],
 	"image file": "Helmet_Flap.jpg",
-	"image 600x400 file": "Helmet_Flap600x400.jpg",
+	"image 600x400 file": "Helmet_Earflap600x400.jpg",
 	"video file": "",
 	"description": "Helmet earflap is the protective material that shrouds the ears and neck from a structural firefighter helmet.",
 	"short desc": "Helmet earflap is the protective material that shrouds the ears and neck from a firefighter helmet.",
@@ -46,5 +46,11 @@
 		"test description": "",
 		"display name": "",
 		"table": "STA/Helmet_Flap_STA_Analysis_Melting_Temp_Table.html"
+	},
+	{
+		"test name": "temperature at onset of decomposition",
+		"test description": "",
+		"display name": "",
+		"table": "STA/Helmet_Flap_STA_Decomposition_Onset_Temp_Table.html"
 	}]
 }

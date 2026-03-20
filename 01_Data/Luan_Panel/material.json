@@ -112,17 +112,18 @@
 	},
 	{
 		"test name": "effective heat of combustion",
-		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in both micro-scale combustion calorimeter experiments and cone calorimeter experiments.<br><br>Cone Calorimeter Test Notes:<br>This material warps into an arched shape during the fire's decay phase. This was observed in the test, HF50_R1, and prevented in all other tests by the use of tie wires.",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Luan_Panel_MCC_Heats_of_Combustion.html"
-			},
-			{
-				"display name": "Cone Calorimeter",
-				"table": "Cone/Luan_Panel_Cone_Analysis_EHC_Table.html"
-			}
-		]
+			}		]
+	},
+	{
+		"test name": "temperature at onset of decomposition",
+		"test description": "",
+		"display name": "",
+		"table": "STA/Luan_Panel_STA_Decomposition_Onset_Temp_Table.html"
 	},
 	{
 		"test name": "emissivity",

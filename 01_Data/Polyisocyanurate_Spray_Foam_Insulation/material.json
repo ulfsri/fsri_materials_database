@@ -86,13 +86,9 @@
 		"table": "Cone/Polyisocyanurate_Spray_Foam_Insulation_Cone_Analysis_Soot_Table.html"
 	},
 	{
-		"test name": "effective heat of combustion",
-		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in cone calorimeter experiments.",
+		"test name": "temperature at onset of decomposition",
+		"test description": "",
 		"display name": "",
-		"nested tests": [{
-				"display name": "Cone Calorimeter",
-				"table": "Cone/Polyisocyanurate_Spray_Foam_Insulation_Cone_Analysis_EHC_Table.html"
-			}
-		]
+		"table": "STA/Polyisocyanurate_Spray_Foam_Insulation_STA_Decomposition_Onset_Temp_Table.html"
 	}]
 }

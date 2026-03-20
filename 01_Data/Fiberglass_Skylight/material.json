@@ -85,5 +85,11 @@
 		"test description": "",
 		"display name": "",
 		"table": "Cone/Fiberglass_Skylight_Cone_Analysis_Soot_Table.html"
+	},
+	{
+		"test name": "temperature at onset of decomposition",
+		"test description": "",
+		"display name": "",
+		"table": "STA/Fiberglass_Skylight_STA_Decomposition_Onset_Temp_Table.html"
 	}]
 }

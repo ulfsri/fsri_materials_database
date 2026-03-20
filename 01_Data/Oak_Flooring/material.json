@@ -118,16 +118,17 @@
 	},
 	{
 		"test name": "effective heat of combustion",
-		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in both micro-scale combustion calorimeter experiments and cone calorimeter experiments.<br><br>Cone Calorimeter Test Notes:<br>This material swells and warps into an arched shape during the fire's decay phase. This was observed in the first test (HF25_R1) and prevented in all subsequent tests by the use of tie wires. The source material is less wide than the required sample width for cone calorimeter tests, therefore each sample was comprised of two boards with the seam on center. Asymmetric burning and non-uniform post test conditions based on each half of the sample were observed in some tests, but no pattern has been determined. For individual test notes and select test pictures, follow the link above to Download raw data.",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Oak_Flooring_MCC_Heats_of_Combustion.html"
-			},
-			{
-				"display name": "Cone Calorimeter",
-				"table": "Cone/Oak_Flooring_Cone_Analysis_EHC_Table.html"
-			}
-		]
+			}		]
+	},
+	{
+		"test name": "temperature at onset of decomposition",
+		"test description": "",
+		"display name": "",
+		"table": "STA/Oak_Flooring_STA_Decomposition_Onset_Temp_Table.html"
 	}]
 }

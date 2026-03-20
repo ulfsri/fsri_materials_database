@@ -82,17 +82,18 @@
 	"derived property": [
 	{
 		"test name": "effective heat of combustion",
-		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in both micro-scale combustion calorimeter experiments and cone calorimeter experiments.<br><br>Cone Calorimeter Test Notes:<br>In tests HF25_R1 and HF25_R2 a bubble formed between the veneer and the MDF after ignition, which deflated shortly thereafter and released a brief horizontal flame jet from the edge of the sample.<br><br>This material forms cracks while burning and warps into an arched shape during the fire decay phase. A representative test picture is available at the link above to Download raw data. Additional replicates or alternative sample preparation (i.e. tie wire method) may be necessary to supplement this data set.",
+		"test description": "Effective heat of combustion [MJ/kg] is calculated from data collected in micro-scale combustion calorimeter experiments.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Engineered_Wood_Furniture_MCC_Heats_of_Combustion.html"
-			},
-			{
-				"display name": "Cone Calorimeter",
-				"table": "Cone/Engineered_Wood_Furniture_Cone_Analysis_EHC_Table.html"
-			}
-		]
+			}		]
+	},
+	{
+		"test name": "temperature at onset of decomposition",
+		"test description": "",
+		"display name": "",
+		"table": "STA/Engineered_Wood_Furniture_STA_Decomposition_Onset_Temp_Table.html"
 	},
 	{
 		"test name": "emissivity",
