@@ -40,5 +40,11 @@
 		"test description": "",
 		"display name": "",
 		"table": "STA/Helmet_Shield_Bracket_STA_Analysis_Melting_Temp_Table.html"
+	},
+	{
+		"test name": "temperature at onset of decomposition",
+		"test description": "",
+		"display name": "",
+		"table": "STA/Helmet_Shield_Bracket_STA_Decomposition_Onset_Temp_Table.html"
 	}]
 }

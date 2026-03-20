@@ -82,6 +82,12 @@
 			}		]
 	},
 	{
+		"test name": "temperature at onset of decomposition",
+		"test description": "",
+		"display name": "",
+		"table": "STA/Fiber_Cement_Board_STA_Decomposition_Onset_Temp_Table.html"
+	},
+	{
 		"test name": "emissivity",
 		"test description": "",
 		"display name": "",

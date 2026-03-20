@@ -52,5 +52,11 @@
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Gypsum_Wallboard_Gypsum_Core_MCC_Heats_of_Combustion.html"
 			}		]
+	},
+	{
+		"test name": "temperature at onset of decomposition",
+		"test description": "",
+		"display name": "",
+		"table": "STA/Gypsum_Wallboard_Gypsum_Core_STA_Decomposition_Onset_Temp_Table.html"
 	}]
 }

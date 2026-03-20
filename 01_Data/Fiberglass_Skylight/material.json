@@ -1,0 +1,95 @@
+{
+	"material": "Fiberglass Skylight",
+	"alternate names": [
+		"FRP",
+		"fiber-reinforced plastic",
+		"fiber-reinforced polymer composite",
+		"fiberglass",
+		"fiberglass structural composite",
+		"skylight",
+		"corrugated fiberglass",
+		"greenhouse",
+		"greenhouse roofing"
+	],
+	"material_dir": "Fiberglass_Skylight",
+	"parent material": "",
+	"component material": [],
+	"material category": [
+		"exterior finish",
+		"roofing"
+	],
+	"image file": "Fiberglass_Skylight.jpg",
+	"image 600x400 file": "Fiberglass_Skylight600x400.jpg",
+	"video file": "",
+	"description": "Fiberglass Skylight is a corrugated sheet comprised of a polyester matrix reinforced with fiberglass strands used primarily as a roofing material.",
+	"short desc": "Fiberglass Skylight is a corrugated sheet comprised of fiberglass used primarily as a roofing material.",
+	"source": "Samples taken from fire incident.",
+	"density": "1380 kg/m<sup>3</sup>",
+	"property scales": [
+		"milligram",
+		"bench scale"
+	],
+	"measured property": [
+	{
+		"test name": "mass loss rate",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Simultaneous Thermal Analyzer",
+				"graph": "STA/N2/Fiberglass_Skylight_STA_MLR.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Fiberglass_Skylight_Cone_MLR_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Fiberglass_Skylight_Cone_MLR_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Fiberglass_Skylight_Cone_MLR_75.html"
+			}
+		]
+	},
+	{
+		"test name": "heat release rate per unit area",
+		"test description": "",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 25 kW/m<sup>2</sup>",
+				"graph": "Cone/Fiberglass_Skylight_Cone_HRRPUA_25.html",
+				"table": "Cone/Fiberglass_Skylight_Cone_Analysis_HRRPUA_Table_25.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 50 kW/m<sup>2</sup>",
+				"graph": "Cone/Fiberglass_Skylight_Cone_HRRPUA_50.html",
+				"table": "Cone/Fiberglass_Skylight_Cone_Analysis_HRRPUA_Table_50.html"
+			},
+			{
+				"display name": "Cone Calorimeter: 75 kW/m<sup>2</sup>",
+				"graph": "Cone/Fiberglass_Skylight_Cone_HRRPUA_75.html",
+				"table": "Cone/Fiberglass_Skylight_Cone_Analysis_HRRPUA_Table_75.html"
+			}
+		]
+	},
+	{
+		"test name": "carbon monoxide yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/Fiberglass_Skylight_Cone_Analysis_CO_Table.html"
+	}],
+	"derived property": [
+	{
+		"test name": "soot yield",
+		"test description": "",
+		"display name": "",
+		"table": "Cone/Fiberglass_Skylight_Cone_Analysis_Soot_Table.html"
+	},
+	{
+		"test name": "temperature at onset of decomposition",
+		"test description": "",
+		"display name": "",
+		"table": "STA/Fiberglass_Skylight_STA_Decomposition_Onset_Temp_Table.html"
+	}]
+}

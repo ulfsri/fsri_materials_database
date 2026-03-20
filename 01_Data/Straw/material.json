@@ -26,12 +26,34 @@
 	"measured property": [
 	{
 		"test name": "mass loss rate",
-		"test description": "Simultaneous thermal analyzer experiments were conducted at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
+		"test description": "Simultaneous thermal analyzer experiments were conducted at three heating rates: 3 K/min, 10 K/min, and 30 K/min.<br><br>Cone calorimeter tests were conducted at a heat flux of 35 kW/m<sup>2</sup> on samples conditioned at 20&#176;C and 50% relative humidity.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Simultaneous Thermal Analyzer",
 				"graph": "STA/N2/Straw_STA_MLR.html"
-			}		]
+			},
+			{
+				"display name": "Cone Calorimeter: 35 kW/m<sup>2</sup>",
+				"graph": "Cone/Straw_Cone_MLR_35.html"
+			}
+		]
+	},
+	{
+		"test name": "heat release rate per unit area",
+		"test description": "Cone calorimeter tests were conducted at a heat flux of 35 kW/m<sup>2</sup> on samples conditioned at 20&#176;C and 50% relative humidity.",
+		"display name": "",
+		"nested tests": [{
+				"display name": "Cone Calorimeter: 35 kW/m<sup>2</sup>",
+				"graph": "Cone/Straw_Cone_HRRPUA_35.html",
+				"table": "Cone/Straw_Cone_Analysis_HRRPUA_Table_35.html"
+			}
+		]
+	},
+	{
+		"test name": "carbon monoxide yield",
+		"test description": "Cone calorimeter tests were conducted at a heat flux of 35 kW/m<sup>2</sup> on samples conditioned at 20&#176;C and 50% relative humidity.",
+		"display name": "",
+		"table": "Cone/Straw_Cone_Analysis_CO_Table.html"
 	},
 	{
 		"test name": "specific heat release rate",
@@ -48,6 +70,12 @@
 				"display name": "Micro-scale Combustion Calorimeter",
 				"table": "MCC/Straw_MCC_Heats_of_Combustion.html"
 			}		]
+	},
+	{
+		"test name": "temperature at onset of decomposition",
+		"test description": "Simultaneous thermal analyzer experiments were conducted at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
+		"display name": "",
+		"table": "STA/Straw_STA_Decomposition_Onset_Temp_Table.html"
 	},
 	{
 		"test name": "emissivity",
