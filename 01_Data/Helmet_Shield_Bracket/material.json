@@ -19,7 +19,7 @@
 	"video file": "",
 	"description": "Helmet Shield Bracket is the structure that holds the shield on the front of a firefighter helmet.",
 	"short desc": "Helmet Shield Bracket is the structure that supports the helmet shield.",
-	"source": "Sampled from a structural firefighter helmet.",
+	"source": "Sampled from an NFPA 1971-2018 compliant structural firefighting helmet.",
 	"density": "1350 kg/m<sup>3</sup>",
 	"property scales": [
 		"milligram"
@@ -27,7 +27,7 @@
 	"measured property": [
 	{
 		"test name": "mass loss rate",
-		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at two heating rates: 10 K/min and 30 K/min.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Simultaneous Thermal Analyzer",

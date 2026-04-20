@@ -22,9 +22,9 @@
 	"image file": "High_Temp_Nylon_SCBA_Nosecup.jpg",
 	"image 600x400 file": "High_Temp_Nylon_SCBA_Nosecup600x400.jpg",
 	"video file": "",
-	"description": "High Temperature Nylon SCBA Nosecup is structural frame of the SCBA facemask made from nylon 6,6.",
-	"short desc": "High Temperature Nylon SCBA Nosecup is structural frame of the SCBA facemask.",
-	"source": "Sampled from a structural firefighter helmet.",
+	"description": "High Temperature Nylon SCBA Nosecup is structural frame of the SCBA facepiece made from nylon 6,6.",
+	"short desc": "High Temperature Nylon SCBA Nosecup is structural frame of the SCBA facepece.",
+	"source": "Sampled from an NFPA 1981-2019 compliant SCBA facepiece.",
 	"density": "1140 kg/m<sup>3</sup>",
 	"property scales": [
 		"milligram"
@@ -32,7 +32,7 @@
 	"measured property": [
 	{
 		"test name": "mass loss rate",
-		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at two heating rates: 10 K/min and 30 K/min.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Simultaneous Thermal Analyzer",
