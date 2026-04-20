@@ -21,9 +21,9 @@
 	"image file": "Neoprene_SCBA_Face_Seal.jpg",
 	"image 600x400 file": "Neoprene_SCBA_Face_Seal600x400.jpg",
 	"video file": "",
-	"description": "Neoprene SCBA Face Seal is the portion of an SCBA facepiece made from neoprene rubber that seals the mask against the face of a firefighter.",
-	"short desc": "Neoprene SCBA Face Seal is the portion of an SCBA facepiece that seals the mask against the face.",
-	"source": "Sampled from a structural firefighter helmet.",
+	"description": "Neoprene SCBA Face Seal is the portion of an SCBA facepiece made from neoprene rubber that seals the facepiece against the face of a firefighter.",
+	"short desc": "Neoprene SCBA Face Seal is the portion of an SCBA facepiece that seals against the face.",
+	"source": "Sampled from an NFPA 1981-2019 compliant SCBA.",
 	"density": "1500 kg/m<sup>3</sup>",
 	"property scales": [
 		"milligram"
@@ -31,7 +31,7 @@
 	"measured property": [
 	{
 		"test name": "mass loss rate",
-		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at two heating rates: 10 K/min and 30 K/min.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Simultaneous Thermal Analyzer",

@@ -21,7 +21,7 @@
 	"video file": "",
 	"description": "SCBA Bracket is structural frame which supports the SCBA breathing air tank on the back of a firefighter.",
 	"short desc": "SCBA Bracket is the frame which supports the SCBA air tank.",
-	"source": "Sampled from a structural firefighter SCBA system.",
+	"source": "Sampled from an NFPA 1981-2019 compliant SCBA system.",
 	"density": "1060 kg/m<sup>3</sup>",
 	"property scales": [
 		"milligram"
@@ -29,7 +29,7 @@
 	"measured property": [
 	{
 		"test name": "mass loss rate",
-		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at two heating rates: 10 K/min and 30 K/min.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Simultaneous Thermal Analyzer",
