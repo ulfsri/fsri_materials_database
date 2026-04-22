@@ -237,7 +237,7 @@ for d in sorted((f for f in os.listdir(data_dir) if not f.startswith(".")), key=
                 co_df.at['CO Yield (g/g)', label] = co_prod/(0.8*mass_lost)
 
                 output_df.at['Time to Sustained Ignition (s)', label] = ign_time
-                output_df.at['Time to Peak HRRPUA (s)', label] = data_temp_df.loc[data_temp_df['HRRPUA'].idxmax(), 'Time'] - float(scalar_data_series.at['TIME TO IGN'])
+                output_df.at['Time from Ignition to Peak HRRPUA (s)', label] = data_temp_df.loc[data_temp_df['HRRPUA'].idxmax(), 'Time'] - float(scalar_data_series.at['TIME TO IGN'])
                 output_df.at['Peak HRRPUA (kW/m\u00b2)', label] = float("{:.2f}".format(max(data_temp_df['HRRPUA'])))
 
         for n in quant_list:
