@@ -20,7 +20,7 @@
 	"video file": "",
 	"description": "Leather helmet shell is the primary protective component of a helmet that is commonly used in structural firefighting operations.",
 	"short desc": "Leather helmet shell is the primary protective component of a helmet worn by firefighters.",
-	"source": "Sampled from the brim of a leather helmet worn by firefighters.",
+	"source": "Sampled from NFPA 1971-2018 compliant structural firefighting helmet.",
 	"density": "1340 kg/m<sup>3</sup>",
 	"property scales": [
 		"milligram"
@@ -28,7 +28,7 @@
 	"measured property": [
 	{
 		"test name": "mass loss rate",
-		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at two heating rates: 10 K/min and 30 K/min.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Simultaneous Thermal Analyzer",

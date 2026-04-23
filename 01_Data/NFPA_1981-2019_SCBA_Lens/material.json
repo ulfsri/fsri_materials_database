@@ -25,7 +25,7 @@
 	"video file": "",
 	"description": "NFPA 1981-2019 SCBA Lens is transparent protective shield on a structural firefighter self-contained breathing apparatus (SCBA) with a design compliant to the 2019 edition of the NFPA 1981 standard.",
 	"short desc": "NFPA 1981-2019 SCBA Lens is transparent protective shield on a structural firefighter SCBA.",
-	"source": "Sampled from a structural firefighter SCBA.",
+	"source": "Sampled from an NFPA 1981-2018 compliant SCBA.",
 	"density": "1200 kg/m<sup>3</sup>",
 	"property scales": [
 		"milligram"
@@ -33,7 +33,7 @@
 	"measured property": [
 	{
 		"test name": "mass loss rate",
-		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at three heating rates: 3 K/min, 10 K/min, and 30 K/min.",
+		"test description": "Initial-mass-normalized mass loss rate [1/s] was measured in the simultaneous thermal analyzer experiments at two heating rates: 10 K/min and 30 K/min.",
 		"display name": "",
 		"nested tests": [{
 				"display name": "Simultaneous Thermal Analyzer",
